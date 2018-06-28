@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>How to set up OriginTrail Data sharing &mdash; OriginTrail Node Documentation 0.9.0 documentation</title>
+  <title>Introduction &mdash; OriginTrail Node Documentation 0.9.0 documentation</title>
   
 
   
@@ -29,7 +29,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Node Setup instructions" href="node-setup.html" />
-    <link rel="prev" title="Welcome to OriginTrail Node Documentation’s documentation!" href="index.html" /> 
+    <link rel="prev" title="Welcome to OriginTrail documentation!" href="index.html" /> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -80,8 +80,12 @@
             
               <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">How to set up OriginTrail Data sharing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#contribution">Contribution</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#setting-up-the-node">Setting up the Node</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#solution-provider-guidelines">Solution provider guidelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#development-contribution">Development contribution</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="node-setup.html">Node Setup instructions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="wallet-setup.html">Wallet Setup</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Configuration-setup.html">Node Configuration</a></li>
@@ -90,10 +94,13 @@
 <li class="toctree-l1"><a class="reference internal" href="namespace.html">Namespace</a></li>
 <li class="toctree-l1"><a class="reference internal" href="data-layer.html">Data Layer</a></li>
 <li class="toctree-l1"><a class="reference internal" href="incentive-model.html">Incentive Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="features.html">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="implementation.html">Implementation</a></li>
 </ul>
 <p class="caption"><span class="caption-text">API's:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction to API’s</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contribution.html">Contribution</a></li>
 </ul>
 
             
@@ -139,7 +146,7 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>How to set up OriginTrail Data sharing</li>
+      <li>Introduction</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -159,20 +166,25 @@
            <div itemprop="articleBody">
             
   <p id="introduction">Company Website: <a class="reference external" href="https://origintrail.io">origintrail.io</a></p>
+<div class="section" id="id1">
+<h1>Introduction<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
 <p><strong>OriginTrail is building first Purpose-built Protocol for Supply Chains
 Based on Blockchain.</strong></p>
-<p>This repository contains a work-in-progress code for a network node.
-Please have in mind that code is still <strong>in early alpha version</strong>
-developed mostly as a quick proof of concept and although main features
-will work, there are many limitations.</p>
-<p>We expect <strong>Test Network</strong> release to be available by the end of Q2 2018
-as a beta of our protocol, while <strong>Main Network</strong> is scheduled for Q3
-2018. For further information about our roadmap please see our
-<a class="reference external" href="https://origintrail.io/roadmap">website</a> for more detailed development roadmap.</p>
-<div class="section" id="how-to-set-up-origintrail-data-sharing">
-<h1>How to set up OriginTrail Data sharing<a class="headerlink" href="#how-to-set-up-origintrail-data-sharing" title="Permalink to this headline">¶</a></h1>
-<p>Detailed instructions for installation and configuration of OriginTrail
-Node are provided on our wiki.</p>
+<p>This is technical documentation for open-source OriginTrail protocol.
+Please keep in mind that protocol is currently in TestNet (Beta) version.
+There are some limitations and work-in-progress.
+<strong>Main Network</strong> is scheduled for Q3 2018. For further information about
+our roadmap please see our <a class="reference external" href="https://origintrail.io/roadmap">website</a> for more detailed development plans.</p>
+<p>Documentation is aimed towards three groups of readers:
+-  Node holders
+-  Service providers
+-  Developers</p>
+<p>Everybody are welcome to explore whole content of this documentation.</p>
+<div class="section" id="setting-up-the-node">
+<h2>Setting up the Node<a class="headerlink" href="#setting-up-the-node" title="Permalink to this headline">¶</a></h2>
+<p>In order to be part of OriginTrail Decentralized Network (ODN), you
+need to install the Node. For detailed instructions for installation and
+configuration of OriginTrail Node visit following sections:</p>
 <ul class="simple">
 <li>Start with creating your wallet address <a class="reference internal" href="wallet-setup.html#wallet-setup"><span class="std std-ref">Wallet Setup</span></a></li>
 <li>Then <a class="reference internal" href="node-setup.html#node-setup"><span class="std std-ref">Node Setup instructions</span></a></li>
@@ -180,16 +192,20 @@ Node are provided on our wiki.</p>
 <li>Finally <a class="reference internal" href="import-data.html#import-data"><span class="std std-ref">Import data</span></a>.</li>
 </ul>
 </div>
-<div class="section" id="contribution">
-<h1>Contribution<a class="headerlink" href="#contribution" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="solution-provider-guidelines">
+<h2>Solution provider guidelines<a class="headerlink" href="#solution-provider-guidelines" title="Permalink to this headline">¶</a></h2>
+<p>SP are companies that provide supply chain management solutions and consulting or
+advisory services to help their clients improve efficiencies, enhance product
+and consumer safety and brand protection activities to name a few.
+Please visit <a class="reference internal" href="implementation.html#implementation"><span class="std std-ref">Implementation</span></a> guidelines for more resources.</p>
+</div>
+<div class="section" id="development-contribution">
+<h2>Development contribution<a class="headerlink" href="#development-contribution" title="Permalink to this headline">¶</a></h2>
 <p>OriginTrail network is an open source project. We happily invite you to
 join us in our mission of building decentralised world of supply chain.
 If you would like to contribute, you are more than welcome.</p>
-<p>For more information please take a look at:</p>
-<ul class="simple">
-<li><a class="reference external" href="http://github.com/OriginTrail/ot-yimishiji-pilot/wiki/Contribution-Guidelines">Contribution Guidelines</a></li>
-<li><a class="reference external" href="http://github.com/OriginTrail/ot-yimishiji-pilot/wiki/Code-Styleguide">Code Styleguide</a></li>
-</ul>
+<p>For more information please take a look at <a class="reference internal" href="contribution.html#contribution"><span class="std std-ref">Contribution</span></a></p>
+</div>
 </div>
 
 
@@ -203,7 +219,7 @@ If you would like to contribute, you are more than welcome.</p>
         <a href="node-setup.html" class="btn btn-neutral float-right" title="Node Setup instructions" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="index.html" class="btn btn-neutral" title="Welcome to OriginTrail Node Documentation’s documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="index.html" class="btn btn-neutral" title="Welcome to OriginTrail documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
