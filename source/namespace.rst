@@ -10,8 +10,8 @@ syntax specified in GS1 standards or must belong to a subspace of URI
 identifiers that is under the control of the end user who assigns them.
 
 **OriginTrail namespaces are mostly used for attributes definitions in
-EPCIS based XML file. Values for that attributes should be based
-on `GS1 identifiers`_ if it is possible.**
+EPCIS based XML file. If it is possible, values for that attributes should be based
+on** `GS1 identifiers`_ .
 
 For more information check:
 
