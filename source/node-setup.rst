@@ -12,10 +12,11 @@ different installation and usage scenarios. If you need help installing OT Node 
 installation, you can contact us directly via email at support@origin-trail.com. **
 
 
-Nodes can be installed on 2 ways:
+Nodes can be installed on several ways:
 
 - via docker https://www.origintrail.io/node-setup
-- via Linux terminal (explained below)
+- automatic installation on Ubuntu (explained below)
+- manual installation (explained below)
 
 **NOTE**: For best performance testing we recommend usage of services like Digital Ocean.
 
@@ -34,7 +35,7 @@ Prerequisites
 
 System requirements
 ~~~~~~~~~~~~~~~~~~~
--  Minimum of 1Gb of RAM memory
+-  Minimum of 2Gb of RAM memory
 -  Minimum of 5Gb of storage memory 
 -  Ethereum wallet and some Ether on Rinkeby Test Network (You can see wallet setup instructions here :ref:`wallet-setup`)
 
@@ -200,32 +201,6 @@ and run npm
    cd ot-node && npm install
    cp .env.example .env
 
-Important Notes
------------------
-
-1. One node must be set to run as **Network Bootstrap** node. This means
-   that one node will be sitting and waiting other nodes to connect. In
-   the future we plan to provide several bootstrap nodes for
-   convenience, but if you are testing on your own, just make sure that
-   BOOTSTRAP_NODE setting in .env is **empty** for the first one.
-
-2. Both nodes need to use **different wallets**. If you try to use the
-   same wallet on both nodes, it may not work. Make sure that both
-   wallets have some **test ETH** as well as some **Alpha TRAC** tokens
-   (that can be obtained from us by sending request on email
-   support@origin-trail.com ).
-
-3. Make sure that if you are using local computer to test and try to run
-   two nodes, you must set different ports (NODE_PORT, NODE_RPC_PORT and
-   NODE_REMOTE_CONTROL_PORT) in .env.
-
-4. Every time you change your configuration in .env don't forget to run
-   ``npm run config`` to apply that configuration.
-
-5. In order to make the initial import, your node must **whitelist** the
-   IP of the machine that is requesting the import in ``.env`` i.e
-   IMPORT_WHITELIST=127.0.0.1 if you are importing from localhost.
-
 Starting The Node
 --------------------
 
@@ -244,15 +219,19 @@ amount of RAM memory assigned (512mb for example).
 
 You can see instructions regarding the data import on the following :ref:`import-data`
 
+Important Notes
+-----------------
+
+Every time you change your configuration in .env don't forget to run
+``npm run config`` to apply that configuration.
+
+In order to make the initial import, your node must **whitelist** the
+IP of the machine that is requesting the import in ``.env`` i.e
+IMPORT_WHITELIST=127.0.0.1 if you are importing from localhost.
 
 
-
-.. _RocketChat channel: https://chat.origintrail.io
 .. _Issues: https://github.com/OriginTrail/ot-node/issues
-.. _Data Structure Guidelines: http://github.com/OriginTrail/ot-yimishiji-pilot/wiki/Data-Structure-Guidelines
-.. _automatic installation script: #automatic
 .. _manually: #manual
-.. _Install OT node: #otnode
 .. _neo4j.com/download: https://neo4j.com/download/
 .. _arangodb.com/download: https://www.arangodb.com/download-major/
 .. _link: https://www.digitalocean.com/community/tutorials/how-to-add-swap-space-on-ubuntu-16-04
