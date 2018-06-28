@@ -6,24 +6,17 @@ Node Setup instructions
 Read Me First
 -------------
 
-If you need help installing OT Node or troubleshooting your
-installation, you can contact us directly via email at support@origin-trail.com
+**Please bear in mind that we are only able to give you limited support
+on testing the nodes, some features will probably change and we are aware of some bugs that may show up on
+different installation and usage scenarios. If you need help installing OT Node or troubleshooting your
+installation, you can contact us directly via email at support@origin-trail.com. **
 
-**NOTE**: Nodes can be installed on 2 ways:
+
+Nodes can be installed on 2 ways:
 
 - via docker https://www.origintrail.io/node-setup
 - via Linux terminal (explained below)
 
-**Please bear in mind that we are only able to give you limited support
-on testing the nodes, some features will probably change and we are aware of some bugs that may show up on
-different installation and usage scenarios. With this in mind, some
-limited support may be obtained on our
-chat**  https://chat.origintrail.io **and** \ `Issues`_\ ** on GitHub
-repository.**
-
-
-Linux Installation
-------------------
 **NOTE**: For best performance testing we recommend usage of services like Digital Ocean.
 
 In order to install OT node, you should do following steps:
@@ -39,9 +32,9 @@ In order to install OT node, you should do following steps:
 Prerequisites
 -------------
 
--  Node.js
--  ArangoDB or Neo4j
--  Wallet and some Ether on Rinkeby Test Network (You can see wallet setup instructions here :ref:`wallet-setup`)
+-  Minimum of 1Gb of RAM memory
+-  Minimum of 5Gb of storage memory 
+-  Ethereum wallet and some Ether on Rinkeby Test Network (You can see wallet setup instructions here :ref:`wallet-setup`)
 
 
 Automatic installation
@@ -59,12 +52,12 @@ If you prefer neo4j as database then use
 .. code:: bash
    sh install.sh --db=neo4j
 
-**Note** There are some ongoing issues with Neo4j. We currently advise use of ArangoDB.
+**Note:** There are some ongoing issues with Neo4j. We currently advise use of ArangoDB.
 
 If errors occurred during installation process, ot-node probably won't
 work properly. Errors during installation process happen due to various
 factors like lack of RAM or previous installations. We strongly
-recommend installation on clean system and at least 1GB of RAM (it may work with 512MB and swap file, but 1GB is recommended).
+recommend installation on clean system and at least 1GB of RAM (it may work with 512MB and swap file).
 
 
 If you used this automatic installation script, you may proceed to :ref:`configuration-setup`. Then you can start the node.
@@ -188,13 +181,6 @@ Run the following:
    sudo apt-get update
    sudo apt-g
 
-
-Setup two nodes
-------------------
-
-In order to properly test the network you will need at least **two
-nodes** that will connect to each other.
-
 Important Notes
 -----------------
 
@@ -245,11 +231,9 @@ You can see instructions regarding the data import on the following :ref:`import
 .. _RocketChat channel: https://chat.origintrail.io
 .. _Issues: https://github.com/OriginTrail/ot-node/issues
 .. _Data Structure Guidelines: http://github.com/OriginTrail/ot-yimishiji-pilot/wiki/Data-Structure-Guidelines
-.. _here: https://github.com/OriginTrail/ot-node/tree/develop/importers/xml_examples/example_gs1.xml
 .. _automatic installation script: #automatic
 .. _manually: #manual
 .. _Install OT node: #otnode
 .. _neo4j.com/download: https://neo4j.com/download/
 .. _arangodb.com/download: https://www.arangodb.com/download-major/
-
 .. _link: https://www.digitalocean.com/community/tutorials/how-to-add-swap-space-on-ubuntu-16-04
