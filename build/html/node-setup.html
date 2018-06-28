@@ -1,0 +1,461 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Node Setup instructions &mdash; OriginTrail Node Documentation 0.9.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Wallet Setup" href="wallet-setup.html" />
+    <link rel="prev" title="How to set up OriginTrail Data sharing" href="introduction.html" /> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> OriginTrail Node Documentation
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">How to set up OriginTrail Data sharing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html#contribution">Contribution</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Node Setup instructions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#read-me-first">Read Me First</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#steps">Steps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#automatic-installation-on-ubuntu-16-04">Automatic Installation on Ubuntu 16.04</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#manual-prerequisites-installation">Manual Prerequisites Installation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#nodejs">NodeJS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#database-arangodb">Database - ArangoDB</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#ubuntu-16-04">Ubuntu 16.04</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mac-os-x">Mac Os X</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#database-setup">Database Setup</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#database-neo4j">Database - Neo4j</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#ubuntu-1604-1">Ubuntu 16.04</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#setup-two-nodes">Setup two nodes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#important-notes">Important Notes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#configuration-execution">Configuration Execution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#starting-the-node">Starting The Node</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="wallet-setup.html">Wallet Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Configuration-setup.html">Node Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="import-data.html">Import data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data-structure-guidelines.html">Data Structure Guidelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="namespace.html">Namespace</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data-layer.html">Data Layer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="incentive-model.html">Incentive Model</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">OriginTrail Node Documentation</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Node Setup instructions</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/node-setup.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="node-setup-instructions">
+<span id="node-setup"></span><h1>Node Setup instructions<a class="headerlink" href="#node-setup-instructions" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="read-me-first">
+<h2>Read Me First<a class="headerlink" href="#read-me-first" title="Permalink to this headline">¶</a></h2>
+<p>If you need help installing OT Node or troubleshooting your
+installation, your best bet is to join the community <a class="reference external" href="https://chat.origintrail.io">RocketChat
+channel</a> and ask specific questions there. It’s likely that somebody
+else has already tackled the same problem. You can also contact us
+directly via email at <a class="reference external" href="mailto:support&#37;&#52;&#48;origin-trail&#46;com">support<span>&#64;</span>origin-trail<span>&#46;</span>com</a></p>
+<p>You can also check out our <a class="reference external" href="https://youtu.be/gP5n7gYa7Ck">video</a></p>
+<p><strong>NOTE</strong>: For proper testing (from Luna release V0.3a) you have to
+install 2 nodes on two servers so that you can test data replication and
+payment mechanism. We also advise you not to install on local machines,
+you may encounter problems with connections between nodes. We recommend
+usage of services like Digital Ocean.</p>
+<p><strong>Please bear in mind that we are only able to give you limited support
+on testing the nodes since it is in early alpha stage, some features
+will probably change and we are aware of some bugs that may show up on
+different installation and usage scenarios. With this in mind, some
+limited support may be obtained on our
+chat</strong><a class="reference external" href="https://chat.origintrail.io">https://chat.origintrail.io</a><strong>and</strong><a class="reference external" href="https://github.com/OriginTrail/ot-node/issues">Issues</a><strong>on this
+repository.</strong></p>
+</div>
+<div class="section" id="steps">
+<h2>Steps<a class="headerlink" href="#steps" title="Permalink to this headline">¶</a></h2>
+<p>In order to install OT node, you should do following steps:</p>
+<ol class="arabic simple">
+<li><strong>Step 1</strong> - Install all prerequisites. There is an <a class="reference external" href="#automatic">automatic
+installation script</a> for Ubuntu 16.04 or you can do installation
+<a class="reference external" href="#manual">manually</a>.</li>
+<li><strong>Step 2</strong> (only if manual installation) - <a class="reference external" href="#otnode">Install OT node</a></li>
+<li><strong>Step 3</strong> - <a class="reference external" href="http://github.com/OriginTrail/ot-yimishiji-pilot/wiki/Configuration#configuration">Configure</a> <code class="docutils literal notranslate"><span class="pre">.env</span></code> file</li>
+</ol>
+</div>
+<div class="section" id="prerequisites">
+<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Node.js</li>
+<li>ArangoDB or Neo4j</li>
+<li>Wallet and some Ether on Rinkeby Test Network (You can see wallet setup instructions here <a class="reference internal" href="wallet-setup.html#wallet-setup"><span class="std std-ref">Wallet Setup</span></a>)</li>
+</ul>
+</div>
+<div class="section" id="automatic-installation-on-ubuntu-16-04">
+<span id="automatic-installation-on-ubuntu-1604"></span><h2>Automatic Installation on Ubuntu 16.04<a class="headerlink" href="#automatic-installation-on-ubuntu-16-04" title="Permalink to this headline">¶</a></h2>
+<p>This will install all prerequisites in a single step.</p>
+<div class="code bash highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">wget</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">raw</span><span class="o">.</span><span class="n">githubusercontent</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">OriginTrail</span><span class="o">/</span><span class="n">ot</span><span class="o">-</span><span class="n">node</span><span class="o">/</span><span class="n">master</span><span class="o">/</span><span class="n">install</span><span class="o">.</span><span class="n">sh</span>
+<span class="n">sh</span> <span class="n">install</span><span class="o">.</span><span class="n">sh</span>
+</pre></div>
+</div>
+<p>Set your preferred storage database by passing <code class="docutils literal notranslate"><span class="pre">--db=arangodb</span></code> or
+<code class="docutils literal notranslate"><span class="pre">--db=neo4j</span></code> as a parameter to the install script.</p>
+<p>If errors occurred during installation process, ot-node probably won’t
+work properly. Errors during installation process happen due to various
+factors like lack of RAM or previous installations. We strongly
+recommend installation on clean system and at least 1GB of RAM (it may work with 512MB and swap file, but 1GB is recommended).</p>
+<p>If you used this automatic installation script, you may skip the rest of
+this document and proceed to <a class="reference external" href="http://github.com/OriginTrail/ot-yimishiji-pilot/wiki/Configuration">configuration</a>.</p>
+<p>Make sure to set the wallet and configure <code class="docutils literal notranslate"><span class="pre">.env</span></code> file.</p>
+</div>
+<div class="section" id="manual-prerequisites-installation">
+<span id="id1"></span><h2>Manual Prerequisites Installation<a class="headerlink" href="#manual-prerequisites-installation" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="nodejs">
+<h3>NodeJS<a class="headerlink" href="#nodejs" title="Permalink to this headline">¶</a></h3>
+<p>If you don’t have Node.js installed head to <a class="reference external" href="https://nodejs.org/en/">https://nodejs.org/en/</a> and
+install version 9.x.x.</p>
+<p><strong>Note:</strong> Make sure you have the preciselly above specified version of
+Node.js installed. Some features will not work well on versions less or
+greater then 9.x.x.</p>
+<p>Before starting, make sure your server is up-to-date. You can do this
+with the following commands:</p>
+<div class="code bash highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">update</span> <span class="o">-</span><span class="n">y</span>
+<span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">upgrade</span> <span class="o">-</span><span class="n">y</span>
+</pre></div>
+</div>
+<div class="code bash highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">-</span><span class="n">sL</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">deb</span><span class="o">.</span><span class="n">nodesource</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">setup_9</span><span class="o">.</span><span class="n">x</span> <span class="o">|</span> <span class="n">sudo</span> <span class="o">-</span><span class="n">E</span> <span class="n">bash</span> <span class="o">-</span>
+<span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="o">-</span><span class="n">y</span> <span class="n">nodejs</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="database-arangodb">
+<h3>Database - ArangoDB<a class="headerlink" href="#database-arangodb" title="Permalink to this headline">¶</a></h3>
+<p><strong>ArangoDB</strong> is a native multi-model, open-source database with flexible
+data models for documents, graphs, and key-values. We are using ArangoDB
+to store data. In order to run OT node with ArangoDB you need to have a
+local ArangoDB server installed and running.</p>
+<p>Head to <a class="reference external" href="https://www.arangodb.com/download-major/">arangodb.com/download</a>, select your operating system and
+download ArangoDB. You may also follow the instructions on how to
+install with a package manager, if available. Remember credentials
+(username and password) used to log in to Arango server, since later on
+you will need to set them in .env.</p>
+<div class="section" id="ubuntu-16-04">
+<span id="ubuntu-1604"></span><h4>Ubuntu 16.04<a class="headerlink" href="#ubuntu-16-04" title="Permalink to this headline">¶</a></h4>
+<div class="code bash highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">wget</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="o">.</span><span class="n">arangodb</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">repositories</span><span class="o">/</span><span class="n">arangodb3</span><span class="o">/</span><span class="n">xUbuntu_16</span><span class="o">.</span><span class="mi">04</span><span class="o">/</span><span class="n">Release</span><span class="o">.</span><span class="n">key</span>
+<span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">key</span> <span class="n">add</span> <span class="n">Release</span><span class="o">.</span><span class="n">key</span>
+<span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">add</span><span class="o">-</span><span class="n">repository</span> <span class="s1">&#39;deb https://www.arangodb.com/repositories/arangodb3/xUbuntu_16.04/ /&#39;</span>
+<span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">update</span> <span class="o">-</span><span class="n">y</span>
+<span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">arangodb3</span>
+</pre></div>
+</div>
+<p>When asked, enter the password for root user.</p>
+</div>
+<div class="section" id="mac-os-x">
+<h4>Mac Os X<a class="headerlink" href="#mac-os-x" title="Permalink to this headline">¶</a></h4>
+<p>For Mac OS X, you can use <strong>homebrew</strong> to install ArangoDB. Run the
+following:</p>
+<div class="code bash highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">brew</span> <span class="n">install</span> <span class="n">arangodb</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="database-setup">
+<h4>Database Setup<a class="headerlink" href="#database-setup" title="Permalink to this headline">¶</a></h4>
+<p>Once you installed ArangoDB you should create a database. Enter ArangoDB
+shell script</p>
+<div class="code bash highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">arangosh</span>
+</pre></div>
+</div>
+<p>and create database</p>
+<div class="code javascript highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">db</span><span class="o">.</span><span class="n">_createDatabase</span><span class="p">(</span><span class="s2">&quot;origintrail&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="p">[{</span> <span class="n">username</span><span class="p">:</span> <span class="s2">&quot;otuser&quot;</span><span class="p">,</span> <span class="n">passwd</span><span class="p">:</span> <span class="s2">&quot;otpass&quot;</span><span class="p">,</span> <span class="n">active</span><span class="p">:</span> <span class="n">true</span><span class="p">}])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="database-neo4j">
+<h3>Database - Neo4j<a class="headerlink" href="#database-neo4j" title="Permalink to this headline">¶</a></h3>
+<p><strong>Neo4j</strong> is a graph database management system with native graph
+storage and processing. Its architecture is designed for optimizing fast
+management, storage, and the traversal of nodes and relationships. In
+order to run OT node with Neo4j make sure to have it installed and
+running.</p>
+<p>Head to <a class="reference external" href="https://neo4j.com/download/">neo4j.com/download</a>, select your operating system and download
+Neo4j. You may also follow the instructions on how to install with a
+package manager, if available.</p>
+<div class="section" id="ubuntu-1604-1">
+<span id="id2"></span><h4>Ubuntu 16.04<a class="headerlink" href="#ubuntu-1604-1" title="Permalink to this headline">¶</a></h4>
+<p>First you have to install Java 8 and set it as the default.</p>
+<div class="code bash highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">add</span><span class="o">-</span><span class="n">apt</span><span class="o">-</span><span class="n">repository</span> <span class="n">ppa</span><span class="p">:</span><span class="n">webupd8team</span><span class="o">/</span><span class="n">java</span>
+<span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">update</span>
+<span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">oracle</span><span class="o">-</span><span class="n">java8</span><span class="o">-</span><span class="n">installer</span>
+<span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="o">-</span><span class="n">y</span> <span class="n">oracle</span><span class="o">-</span><span class="n">java8</span><span class="o">-</span><span class="nb">set</span><span class="o">-</span><span class="n">default</span>
+</pre></div>
+</div>
+<p>Run the following:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">wget</span> <span class="o">-</span><span class="n">O</span> <span class="o">-</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">debian</span><span class="o">.</span><span class="n">neo4j</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">neotechnology</span><span class="o">.</span><span class="n">gpg</span><span class="o">.</span><span class="n">key</span> <span class="o">|</span> <span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">key</span> <span class="n">add</span> <span class="o">-</span>
+<span class="n">echo</span> <span class="s1">&#39;deb https://debian.neo4j.org/repo stable/&#39;</span> <span class="o">|</span> <span class="n">sudo</span> <span class="n">tee</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">apt</span><span class="o">/</span><span class="n">sources</span><span class="o">.</span><span class="n">list</span><span class="o">.</span><span class="n">d</span><span class="o">/</span><span class="n">neo4j</span><span class="o">.</span><span class="n">list</span>
+<span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">update</span>
+<span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">g</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="setup-two-nodes">
+<h2>Setup two nodes<a class="headerlink" href="#setup-two-nodes" title="Permalink to this headline">¶</a></h2>
+<p>In order to properly test the network you will need at least <strong>two
+nodes</strong> that will connect to each other.</p>
+</div>
+<div class="section" id="important-notes">
+<h2>Important Notes<a class="headerlink" href="#important-notes" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li>One node must be set to run as <strong>Network Bootstrap</strong> node. This means
+that one node will be sitting and waiting other nodes to connect. In
+the future we plan to provide several bootstrap nodes for
+convenience, but if you are testing on your own, just make sure that
+BOOTSTRAP_NODE setting in .env is <strong>empty</strong> for the first one.</li>
+<li>Both nodes need to use <strong>different wallets</strong>. If you try to use the
+same wallet on both nodes, it may not work. Make sure that both
+wallets have some <strong>test ETH</strong> as well as some <strong>Alpha TRAC</strong> tokens
+(that can be obtained from us by sending request on email
+<a class="reference external" href="mailto:support&#37;&#52;&#48;origin-trail&#46;com">support<span>&#64;</span>origin-trail<span>&#46;</span>com</a> ).</li>
+<li>Make sure that if you are using local computer to test and try to run
+two nodes, you must set different ports (NODE_PORT, NODE_RPC_PORT and
+NODE_REMOTE_CONTROL_PORT) in .env.</li>
+<li>Every time you change your configuration in .env don’t forget to run
+<code class="docutils literal notranslate"><span class="pre">npm</span> <span class="pre">run</span> <span class="pre">config</span></code> to apply that configuration.</li>
+<li>In order to make the initial import, your node must <strong>whitelist</strong> the
+IP of the machine that is requesting the import in <code class="docutils literal notranslate"><span class="pre">.env</span></code> i.e
+IMPORT_WHITELIST=127.0.0.1 if you are importing from localhost.</li>
+</ol>
+</div>
+<div class="section" id="configuration-execution">
+<h2>Configuration Execution<a class="headerlink" href="#configuration-execution" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li>First start the network bootstrap node. It will generate its identity
+on the first run. As we are using test network
+(TEST_NETWORK_ENABLED=1) the identity will be mined quickly. On a
+real network it will take some time but only on the first run.</li>
+<li>Once the first node is running (you will see message - <em>Running in
+seed mode (waiting for connections)</em>), copy the identity of that node
+displayed in the terminal. Use the <strong>IP address</strong>, <strong>port</strong> and the
+<strong>identity</strong> in the following format
+<code class="docutils literal notranslate"><span class="pre">https://127.0.0.1:5278/#0bd885a50800346e5fbe777452a83a978d49cdcc</span></code>
+and write it in the BOOTSTRAP_NODE setting in .env of the second
+node. Pay attention to put # before the identity identifier.</li>
+<li>Once you do that apply the configuration by running
+<code class="docutils literal notranslate"><span class="pre">npm</span> <span class="pre">run</span> <span class="pre">config</span></code> and start the second node.</li>
+</ol>
+<p>The nodes will connect to each other and then you can proceed with
+import.</p>
+</div>
+<div class="section" id="starting-the-node">
+<h2>Starting The Node<a class="headerlink" href="#starting-the-node" title="Permalink to this headline">¶</a></h2>
+<p>OT node consists of two servers <strong>RPC</strong> and <strong>Kademlia node</strong>. Run both
+servers in a single command.</p>
+<div class="code bash highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">npm</span> <span class="n">start</span>
+</pre></div>
+</div>
+<p>If you are having trouble in execution of this commands, than check this
+<a class="reference external" href="https://www.digitalocean.com/community/tutorials/how-to-add-swap-space-on-ubuntu-16-04">link</a> and do the automatic installation and setup again. There can be
+a problem during installation process if the Ubuntu server has small
+amount of RAM memory assigned (512mb for example).</p>
+<p>You can see instructions regarding the data import on the following <a class="reference internal" href="import-data.html#import-data"><span class="std std-ref">Import data</span></a></p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="wallet-setup.html" class="btn btn-neutral float-right" title="Wallet Setup" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="introduction.html" class="btn btn-neutral" title="How to set up OriginTrail Data sharing" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, OriginTrail.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.9.0',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

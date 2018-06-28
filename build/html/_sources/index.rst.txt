@@ -1,0 +1,42 @@
+.. OriginTrail Node Documentation documentation master file, created by
+   sphinx-quickstart on Wed Jun 27 11:20:11 2018.
+   You can adapt this file completely to your liking, but it should at least
+   contain the root `toctree` directive.
+
+Welcome to OriginTrail Node Documentation's documentation!
+==========================================================
+
+..1
+
+.. toctree::
+   :maxdepth: 10
+   :caption: Contents:
+
+   introduction
+   node-setup
+   wallet-setup
+   Configuration-setup
+   import-data
+   data-structure-guidelines
+   namespace
+   data-layer
+   incentive-model
+
+..2
+
+.. toctree::
+   :maxdepth: 10
+   :caption: API's:
+
+   incentive-model
+
+
+Indices and tables
+==================
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`
+
+
+
