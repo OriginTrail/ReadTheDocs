@@ -40,8 +40,6 @@ Prerequisites
 -  Wallet and some Ether on Rinkeby Test Network (You can see wallet setup instructions here :ref:`wallet-setup`)
 
 
-.. _-automatic-installation-on-ubuntu-1604:
-
 Automatic Installation on Ubuntu 16.04
 ---------------------------------------
 
@@ -50,10 +48,14 @@ This will install all prerequisites in a single step.
 .. code:: bash
 
    wget https://raw.githubusercontent.com/OriginTrail/ot-node/master/install.sh
-   sh install.sh
+   sh install.sh --db=arangodb
 
-Set your preferred storage database by passing ``--db=arangodb`` or
-``--db=neo4j`` as a parameter to the install script.
+If you prefer neo4j as database then use
+
+.. code:: bash
+   sh install.sh --db=neo4j
+
+**Note** There are some ongoing issues with Neo4j. We currently advise use of ArangoDB.
 
 If errors occurred during installation process, ot-node probably won't
 work properly. Errors during installation process happen due to various
@@ -61,10 +63,7 @@ factors like lack of RAM or previous installations. We strongly
 recommend installation on clean system and at least 1GB of RAM (it may work with 512MB and swap file, but 1GB is recommended).
 
 
-If you used this automatic installation script, you may skip the rest of
-this document and proceed to `configuration`_.
-
-Make sure to set the wallet and configure ``.env`` file.
+If you used this automatic installation script, you may proceed to :ref:`node-setup`. Then you can start the node.
 
 .. _-manual-prerequisites-installation:
 
@@ -218,28 +217,6 @@ Important Notes
    IP of the machine that is requesting the import in ``.env`` i.e
    IMPORT_WHITELIST=127.0.0.1 if you are importing from localhost.
 
-Configuration Execution
--------------------------
-
-1. First start the network bootstrap node. It will generate its identity
-   on the first run. As we are using test network
-   (TEST_NETWORK_ENABLED=1) the identity will be mined quickly. On a
-   real network it will take some time but only on the first run.
-
-2. Once the first node is running (you will see message - *Running in
-   seed mode (waiting for connections)*), copy the identity of that node
-   displayed in the terminal. Use the **IP address**, **port** and the
-   **identity** in the following format
-   ``https://127.0.0.1:5278/#0bd885a50800346e5fbe777452a83a978d49cdcc``
-   and write it in the BOOTSTRAP_NODE setting in .env of the second
-   node. Pay attention to put # before the identity identifier.
-
-3. Once you do that apply the configuration by running
-   ``npm run config`` and start the second node.
-
-The nodes will connect to each other and then you can proceed with
-import.
-
 Starting The Node
 --------------------
 
@@ -274,8 +251,6 @@ You can see instructions regarding the data import on the following :ref:`import
 
 
 .. _neo4j.com/download: https://neo4j.com/download/
-
-.. _configuration: http://github.com/OriginTrail/ot-yimishiji-pilot/wiki/Configuration
 .. _arangodb.com/download: https://www.arangodb.com/download-major/
 
 .. _link: https://www.digitalocean.com/community/tutorials/how-to-add-swap-space-on-ubuntu-16-04
