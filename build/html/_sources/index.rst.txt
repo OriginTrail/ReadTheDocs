@@ -27,6 +27,8 @@ Welcome to OriginTrail documentation!
    :caption: API's:
 
    intro
+   features
+   implementation
 
 
 Indices and tables
