@@ -20,6 +20,8 @@ Welcome to OriginTrail documentation!
    namespace
    data-layer
    incentive-model
+   features
+   implementation
 
 
 .. toctree::
@@ -27,9 +29,7 @@ Welcome to OriginTrail documentation!
    :caption: API's:
 
    intro
-   features
-   implementation
-
+   contribution
 
 Indices and tables
 ==================
