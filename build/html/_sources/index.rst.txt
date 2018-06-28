@@ -9,7 +9,7 @@ Welcome to OriginTrail documentation!
 
 .. toctree::
    :maxdepth: 10
-   :caption: Contents:
+   :caption: Technical Documentation:
 
    introduction
    node-setup
@@ -26,10 +26,11 @@ Welcome to OriginTrail documentation!
 
 .. toctree::
    :maxdepth: 10
-   :caption: API's:
+   :caption: Development Documentation:
 
    intro
    contribution
+   API
 
 Indices and tables
 ==================

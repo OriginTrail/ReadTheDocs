@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Search &mdash; OriginTrail Node Documentation 0.9.0 documentation</title>
+  <title>IMPORT &mdash; OriginTrail Node Documentation 0.9.0 documentation</title>
   
 
   
@@ -27,7 +27,8 @@
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="#" /> 
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Contribution" href="contribution.html" /> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -59,7 +60,7 @@
 
           
 <div role="search">
-  <form id="rtd-search-form" class="wy-form" action="#" method="get">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
@@ -91,11 +92,28 @@
 <li class="toctree-l1"><a class="reference internal" href="implementation.html">Implementation</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Development Documentation:</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="contribution.html">Contribution</a></li>
-<li class="toctree-l1"><a class="reference internal" href="API.html">IMPORT</a></li>
-<li class="toctree-l1"><a class="reference internal" href="API.html#export">EXPORT</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">IMPORT</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id1">/import</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#parameters">Parameters</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#importfile">Importfile</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#responses">Responses</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#export">EXPORT</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id2">/export</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id3">Parameters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">Responses</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 
             
@@ -141,12 +159,14 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>Search</li>
+      <li>IMPORT</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
+            <a href="_sources/API.rst.txt" rel="nofollow"> View page source</a>
+          
         
       </li>
     
@@ -158,24 +178,67 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <noscript>
-  <div id="fallback" class="admonition warning">
-    <p class="last">
-      Please activate JavaScript to enable the search
-      functionality.
-    </p>
-  </div>
-  </noscript>
+  <div class="section" id="import">
+<span id="api"></span><h1>IMPORT<a class="headerlink" href="#import" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id1">
+<h2>/import<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">POST</span></code></p>
+<p>Import new GS1/WOT data</p>
+<p>Find out more about XML structure here <a class="reference internal" href="data-structure-guidelines.html#data-structure-guidelines"><span class="std std-ref">Data Structure Guidelines</span></a></p>
+<div class="section" id="parameters">
+<h3>Parameters<a class="headerlink" href="#parameters" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="importfile">
+<h4>Importfile<a class="headerlink" href="#importfile" title="Permalink to this headline">¶</a></h4>
+<p><strong>Required</strong> <strong>(Body)</strong> / Import data (file or text data)</p>
+<p><em>Example:</em></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;importfile&quot;</span><span class="p">:</span> <span class="s2">&quot;importfile=@/ot-node/test/modules/test_xml/GraphExample_4.xml&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="responses">
+<h3>Responses<a class="headerlink" href="#responses" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">201</span></code> File was successfully imported.</p>
+<p><em>Example:</em></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;import_id&quot;</span><span class="p">:</span> <span class="s2">&quot;0x477eae0227cce0ffaadc235c7946b97cbe2a948fe7782796b53a0c5a6ca6595f&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="export">
+<h1>EXPORT<a class="headerlink" href="#export" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id2">
+<h2>/export<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p><strong>POST</strong></p>
+<p>Find out more about XML structure here <a class="reference internal" href="data-structure-guidelines.html#data-structure-guidelines"><span class="std std-ref">Data Structure Guidelines</span></a></p>
+<div class="section" id="id3">
+<h3>Parameters<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<p>some text</p>
+</div>
+<div class="section" id="id4">
+<h3>Responses<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p>some text</p>
+</div>
+</div>
+</div>
 
-  
-  <div id="search-results">
-  
-  </div>
 
            </div>
            
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="contribution.html" class="btn btn-neutral" title="Contribution" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>
@@ -216,7 +279,6 @@
       <script type="text/javascript" src="_static/underscore.js"></script>
       <script type="text/javascript" src="_static/doctools.js"></script>
       <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-      <script type="text/javascript" src="_static/searchtools.js"></script>
 
   
 
@@ -226,14 +288,7 @@
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-  <script type="text/javascript">
-    jQuery(function() { Search.loadIndex("searchindex.js"); });
-  </script>
-  
-  <script type="text/javascript" id="searchindexloader"></script>
-   
-
+  </script> 
 
 </body>
 </html>

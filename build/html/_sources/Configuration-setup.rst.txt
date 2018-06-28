@@ -17,57 +17,13 @@ Make sure that username and password you set when installing your
 preferred database are set as values of respective database USERNAME and
 PASSWORD.
 
-.env Example
------------------------------
-
-.. code::
-
-   NODE_ENV=development
-
-   # BLOCKCHAIN SETTINGS (obligatory)
-   NODE_WALLET=
-   NODE_PRIVATE_KEY=
-
-   # NETWORK SETTINGS
-   # Unless testing only localy and unless behind NAT, you have to set your public IP address
-   NODE_IP=127.0.0.1
-   NODE_PORT=5278
-   NODE_RPC_PORT=8900
-   NODE_REMOTE_CONTROL_PORT=3000
-
-   # GRAPH STORAGE SETTINGS
-   # Set arangodb or neo4j
-   GRAPH_DATABASE=arangodb
-
-   # GRAPH DATABASE / ArangoDB
-   DB_USERNAME=root
-   DB_PASSWORD=root
-   DB_PORT=8529
-   DB_DATABASE=origintrail
-   DB_HOST=localhost
-
-   # GRAPH DATABASE / Neo4j
-
-    NEO_USERNAME=neo4j NEO_PASSWORD=neo4j NEO_PORT=7687
-    NEO_DATABASE=origintrail NEO_HOST=localhost
-
-    GENERAL SETTINGS
-
-
-    IMPORT_WHITELIST=127.0.0.1 (test feature, it is not yet reliable)
-
-
-    TRAVERSE_NAT_ENABLED=0 (recommended for testing - identity difficulty reduced to 2)
-
-
-    TEST_NETWORK_ENABLED=1 (Bootstrap node to connect)
-
-
-    BOOTSTRAP_NODE=\ https://127.0.0.1:5278/#27a975a7fb6a177c9af38c155b17208948cb8776
-
+You can view .env Example `here`_
 
 Once you set your .env file, you have to run from ot-node folder:
 
 ::
 
    npm run config
+
+
+.. _here: https://github.com/OriginTrail/ot-node/blob/develop/.env.example

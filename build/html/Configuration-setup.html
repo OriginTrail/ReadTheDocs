@@ -78,15 +78,13 @@
               
             
             
-              <p class="caption"><span class="caption-text">Contents:</span></p>
+              <p class="caption"><span class="caption-text">Technical Documentation:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="introduction.html">How to set up OriginTrail Data sharing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="introduction.html#contribution">Contribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="node-setup.html">Node Setup instructions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="wallet-setup.html">Wallet Setup</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Node Configuration</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#env-file-configuration">.env File Configuration</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#env-example">.env Example</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="import-data.html">Import data</a></li>
@@ -94,6 +92,15 @@
 <li class="toctree-l1"><a class="reference internal" href="namespace.html">Namespace</a></li>
 <li class="toctree-l1"><a class="reference internal" href="data-layer.html">Data Layer</a></li>
 <li class="toctree-l1"><a class="reference internal" href="incentive-model.html">Incentive Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="features.html">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="implementation.html">Implementation</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Development Documentation:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contribution.html">Contribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="API.html">IMPORT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="API.html#export">EXPORT</a></li>
 </ul>
 
             
@@ -169,53 +176,7 @@ parameters or type this in console: <code class="docutils literal notranslate"><
 <p>Make sure that username and password you set when installing your
 preferred database are set as values of respective database USERNAME and
 PASSWORD.</p>
-</div>
-<div class="section" id="env-example">
-<h2>.env Example<a class="headerlink" href="#env-example" title="Permalink to this headline">¶</a></h2>
-<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">NODE_ENV</span><span class="o">=</span><span class="n">development</span>
-
-<span class="c1"># BLOCKCHAIN SETTINGS (obligatory)</span>
-<span class="n">NODE_WALLET</span><span class="o">=</span>
-<span class="n">NODE_PRIVATE_KEY</span><span class="o">=</span>
-
-<span class="c1"># NETWORK SETTINGS</span>
-<span class="c1"># Unless testing only localy and unless behind NAT, you have to set your public IP address</span>
-<span class="n">NODE_IP</span><span class="o">=</span><span class="mf">127.0</span><span class="o">.</span><span class="mf">0.1</span>
-<span class="n">NODE_PORT</span><span class="o">=</span><span class="mi">5278</span>
-<span class="n">NODE_RPC_PORT</span><span class="o">=</span><span class="mi">8900</span>
-<span class="n">NODE_REMOTE_CONTROL_PORT</span><span class="o">=</span><span class="mi">3000</span>
-
-<span class="c1"># GRAPH STORAGE SETTINGS</span>
-<span class="c1"># Set arangodb or neo4j</span>
-<span class="n">GRAPH_DATABASE</span><span class="o">=</span><span class="n">arangodb</span>
-
-<span class="c1"># GRAPH DATABASE / ArangoDB</span>
-<span class="n">DB_USERNAME</span><span class="o">=</span><span class="n">root</span>
-<span class="n">DB_PASSWORD</span><span class="o">=</span><span class="n">root</span>
-<span class="n">DB_PORT</span><span class="o">=</span><span class="mi">8529</span>
-<span class="n">DB_DATABASE</span><span class="o">=</span><span class="n">origintrail</span>
-<span class="n">DB_HOST</span><span class="o">=</span><span class="n">localhost</span>
-
-<span class="c1"># GRAPH DATABASE / Neo4j</span>
-
- <span class="n">NEO_USERNAME</span><span class="o">=</span><span class="n">neo4j</span> <span class="n">NEO_PASSWORD</span><span class="o">=</span><span class="n">neo4j</span> <span class="n">NEO_PORT</span><span class="o">=</span><span class="mi">7687</span>
- <span class="n">NEO_DATABASE</span><span class="o">=</span><span class="n">origintrail</span> <span class="n">NEO_HOST</span><span class="o">=</span><span class="n">localhost</span>
-
- <span class="n">GENERAL</span> <span class="n">SETTINGS</span>
-
-
- <span class="n">IMPORT_WHITELIST</span><span class="o">=</span><span class="mf">127.0</span><span class="o">.</span><span class="mf">0.1</span> <span class="p">(</span><span class="n">test</span> <span class="n">feature</span><span class="p">,</span> <span class="n">it</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">yet</span> <span class="n">reliable</span><span class="p">)</span>
-
-
- <span class="n">TRAVERSE_NAT_ENABLED</span><span class="o">=</span><span class="mi">0</span> <span class="p">(</span><span class="n">recommended</span> <span class="k">for</span> <span class="n">testing</span> <span class="o">-</span> <span class="n">identity</span> <span class="n">difficulty</span> <span class="n">reduced</span> <span class="n">to</span> <span class="mi">2</span><span class="p">)</span>
-
-
- <span class="n">TEST_NETWORK_ENABLED</span><span class="o">=</span><span class="mi">1</span> <span class="p">(</span><span class="n">Bootstrap</span> <span class="n">node</span> <span class="n">to</span> <span class="n">connect</span><span class="p">)</span>
-
-
- <span class="n">BOOTSTRAP_NODE</span><span class="o">=</span>\ <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="mf">127.0</span><span class="o">.</span><span class="mf">0.1</span><span class="p">:</span><span class="mi">5278</span><span class="o">/</span><span class="c1">#27a975a7fb6a177c9af38c155b17208948cb8776</span>
-</pre></div>
-</div>
+<p>You can view .env Example <a class="reference external" href="https://github.com/OriginTrail/ot-node/blob/develop/.env.example">here</a></p>
 <p>Once you set your .env file, you have to run from ot-node folder:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">npm</span> <span class="n">run</span> <span class="n">config</span>
 </pre></div>
