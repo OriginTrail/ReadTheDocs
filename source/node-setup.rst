@@ -7,25 +7,15 @@ Read Me First
 -------------
 
 If you need help installing OT Node or troubleshooting your
-installation, your best bet is to join the community `RocketChat
-channel`_ and ask specific questions there. It's likely that somebody
-else has already tackled the same problem. You can also contact us
-directly via email at support@origin-trail.com
+installation, you can contact us directly via email at support@origin-trail.com
 
-You can also check out our `video`_
-
-**NOTE**: For proper testing (from Luna release V0.3a) you have to
-install 2 nodes on two servers so that you can test data replication and
-payment mechanism. We also advise you not to install on local machines,
-you may encounter problems with connections between nodes. We recommend
-usage of services like Digital Ocean.
+**NOTE**: For proper testing we recommend usage of services like Digital Ocean.
 
 **Please bear in mind that we are only able to give you limited support
-on testing the nodes since it is in early alpha stage, some features
-will probably change and we are aware of some bugs that may show up on
+on testing the nodes, some features will probably change and we are aware of some bugs that may show up on
 different installation and usage scenarios. With this in mind, some
 limited support may be obtained on our
-chat**\ https://chat.origintrail.io\ **and**\ `Issues`_\ **on this
+chat**\ https://chat.origintrail.io\ **and**\ `Issues`_\ ** on GitHub
 repository.**
 
 
