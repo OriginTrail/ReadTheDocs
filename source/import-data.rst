@@ -4,13 +4,10 @@ Import data
 ======================================
 
 In order to import data it has to be properly formatted. Further
-description of XML schema can be found in :ref:`data-structure-guidelines`
-on our wiki. Sample files can also be found in installation folder of
-the node ( /ot-node/importers/Transformation.xml and
-/ot-node/importers/Transport Ownership Observation.xml ).
+description of XML schema and sample files can be found in :ref:`data-structure-guidelines`. 
 
 We included `example`_ files in the project for your reference and
-testing. Please take a look `here`_ for an example of XML schema.
+testing. Please take a look `here`_ for GS1 EPCIS XML schema.
 
 To import data from the XML file into OriginTrail, send a HTTPS POST
 request containing the XML file to the following endpoint:
@@ -23,7 +20,7 @@ The example cURL request is:
 
 .. code:: bash
 
-   curl -v  -F importfile=@importers/xml_examples/Transformation.xml http://YOUR_RPC_NODE_URL:YOUR_RPC_NODE_PORT/import_gs1
+   curl -v  -F importfile=@importers/xml_examples/Basic/01_Green_to_pink_shipment.xml        http://YOUR_RPC_NODE_URL:YOUR_RPC_NODE_PORT/import_gs1
 
 Depending on the use case, it might make sense to set up a periodic
 import of the data into OriginTrail (i.e. a daily cronjob exporting the
@@ -61,6 +58,5 @@ and check if both nodes have the data imported.
 If the data is in the database and you have spent some ATRAC for DH
 services, you may consider your installation successful.
 
-.. _Data Structure Guidelines: http://github.com/OriginTrail/ot-yimishiji-pilot/wiki/Data-Structure-Guidelines
-.. _example: https://github.com/OriginTrail/ot-node/blob/develop/importers/
-.. _here: https://github.com/OriginTrail/ot-node/blob/develop/importers/
+.. _example: https://github.com/OriginTrail/ot-node/tree/develop/importers/xml_examples
+.. _here: https://github.com/OriginTrail/ot-node/tree/develop/importers/xsd_schemas
