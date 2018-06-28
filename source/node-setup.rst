@@ -9,27 +9,31 @@ Read Me First
 If you need help installing OT Node or troubleshooting your
 installation, you can contact us directly via email at support@origin-trail.com
 
-**NOTE**: For proper testing we recommend usage of services like Digital Ocean.
+**NOTE**: Nodes can be installed on 2 ways:
+
+- via docker https://www.origintrail.io/node-setup
+- via Linux terminal (explained below)
 
 **Please bear in mind that we are only able to give you limited support
 on testing the nodes, some features will probably change and we are aware of some bugs that may show up on
 different installation and usage scenarios. With this in mind, some
 limited support may be obtained on our
-chat**\ https://chat.origintrail.io\ **and**\ `Issues`_\ ** on GitHub
+chat**  https://chat.origintrail.io **and** \ `Issues`_\ ** on GitHub
 repository.**
 
 
-Steps
------
+Linux Installation
+------------------
+**NOTE**: For best performance testing we recommend usage of services like Digital Ocean.
 
 In order to install OT node, you should do following steps:
 
-1. **Step 1** - Install all prerequisites. There is an `automatic
-   installation script`_ for Ubuntu 16.04 or you can do installation
-   `manually`_.
-2. **Step 2** (only if manual installation) - `Install OT node`_
+1. **Step 1** - Install all prerequisites. There is an automatic
+   installation script or you can do installation manually (explained below).
+   
+2. **Step 2** - :ref:`configuration-setup`
 
-3. **Step 3** - `Configure`_ ``.env`` file
+3. **Step 3** - :ref:`import-data`
 
 
 Prerequisites
@@ -40,8 +44,8 @@ Prerequisites
 -  Wallet and some Ether on Rinkeby Test Network (You can see wallet setup instructions here :ref:`wallet-setup`)
 
 
-Automatic Installation on Ubuntu 16.04
----------------------------------------
+Automatic installation
+----------------------
 
 This will install all prerequisites in a single step.
 
@@ -63,7 +67,7 @@ factors like lack of RAM or previous installations. We strongly
 recommend installation on clean system and at least 1GB of RAM (it may work with 512MB and swap file, but 1GB is recommended).
 
 
-If you used this automatic installation script, you may proceed to :ref:`node-setup`. Then you can start the node.
+If you used this automatic installation script, you may proceed to :ref:`configuration-setup`. Then you can start the node.
 
 .. _-manual-prerequisites-installation:
 
@@ -239,17 +243,12 @@ You can see instructions regarding the data import on the following :ref:`import
 
 
 .. _RocketChat channel: https://chat.origintrail.io
-.. _video: https://youtu.be/gP5n7gYa7Ck
 .. _Issues: https://github.com/OriginTrail/ot-node/issues
 .. _Data Structure Guidelines: http://github.com/OriginTrail/ot-yimishiji-pilot/wiki/Data-Structure-Guidelines
 .. _here: https://github.com/OriginTrail/ot-node/tree/develop/importers/xml_examples/example_gs1.xml
 .. _automatic installation script: #automatic
 .. _manually: #manual
 .. _Install OT node: #otnode
-.. _Configure: http://github.com/OriginTrail/ot-yimishiji-pilot/wiki/Configuration#configuration
-.. _Import data: http://github.com/OriginTrail/ot-yimishiji-pilot/wiki/Usage
-
-
 .. _neo4j.com/download: https://neo4j.com/download/
 .. _arangodb.com/download: https://www.arangodb.com/download-major/
 
