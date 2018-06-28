@@ -11,7 +11,7 @@ identifiers that is under the control of the end user who assigns them.
 
 **OriginTrail namespaces are mostly used for attributes definitions in
 EPCIS based XML file. Values for that attributes should be based
-on `GS1 identifiers`_  if it is possible.**
+on `GS1 identifiers`_ if it is possible.**
 
 For more information check:
 
@@ -24,7 +24,7 @@ For more information about data structuring in OriginTrail check
 GS1 CBV Namespace
 --------------------
 
-The Core Business Vocabulary provides additional constraints on the
+The Core Business Vocabulary (CBV) provides additional constraints on the
 syntax of identifiers for user vocabularies, so that CBV-Compliant
 documents will use identifiers that have a predictable structure. This
 in turn makes it easier for trading partners to understand the meaning
