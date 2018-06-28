@@ -14,6 +14,7 @@ There are some limitations and work-in-progress.
 our roadmap please see our `website`_ for more detailed development plans.
  
 Documentation is aimed towards three groups of readers:
+
 -  Node holders
 -  Service providers
 -  Developers
