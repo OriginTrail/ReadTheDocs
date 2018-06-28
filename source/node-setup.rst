@@ -6,10 +6,10 @@ Node Setup instructions
 Read Me First
 -------------
 
-**Please bear in mind that we are only able to give you limited support
+Please bear in mind that we are only able to give you limited support
 on testing the nodes, some features will probably change and we are aware of some bugs that may show up on
 different installation and usage scenarios. If you need help installing OT Node or troubleshooting your
-installation, you can contact us directly via email at support@origin-trail.com. **
+installation, you can contact us directly via email at support@origin-trail.com.
 
 
 Nodes can be installed on several ways:
@@ -28,7 +28,6 @@ In order to install OT node, you should do following steps:
 2. **Step 2** - :ref:`configuration-setup`
 
 3. **Step 3** - :ref:`import-data`
-
 
 Prerequisites
 -------------
@@ -180,8 +179,8 @@ If you prefer neo4j as database then use
 If errors occurred during installation process, ot-node probably won't
 work properly. Errors during installation process happen due to various
 factors like lack of RAM or previous installations. We strongly
-recommend installation on clean system and at least 1GB of RAM (it may work with 512MB and swap file).
-
+recommend installation on clean system and at least 2GB of RAM (it may work with 512MB and swap file).
+You can check this `link`_ and do the automatic installation and setup again. 
 
 If you used this automatic installation script, you may proceed to :ref:`configuration-setup`. Then you can start the node.
 
@@ -210,12 +209,6 @@ servers in a single command.
 .. code:: bash
 
    npm start
-
-If you are having trouble in execution of this commands, than check this
-`link`_ and do the automatic installation and setup again. There can be
-a problem during installation process if the Ubuntu server has small
-amount of RAM memory assigned (512mb for example).
-
 
 You can see instructions regarding the data import on the following :ref:`import-data`
 
