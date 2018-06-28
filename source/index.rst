@@ -26,7 +26,7 @@ Welcome to OriginTrail Node Documentation's documentation!
    :maxdepth: 10
    :caption: API's:
 
-   incentive-model
+   intro
 
 
 Indices and tables

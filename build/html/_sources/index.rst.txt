@@ -6,7 +6,6 @@
 Welcome to OriginTrail Node Documentation's documentation!
 ==========================================================
 
-..1
 
 .. toctree::
    :maxdepth: 10
@@ -22,13 +21,12 @@ Welcome to OriginTrail Node Documentation's documentation!
    data-layer
    incentive-model
 
-..2
 
 .. toctree::
    :maxdepth: 10
    :caption: API's:
 
-   incentive-model
+   intro
 
 
 Indices and tables
