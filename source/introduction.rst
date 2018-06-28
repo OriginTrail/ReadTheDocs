@@ -2,32 +2,45 @@
 
 Company Website: `origintrail.io`_
 
+Introduction
+============
 **OriginTrail is building first Purpose-built Protocol for Supply Chains
 Based on Blockchain.**
 
-This repository contains a work-in-progress code for a network node.
-Please have in mind that code is still **in early alpha version**
-developed mostly as a quick proof of concept and although main features
-will work, there are many limitations.
+This is technical documentation for open-source OriginTrail protocol.
+Please keep in mind that protocol is currently in TestNet (Beta) version.
+There are some limitations and work-in-progress.
+**Main Network** is scheduled for Q3 2018. For further information about 
+our roadmap please see our `website`_ for more detailed development plans.
+ 
+Documentation is aimed towards three groups of readers:
+-  Node holders
+-  Service providers
+-  Developers
 
-We expect **Test Network** release to be available by the end of Q2 2018
-as a beta of our protocol, while **Main Network** is scheduled for Q3
-2018. For further information about our roadmap please see our
-`website`_ for more detailed development roadmap.
 
-How to set up OriginTrail Data sharing
-======================================
+Setting up the Node
+-------------------
 
-Detailed instructions for installation and configuration of OriginTrail
-Node are provided on our wiki.
+In order to be part of OriginTrail Decentralized Network (ODN), you
+need to install the Node. For detailed instructions for installation and 
+configuration of OriginTrail Node visit following sections:
 
 -  Start with creating your wallet address :ref:`wallet-setup`
 -  Then :ref:`node-setup`
 -  Refer to :ref:`configuration-setup`
 -  Finally :ref:`import-data`.
 
-Contribution
-============
+Solution provider guidelines
+----------------------------
+SP are companies that provide supply chain management solutions and consulting or 
+advisory services to help their clients improve efficiencies, enhance product 
+and consumer safety and brand protection activities to name a few.
+Please visit :ref:`implementation` guidelines for more resources.
+
+
+Development contribution
+------------------------
 
 OriginTrail network is an open source project. We happily invite you to
 join us in our mission of building decentralised world of supply chain.
