@@ -11,7 +11,7 @@ identifiers that is under the control of the end user who assigns them.
 
 **OriginTrail namespaces are mostly used for attributes definitions in
 EPCIS based XML file. Values for that attributes should be based
-on \ `GS1 identifiers`_\ if it is possible.**
+on `GS1 identifiers`_  if it is possible.**
 
 For more information check:
 
