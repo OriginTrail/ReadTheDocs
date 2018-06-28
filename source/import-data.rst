@@ -3,11 +3,11 @@
 Import data
 ======================================
 
-In order to import data it has to be properly formatted. Further
-description of XML schema and sample files can be found in :ref:`data-structure-guidelines`. 
+In order to make the initial import there are prerequisits:
 
-We included `example`_ files in the project for your reference and
-testing. Please take a look `here`_ for GS1 EPCIS XML schema.
+-  your node must whitelist the IP of the machine that is requesting the import in .env i.e IMPORT_WHITELIST=127.0.0.1 if you are importing from localhost.
+-  data has to be properly formatted. Further description of XML schema and sample files can be found in :ref:`data-structure-guidelines`. 
+- We included `example`_ files in the project for your reference and testing. 
 
 To import data from the XML file into OriginTrail, send a HTTPS POST
 request containing the XML file to the following endpoint:
@@ -59,4 +59,3 @@ If the data is in the database and you have spent some ATRAC for DH
 services, you may consider your installation successful.
 
 .. _example: https://github.com/OriginTrail/ot-node/tree/develop/importers/xml_examples
-.. _here: https://github.com/OriginTrail/ot-node/tree/develop/importers/xsd_schemas
