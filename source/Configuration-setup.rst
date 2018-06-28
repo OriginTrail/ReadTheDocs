@@ -1,6 +1,5 @@
 ..  _configuration-setup:
 
-
 Node Configuration
 ======================================
 
@@ -25,5 +24,7 @@ Once you set your .env file, you have to run from ot-node folder:
 
    npm run config
 
+Every time you change your configuration in .env don't forget to run
+this command to apply that configuration.
 
 .. _here: https://github.com/OriginTrail/ot-node/blob/develop/.env.example
