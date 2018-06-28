@@ -3,7 +3,7 @@
 Company Website: `origintrail.io`_
 
 Introduction
-============
+--------------
 **OriginTrail is building first Purpose-built Protocol for Supply Chains
 Based on Blockchain.**
 
