@@ -6,83 +6,47 @@ Node Setup instructions
 Read Me First
 -------------
 
-If you need help installing OT Node or troubleshooting your
-installation, your best bet is to join the community `RocketChat
-channel`_ and ask specific questions there. It's likely that somebody
-else has already tackled the same problem. You can also contact us
-directly via email at support@origin-trail.com
-
-You can also check out our `video`_
-
-**NOTE**: For proper testing (from Luna release V0.3a) you have to
-install 2 nodes on two servers so that you can test data replication and
-payment mechanism. We also advise you not to install on local machines,
-you may encounter problems with connections between nodes. We recommend
-usage of services like Digital Ocean.
-
-**Please bear in mind that we are only able to give you limited support
-on testing the nodes since it is in early alpha stage, some features
-will probably change and we are aware of some bugs that may show up on
-different installation and usage scenarios. With this in mind, some
-limited support may be obtained on our
-chat**\ https://chat.origintrail.io\ **and**\ `Issues`_\ **on this
-repository.**
+Please bear in mind that we are only able to give you limited support
+on testing the nodes, some features will probably change and we are aware of some bugs that may show up on
+different installation and usage scenarios. If you need help installing OT Node or troubleshooting your
+installation, you can contact us directly via email at support@origin-trail.com.
 
 
-Steps
------
+Nodes can be installed on several ways:
+
+- via docker https://www.origintrail.io/node-setup
+- automatic installation on Ubuntu (explained below)
+- manual installation (explained below)
+
+**NOTE**: For best performance testing we recommend usage of services like Digital Ocean.
 
 In order to install OT node, you should do following steps:
 
-1. **Step 1** - Install all prerequisites. There is an `automatic
-   installation script`_ for Ubuntu 16.04 or you can do installation
-   `manually`_.
-2. **Step 2** (only if manual installation) - `Install OT node`_
+1. **Step 1** - Install all prerequisites. There is an automatic
+   installation script or you can do installation manually (explained below).
+   
+2. **Step 2** - :ref:`configuration-setup`
 
-3. **Step 3** - `Configure`_ ``.env`` file
-
+3. **Step 3** - :ref:`import-data`
 
 Prerequisites
 -------------
 
--  Node.js
--  ArangoDB or Neo4j
--  Wallet and some Ether on Rinkeby Test Network (You can see wallet setup instructions here :ref:`wallet-setup`)
+System requirements
+~~~~~~~~~~~~~~~~~~~
+-  Minimum of 2Gb of RAM memory
+-  Minimum of 5Gb of storage memory 
+-  Ethereum wallet and some Ether on Rinkeby Test Network (You can see wallet setup instructions here :ref:`wallet-setup`)
 
 
-.. _-automatic-installation-on-ubuntu-1604:
-
-Automatic Installation on Ubuntu 16.04
----------------------------------------
-
-This will install all prerequisites in a single step.
-
-.. code:: bash
-
-   wget https://raw.githubusercontent.com/OriginTrail/ot-node/master/install.sh
-   sh install.sh
-
-Set your preferred storage database by passing ``--db=arangodb`` or
-``--db=neo4j`` as a parameter to the install script.
-
-If errors occurred during installation process, ot-node probably won't
-work properly. Errors during installation process happen due to various
-factors like lack of RAM or previous installations. We strongly
-recommend installation on clean system and at least 1GB of RAM (it may work with 512MB and swap file, but 1GB is recommended).
-
-
-If you used this automatic installation script, you may skip the rest of
-this document and proceed to `configuration`_.
-
-Make sure to set the wallet and configure ``.env`` file.
 
 .. _-manual-prerequisites-installation:
 
 Manual Prerequisites Installation
-----------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 NodeJS
-~~~~~~
+^^^^^^
 
 If you don't have Node.js installed head to https://nodejs.org/en/ and
 install version 9.x.x.
@@ -105,7 +69,7 @@ with the following commands:
    sudo apt-get install -y nodejs
 
 Database - ArangoDB
-~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^
 
 **ArangoDB** is a native multi-model, open-source database with flexible
 data models for documents, graphs, and key-values. We are using ArangoDB
@@ -121,7 +85,7 @@ you will need to set them in .env.
 .. _ubuntu-1604:
 
 Ubuntu 16.04
-^^^^^^^^^^^^
+************
 
 .. code:: bash
 
@@ -134,7 +98,7 @@ Ubuntu 16.04
 When asked, enter the password for root user.
 
 Mac Os X
-^^^^^^^^
+********
 
 For Mac OS X, you can use **homebrew** to install ArangoDB. Run the
 following:
@@ -160,7 +124,7 @@ and create database
    db._createDatabase("origintrail", "", [{ username: "otuser", passwd: "otpass", active: true}])
 
 Database - Neo4j
-~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^
 
 **Neo4j** is a graph database management system with native graph
 storage and processing. Its architecture is designed for optimizing fast
@@ -175,7 +139,7 @@ package manager, if available.
 .. _ubuntu-1604-1:
 
 Ubuntu 16.04
-^^^^^^^^^^^^
+************
 
 First you have to install Java 8 and set it as the default.
 
@@ -195,60 +159,46 @@ Run the following:
    sudo apt-get update
    sudo apt-g
 
+Automatic installation
+----------------------
 
-Setup two nodes
-------------------
+This will install all prerequisites in a single step.
 
-In order to properly test the network you will need at least **two
-nodes** that will connect to each other.
+.. code:: bash
 
-Important Notes
------------------
+   wget https://raw.githubusercontent.com/OriginTrail/ot-node/master/install.sh
+   sh install.sh --db=arangodb
 
-1. One node must be set to run as **Network Bootstrap** node. This means
-   that one node will be sitting and waiting other nodes to connect. In
-   the future we plan to provide several bootstrap nodes for
-   convenience, but if you are testing on your own, just make sure that
-   BOOTSTRAP_NODE setting in .env is **empty** for the first one.
+If you prefer neo4j as database then use
 
-2. Both nodes need to use **different wallets**. If you try to use the
-   same wallet on both nodes, it may not work. Make sure that both
-   wallets have some **test ETH** as well as some **Alpha TRAC** tokens
-   (that can be obtained from us by sending request on email
-   support@origin-trail.com ).
+.. code:: bash
+   sh install.sh --db=neo4j
 
-3. Make sure that if you are using local computer to test and try to run
-   two nodes, you must set different ports (NODE_PORT, NODE_RPC_PORT and
-   NODE_REMOTE_CONTROL_PORT) in .env.
+**Note:** There are some ongoing issues with Neo4j. We currently advise use of ArangoDB.
 
-4. Every time you change your configuration in .env don't forget to run
-   ``npm run config`` to apply that configuration.
+If errors occurred during installation process, ot-node probably won't
+work properly. Errors during installation process happen due to various
+factors like lack of RAM or previous installations. We strongly
+recommend installation on clean system and at least 2GB of RAM (it may work with 512MB and swap file).
+You can check this `link`_ and do the automatic installation and setup again. 
 
-5. In order to make the initial import, your node must **whitelist** the
-   IP of the machine that is requesting the import in ``.env`` i.e
-   IMPORT_WHITELIST=127.0.0.1 if you are importing from localhost.
+If you used this automatic installation script, you may proceed to :ref:`configuration-setup`. Then you can start the node.
 
-Configuration Execution
--------------------------
+Manual Node Installation
+------------------------
 
-1. First start the network bootstrap node. It will generate its identity
-   on the first run. As we are using test network
-   (TEST_NETWORK_ENABLED=1) the identity will be mined quickly. On a
-   real network it will take some time but only on the first run.
+Clone the repository
 
-2. Once the first node is running (you will see message - *Running in
-   seed mode (waiting for connections)*), copy the identity of that node
-   displayed in the terminal. Use the **IP address**, **port** and the
-   **identity** in the following format
-   ``https://127.0.0.1:5278/#0bd885a50800346e5fbe777452a83a978d49cdcc``
-   and write it in the BOOTSTRAP_NODE setting in .env of the second
-   node. Pay attention to put # before the identity identifier.
+.. code:: bash
 
-3. Once you do that apply the configuration by running
-   ``npm run config`` and start the second node.
+   git clone -b master https://github.com/OriginTrail/ot-node.git
 
-The nodes will connect to each other and then you can proceed with
-import.
+and run npm
+
+.. code:: bash
+
+   cd ot-node && npm install
+   cp .env.example .env
 
 Starting The Node
 --------------------
@@ -260,32 +210,21 @@ servers in a single command.
 
    npm start
 
-If you are having trouble in execution of this commands, than check this
-`link`_ and do the automatic installation and setup again. There can be
-a problem during installation process if the Ubuntu server has small
-amount of RAM memory assigned (512mb for example).
-
-
 You can see instructions regarding the data import on the following :ref:`import-data`
 
+Important Notes
+-----------------
+
+Every time you change your configuration in .env don't forget to run
+``npm run config`` to apply that configuration.
+
+In order to make the initial import, your node must **whitelist** the
+IP of the machine that is requesting the import in ``.env`` i.e
+IMPORT_WHITELIST=127.0.0.1 if you are importing from localhost.
 
 
-
-.. _RocketChat channel: https://chat.origintrail.io
-.. _video: https://youtu.be/gP5n7gYa7Ck
 .. _Issues: https://github.com/OriginTrail/ot-node/issues
-.. _Data Structure Guidelines: http://github.com/OriginTrail/ot-yimishiji-pilot/wiki/Data-Structure-Guidelines
-.. _here: https://github.com/OriginTrail/ot-node/tree/develop/importers/xml_examples/example_gs1.xml
-.. _automatic installation script: #automatic
 .. _manually: #manual
-.. _Install OT node: #otnode
-.. _Configure: http://github.com/OriginTrail/ot-yimishiji-pilot/wiki/Configuration#configuration
-.. _Import data: http://github.com/OriginTrail/ot-yimishiji-pilot/wiki/Usage
-
-
 .. _neo4j.com/download: https://neo4j.com/download/
-
-.. _configuration: http://github.com/OriginTrail/ot-yimishiji-pilot/wiki/Configuration
 .. _arangodb.com/download: https://www.arangodb.com/download-major/
-
 .. _link: https://www.digitalocean.com/community/tutorials/how-to-add-swap-space-on-ubuntu-16-04

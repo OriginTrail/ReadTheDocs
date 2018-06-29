@@ -10,8 +10,8 @@ syntax specified in GS1 standards or must belong to a subspace of URI
 identifiers that is under the control of the end user who assigns them.
 
 **OriginTrail namespaces are mostly used for attributes definitions in
-EPCIS based XML file. Values for that attributes should be based
-on**\ `GS1 identifiers`_\ **if it is possible.**
+EPCIS based XML file. If it is possible, values for that attributes should be based
+on** `GS1 identifiers`_ .
 
 For more information check:
 
@@ -19,12 +19,12 @@ For more information check:
 -  GS1 `EPCIS standard`_
 
 For more information about data structuring in OriginTrail check
-`guidelines`_
+:ref:`data-structure-guidelines`
 
 GS1 CBV Namespace
 --------------------
 
-The Core Business Vocabulary provides additional constraints on the
+The Core Business Vocabulary (CBV) provides additional constraints on the
 syntax of identifiers for user vocabularies, so that CBV-Compliant
 documents will use identifiers that have a predictable structure. This
 in turn makes it easier for trading partners to understand the meaning
@@ -37,7 +37,7 @@ OriginTrail Namespace
 OriginTrail created it's own namespace as extension of GS1 namespace.
 Root of the name space is **urn:ot:**. We strongly advise use of our
 namespace as described below. OriginTrail protocol name space is based
-on `data model`_. If OriginTrail namespace is not used properly it can
+on :ref:`data-layer`. If OriginTrail namespace is not used properly it can
 cause deviations in data structure. We strongly recommend data
 validation in Graph database after first iterations.
 
@@ -251,5 +251,3 @@ OriginTrail has following tags:
 .. _GS1 identifiers: http://www.gs1mu.org/about-us/gs1-standards/gs1-system
 .. _CBV document: https://www.gs1.org/sites/default/files/docs/epc/CBV-Standard-1-2-2-r-2017-10-12.pdf
 .. _EPCIS standard: https://www.gs1.org/standards/epcis
-.. _guidelines: https://github.com/OriginTrail/ot-node/wiki/Data-Structure-Guidelines
-.. _data model: https://github.com/OriginTrail/ot-node/wiki/Graph-structure-in-OriginTrail-Data-Layer---version-1.0
