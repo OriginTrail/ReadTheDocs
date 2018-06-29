@@ -75,7 +75,7 @@ If you find a bug in the source code, you can help us by submitting an
 issue to our [GitHub Repository][github]. Even better, you can submit a
 Pull Request with a fix.
 
-**Please see the**\ `Submission Guidelines`_\ **below.**
+**Please see the**  `Submission Guidelines`_
 
 Missing a Feature?
 ~~~~~~~~~~~~~~~~~~
@@ -91,7 +91,7 @@ change it is:
    outlines the changes and benefits of the feature.
 -  **Small Changes** can directly be crafted and submitted to the
    [GitHub Repository][github] as a Pull Request. See the section about
-   `Pull Request Submission Guidelines`_, and for detailed information
+   Pull Request Submission Guidelines, and for detailed information
    the [core development documentation][developers].
 
 .. _-want-a-doc-fix:
@@ -119,5 +119,4 @@ submitting the PR to be sure you haven't accidentally introduced any
 layout or formatting issues. You should also make sure that your commit
 message follows the **[Commit Message Guidelines][developers.commits]**.
 
-.. _Pull Request Submission Guidelines: #submit-pr
 .. _Submission Guidelines: #submit
