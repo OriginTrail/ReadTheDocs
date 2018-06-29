@@ -9,7 +9,7 @@ Consensus check
 When receiving information from stakeholders, OriginTrail protocol performs a **consensus check** that verifies there are no discrepancies between data provided by different
 stakeholders. 
 
-.. image::https://github.com/OriginTrail/ReadTheDocs/raw/master/source/slide-interperability_and_data_integrity.png
+.. _ImageLink::https://github.com/OriginTrail/ReadTheDocs/raw/master/source/slide-interperability_and_data_integrity.png
 
 The check is performed in several steps:
 
