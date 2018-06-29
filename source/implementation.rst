@@ -8,7 +8,7 @@ Setting up a Project on OriginTrail
 -----------------------------------
 Here is the short overview how to set up a project on ODN. This document is aimed towards enterprise and solution provider entities.
 
-Step 1 Structuring a use case
+Step 1: Structuring a use case
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Defining, structuring and formalizing use case is the most important step for the implementation as it drives all the other steps forward. In this step it is important to define the process flow, all the goals, all the stakeholders and all the data needed for OriginTrail. It is important to define which data will be utilized and visible on the end and in what way. 
@@ -26,16 +26,16 @@ Defining, structuring and formalizing use case is the most important step for th
 
 The project should be structured into phases to ensure smooth transition of the project and to test the initial ideas set in the use case. There are three important phases in this process:
 
--  POC Exploration - Make proof of concept for proving the validity of the use case
--  Test Phase - Test the project with larger set of stakeholders
--  Live phase - Monetize the solution
+-  **POC Exploration** - Make proof of concept for proving the validity of the use case
+-  **Test Phase** - Test the project with larger set of stakeholders
+-  **Live phase** - Monetize the solution
 
 Each of these phases need to have defined steps for easier tracking of the project, where the important aspects consist of:
 
--  Stakeholders - Who is involved in each phase
--  Responsibilities - what is the role of each stakeholder and what activities each needs to perform
--  Required data - What is the required data each stakeholder needs to provide  
--  Time-frame of the phase - How long each phase takes 
+-  **Stakeholders** - Who is involved in each phase
+-  **Responsibilities** - what is the role of each stakeholder and what activities each needs to perform
+-  **Required data** - What is the required data each stakeholder needs to provide  
+-  **Time-frame of the phase** - How long each phase takes 
 
 For the POC phase it is important that is structured accordingly and after all the aspects of the use case have been defined, the project can move forward to next steps.
 
