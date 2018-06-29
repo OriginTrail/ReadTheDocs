@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Welcome to OriginTrail documentation! &mdash; OriginTrail Node Documentation 0.9.0 documentation</title>
+  <title>Welcome to OriginTrail documentation! &mdash; OriginTrail Documentation (Under Construction) 0.9.0 documentation</title>
   
 
   
@@ -47,7 +47,7 @@
           
 
           
-            <a href="#" class="icon icon-home"> OriginTrail Node Documentation
+            <a href="#" class="icon icon-home"> OriginTrail Documentation (Under Construction)
           
 
           
@@ -77,30 +77,38 @@
               
             
             
-              <p class="caption"><span class="caption-text">Technical Documentation:</span></p>
+              <p class="caption"><span class="caption-text">General:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="features.html">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data-layer.html">Data Layer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="network-structure.html">Network structure</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Node setup:</span></p>
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="node-setup.html">Node Setup instructions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="wallet-setup.html">Wallet Setup</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Configuration-setup.html">Node Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="import-data.html">Import data</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Implementation:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="implementation.html">Implementation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="data-structure-guidelines.html">Data Structure Guidelines</a></li>
 <li class="toctree-l1"><a class="reference internal" href="namespace.html">Namespace</a></li>
-<li class="toctree-l1"><a class="reference internal" href="data-layer.html">Data Layer</a></li>
-<li class="toctree-l1"><a class="reference internal" href="incentive-model.html">Incentive Model</a></li>
-<li class="toctree-l1"><a class="reference internal" href="features.html">Features</a></li>
-<li class="toctree-l1"><a class="reference internal" href="implementation.html">Implementation</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Development Documentation:</span></p>
+<p class="caption"><span class="caption-text">API:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="contribution.html">Contribution Guidelines</a></li>
-<li class="toctree-l1"><a class="reference internal" href="API.html">Import</a></li>
+<li class="toctree-l1"><a class="reference internal" href="API.html">Prerequisites:</a></li>
+<li class="toctree-l1"><a class="reference internal" href="API.html#api-purpose">API Purpose:</a></li>
+<li class="toctree-l1"><a class="reference internal" href="API.html#import">Import</a></li>
 <li class="toctree-l1"><a class="reference internal" href="API.html#replication">Replication</a></li>
+<li class="toctree-l1"><a class="reference internal" href="API.html#querynetwork">queryNetwork</a></li>
 <li class="toctree-l1"><a class="reference internal" href="API.html#read">Read</a></li>
 <li class="toctree-l1"><a class="reference internal" href="API.html#database">Database</a></li>
 <li class="toctree-l1"><a class="reference internal" href="API.html#querylocal">QueryLocal</a></li>
-<li class="toctree-l1"><a class="reference internal" href="API.html#querynetwork">queryNetwork</a></li>
 </ul>
 
             
@@ -115,7 +123,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="#">OriginTrail Node Documentation</a>
+          <a href="#">OriginTrail Documentation (Under Construction)</a>
         
       </nav>
 
@@ -168,14 +176,60 @@
   <div class="section" id="welcome-to-origintrail-documentation">
 <h1>Welcome to OriginTrail documentation!<a class="headerlink" href="#welcome-to-origintrail-documentation" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound">
-<p class="caption"><span class="caption-text">Technical Documentation:</span></p>
+<p class="caption"><span class="caption-text">General:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="introduction.html#setting-up-the-node">Setting up the Node</a></li>
-<li class="toctree-l2"><a class="reference internal" href="introduction.html#solution-provider-guidelines">Solution provider guidelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#service-provider-guidelines">Service provider guidelines</a></li>
 <li class="toctree-l2"><a class="reference internal" href="introduction.html#development-contribution">Development contribution</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="features.html">Features</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="features.html#consensus-check">Consensus check</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="features.html#consensus-check-with-zero-knowledge-proof">Consensus check with Zero Knowledge proof</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="features.html#token-staking-and-reputation">Token staking and reputation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="features.html#bidding-system">Bidding system</a></li>
+<li class="toctree-l2"><a class="reference internal" href="features.html#privacy-layer">Privacy layer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="features.html#zero-knowledge-proof">Zero knowledge proof</a></li>
+<li class="toctree-l2"><a class="reference internal" href="features.html#data-fingerprinting">Data fingerprinting</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="data-layer.html">Data Layer</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="data-layer.html#underlying-technology-and-technical-rationale">Underlying technology and technical rationale</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data-layer.html#entities-in-graph-structure-ontology">Entities in graph structure (ontology)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="data-layer.html#objects-and-objectclasses">Objects and ObjectClasses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="data-layer.html#events-and-eventclasses">Events and EventClasses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="data-layer.html#connections">Connections</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="data-layer.html#conclusion-and-future-steps">Conclusion and future steps</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="network-structure.html">Network structure</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="network-structure.html#network-entities-and-classification">Network entities and classification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="network-structure.html#data-provider">Data Provider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="network-structure.html#data-creator-node">Data Creator Node</a></li>
+<li class="toctree-l2"><a class="reference internal" href="network-structure.html#data-holder-node">Data Holder Node</a></li>
+<li class="toctree-l2"><a class="reference internal" href="network-structure.html#data-viewer">Data Viewer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="network-structure.html#service-initiation">Service initiation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="network-structure.html#servicing-period">Servicing period</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="network-structure.html#data-replication">Data replication</a></li>
+<li class="toctree-l3"><a class="reference internal" href="network-structure.html#testing-and-compensation">Testing and compensation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="network-structure.html#litigation-procedure">Litigation procedure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="network-structure.html#proving-mechanism">Proving mechanism</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="network-structure.html#querying-data">Querying data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="network-structure.html#conclusion-and-further-research">Conclusion and further research</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">Node setup:</span></p>
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="node-setup.html">Node Setup instructions</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="node-setup.html#read-me-first">Read Me First</a></li>
 <li class="toctree-l2"><a class="reference internal" href="node-setup.html#prerequisites">Prerequisites</a><ul>
@@ -213,6 +267,23 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="import-data.html">Import data</a></li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">Implementation:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="implementation.html">Implementation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="implementation.html#setting-up-a-project-on-origintrail">Setting up a Project on OriginTrail</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="implementation.html#step-1-structuring-a-use-case">Step 1: Structuring a use case</a></li>
+<li class="toctree-l3"><a class="reference internal" href="implementation.html#step-2-getting-raw-data-and-structuring-the-sample-files">Step 2: Getting raw data and structuring the sample files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="implementation.html#step-4-installing-and-setting-up-a-node">Step 4: Installing and setting up a node</a></li>
+<li class="toctree-l3"><a class="reference internal" href="implementation.html#step-5-putting-the-data-through-node">Step 5: Putting the data through Node</a></li>
+<li class="toctree-l3"><a class="reference internal" href="implementation.html#step-6-integration-of-origintrail-with-enterprise-it-system">Step 6: Integration of OriginTrail with enterprise IT system</a></li>
+<li class="toctree-l3"><a class="reference internal" href="implementation.html#step-7-utilization-of-the-data-on-odn">Step 7: Utilization of the data on ODN</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="data-structure-guidelines.html">Data Structure Guidelines</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="data-structure-guidelines.html#problem-definition">Problem definition</a></li>
 <li class="toctree-l2"><a class="reference internal" href="data-structure-guidelines.html#types-of-data-structure">Types of data structure</a><ul>
@@ -281,50 +352,10 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="data-layer.html">Data Layer</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="data-layer.html#underlying-technology-and-technical-rationale">Underlying technology and technical rationale</a></li>
-<li class="toctree-l2"><a class="reference internal" href="data-layer.html#entities-in-graph-structure-ontology">Entities in graph structure (ontology)</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="data-layer.html#objects-and-objectclasses">Objects and ObjectClasses</a></li>
-<li class="toctree-l3"><a class="reference internal" href="data-layer.html#events-and-eventclasses">Events and EventClasses</a></li>
-<li class="toctree-l3"><a class="reference internal" href="data-layer.html#connections">Connections</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="data-layer.html#conclusion-and-future-steps">Conclusion and future steps</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="incentive-model.html">Incentive Model</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="incentive-model.html#network-entities-and-classification">Network entities and classification</a></li>
-<li class="toctree-l2"><a class="reference internal" href="incentive-model.html#data-provider">Data Provider</a></li>
-<li class="toctree-l2"><a class="reference internal" href="incentive-model.html#data-creator-node">Data Creator Node</a></li>
-<li class="toctree-l2"><a class="reference internal" href="incentive-model.html#data-holder-node">Data Holder Node</a></li>
-<li class="toctree-l2"><a class="reference internal" href="incentive-model.html#data-viewer">Data Viewer</a></li>
-<li class="toctree-l2"><a class="reference internal" href="incentive-model.html#service-initiation">Service initiation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="incentive-model.html#servicing-period">Servicing period</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="incentive-model.html#data-replication">Data replication</a></li>
-<li class="toctree-l3"><a class="reference internal" href="incentive-model.html#testing-and-compensation">Testing and compensation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="incentive-model.html#litigation-procedure">Litigation procedure</a></li>
-<li class="toctree-l3"><a class="reference internal" href="incentive-model.html#proving-mechanism">Proving mechanism</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="incentive-model.html#querying-data">Querying data</a></li>
-<li class="toctree-l2"><a class="reference internal" href="incentive-model.html#conclusion-and-further-research">Conclusion and further research</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="features.html">Features</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="features.html#consensus-check">Consensus check</a></li>
-<li class="toctree-l2"><a class="reference internal" href="features.html#compensation-system">Compensation system</a></li>
-<li class="toctree-l2"><a class="reference internal" href="features.html#token-staking-and-reputation">Token staking and reputation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="features.html#bidding-system">Bidding system</a></li>
-<li class="toctree-l2"><a class="reference internal" href="features.html#privacy-layer">Privacy layer</a></li>
-<li class="toctree-l2"><a class="reference internal" href="features.html#zero-knowledge-proof">Zero knowledge proof</a></li>
-<li class="toctree-l2"><a class="reference internal" href="features.html#data-fingerprinting">Data fingerprinting</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="implementation.html">Implementation</a></li>
 </ul>
 </div>
 <div class="toctree-wrapper compound">
-<p class="caption"><span class="caption-text">Development Documentation:</span></p>
+<p class="caption"><span class="caption-text">API:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="contribution.html">Contribution Guidelines</a><ul>
@@ -339,7 +370,9 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="API.html">Import</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="API.html">Prerequisites:</a></li>
+<li class="toctree-l1"><a class="reference internal" href="API.html#api-purpose">API Purpose:</a></li>
+<li class="toctree-l1"><a class="reference internal" href="API.html#import">Import</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="API.html#import-post">/import <code class="docutils literal notranslate"><span class="pre">POST</span></code></a><ul>
 <li class="toctree-l3"><a class="reference internal" href="API.html#parameters">Parameters</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="API.html#importfile-required">Importfile <code class="docutils literal notranslate"><span class="pre">required</span></code></a></li>
@@ -370,71 +403,72 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="API.html#querynetwork">queryNetwork</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="API.html#query-network-post">/query/network <code class="docutils literal notranslate"><span class="pre">POST</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="API.html#id5">Responses</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="API.html#query-query-id-responses-get">/query/{query_id}/responses <code class="docutils literal notranslate"><span class="pre">GET</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="API.html#id6">Responses</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="API.html#query-network-query-param-get">/query/network/{query_param} <code class="docutils literal notranslate"><span class="pre">GET</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="API.html#id7">Responses</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="API.html#read">Read</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="API.html#read-network-post">/read/network <code class="docutils literal notranslate"><span class="pre">POST</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="API.html#id5">Parameters</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="API.html#id8">Parameters</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="API.html#query-id-required">query_id <code class="docutils literal notranslate"><span class="pre">required</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="API.html#reply-id-required">reply_id <code class="docutils literal notranslate"><span class="pre">required</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="API.html#id6">Responses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API.html#id9">Responses</a></li>
 </ul>
 </li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="API.html#database">Database</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="API.html#trail-get">/trail <code class="docutils literal notranslate"><span class="pre">GET</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="API.html#id7">Parameters</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="API.html#id10">Parameters</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="API.html#queryobject-required">queryObject <code class="docutils literal notranslate"><span class="pre">required</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="API.html#id8">Responses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API.html#id11">Responses</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="API.html#fingerprint-get">/fingerprint <code class="docutils literal notranslate"><span class="pre">GET</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="API.html#id9">Parameters</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="API.html#id12">Parameters</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="API.html#dc-wallet-required">dc_wallet <code class="docutils literal notranslate"><span class="pre">required</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="API.html#id10">import_id <code class="docutils literal notranslate"><span class="pre">required</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="API.html#id13">import_id <code class="docutils literal notranslate"><span class="pre">required</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="API.html#id11">Responses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API.html#id14">Responses</a></li>
 </ul>
 </li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="API.html#querylocal">QueryLocal</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="API.html#query-local-post">/query/local <code class="docutils literal notranslate"><span class="pre">POST</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="API.html#id12">Parameters</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="API.html#id15">Parameters</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="API.html#query-required">query <code class="docutils literal notranslate"><span class="pre">required</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="API.html#id13">Responses</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="API.html#query-local-import-post">/query/local/import <code class="docutils literal notranslate"><span class="pre">POST</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="API.html#id14">Parameters</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="API.html#id15">import_id <code class="docutils literal notranslate"><span class="pre">required</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="API.html#id16">Responses</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="API.html#query-local-import-import-id-post">/query/local/import:{import_id} <code class="docutils literal notranslate"><span class="pre">POST</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="API.html#id17">Parameters</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="API.html#id18">import_id <code class="docutils literal notranslate"><span class="pre">required</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="API.html#query-local-import-post">/query/local/import <code class="docutils literal notranslate"><span class="pre">POST</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="API.html#id17">Parameters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API.html#id18">Responses</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="API.html#id19">Responses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="API.html#query-local-import-import-id-get">/query/local/import:{import_id} <code class="docutils literal notranslate"><span class="pre">GET</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="API.html#id19">Parameters</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="API.html#id20">import_id <code class="docutils literal notranslate"><span class="pre">required</span></code></a></li>
 </ul>
 </li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="API.html#querynetwork">queryNetwork</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="API.html#query-network-post">/query/network <code class="docutils literal notranslate"><span class="pre">POST</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="API.html#id20">Responses</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="API.html#query-network-query-param-get">/query/network/{query_param} <code class="docutils literal notranslate"><span class="pre">GET</span></code></a><ul>
 <li class="toctree-l3"><a class="reference internal" href="API.html#id21">Responses</a></li>
 </ul>
 </li>

@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Data Structure Guidelines &mdash; OriginTrail Node Documentation 0.9.0 documentation</title>
+  <title>Data Structure Guidelines &mdash; OriginTrail Documentation (Under Construction) 0.9.0 documentation</title>
   
 
   
@@ -29,7 +29,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Namespace" href="namespace.html" />
-    <link rel="prev" title="Import data" href="import-data.html" /> 
+    <link rel="prev" title="Implementation" href="implementation.html" /> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -48,7 +48,7 @@
           
 
           
-            <a href="index.html" class="icon icon-home"> OriginTrail Node Documentation
+            <a href="index.html" class="icon icon-home"> OriginTrail Documentation (Under Construction)
           
 
           
@@ -78,14 +78,23 @@
               
             
             
-              <p class="caption"><span class="caption-text">Contents:</span></p>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="introduction.html">How to set up OriginTrail Data sharing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="introduction.html#contribution">Contribution</a></li>
+              <p class="caption"><span class="caption-text">General:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="features.html">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data-layer.html">Data Layer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="network-structure.html">Network structure</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Node setup:</span></p>
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="node-setup.html">Node Setup instructions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="wallet-setup.html">Wallet Setup</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Configuration-setup.html">Node Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="import-data.html">Import data</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Implementation:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="implementation.html">Implementation</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Data Structure Guidelines</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#problem-definition">Problem definition</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#types-of-data-structure">Types of data structure</a><ul>
@@ -111,8 +120,19 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="namespace.html">Namespace</a></li>
-<li class="toctree-l1"><a class="reference internal" href="data-layer.html">Data Layer</a></li>
-<li class="toctree-l1"><a class="reference internal" href="incentive-model.html">Incentive Model</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contribution.html">Contribution Guidelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="API.html">Prerequisites:</a></li>
+<li class="toctree-l1"><a class="reference internal" href="API.html#api-purpose">API Purpose:</a></li>
+<li class="toctree-l1"><a class="reference internal" href="API.html#import">Import</a></li>
+<li class="toctree-l1"><a class="reference internal" href="API.html#replication">Replication</a></li>
+<li class="toctree-l1"><a class="reference internal" href="API.html#querynetwork">queryNetwork</a></li>
+<li class="toctree-l1"><a class="reference internal" href="API.html#read">Read</a></li>
+<li class="toctree-l1"><a class="reference internal" href="API.html#database">Database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="API.html#querylocal">QueryLocal</a></li>
 </ul>
 
             
@@ -127,7 +147,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">OriginTrail Node Documentation</a>
+          <a href="index.html">OriginTrail Documentation (Under Construction)</a>
         
       </nav>
 
@@ -375,32 +395,32 @@ cases should utilize GS1 identifiers for values (GLN,GTIN…). For
 example, instead value <code class="docutils literal notranslate"><span class="pre">urn:epc:id:sgln:Building_Green</span></code> there should
 be GLN number like <code class="docutils literal notranslate"><span class="pre">urn:epc:id:sgln:0614141.12345.0</span></code>.</p>
 <div class="section" id="basic-sales-example">
-<span id="id2"></span><h3>1. Basic sales example<a class="headerlink" href="#basic-sales-example" title="Permalink to this headline">¶</a></h3>
+<h3>1. Basic sales example<a class="headerlink" href="#basic-sales-example" title="Permalink to this headline">¶</a></h3>
 <p><strong>Supply chain participants map:</strong></p>
-<p><img alt="Basic sales example" src="https://github.com/OriginTrail/ot-node/blob/develop/importers/xml_examples/Basic/Basic_sale.jpg" /></p>
+<a class="reference external image-reference" href="https://raw.githubusercontent.com/OriginTrail/ReadTheDocs/master/source/"><img alt="_images/Basic_sale.jpg" src="_images/Basic_sale.jpg" style="width: 600px;" /></a>
 <p><strong>Use case:</strong> Green is producing wine and selling it to Pink. Shipping
 and receiving events are generating data that is being processed on ODN.</p>
 <p><strong>GS1 EPCIS design:</strong></p>
-<p><img alt="EPCIS design1" src="https://github.com/OriginTrail/ot-node/blob/develop/importers/xml_examples/Basic/Design.JPG" /></p>
+<a class="reference external image-reference" href="https://raw.githubusercontent.com/OriginTrail/ReadTheDocs/master/source/"><img alt="_images/Design.JPG" src="_images/Design.JPG" style="width: 600px;" /></a>
 <p><a class="reference external" href="https://github.com/OriginTrail/ot-node/blob/develop/importers/xml_examples/">Sample files</a></p>
 </div>
 <div class="section" id="complex-manufacturer-distributor-retail-mdr-sale">
-<span id="id3"></span><h3>2. Complex manufacturer-distributor-retail (MDR) sale<a class="headerlink" href="#complex-manufacturer-distributor-retail-mdr-sale" title="Permalink to this headline">¶</a></h3>
+<h3>2. Complex manufacturer-distributor-retail (MDR) sale<a class="headerlink" href="#complex-manufacturer-distributor-retail-mdr-sale" title="Permalink to this headline">¶</a></h3>
 <p><strong>Supply chain participants map:</strong></p>
-<p><img alt="MDR example" src="https://github.com/OriginTrail/ot-node/blob/develop/importers/xml_examples/Retail/Complex_manufacturer-distributor-retail_(MDR)_sale.jpg" /></p>
+<a class="reference external image-reference" href="https://raw.githubusercontent.com/OriginTrail/ReadTheDocs/master/source/"><img alt="_images/MDR.jpg" src="_images/MDR.jpg" style="width: 600px;" /></a>
 <p><strong>Use case:</strong> Green is producing wine and selling it to Pink. Pink is
 distributing (selling) wine to retail shop (Orange). Batches on Pink are
 sold partially. Shipping and receiving events are generating data that
 is being processed on ODN.</p>
 <p><a class="reference external" href="https://github.com/OriginTrail/ot-node/blob/develop/importers/xml_examples/Retail/Design.JPG">GS1 EPCIS design:</a></p>
-<p><img alt="EPCIS design2" src="https://github.com/OriginTrail/ot-node/blob/develop/importers/xml_examples/Retail/Design.JPG" /></p>
+<a class="reference external image-reference" href="https://raw.githubusercontent.com/OriginTrail/ReadTheDocs/master/source/"><img alt="_images/DesignMDR.JPG" src="_images/DesignMDR.JPG" style="width: 600px;" /></a>
 <p><a class="reference external" href="https://github.com/OriginTrail/ot-node/blob/develop/importers/xml_examples/Retail/">Sample
 files</a></p>
 </div>
 <div class="section" id="mdr-with-zero-knowledge-proof">
-<span id="id4"></span><h3>3. MDR with zero knowledge proof<a class="headerlink" href="#mdr-with-zero-knowledge-proof" title="Permalink to this headline">¶</a></h3>
+<span id="id2"></span><h3>3. MDR with zero knowledge proof<a class="headerlink" href="#mdr-with-zero-knowledge-proof" title="Permalink to this headline">¶</a></h3>
 <p><strong>Supply chain participants map:</strong></p>
-<p><img alt="MDR with Zk" src="https://github.com/OriginTrail/ot-node/blob/develop/importers/xml_examples/Retail_with_Zk/Complex_manufacturer-distributor-retail_(MDR)_sale.jpg" /></p>
+<a class="reference external image-reference" href="https://raw.githubusercontent.com/OriginTrail/ReadTheDocs/master/source/"><img alt="_images/MDR.jpg" src="_images/MDR.jpg" style="width: 600px;" /></a>
 <p><strong>Use case:</strong> Green is producing wine and selling it to Pink. Pink is
 distributing (selling) wine to retail shop (Orange). Batches on Pink are
 sold partially. Zero knowledge proof for mass balance must be utilized.
@@ -411,13 +431,15 @@ scenario. There are additional steps and constraints when this feature
 is utilized. Purpose of this scenario is to point out differences in
 data structure. There are minor differences in quantity being sold from
 Pink (some quantity is left unsold on Pink location).</p>
-<p><strong>GS1 EPCIS design:</strong> <img alt="EPCIS design3" src="https://github.com/OriginTrail/ot-node/blob/develop/importers/xml_examples/Retail_with_Zk/Design.jpg" /></p>
+<p><strong>GS1 EPCIS design:</strong></p>
+<a class="reference external image-reference" href="https://raw.githubusercontent.com/OriginTrail/ReadTheDocs/master/source/"><img alt="_images/DesignMDR.JPG" src="_images/DesignMDR.JPG" style="width: 600px;" /></a>
 <p><a class="reference external" href="https://github.com/OriginTrail/ot-node/blob/develop/importers/xml_examples/Retail_with_Zk/">Sample
 files</a></p>
 </div>
 <div class="section" id="mdr-with-aggregation-events">
-<span id="id5"></span><h3>4. MDR with aggregation events<a class="headerlink" href="#mdr-with-aggregation-events" title="Permalink to this headline">¶</a></h3>
-<p><strong>Supply chain participants map:</strong> <img alt="MDR with Aggregation" src="https://github.com/OriginTrail/ot-node/blob/develop/importers/xml_examples/Retail_with_aggregation/MDR_with_aggregation_events.jpg" /></p>
+<span id="id3"></span><h3>4. MDR with aggregation events<a class="headerlink" href="#mdr-with-aggregation-events" title="Permalink to this headline">¶</a></h3>
+<p><strong>Supply chain participants map:</strong></p>
+<a class="reference external image-reference" href="https://raw.githubusercontent.com/OriginTrail/ReadTheDocs/master/source/"><img alt="_images/MDRagg.jpg" src="_images/MDRagg.jpg" style="width: 600px;" /></a>
 <p><strong>Use case:</strong> Green is producing wine (one product with several
 batches). Products are packed on pallet. One pallet can have several
 batches. Green is selling products to Pink. Pink is distributing
@@ -428,7 +450,8 @@ pallets to Orange. Orange unpacks pallets when they receive them.
 Pallets can be partially or completely unpacked. Shipping, receiving,
 packing and unpacking events are generating data that is being processed
 on ODN.</p>
-<p><strong>GS1 EPCIS design:</strong> <img alt="EPCIS design3" src="https://github.com/OriginTrail/ot-node/blob/develop/importers/xml_examples/Retail_with_Zk/Design.jpg" /></p>
+<p><strong>GS1 EPCIS design:</strong></p>
+<a class="reference external image-reference" href="https://raw.githubusercontent.com/OriginTrail/ReadTheDocs/master/source/"><img alt="_images/DesignMDR.JPG" src="_images/DesignMDR.JPG" style="width: 600px;" /></a>
 <p><a class="reference external" href="https://github.com/OriginTrail/ot-node/blob/develop/importers/xml_examples/">Sample files</a></p>
 </div>
 </div>
@@ -445,7 +468,7 @@ on ODN.</p>
         <a href="namespace.html" class="btn btn-neutral float-right" title="Namespace" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="import-data.html" class="btn btn-neutral" title="Import data" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="implementation.html" class="btn btn-neutral" title="Implementation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

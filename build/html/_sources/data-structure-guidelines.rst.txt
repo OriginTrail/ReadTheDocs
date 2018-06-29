@@ -216,32 +216,35 @@ cases should utilize GS1 identifiers for values (GLN,GTIN...). For
 example, instead value ``urn:epc:id:sgln:Building_Green`` there should
 be GLN number like ``urn:epc:id:sgln:0614141.12345.0``.
 
-.. _1-basic-sales-example:
-
 1. Basic sales example
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 **Supply chain participants map:**
 
-|Basic sales example|
+.. image:: Basic_sale.jpg
+   :target: https://raw.githubusercontent.com/OriginTrail/ReadTheDocs/master/source/
+   :width: 600px
 
 **Use case:** Green is producing wine and selling it to Pink. Shipping
 and receiving events are generating data that is being processed on ODN.
 
 **GS1 EPCIS design:**
 
-|EPCIS design1|
+.. image:: Design.JPG
+   :target: https://raw.githubusercontent.com/OriginTrail/ReadTheDocs/master/source/
+   :width: 600px
 
 `Sample files`_
 
-.. _2-complex-manufacturer-distributor-retail-mdr-sale:
 
 2. Complex manufacturer-distributor-retail (MDR) sale
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 **Supply chain participants map:**
 
-|MDR example|
+.. image:: MDR.jpg
+   :target: https://raw.githubusercontent.com/OriginTrail/ReadTheDocs/master/source/
+   :width: 600px
 
 **Use case:** Green is producing wine and selling it to Pink. Pink is
 distributing (selling) wine to retail shop (Orange). Batches on Pink are
@@ -250,7 +253,9 @@ is being processed on ODN.
 
 `GS1 EPCIS design:`_
 
-|EPCIS design2|
+.. image:: DesignMDR.JPG
+   :target: https://raw.githubusercontent.com/OriginTrail/ReadTheDocs/master/source/
+   :width: 600px
 
 `Sample
 files <https://github.com/OriginTrail/ot-node/blob/develop/importers/xml_examples/Retail/>`__
@@ -262,7 +267,9 @@ files <https://github.com/OriginTrail/ot-node/blob/develop/importers/xml_example
 
 **Supply chain participants map:**
 
-|MDR with Zk|
+.. image:: MDR.jpg
+   :target: https://raw.githubusercontent.com/OriginTrail/ReadTheDocs/master/source/
+   :width: 600px
 
 **Use case:** Green is producing wine and selling it to Pink. Pink is
 distributing (selling) wine to retail shop (Orange). Batches on Pink are
@@ -276,7 +283,11 @@ is utilized. Purpose of this scenario is to point out differences in
 data structure. There are minor differences in quantity being sold from
 Pink (some quantity is left unsold on Pink location).
 
-**GS1 EPCIS design:** |EPCIS design3|
+**GS1 EPCIS design:**
+
+.. image:: DesignMDR.JPG
+   :target: https://raw.githubusercontent.com/OriginTrail/ReadTheDocs/master/source/
+   :width: 600px
 
 `Sample
 files <https://github.com/OriginTrail/ot-node/blob/develop/importers/xml_examples/Retail_with_Zk/>`__
@@ -286,7 +297,11 @@ files <https://github.com/OriginTrail/ot-node/blob/develop/importers/xml_example
 4. MDR with aggregation events
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-**Supply chain participants map:** |MDR with Aggregation|
+**Supply chain participants map:** 
+
+.. image:: MDRagg.jpg
+   :target: https://raw.githubusercontent.com/OriginTrail/ReadTheDocs/master/source/
+   :width: 600px
 
 **Use case:** Green is producing wine (one product with several
 batches). Products are packed on pallet. One pallet can have several
@@ -299,8 +314,12 @@ Pallets can be partially or completely unpacked. Shipping, receiving,
 packing and unpacking events are generating data that is being processed
 on ODN.
 
-**GS1 EPCIS design:** |EPCIS design3|
+**GS1 EPCIS design:** 
 
+.. image:: DesignMDR.JPG
+   :target: https://raw.githubusercontent.com/OriginTrail/ReadTheDocs/master/source/
+   :width: 600px
+   
 `Sample files`_
 
 .. |Basic sales example| image:: https://github.com/OriginTrail/ot-node/blob/develop/importers/xml_examples/Basic/Basic_sale.jpg

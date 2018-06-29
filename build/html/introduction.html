@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Introduction &mdash; OriginTrail Node Documentation 0.9.0 documentation</title>
+  <title>Introduction &mdash; OriginTrail Documentation (Under Construction) 0.9.0 documentation</title>
   
 
   
@@ -28,7 +28,7 @@
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Node Setup instructions" href="node-setup.html" />
+    <link rel="next" title="Features" href="features.html" />
     <link rel="prev" title="Welcome to OriginTrail documentation!" href="index.html" /> 
 
   
@@ -48,7 +48,7 @@
           
 
           
-            <a href="index.html" class="icon icon-home"> OriginTrail Node Documentation
+            <a href="index.html" class="icon icon-home"> OriginTrail Documentation (Under Construction)
           
 
           
@@ -78,30 +78,46 @@
               
             
             
-              <p class="caption"><span class="caption-text">Technical Documentation:</span></p>
+              <p class="caption"><span class="caption-text">General:</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Introduction</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#setting-up-the-node">Setting up the Node</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#solution-provider-guidelines">Solution provider guidelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#service-provider-guidelines">Service provider guidelines</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#development-contribution">Development contribution</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="features.html">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data-layer.html">Data Layer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="incentive-model.html">Network structure</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Node setup:</span></p>
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="node-setup.html">Node Setup instructions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="wallet-setup.html">Wallet Setup</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Configuration-setup.html">Node Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="import-data.html">Import data</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Implementation:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="implementation.html">Implementation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="data-structure-guidelines.html">Data Structure Guidelines</a></li>
 <li class="toctree-l1"><a class="reference internal" href="namespace.html">Namespace</a></li>
-<li class="toctree-l1"><a class="reference internal" href="data-layer.html">Data Layer</a></li>
-<li class="toctree-l1"><a class="reference internal" href="incentive-model.html">Incentive Model</a></li>
-<li class="toctree-l1"><a class="reference internal" href="features.html">Features</a></li>
-<li class="toctree-l1"><a class="reference internal" href="implementation.html">Implementation</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Development Documentation:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="contribution.html">Contribution</a></li>
-<li class="toctree-l1"><a class="reference internal" href="API.html">IMPORT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contribution.html">Contribution Guidelines</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="API.html">Prerequisites:</a></li>
+<li class="toctree-l1"><a class="reference internal" href="API.html#api-purpose">API Purpose:</a></li>
+<li class="toctree-l1"><a class="reference internal" href="API.html#import">Import</a></li>
+<li class="toctree-l1"><a class="reference internal" href="API.html#replication">Replication</a></li>
+<li class="toctree-l1"><a class="reference internal" href="API.html#querynetwork">queryNetwork</a></li>
+<li class="toctree-l1"><a class="reference internal" href="API.html#read">Read</a></li>
+<li class="toctree-l1"><a class="reference internal" href="API.html#database">Database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="API.html#querylocal">QueryLocal</a></li>
 </ul>
 
             
@@ -116,7 +132,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">OriginTrail Node Documentation</a>
+          <a href="index.html">OriginTrail Documentation (Under Construction)</a>
         
       </nav>
 
@@ -169,45 +185,35 @@
   <p id="introduction">Company Website: <a class="reference external" href="https://origintrail.io">origintrail.io</a></p>
 <div class="section" id="id1">
 <h1>Introduction<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
-<p><strong>OriginTrail is building first Purpose-built Protocol for Supply Chains
+<p><strong>OriginTrail is the first Purpose-built Protocol for Supply Chains
 Based on Blockchain.</strong></p>
-<p>This is technical documentation for open-source OriginTrail protocol.
-Please keep in mind that protocol is currently in TestNet (Beta) version.
+<p>Please keep in mind that the protocol is currently in Testnet (Beta) stage.
 There are some limitations and work-in-progress.
-<strong>Main Network</strong> is scheduled for Q3 2018. For further information about
+The <strong>Main Network</strong> is scheduled for Q3 2018. For further information about
 our roadmap please see our <a class="reference external" href="https://origintrail.io/roadmap">website</a> for more detailed development plans.</p>
-<p>Documentation is aimed towards three groups of readers:</p>
+<p>The documentation is aimed towards three groups of readers:</p>
 <ul class="simple">
-<li>Node holders</li>
-<li>Service providers</li>
-<li>Developers</li>
+<li>Node runners</li>
+<li>Supply chain service providers</li>
+<li>Software Developers</li>
 </ul>
-<p>Everybody are welcome to explore whole content of this documentation.</p>
 <div class="section" id="setting-up-the-node">
 <h2>Setting up the Node<a class="headerlink" href="#setting-up-the-node" title="Permalink to this headline">¶</a></h2>
-<p>In order to be part of OriginTrail Decentralized Network (ODN), you
-need to install the Node. For detailed instructions for installation and
-configuration of OriginTrail Node visit following sections:</p>
+<p>In order to be part of OriginTrail Decentralized Network (ODN), you need to install the Node. For detailed instructions on installation and configuration of an OriginTrail node visit following sections:</p>
 <ul class="simple">
-<li>Start with creating your wallet address <a class="reference internal" href="wallet-setup.html#wallet-setup"><span class="std std-ref">Wallet Setup</span></a></li>
-<li>Then <a class="reference internal" href="node-setup.html#node-setup"><span class="std std-ref">Node Setup instructions</span></a></li>
+<li>Start with <a class="reference internal" href="node-setup.html#node-setup"><span class="std std-ref">Node Setup instructions</span></a></li>
 <li>Refer to <a class="reference internal" href="Configuration-setup.html#configuration-setup"><span class="std std-ref">Node Configuration</span></a></li>
 <li>Finally <a class="reference internal" href="import-data.html#import-data"><span class="std std-ref">Import data</span></a>.</li>
 </ul>
 </div>
-<div class="section" id="solution-provider-guidelines">
-<h2>Solution provider guidelines<a class="headerlink" href="#solution-provider-guidelines" title="Permalink to this headline">¶</a></h2>
-<p>SP are companies that provide supply chain management solutions and consulting or
-advisory services to help their clients improve efficiencies, enhance product
-and consumer safety and brand protection activities to name a few.
-Please visit <a class="reference internal" href="implementation.html#implementation"><span class="std std-ref">Implementation</span></a> guidelines for more resources.</p>
+<div class="section" id="service-provider-guidelines">
+<h2>Service provider guidelines<a class="headerlink" href="#service-provider-guidelines" title="Permalink to this headline">¶</a></h2>
+<p>Service providers are companies that provide supply chain management solutions, consulting or advisory services to help their clients improve efficiencies, enhance product and consumer safety and brand protection activities to name a few. Please visit <a class="reference internal" href="implementation.html#implementation"><span class="std std-ref">Implementation</span></a> guidelines for more resources.</p>
 </div>
 <div class="section" id="development-contribution">
 <h2>Development contribution<a class="headerlink" href="#development-contribution" title="Permalink to this headline">¶</a></h2>
-<p>OriginTrail network is an open source project. We happily invite you to
-join us in our mission of building decentralised world of supply chain.
-If you would like to contribute, you are more than welcome.</p>
-<p>For more information please take a look at <a class="reference internal" href="contribution.html#contribution"><span class="std std-ref">Contribution</span></a></p>
+<p>OriginTrail is an open source project. We happily invite you to join us in our mission of building the protocol to establish more transparency within global supply chains.</p>
+<p>For more information please take a look at <a class="reference internal" href="contribution.html#contribution"><span class="std std-ref">Contribution Guidelines</span></a></p>
 </div>
 </div>
 
@@ -219,7 +225,7 @@ If you would like to contribute, you are more than welcome.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="node-setup.html" class="btn btn-neutral float-right" title="Node Setup instructions" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="features.html" class="btn btn-neutral float-right" title="Features" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="index.html" class="btn btn-neutral" title="Welcome to OriginTrail documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

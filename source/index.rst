@@ -14,7 +14,7 @@ Welcome to OriginTrail documentation!
    introduction
    features
    data-layer
-   incentive-model
+   network-structure
 
 .. toctree::
    :maxdepth: 10
@@ -32,18 +32,13 @@ Welcome to OriginTrail documentation!
    implementation
    data-structure-guidelines
    namespace
-   
-.. toctree::
-   :maxdepth: 10
-   :caption: Development Documentation:
 
-   intro
-   contribution
-   
 .. toctree::
    :maxdepth: 10
    :caption: API:
 
+   intro
+   contribution
    API
 
 Indices and tables

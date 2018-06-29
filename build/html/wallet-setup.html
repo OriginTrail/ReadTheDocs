@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Wallet Setup &mdash; OriginTrail Node Documentation 0.9.0 documentation</title>
+  <title>Wallet Setup &mdash; OriginTrail Documentation (Under Construction) 0.9.0 documentation</title>
   
 
   
@@ -48,7 +48,7 @@
           
 
           
-            <a href="index.html" class="icon icon-home"> OriginTrail Node Documentation
+            <a href="index.html" class="icon icon-home"> OriginTrail Documentation (Under Construction)
           
 
           
@@ -78,10 +78,15 @@
               
             
             
-              <p class="caption"><span class="caption-text">Contents:</span></p>
+              <p class="caption"><span class="caption-text">General:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="features.html">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data-layer.html">Data Layer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="incentive-model.html">Network structure</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Node setup:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="introduction.html">How to set up OriginTrail Data sharing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="introduction.html#contribution">Contribution</a></li>
 <li class="toctree-l1"><a class="reference internal" href="node-setup.html">Node Setup instructions</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Wallet Setup</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#metamask">Metamask</a></li>
@@ -91,10 +96,28 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="Configuration-setup.html">Node Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="import-data.html">Import data</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Implementation:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="implementation.html">Implementation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="data-structure-guidelines.html">Data Structure Guidelines</a></li>
 <li class="toctree-l1"><a class="reference internal" href="namespace.html">Namespace</a></li>
-<li class="toctree-l1"><a class="reference internal" href="data-layer.html">Data Layer</a></li>
-<li class="toctree-l1"><a class="reference internal" href="incentive-model.html">Incentive Model</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Development Documentation:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contribution.html">Contribution Guidelines</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="API.html">Prerequisites:</a></li>
+<li class="toctree-l1"><a class="reference internal" href="API.html#api-purpose">API Purpose:</a></li>
+<li class="toctree-l1"><a class="reference internal" href="API.html#import">Import</a></li>
+<li class="toctree-l1"><a class="reference internal" href="API.html#replication">Replication</a></li>
+<li class="toctree-l1"><a class="reference internal" href="API.html#querynetwork">queryNetwork</a></li>
+<li class="toctree-l1"><a class="reference internal" href="API.html#read">Read</a></li>
+<li class="toctree-l1"><a class="reference internal" href="API.html#database">Database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="API.html#querylocal">QueryLocal</a></li>
 </ul>
 
             
@@ -109,7 +132,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">OriginTrail Node Documentation</a>
+          <a href="index.html">OriginTrail Documentation (Under Construction)</a>
         
       </nav>
 
@@ -162,9 +185,10 @@
   <div class="section" id="wallet-setup">
 <span id="id1"></span><h1>Wallet Setup<a class="headerlink" href="#wallet-setup" title="Permalink to this headline">¶</a></h1>
 <p>You can check out the <a class="reference external" href="https://youtu.be/1UaB8OG_lgw">video</a> for this section.</p>
-<p>In order to test the OT node you have to setup your wallet and connect
-to <strong>Rinkeby Test Network</strong> node. We are in the test phase, so no real
-currency is involved.</p>
+<p>TRAC token that is required for OriginTrail Decentralized Network is based on ERC20 standard that utilizes Ethereum network. In order to utilize the ODN you will need <strong>both TRAC and ETH tokens</strong> on your wallet. ERC20 standard enables use of one wallet for both crypto currencies.</p>
+<p>ODN testnet is based on Ethereum test network Rinkeby and Alpha Trac tokens (ATRAC). We strongly advise use of dedicated wallet for ODN TestNet for security reasons. Please don’t store real TRAC tokens and ETH on that wallet in this stage. ATRAC and Rinkeby ETH have no commercial value.</p>
+<p>OriginTrail is not responsible for setup and use of wallets and related software. We also do not provide support for this software.</p>
+<p>If you need ATRAC token, please send us email on <a class="reference external" href="mailto:support&#37;&#52;&#48;origin-trail&#46;com">support<span>&#64;</span>origin-trail<span>&#46;</span>com</a> with your wallet address. You can also visit our <a class="reference external" href="http://www.origintrail.io/faucet">faucet</a> <a class="reference external" href="http://www.origintrail.io/faucet">faucet</a></p>
 <div class="section" id="metamask">
 <h2>Metamask<a class="headerlink" href="#metamask" title="Permalink to this headline">¶</a></h2>
 <p>The easiest way to do this is to install <strong>MetaMask</strong>. MetaMask is a

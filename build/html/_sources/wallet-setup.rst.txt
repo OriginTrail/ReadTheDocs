@@ -5,9 +5,13 @@ Wallet Setup
 
 You can check out the `video`_ for this section.
 
-In order to test the OT node you have to setup your wallet and connect
-to **Rinkeby Test Network** node. We are in the test phase, so no real
-currency is involved.
+TRAC token that is required for OriginTrail Decentralized Network is based on ERC20 standard that utilizes Ethereum network. In order to utilize the ODN you will need **both TRAC and ETH tokens** on your wallet. ERC20 standard enables use of one wallet for both crypto currencies.
+
+ODN testnet is based on Ethereum test network Rinkeby and Alpha Trac tokens (ATRAC). We strongly advise use of dedicated wallet for ODN TestNet for security reasons. Please don't store real TRAC tokens and ETH on that wallet in this stage. ATRAC and Rinkeby ETH have no commercial value.
+
+OriginTrail is not responsible for setup and use of wallets and related software. We also do not provide support for this software.
+
+If you need ATRAC token, please send us email on support@origin-trail.com with your wallet address. You can also visit our `faucet`_ `faucet`_ 
 
 Metamask
 ~~~~~~~~
@@ -57,6 +61,6 @@ Once you get Ether on your account, you will be able to see new balance
 in MetaMask.
 
 .. _here: http://github.com/OriginTrail/ot-yimishiji-pilot/wiki/Usage
-
 .. _video: https://youtu.be/1UaB8OG_lgw
 .. _metamask.io: https://metamask.io/
+.. _faucet: http://www.origintrail.io/faucet 
