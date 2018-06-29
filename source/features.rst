@@ -14,13 +14,14 @@ stakeholders.
 The check is performed in several steps:
 **Step 1.** Each stakeholder has to be approved by the previous and the following supply chain
 stakeholder, creating a chain of accountability.
+
 **Step 2.** Matching of dynamic batch information is verified, including the critical information
 of batch identifiers, appropriate timestamps and transactional data. As this step involves
-company private data (e.g. quantities of sales), a Zero Knowledge Proof
-6 mechanism
+company private data (e.g. quantities of sales), a Zero Knowledge Proof mechanism
 implementation will provide a way to check that private information matching is
 provable without revealing the information itself. Other dynamic data may include data
 collected from sensors and compliance data.
+
 **Step 3.** As an additional layer of credibility, auditing and compliance organisations can
 validate data by supplying their confirmations.
 
@@ -77,10 +78,12 @@ The payment mechanism is now extended to support the ability to perform trustles
 
 Privacy layer
 -------------
+
 As we have entered the final phases of the alpha development period, we are able to take the observations over the previous period and incorporate the findings into the development roadmap as we go. We have, so far, iterated successfully on several components of the system — the bidding mechanism, privacy layer, underlying database systems, network communication and importer. Explorer now supports more features on the privacy layer, which includes the zero-knowledge algorithm published a month ago in Zond. It brings the ability to handle private data within the system in such a way that the owner can retain control of the information by their DC (data creator) node, while publishing cryptographic commitments in the system to the DH (data holder) nodes involved in replication. This first iteration is just the beginning of further developments in the privacy layer, which is one of the most important components of the OriginTrail protocol.
 
 Zero knowledge proof
 --------------------
+
 One of the major problems we have identified in more than seven years of working in the industry is the ability to validate that a supply chain has a consistent balance when it comes to the quantity or mass of the raw materials and semi-products moving through the chain.
 
 There are several reasons for this:
@@ -114,6 +117,7 @@ When it comes to the zero-knowledge implementation in the ODN, the Lunar Orbiter
 
 Data fingerprinting
 -------------------
+
 The fingerprinting functionality has also been upgraded to utilize Merkle tree hashing in order to allow for flexible blockchain layer validation. It is now possible to fingerprint a graph of arbitrary size on the Ethereum blockchain, which allows for fine-tuning the tradeoff between storing less fingerprints per kilobyte (to save on ETH) and requiring lighter reads from the system in order to validate the integrity of the information.
 
 At this moment, all the blockchain functionality is being tailored for Ethereum, but the code is structured in a way that abstracts (virtualizes) the blockchain implementation. This means that interfaces can be written to other blockchains without requiring changes to the rest of the system. This could provide a lot of value to the protocol. Becoming less dependent on a single chain could make the protocol attractive for markets that prefer non-Ethereum blockchains, and bring robustness and potential for lowering cost should one of the mainstream blockchains become highly volatile for some reason.
