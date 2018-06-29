@@ -28,7 +28,7 @@
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="Contribution" href="contribution.html" /> 
+    <link rel="prev" title="Contribution Guidelines" href="contribution.html" /> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -94,7 +94,7 @@
 <p class="caption"><span class="caption-text">Development Documentation:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="contribution.html">Contribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contribution.html">Contribution Guidelines</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Import</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#import-post">/import <code class="docutils literal notranslate"><span class="pre">POST</span></code></a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#parameters">Parameters</a><ul>
@@ -114,6 +114,84 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#id2">Responses</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#replication-replication-id">/replication/ :{replication_id}</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id3">Parameters</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#replication-id-required">replication_id <code class="docutils literal notranslate"><span class="pre">required</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">Responses</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#read">Read</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#read-network-post">/read/network <code class="docutils literal notranslate"><span class="pre">POST</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id5">Parameters</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#query-id-required">query_id <code class="docutils literal notranslate"><span class="pre">required</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#reply-id-required">reply_id <code class="docutils literal notranslate"><span class="pre">required</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">Responses</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#database">Database</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#trail-get">/trail <code class="docutils literal notranslate"><span class="pre">GET</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id7">Parameters</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#queryobject-required">queryObject <code class="docutils literal notranslate"><span class="pre">required</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id8">Responses</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#fingerprint-get">/fingerprint <code class="docutils literal notranslate"><span class="pre">GET</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id9">Parameters</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#dc-wallet-required">dc_wallet <code class="docutils literal notranslate"><span class="pre">required</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id10">import_id <code class="docutils literal notranslate"><span class="pre">required</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id11">Responses</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#querylocal">QueryLocal</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#query-local-post">/query/local <code class="docutils literal notranslate"><span class="pre">POST</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id12">Parameters</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#query-required">query <code class="docutils literal notranslate"><span class="pre">required</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id13">Responses</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#query-local-import-post">/query/local/import <code class="docutils literal notranslate"><span class="pre">POST</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id14">Parameters</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id15">import_id <code class="docutils literal notranslate"><span class="pre">required</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id16">Responses</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#query-local-import-import-id-post">/query/local/import:{import_id} <code class="docutils literal notranslate"><span class="pre">POST</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id17">Parameters</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id18">import_id <code class="docutils literal notranslate"><span class="pre">required</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id19">Responses</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#querynetwork">queryNetwork</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#query-network-post">/query/network <code class="docutils literal notranslate"><span class="pre">POST</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id20">Responses</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#query-network-query-param-get">/query/network/{query_param} <code class="docutils literal notranslate"><span class="pre">GET</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id21">Responses</a></li>
 </ul>
 </li>
 </ul>
@@ -192,7 +270,7 @@
 <h3>Parameters<a class="headerlink" href="#parameters" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="importfile-required">
 <h4>Importfile <code class="docutils literal notranslate"><span class="pre">required</span></code><a class="headerlink" href="#importfile-required" title="Permalink to this headline">¶</a></h4>
-<p><strong>Required</strong> <strong>(Body)</strong> / Import data (file or text data)</p>
+<p>Description: <strong>Required</strong> <strong>(Body)</strong> / Import data (file or text data)</p>
 <p><em>Example:</em></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
     <span class="s2">&quot;importfile&quot;</span><span class="p">:</span> <span class="s2">&quot;importfile=@/ot-node/test/modules/test_xml/GraphExample_4.xml&quot;</span>
@@ -202,7 +280,7 @@
 </div>
 <div class="section" id="importtype-required">
 <h4>Importtype <code class="docutils literal notranslate"><span class="pre">required</span></code><a class="headerlink" href="#importtype-required" title="Permalink to this headline">¶</a></h4>
-<p>Type of provided data (GS1 / WOT)</p>
+<p>Description: Type of provided data (GS1 / WOT)</p>
 <p><em>Example</em></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
     <span class="s2">&quot;importtype&quot;</span><span class="p">:</span> <span class="s2">&quot;GS1&quot;</span>
@@ -237,11 +315,12 @@
 <p>Creates an offer and trigger replication</p>
 <div class="section" id="replication-post">
 <h2>/replication <code class="docutils literal notranslate"><span class="pre">POST</span></code><a class="headerlink" href="#replication-post" title="Permalink to this headline">¶</a></h2>
+<p>Creates an offer and trigger replication</p>
 <div class="section" id="id1">
 <h3>Parameters<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="import-id-required">
 <h4>import_id <code class="docutils literal notranslate"><span class="pre">required</span></code><a class="headerlink" href="#import-id-required" title="Permalink to this headline">¶</a></h4>
-<p>ID of the import you want to replicate</p>
+<p>Description: ID of the import you want to replicate</p>
 <p><em>Example:</em></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
     <span class="s2">&quot;import_id&quot;</span><span class="p">:</span> <span class="s2">&quot;0x7e9d30d3f78fd21180c9c075403b1feeace7fbf10e10ad4184dd8b7e38358bc6&quot;</span>
@@ -263,6 +342,194 @@
 <p><code class="docutils literal notranslate"><span class="pre">405</span></code> Failed to start offer</p>
 </div>
 </div>
+<div class="section" id="replication-replication-id">
+<h2>/replication/ :{replication_id}<a class="headerlink" href="#replication-replication-id" title="Permalink to this headline">¶</a></h2>
+<p>Asks for replication status</p>
+<div class="section" id="id3">
+<h3>Parameters<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="replication-id-required">
+<h4>replication_id <code class="docutils literal notranslate"><span class="pre">required</span></code><a class="headerlink" href="#replication-id-required" title="Permalink to this headline">¶</a></h4>
+<p>Description: ID of the import you want to replicate</p>
+</div>
+</div>
+<div class="section" id="id4">
+<h3>Responses<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">200</span></code> OK</p>
+<p><em>Example:</em></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;offer_status&quot;</span><span class="p">:</span> <span class="s2">&quot;PENDING&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">400</span></code> Replication ID is not provided</p>
+<p><code class="docutils literal notranslate"><span class="pre">404</span></code> Offer not found</p>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="read">
+<h1>Read<a class="headerlink" href="#read" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="read-network-post">
+<h2>/read/network <code class="docutils literal notranslate"><span class="pre">POST</span></code><a class="headerlink" href="#read-network-post" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id5">
+<h3>Parameters<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="query-id-required">
+<h4>query_id <code class="docutils literal notranslate"><span class="pre">required</span></code><a class="headerlink" href="#query-id-required" title="Permalink to this headline">¶</a></h4>
+<p><em>Example:</em></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;query_id&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="reply-id-required">
+<h4>reply_id <code class="docutils literal notranslate"><span class="pre">required</span></code><a class="headerlink" href="#reply-id-required" title="Permalink to this headline">¶</a></h4>
+<p><em>Example:</em></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;reply_id&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id6">
+<h3>Responses<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">200</span></code> OK</p>
+<p><code class="docutils literal notranslate"><span class="pre">400</span></code> Bad request</p>
+<p><em>Example:</em></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;Invalid import type&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="database">
+<h1>Database<a class="headerlink" href="#database" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="trail-get">
+<h2>/trail <code class="docutils literal notranslate"><span class="pre">GET</span></code><a class="headerlink" href="#trail-get" title="Permalink to this headline">¶</a></h2>
+<p>Find trail in database</p>
+<div class="section" id="id7">
+<h3>Parameters<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="queryobject-required">
+<h4>queryObject <code class="docutils literal notranslate"><span class="pre">required</span></code><a class="headerlink" href="#queryobject-required" title="Permalink to this headline">¶</a></h4>
+<p>Description: Query in specific format, for example ?vertex_type=BATCH</p>
+</div>
+</div>
+<div class="section" id="id8">
+<h3>Responses<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">200</span></code> Array of found vertices for given query</p>
+<p><code class="docutils literal notranslate"><span class="pre">204</span></code> No vertices found</p>
+<p><code class="docutils literal notranslate"><span class="pre">500</span></code> Internal error happened on server</p>
+</div>
+</div>
+<div class="section" id="fingerprint-get">
+<h2>/fingerprint <code class="docutils literal notranslate"><span class="pre">GET</span></code><a class="headerlink" href="#fingerprint-get" title="Permalink to this headline">¶</a></h2>
+<p>Get import fingerprint from blockchain</p>
+<div class="section" id="id9">
+<h3>Parameters<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="dc-wallet-required">
+<h4>dc_wallet <code class="docutils literal notranslate"><span class="pre">required</span></code><a class="headerlink" href="#dc-wallet-required" title="Permalink to this headline">¶</a></h4>
+<p>Data creator’s wallet address</p>
+</div>
+<div class="section" id="id10">
+<h4>import_id <code class="docutils literal notranslate"><span class="pre">required</span></code><a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h4>
+<p>Description: Value of import_id received as an response of sucessful /api/import request (Data import ID)</p>
+</div>
+</div>
+<div class="section" id="id11">
+<h3>Responses<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">200</span></code> Data fingerprint</p>
+<p><code class="docutils literal notranslate"><span class="pre">400</span></code> Required parameters not provided</p>
+<p><code class="docutils literal notranslate"><span class="pre">500</span></code> Internal error happened on server</p>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="querylocal">
+<h1>QueryLocal<a class="headerlink" href="#querylocal" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="query-local-post">
+<h2>/query/local <code class="docutils literal notranslate"><span class="pre">POST</span></code><a class="headerlink" href="#query-local-post" title="Permalink to this headline">¶</a></h2>
+<p>Run local query on graph database</p>
+<div class="section" id="id12">
+<h3>Parameters<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="query-required">
+<h4>query <code class="docutils literal notranslate"><span class="pre">required</span></code><a class="headerlink" href="#query-required" title="Permalink to this headline">¶</a></h4>
+<p>Description: Query in specific format</p>
+<p><em>Example:</em></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;?uid=urn:epc:id:sgln:HospitalBuilding1&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id13">
+<h3>Responses<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">200</span></code> Array of found vertices for given query</p>
+<p><code class="docutils literal notranslate"><span class="pre">204</span></code> No vertices found</p>
+<p><code class="docutils literal notranslate"><span class="pre">500</span></code> Internal error happened on server</p>
+</div>
+</div>
+<div class="section" id="query-local-import-post">
+<h2>/query/local/import <code class="docutils literal notranslate"><span class="pre">POST</span></code><a class="headerlink" href="#query-local-import-post" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id14">
+<h3>Parameters<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id15">
+<h4>import_id <code class="docutils literal notranslate"><span class="pre">required</span></code><a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h4>
+<p>Description: Import ID for example: 0x477eae0227cce0ffaadc235c7946b97cbe2a948fe7782796b53a0c5a6ca6595f</p>
+</div>
+</div>
+<div class="section" id="id16">
+<h3>Responses<a class="headerlink" href="#id16" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">200</span></code> Array of found vertices for given query</p>
+<p><code class="docutils literal notranslate"><span class="pre">204</span></code> No vertices found</p>
+<p><code class="docutils literal notranslate"><span class="pre">400</span></code> Bad request</p>
+<p><code class="docutils literal notranslate"><span class="pre">500</span></code> Internal error happened on server</p>
+</div>
+</div>
+<div class="section" id="query-local-import-import-id-post">
+<h2>/query/local/import:{import_id} <code class="docutils literal notranslate"><span class="pre">POST</span></code><a class="headerlink" href="#query-local-import-import-id-post" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id17">
+<h3>Parameters<a class="headerlink" href="#id17" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id18">
+<h4>import_id <code class="docutils literal notranslate"><span class="pre">required</span></code><a class="headerlink" href="#id18" title="Permalink to this headline">¶</a></h4>
+<p>Description: Import Id</p>
+</div>
+</div>
+<div class="section" id="id19">
+<h3>Responses<a class="headerlink" href="#id19" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">200</span></code> OK</p>
+<p><code class="docutils literal notranslate"><span class="pre">400</span></code> Param required</p>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="querynetwork">
+<h1>queryNetwork<a class="headerlink" href="#querynetwork" title="Permalink to this headline">¶</a></h1>
+<p>Network query operations</p>
+<div class="section" id="query-network-post">
+<h2>/query/network <code class="docutils literal notranslate"><span class="pre">POST</span></code><a class="headerlink" href="#query-network-post" title="Permalink to this headline">¶</a></h2>
+<p>Makes a network query</p>
+<p>Description: Query in specific format</p>
+<p><em>Example:</em></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;string&quot;</span>
+</pre></div>
+</div>
+<div class="section" id="id20">
+<h3>Responses<a class="headerlink" href="#id20" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">200</span></code> Always, except on a internal server error. Body will contain message in JSON format containing at least ‘status’ and ‘message’ attribute. If query was successful additional attribute ‘query_id’ will be present which will contain UUID of the query which can be used to check the result or status of the query.</p>
+<p><code class="docutils literal notranslate"><span class="pre">400</span></code> Bad request</p>
+<p><code class="docutils literal notranslate"><span class="pre">500</span></code> Internal error happened on server.</p>
+</div>
+</div>
+<div class="section" id="query-network-query-param-get">
+<h2>/query/network/{query_param} <code class="docutils literal notranslate"><span class="pre">GET</span></code><a class="headerlink" href="#query-network-query-param-get" title="Permalink to this headline">¶</a></h2>
+<p>Checks the status of the network query</p>
+<p>Description: UUID of network query.</p>
+<div class="section" id="id21">
+<h3>Responses<a class="headerlink" href="#id21" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">200</span></code> Always, except on a internal server error. Body will contain message in JSON format containing at least ‘status’ and ‘message’ attribute. ‘message’ will contain the status of the query in format Query status $status.. If status is FINISHED body will contain another attribute ‘vertices’ containing all query result vertices.</p>
+<p><code class="docutils literal notranslate"><span class="pre">500</span></code> Internal error happened on server.</p>
+<hr class="docutils" />
+</div>
+</div>
 </div>
 
 
@@ -274,7 +541,7 @@
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
       
-        <a href="contribution.html" class="btn btn-neutral" title="Contribution" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="contribution.html" class="btn btn-neutral" title="Contribution Guidelines" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

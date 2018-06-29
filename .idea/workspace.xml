@@ -2,10 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8d882662-0b8e-4d28-bc7f-287c97a82a8f" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/build/html/_static/alabaster.css" beforeDir="false" afterPath="$PROJECT_DIR$/build/html/_static/alabaster.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/doctrees/API.doctree" beforeDir="false" afterPath="$PROJECT_DIR$/build/doctrees/API.doctree" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/doctrees/environment.pickle" beforeDir="false" afterPath="$PROJECT_DIR$/build/doctrees/environment.pickle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/html/API.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/html/API.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/html/_sources/API.rst.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/html/_sources/API.rst.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/html/_static/doctools.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/html/_static/doctools.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/html/_static/js/modernizr.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/html/_static/js/modernizr.min.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/html/_static/websupport.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/html/_static/websupport.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/html/genindex.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/html/genindex.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/html/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/html/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/html/search.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/html/search.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/html/searchindex.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/html/searchindex.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/API.rst" beforeDir="false" afterPath="$PROJECT_DIR$/source/API.rst" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -28,8 +37,8 @@
       <file leaf-file-name="API.rst" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/source/API.rst">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="480">
-              <caret line="113" column="29" selection-start-line="113" selection-start-column="29" selection-end-line="113" selection-end-column="29" />
+            <state relative-caret-position="437">
+              <caret line="353" lean-forward="true" selection-start-line="353" selection-end-line="353" />
             </state>
           </provider>
         </entry>
@@ -116,8 +125,8 @@
         <option value="$PROJECT_DIR$/source/intro.rst" />
         <option value="$PROJECT_DIR$/source/index.rst" />
         <option value="$PROJECT_DIR$/source/Configuration-setup.rst" />
-        <option value="$PROJECT_DIR$/source/API.rst" />
         <option value="$PROJECT_DIR$/source/contribution.rst" />
+        <option value="$PROJECT_DIR$/source/API.rst" />
       </list>
     </option>
   </component>
@@ -210,12 +219,12 @@
       <workItem from="1530085692073" duration="1287000" />
       <workItem from="1530089784790" duration="1126000" />
       <workItem from="1530091231599" duration="19819000" />
-      <workItem from="1530199407000" duration="3586000" />
+      <workItem from="1530199407000" duration="6165000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="32591000" />
+    <option name="totallyTimeSpent" value="35170000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
@@ -227,7 +236,7 @@
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.32918397" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24188311" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24188311" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3281471" />
@@ -433,8 +442,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/source/API.rst">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="113" column="29" selection-start-line="113" selection-start-column="29" selection-end-line="113" selection-end-column="29" />
+        <state relative-caret-position="437">
+          <caret line="353" lean-forward="true" selection-start-line="353" selection-end-line="353" />
         </state>
       </provider>
     </entry>

@@ -238,7 +238,7 @@ var Documentation = {
    * init the domain index toggle buttons
    */
   initIndexTable : function() {
-    var togglers = $('doc_img.toggler').click(function() {
+    var togglers = $('img.toggler').click(function() {
       var src = $(this).attr('src');
       var idnum = $(this).attr('id').substr(7);
       $('tr.cg-' + idnum).toggle();

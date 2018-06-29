@@ -254,7 +254,7 @@
         }
         insertComment(data.comment);
         var ao = $('#ao' + node_id);
-        ao.find('doc_img').attr({'src': opts.commentBrightImage});
+        ao.find('img').attr({'src': opts.commentBrightImage});
         if (node_id) {
           // if this was a "root" comment, remove the commenting box
           // (the user can get it back by reopening the comment popup)
@@ -632,7 +632,7 @@
             'class': 'sphinx-comment-open' + addcls,
             id: 'ao' + id
           })
-            .append($(document.createElement('doc_img')).attr({
+            .append($(document.createElement('img')).attr({
               src: image,
               alt: 'comment',
               title: title
@@ -648,7 +648,7 @@
             'class': 'sphinx-comment-close hidden',
             id: 'ah' + id
           })
-            .append($(document.createElement('doc_img')).attr({
+            .append($(document.createElement('img')).attr({
               src: opts.closeCommentImage,
               alt: 'close',
               title: 'close'
@@ -693,7 +693,7 @@
       </p>\
       <div class="comment-header">Comments</div>\
       <div class="comment-loading" id="cn<%id%>">\
-        loading comments... <doc_img src="<%loadingImage%>" alt="" /></div>\
+        loading comments... <img src="<%loadingImage%>" alt="" /></div>\
       <ul id="cl<%id%>" class="comment-ul"></ul>\
       <div id="ca<%id%>">\
       <p class="add-a-comment">Add a comment\
@@ -726,18 +726,18 @@
       <div class="vote">\
         <div class="arrow">\
           <a href="#" id="uv<%id%>" class="vote" title="vote up">\
-            <doc_img src="<%upArrow%>" />\
+            <img src="<%upArrow%>" />\
           </a>\
           <a href="#" id="uu<%id%>" class="un vote" title="vote up">\
-            <doc_img src="<%upArrowPressed%>" />\
+            <img src="<%upArrowPressed%>" />\
           </a>\
         </div>\
         <div class="arrow">\
           <a href="#" id="dv<%id%>" class="vote" title="vote down">\
-            <doc_img src="<%downArrow%>" id="da<%id%>" />\
+            <img src="<%downArrow%>" id="da<%id%>" />\
           </a>\
           <a href="#" id="du<%id%>" class="un vote" title="vote down">\
-            <doc_img src="<%downArrowPressed%>" />\
+            <img src="<%downArrowPressed%>" />\
           </a>\
         </div>\
       </div>\
