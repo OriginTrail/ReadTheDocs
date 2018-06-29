@@ -285,7 +285,7 @@ Pink (some quantity is left unsold on Pink location).
 
 **GS1 EPCIS design:**
 
-.. image:: DesignMDR.JPG
+.. image:: DesignMDRzk.JPG
    :target: https://raw.githubusercontent.com/OriginTrail/ReadTheDocs/master/source/
    :width: 600px
 
@@ -316,7 +316,7 @@ on ODN.
 
 **GS1 EPCIS design:** 
 
-.. image:: Design.JPG
+.. image:: DesignMDRagg.JPG
    :target: https://raw.githubusercontent.com/OriginTrail/ReadTheDocs/master/source/
    :width: 600px
    
