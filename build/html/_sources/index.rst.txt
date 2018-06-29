@@ -24,6 +24,13 @@ Welcome to OriginTrail documentation!
    wallet-setup
    Configuration-setup
    import-data
+
+.. toctree::
+   :maxdepth: 10
+   :caption: Developer Documentation:
+
+   contribution
+   API
    
 .. toctree::
    :maxdepth: 10
@@ -33,13 +40,6 @@ Welcome to OriginTrail documentation!
    data-structure-guidelines
    namespace
 
-.. toctree::
-   :maxdepth: 10
-   :caption: API:
-
-   intro
-   contribution
-   API
 
 Indices and tables
 ==================

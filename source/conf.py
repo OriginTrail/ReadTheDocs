@@ -27,7 +27,7 @@ source_suffix = ['.rst', '.md']
 
 # -- Project information -----------------------------------------------------
 
-project = u'OriginTrail Documentation (Under Construction)'
+project = u'OriginTrail Documentation (Beta)'
 copyright = u'2018, OriginTrail'
 author = u'OriginTrail'
 

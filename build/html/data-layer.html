@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Data Layer &mdash; OriginTrail Documentation (Under Construction) 0.9.0 documentation</title>
+  <title>Data Layer &mdash; OriginTrail Documentation (Beta) 0.9.0 documentation</title>
   
 
   
@@ -28,8 +28,8 @@
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Incentive Model" href="incentive-model.html" />
-    <link rel="prev" title="Namespace" href="namespace.html" /> 
+    <link rel="next" title="Network structure" href="network-structure.html" />
+    <link rel="prev" title="Features" href="features.html" /> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -48,7 +48,7 @@
           
 
           
-            <a href="index.html" class="icon icon-home"> OriginTrail Documentation (Under Construction)
+            <a href="index.html" class="icon icon-home"> OriginTrail Documentation (Beta)
           
 
           
@@ -78,15 +78,10 @@
               
             
             
-              <p class="caption"><span class="caption-text">Technical Documentation:</span></p>
+              <p class="caption"><span class="caption-text">General:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="node-setup.html">Node Setup instructions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="wallet-setup.html">Wallet Setup</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Configuration-setup.html">Node Configuration</a></li>
-<li class="toctree-l1"><a class="reference internal" href="import-data.html">Import data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="data-structure-guidelines.html">Data Structure Guidelines</a></li>
-<li class="toctree-l1"><a class="reference internal" href="namespace.html">Namespace</a></li>
+<li class="toctree-l1"><a class="reference internal" href="features.html">Features</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Data Layer</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#underlying-technology-and-technical-rationale">Underlying technology and technical rationale</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#entities-in-graph-structure-ontology">Entities in graph structure (ontology)</a><ul>
@@ -98,20 +93,32 @@
 <li class="toctree-l2"><a class="reference internal" href="#conclusion-and-future-steps">Conclusion and future steps</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="incentive-model.html">Incentive Model</a></li>
-<li class="toctree-l1"><a class="reference internal" href="features.html">Features</a></li>
-<li class="toctree-l1"><a class="reference internal" href="implementation.html">Implementation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="network-structure.html">Network structure</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Development Documentation:</span></p>
+<p class="caption"><span class="caption-text">Node setup:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="node-setup.html">Node Setup instructions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="wallet-setup.html">Wallet Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Configuration-setup.html">Node Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="import-data.html">Import data</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Developer Documentation:</span></p>
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="contribution.html">Contribution Guidelines</a></li>
-<li class="toctree-l1"><a class="reference internal" href="API.html">Import</a></li>
+<li class="toctree-l1"><a class="reference internal" href="API.html">Prerequisites:</a></li>
+<li class="toctree-l1"><a class="reference internal" href="API.html#api-purpose">API Purpose:</a></li>
+<li class="toctree-l1"><a class="reference internal" href="API.html#import">Import</a></li>
 <li class="toctree-l1"><a class="reference internal" href="API.html#replication">Replication</a></li>
+<li class="toctree-l1"><a class="reference internal" href="API.html#querynetwork">queryNetwork</a></li>
 <li class="toctree-l1"><a class="reference internal" href="API.html#read">Read</a></li>
 <li class="toctree-l1"><a class="reference internal" href="API.html#database">Database</a></li>
 <li class="toctree-l1"><a class="reference internal" href="API.html#querylocal">QueryLocal</a></li>
-<li class="toctree-l1"><a class="reference internal" href="API.html#querynetwork">queryNetwork</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Implementation:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="implementation.html">Implementation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data-structure-guidelines.html">Data Structure Guidelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="namespace.html">Namespace</a></li>
 </ul>
 
             
@@ -126,7 +133,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">OriginTrail Documentation (Under Construction)</a>
+          <a href="index.html">OriginTrail Documentation (Beta)</a>
         
       </nav>
 
@@ -196,7 +203,7 @@ supply chain stakeholders), as well as easy interconnectivity between
 different data sets regardless of their source. This suggests that the
 very nature of data structures in play is as much about the information
 itself, as it is about the connections between the data provided from
-different sources. Network structure consists of incentivised nodes (<a class="reference internal" href="incentive-model.html#incentive-model"><span class="std std-ref">Incentive Model</span></a>).</p>
+different sources. Network structure consists of incentivised nodes (<a class="reference internal" href="network-structure.html#incentive-model"><span class="std std-ref">Network structure</span></a>).</p>
 <p>During the years of building supply chain transparency solutions we have
 come to the conclusion that the most adequate data structure is a graph,
 where the connections between data points are “first-class citizens” of
@@ -359,10 +366,10 @@ structure.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="incentive-model.html" class="btn btn-neutral float-right" title="Incentive Model" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="network-structure.html" class="btn btn-neutral float-right" title="Network structure" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="namespace.html" class="btn btn-neutral" title="Namespace" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="features.html" class="btn btn-neutral" title="Features" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

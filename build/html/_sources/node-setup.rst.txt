@@ -172,8 +172,8 @@ This will install all prerequisites in a single step.
 If you prefer neo4j as database then use
 
 ::
+   +
 
-+
 **Note:** There are some ongoing issues with Neo4j. We currently advise use of ArangoDB.
 
 If errors occurred during installation process, ot-node probably won't
