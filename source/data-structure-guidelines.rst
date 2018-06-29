@@ -297,7 +297,11 @@ files <https://github.com/OriginTrail/ot-node/blob/develop/importers/xml_example
 4. MDR with aggregation events
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-**Supply chain participants map:** |MDR with Aggregation|
+**Supply chain participants map:** 
+
+.. image:: MDR_with_aggregation_events.jpg
+   :target: https://github.com/OriginTrail/ot-node/raw/develop/importers/xml_examples/Retail_with_aggregation/
+   :width: 600px
 
 **Use case:** Green is producing wine (one product with several
 batches). Products are packed on pallet. One pallet can have several
@@ -310,8 +314,12 @@ Pallets can be partially or completely unpacked. Shipping, receiving,
 packing and unpacking events are generating data that is being processed
 on ODN.
 
-**GS1 EPCIS design:** |EPCIS design3|
+**GS1 EPCIS design:** 
 
+.. image:: Design.JPG
+   :target: https://github.com/OriginTrail/ot-node/raw/develop/importers/xml_examples/Retail_with_aggregation/
+   :width: 600px
+   
 `Sample files`_
 
 .. |Basic sales example| image:: https://github.com/OriginTrail/ot-node/blob/develop/importers/xml_examples/Basic/Basic_sale.jpg
