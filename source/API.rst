@@ -180,6 +180,7 @@ Publishes a network query for a supply chain data set using simple specific DSL 
 The query must be in JSON format:
 
 ::
+
     { 
         "query": 
             [ 
