@@ -242,7 +242,9 @@ and receiving events are generating data that is being processed on ODN.
 
 **Supply chain participants map:**
 
-|MDR example|
+.. image:: Complex_manufacturer-distributor-retail_(MDR)_sale.jpg
+   :target: https://github.com/OriginTrail/ot-node/raw/develop/importers/xml_examples/Retail/
+   :width: 600px
 
 **Use case:** Green is producing wine and selling it to Pink. Pink is
 distributing (selling) wine to retail shop (Orange). Batches on Pink are
@@ -251,7 +253,9 @@ is being processed on ODN.
 
 `GS1 EPCIS design:`_
 
-|EPCIS design2|
+.. image:: Design.JPG
+   :target: https://github.com/OriginTrail/ot-node/raw/develop/importers/xml_examples/Retail/
+   :width: 600px
 
 `Sample
 files <https://github.com/OriginTrail/ot-node/blob/develop/importers/xml_examples/Retail/>`__
@@ -263,7 +267,9 @@ files <https://github.com/OriginTrail/ot-node/blob/develop/importers/xml_example
 
 **Supply chain participants map:**
 
-|MDR with Zk|
+.. image:: Complex_manufacturer-distributor-retail_(MDR)_sale.jpg
+   :target: https://github.com/OriginTrail/ot-node/raw/develop/importers/xml_examples/Retail/
+   :width: 600px
 
 **Use case:** Green is producing wine and selling it to Pink. Pink is
 distributing (selling) wine to retail shop (Orange). Batches on Pink are
@@ -277,7 +283,11 @@ is utilized. Purpose of this scenario is to point out differences in
 data structure. There are minor differences in quantity being sold from
 Pink (some quantity is left unsold on Pink location).
 
-**GS1 EPCIS design:** |EPCIS design3|
+**GS1 EPCIS design:**
+
+.. image:: Design.JPG
+   :target: https://github.com/OriginTrail/ot-node/raw/develop/importers/xml_examples/Retail/
+   :width: 600px
 
 `Sample
 files <https://github.com/OriginTrail/ot-node/blob/develop/importers/xml_examples/Retail_with_Zk/>`__
