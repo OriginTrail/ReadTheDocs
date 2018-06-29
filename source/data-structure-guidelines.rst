@@ -222,7 +222,7 @@ be GLN number like ``urn:epc:id:sgln:0614141.12345.0``.
 **Supply chain participants map:**
 
 .. image:: Basic_sale.jpg
-   :target: https://github.com/OriginTrail/ot-node/raw/develop/importers/xml_examples/Basic/
+   :target: https://raw.githubusercontent.com/OriginTrail/ot-node/raw/develop/importers/xml_examples/Basic/
    :width: 600px
 
 **Use case:** Green is producing wine and selling it to Pink. Shipping
@@ -231,7 +231,7 @@ and receiving events are generating data that is being processed on ODN.
 **GS1 EPCIS design:**
 
 .. image:: Design.JPG
-   :target: https://github.com/OriginTrail/ot-node/raw/develop/importers/xml_examples/Basic/
+   :target: https://raw.githubusercontent.com/OriginTrail/ot-node/raw/develop/importers/xml_examples/Basic/
    :width: 600px
 
 `Sample files`_
