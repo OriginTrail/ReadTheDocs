@@ -3,8 +3,10 @@
 Implementation
 ======================================
 
+
 Setting up a Project on OriginTrail
 -----------------------------------
+Here is the short overview how to set up a project on ODN. This document is aimed towards enterprise and solution provider entities.
 
 Step 1 Structuring a use case
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
