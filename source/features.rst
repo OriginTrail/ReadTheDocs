@@ -6,18 +6,37 @@ Features
 
 Consensus check
 ---------------
-. This particular ZK implementation is meant to provide for the ability to validate the mass balance (quantities) within the observed supply chain by being able to validate that the inputs match the outputs in any arbitrary supply chain location of relevance (provided that, of course, data of the input and output is available), without revealing the values of those inputs and outputs.
-
-The consensus check utilizes this functionality, while additionally performing other checks as well, essentially making sure that claims along with a certain observed supply chain match between all the parties involved, including that all the parties confirm cooperation in the first place. A consensus, in this case, happens when all the stakeholder pairs in the supply chain have matching claims as well as having cumulative values validated by the ZK algorithm.
-
-To see the consensus check in action, after importing the data in the system, send a request to the API endpoint to get the trail of a certain batch of products via route api/trail?uid=urn:epc:id:sgtin:Batch_1 and the response will provide you with the consensus parameters for each of the events in the product history trail.
+When receiving information from stakeholders, OriginTrail protocol performs a **consensus check** that verifies there are no discrepancies between data provided by different
+stakeholders. 
 
 ..image:https://github.com/OriginTrail/ReadTheDocs/raw/master/source/slide-interperability_and_data_integrity.png
 
+The check is performed in several steps:
+**Step 1.** Each stakeholder has to be approved by the previous and the following supply chain
+stakeholder, creating a chain of accountability.
+**Step 2.** Matching of dynamic batch information is verified, including the critical information
+of batch identifiers, appropriate timestamps and transactional data. As this step involves
+company private data (e.g. quantities of sales), a Zero Knowledge Proof
+6 mechanism
+implementation will provide a way to check that private information matching is
+provable without revealing the information itself. Other dynamic data may include data
+collected from sensors and compliance data.
+**Step 3.** As an additional layer of credibility, auditing and compliance organisations can
+validate data by supplying their confirmations.
 
-Compensation system
--------------------
-The compensation happens on the relation between the data creators (DC) nodes (responsible for replication) and data holder (DH) nodes, utilizing our Test-Answer-Receipt (TAR) protocol. This protocol essentially mimics the typical HTTP handshake and presents a testing mechanism between the nodes that are providing OriginTrail network services. Each test presents a challenge for the DH node, which, when solved correctly, provides an answer to the DC node. The DC node then, in return, provides a valid receipt for the service, according to the predefined “deal” (service conditions, price, and data lifespan). The compensation is then handled according to the results of the test and allows the DH node to independently collect tokens from a Service escrow smart contract by providing valid receipts to it.
+This ensures the entire supply chain is in accords regarding that batch of products. If there is
+no consensus, discrepancies can be quickly reported, investigated and reconciled.
+Reconciliation of discrepancies is also recorded on OriginTrail - the additional information is
+uploaded as a special “reconciliation” data set which is again subject to the same consensus
+mechanism.
+
+To see the consensus check in action, after importing the data in the system, send a request to the API endpoint to get the trail of a certain batch of products and the response will provide you with the consensus parameters for each of the events in the product history trail.
+
+Consensus check with Zero Knowledge proof
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+This particular ZK implementation is meant to provide for the ability to validate the mass balance (quantities) within the observed supply chain by being able to validate that the inputs match the outputs in any arbitrary supply chain location of relevance (provided that, of course, data of the input and output is available), without revealing the values of those inputs and outputs.
+
+The consensus check utilizes this functionality, while additionally performing other checks as well, essentially making sure that claims along with a certain observed supply chain match between all the parties involved, including that all the parties confirm cooperation in the first place. A consensus, in this case, happens when all the stakeholder pairs in the supply chain have matching claims as well as having cumulative values validated by the ZK algorithm.
 
 Token staking and reputation
 ----------------------------
@@ -31,7 +50,7 @@ The elasticity of this system allows both large and smaller token holders to par
 
 Bidding system
 --------------
-one of the main building blocks of ODN is the bidding mechanism by which nodes in the network are able to form agreements and bid on providing services to each other.
+one of the main building blocks of ODN is the bidding mechanism by which nodes in the network are able to form agreements and bid on providing services to each other. The compensation happens on the relation between the data creators (DC) nodes (responsible for replication) and data holder (DH) nodes, utilizing our Test-Answer-Receipt (TAR) protocol. This protocol essentially mimics the typical HTTP handshake and presents a testing mechanism between the nodes that are providing OriginTrail network services. Each test presents a challenge for the DH node, which, when solved correctly, provides an answer to the DC node. The DC node then, in return, provides a valid receipt for the service, according to the predefined “deal” (service conditions, price, and data lifespan). The compensation is then handled according to the results of the test and allows the DH node to independently collect tokens from a Service escrow smart contract by providing valid receipts to it.
 
 This implementation of the bidding system is based on an Ethereum smart contract. In the bidding system, an Ethereum smart contract handles the creation of Offers by Data Creator (DC) nodes. DC nodes receive Bids from Data Holder (DH) nodes should an Offer become interesting to one or more DH node.
 
@@ -40,11 +59,11 @@ This initial implementation comes with certain simplifications and limitations, 
 
 In future development, we plan to move several operations off-chain to the ODN network layer, leaving only the most important (trusted) operations to be performed by the contract itself. While Kosmos introduces the initial version of the bidding mechanism, the final mechanism is subject to a longer process of iterative research and development, as well as a thorough and lengthy testing in the upcoming period before we launch the testnet in June. The bidding mechanism will be gradually improved, based on real transaction data from multiple companies. There is other scheduled work to be done by the launch of testnet, with several iterations and more fine-tuning of code, logic and game theory behind the mechanism.
 
- Simply put, the Data Creator node (DC), the one introducing new data to the network, forms agreements with Data Holder nodes (DH) to operate on and store data (D) on a particular observed supply chain (S). For the specific data set D, a set of agreements is made between the DC of the data provider, and several DH nodes, among which are both independent nodes within the network, as well as the associated partner nodes of the data provider entity. In that regard, it is important to understand how a node agreement is formed.
+Simply put, the Data Creator node (DC), the one introducing new data to the network, forms agreements with Data Holder nodes (DH) to operate on and store data (D) on a particular observed supply chain (S). For the specific data set D, a set of agreements is made between the DC of the data provider, and several DH nodes, among which are both independent nodes within the network, as well as the associated partner nodes of the data provider entity. In that regard, it is important to understand how a node agreement is formed.
  
 ..image:https://github.com/OriginTrail/ReadTheDocs/raw/master/source/slide-system_overview%402x.png
  
- To form the set of agreements (A) associated with one data set D, the DC node of the data provider creates an initial offer (O). This offer contains the parameters set by the DC node such as:
+To form the set of agreements (A) associated with one data set D, the DC node of the data provider creates an initial offer (O). This offer contains the parameters set by the DC node such as:
 
 the maximum amount of tokens the DC node is willing to provide as reimbursement per data unit for DH nodes,
 the minimum amount of required stake for the agreement to happen,
@@ -74,7 +93,6 @@ A typical example of such information would be the quantities of sold goods in c
 That is why establishing an open-source collaborative protocol such as OriginTrail must not only tackle the problems of data integrity and interoperability by providing a platform neutral, non-proprietary decentralized network tailored for supply chain data sharing, but also provide a way to unlock value from data that is essentially not meant to be shared. So, how does this work? Let’s provide a simplified example.
 
 Let’s assume we have a dairy company buying raw milk from two dairy farms. The first dairy farm provides an A quantity of milk while the second provides a B quantity. The result of the production process, if there is no foul play, would, in simplified terms, be a batch of milk with quantity C, derived through the addition of the A and B quantities. Because we are talking about a food supply chain, this batch of milk with quantity C would continue moving along the chain and parts of it would likely end up at many retail stores. Ideally, if we added up all these different parts that ended up at different retail stores, they would equal the same amount of C = A + B. Again, this is a simplification, as processing, spillage and other factors have to be considered, though this does not hinder the ability of the system to cope with such situations.
-
 
 Representation of a singled out supply chain event of producing a quantity of C milk out of raw materials A and B
 Today, it is not easy to account for all parts of a particular raw material quantity in supply chains, and there are many cases of foul play, especially when it comes to organic food. It is really hard to make sure irregular, non-organic products, are not getting added to organic ones and being sold off as organic, higher value products. Again, this is the result of informational asymmetry as the stakeholders in the market are not able to validate the whole chain, of which one major part is the ability to validate mass balance and quantities.
