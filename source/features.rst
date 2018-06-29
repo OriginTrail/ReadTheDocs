@@ -54,7 +54,7 @@ The elasticity of this system allows both large and smaller token holders to par
 
 Bidding system
 --------------
-one of the main building blocks of ODN is the bidding mechanism by which nodes in the network are able to form agreements and bid on providing services to each other. The compensation happens on the relation between the data creators (DC) nodes (responsible for replication) and data holder (DH) nodes, utilizing our Test-Answer-Receipt (TAR) protocol. This protocol essentially mimics the typical HTTP handshake and presents a testing mechanism between the nodes that are providing OriginTrail network services. Each test presents a challenge for the DH node, which, when solved correctly, provides an answer to the DC node. The DC node then, in return, provides a valid receipt for the service, according to the predefined “deal” (service conditions, price, and data lifespan). The compensation is then handled according to the results of the test and allows the DH node to independently collect tokens from a Service escrow smart contract by providing valid receipts to it.
+One of the main building blocks of ODN is the bidding mechanism by which nodes in the network are able to form agreements and bid on providing services to each other. The compensation happens on the relation between the data creators (DC) nodes (responsible for replication) and data holder (DH) nodes, utilizing our Test-Answer-Receipt (TAR) protocol. This protocol essentially mimics the typical HTTP handshake and presents a testing mechanism between the nodes that are providing OriginTrail network services. Each test presents a challenge for the DH node, which, when solved correctly, provides an answer to the DC node. The DC node then, in return, provides a valid receipt for the service, according to the predefined “deal” (service conditions, price, and data lifespan). The compensation is then handled according to the results of the test and allows the DH node to independently collect tokens from a Service escrow smart contract by providing valid receipts to it.
 
 This implementation of the bidding system is based on an Ethereum smart contract. In the bidding system, an Ethereum smart contract handles the creation of Offers by Data Creator (DC) nodes. DC nodes receive Bids from Data Holder (DH) nodes should an Offer become interesting to one or more DH node.
 
@@ -72,10 +72,11 @@ Simply put, the Data Creator node (DC), the one introducing new data to the netw
  
 To form the set of agreements (A) associated with one data set D, the DC node of the data provider creates an initial offer (O). This offer contains the parameters set by the DC node such as:
 
-the maximum amount of tokens the DC node is willing to provide as reimbursement per data unit for DH nodes,
-the minimum amount of required stake for the agreement to happen,
-the amount of time the agreement will last and
-a minimum reputation requirement for the DH nodes.
+-  the maximum amount of tokens the DC node is willing to provide as reimbursement per data unit for DH nodes,
+-  the minimum amount of required stake for the agreement to happen,
+-  the amount of time the agreement will last and
+-  a minimum reputation requirement for the DH nodes.
+
 In previous releases containing the initial version of the bidding mechanism, the actual bidding was performed in a type of a blind auction during which each of the interested DH nodes applying for the offer O would send an encrypted amount. This amount would be revealed in the next step to mitigate the risk of nodes undercutting each other in the race. The final list of applicants would then be associated with a set of probabilities according to the parameters the nodes have applied with to the offer, which would then be utilized in a roulette type of random choice function. This system had its foreseen downsides as it didn’t scale for a large number of DH applicants, and because it had a cumbersome revealing period which was increasing complexity and cost of the mechanism.
 
 The improved version in Surveyor utilizes a different approach which allows for DH nodes to apply with a pre-revealed bid if the node itself estimates that there is a high probability of being included in the agreement set. The important enabling change is that this probability is determined by the distance function used to rank all DH candidates, which incorporates all the necessary parameters of the offer, as well as the address space distance of the node address from the address of the data content hash. In this way, there is a mechanism with less complexity (no revealing needed and no complicated and bounded roulette) and with a fair density of data dissemination determined solely by the data itself. There will be several improvements and tweaks to the new mechanism as soon as there has been enough time to collect observations and derive conclusions on better parametrization.
@@ -94,9 +95,10 @@ One of the major problems we have identified in more than seven years of working
 
 There are several reasons for this:
 
-The rising complexity of supply chains, which are, realistically speaking, supply chain networks;
-The data fragmentation within “data silos” of participating stakeholders, and, finally;
-The reluctance to share sensitive information which might be used in a negative context in the market against the one sharing such information.
+-  The rising complexity of supply chains, which are, realistically speaking, supply chain networks;
+-  The data fragmentation within “data silos” of participating stakeholders, and, finally;
+-  The reluctance to share sensitive information which might be used in a negative context in the market against the one sharing such information.
+
 A typical example of such information would be the quantities of sold goods in certain markets, which could be used by competitors in ways counterproductive to the party sharing this information in the first place.
 
 That is why establishing an open-source collaborative protocol such as OriginTrail must not only tackle the problems of data integrity and interoperability by providing a platform neutral, non-proprietary decentralized network tailored for supply chain data sharing, but also provide a way to unlock value from data that is essentially not meant to be shared. So, how does this work? Let’s provide a simplified example.
@@ -123,7 +125,7 @@ It is important to state that this implementation of the zero knowledge protocol
 
 The mathematical basis of the implementation can be found here. The first iteration of the implementation allows for establishing checks on transformational events in the supply chain. Currently the validation is performed at import runtime and can be observed in the logs for each event. The proofs are generated for every event and validated by the importer but equality of proofs of ownership transfer events between providers can be validated manually.
 
-When it comes to the zero-knowledge implementation in the ODN, the Lunar Orbiter now supports quantity validation across several events in the observed supply chain, with the ability to have them be reported in arbitrary stages of their execution, across multiple XML files. This is an important improvement from the previous version and presents the first full implementation of the zero-knowledge quantity balance mechanism. To utilize the feature, the GS1 XML creation needs to be updated to support it, and will also be explained in detail in our documentation.
+When it comes to the zero-knowledge implementation in the ODN, the Lunar Orbiter now supports quantity validation across several events in the observed supply chain, with the ability to have them be reported in arbitrary stages of their execution, across multiple XML files. To utilize the feature, the GS1 XML creation needs to be updated to support it.
 
 Data fingerprinting
 -------------------
