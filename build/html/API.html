@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>IMPORT &mdash; OriginTrail Node Documentation 0.9.0 documentation</title>
+  <title>Import &mdash; OriginTrail Node Documentation 0.9.0 documentation</title>
   
 
   
@@ -95,10 +95,11 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="contribution.html">Contribution</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">IMPORT</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#id1">/import</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Import</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#import-post">/import <code class="docutils literal notranslate"><span class="pre">POST</span></code></a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#parameters">Parameters</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#importfile">Importfile</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#importfile-required">Importfile <code class="docutils literal notranslate"><span class="pre">required</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#importtype-required">Importtype <code class="docutils literal notranslate"><span class="pre">required</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#responses">Responses</a></li>
@@ -106,10 +107,13 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="#export">EXPORT</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#id2">/export</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id3">Parameters</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id4">Responses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#replication">Replication</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#replication-post">/replication <code class="docutils literal notranslate"><span class="pre">POST</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">Parameters</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#import-id-required">import_id <code class="docutils literal notranslate"><span class="pre">required</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">Responses</a></li>
 </ul>
 </li>
 </ul>
@@ -159,7 +163,7 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>IMPORT</li>
+      <li>Import</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -179,20 +183,29 @@
            <div itemprop="articleBody">
             
   <div class="section" id="import">
-<span id="api"></span><h1>IMPORT<a class="headerlink" href="#import" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="id1">
-<h2>/import<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">POST</span></code></p>
+<span id="api"></span><h1>Import<a class="headerlink" href="#import" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="import-post">
+<h2>/import <code class="docutils literal notranslate"><span class="pre">POST</span></code><a class="headerlink" href="#import-post" title="Permalink to this headline">¶</a></h2>
 <p>Import new GS1/WOT data</p>
 <p>Find out more about XML structure here <a class="reference internal" href="data-structure-guidelines.html#data-structure-guidelines"><span class="std std-ref">Data Structure Guidelines</span></a></p>
 <div class="section" id="parameters">
 <h3>Parameters<a class="headerlink" href="#parameters" title="Permalink to this headline">¶</a></h3>
-<div class="section" id="importfile">
-<h4>Importfile<a class="headerlink" href="#importfile" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="importfile-required">
+<h4>Importfile <code class="docutils literal notranslate"><span class="pre">required</span></code><a class="headerlink" href="#importfile-required" title="Permalink to this headline">¶</a></h4>
 <p><strong>Required</strong> <strong>(Body)</strong> / Import data (file or text data)</p>
 <p><em>Example:</em></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
     <span class="s2">&quot;importfile&quot;</span><span class="p">:</span> <span class="s2">&quot;importfile=@/ot-node/test/modules/test_xml/GraphExample_4.xml&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="importtype-required">
+<h4>Importtype <code class="docutils literal notranslate"><span class="pre">required</span></code><a class="headerlink" href="#importtype-required" title="Permalink to this headline">¶</a></h4>
+<p>Type of provided data (GS1 / WOT)</p>
+<p><em>Example</em></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;importtype&quot;</span><span class="p">:</span> <span class="s2">&quot;GS1&quot;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -207,22 +220,47 @@
 <span class="p">}</span>
 </pre></div>
 </div>
+<p><code class="docutils literal notranslate"><span class="pre">400</span></code> Invalid import parameters (importfile/importtype)</p>
+<p><em>Example:</em></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+     <span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;Invalid import type&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">405</span></code> Invalid input</p>
 </div>
 </div>
 </div>
-<div class="section" id="export">
-<h1>EXPORT<a class="headerlink" href="#export" title="Permalink to this headline">¶</a></h1>
+<hr class="docutils" />
+<div class="section" id="replication">
+<h1>Replication<a class="headerlink" href="#replication" title="Permalink to this headline">¶</a></h1>
+<p>Creates an offer and trigger replication</p>
+<div class="section" id="replication-post">
+<h2>/replication <code class="docutils literal notranslate"><span class="pre">POST</span></code><a class="headerlink" href="#replication-post" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id1">
+<h3>Parameters<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="import-id-required">
+<h4>import_id <code class="docutils literal notranslate"><span class="pre">required</span></code><a class="headerlink" href="#import-id-required" title="Permalink to this headline">¶</a></h4>
+<p>ID of the import you want to replicate</p>
+<p><em>Example:</em></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;import_id&quot;</span><span class="p">:</span> <span class="s2">&quot;0x7e9d30d3f78fd21180c9c075403b1feeace7fbf10e10ad4184dd8b7e38358bc6&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
 <div class="section" id="id2">
-<h2>/export<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
-<p><strong>POST</strong></p>
-<p>Find out more about XML structure here <a class="reference internal" href="data-structure-guidelines.html#data-structure-guidelines"><span class="std std-ref">Data Structure Guidelines</span></a></p>
-<div class="section" id="id3">
-<h3>Parameters<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
-<p>some text</p>
+<h3>Responses<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">200</span></code> OK</p>
+<p><em>Example:</em></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;replication_id&quot;</span><span class="p">:</span> <span class="s2">&quot;60bc3cd1-9b2c-4e12-b59a-14405ec73ce5&quot;</span>
+<span class="p">}</span>
+</pre></div>
 </div>
-<div class="section" id="id4">
-<h3>Responses<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
-<p>some text</p>
+<p><code class="docutils literal notranslate"><span class="pre">400</span></code> Import ID not provided</p>
+<p><code class="docutils literal notranslate"><span class="pre">405</span></code> Failed to start offer</p>
 </div>
 </div>
 </div>

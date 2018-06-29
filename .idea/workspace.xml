@@ -3,20 +3,19 @@
   <component name="ChangeListManager">
     <list default="true" id="8d882662-0b8e-4d28-bc7f-287c97a82a8f" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/doctrees/API.doctree" beforeDir="false" afterPath="$PROJECT_DIR$/build/doctrees/API.doctree" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/doctrees/environment.pickle" beforeDir="false" afterPath="$PROJECT_DIR$/build/doctrees/environment.pickle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/doctrees/index.doctree" beforeDir="false" afterPath="$PROJECT_DIR$/build/doctrees/index.doctree" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/doctrees/intro.doctree" beforeDir="false" afterPath="$PROJECT_DIR$/build/doctrees/intro.doctree" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/html/_sources/index.rst.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/html/_sources/index.rst.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/html/_sources/intro.rst.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/html/_sources/intro.rst.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/doctrees/introduction.doctree" beforeDir="false" afterPath="$PROJECT_DIR$/build/doctrees/introduction.doctree" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/html/API.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/html/API.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/html/_sources/API.rst.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/html/_sources/API.rst.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/html/_sources/introduction.rst.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/html/_sources/introduction.rst.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/html/genindex.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/html/genindex.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/html/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/html/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/html/intro.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/html/intro.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/html/introduction.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/html/introduction.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/html/objects.inv" beforeDir="false" afterPath="$PROJECT_DIR$/build/html/objects.inv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/html/search.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/html/search.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/html/searchindex.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/html/searchindex.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/Configuration-setup.rst" beforeDir="false" afterPath="$PROJECT_DIR$/source/Configuration-setup.rst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/index.rst" beforeDir="false" afterPath="$PROJECT_DIR$/source/index.rst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/intro.rst" beforeDir="false" afterPath="$PROJECT_DIR$/source/intro.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/API.rst" beforeDir="false" afterPath="$PROJECT_DIR$/source/API.rst" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -26,29 +25,29 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="index.rst" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/source/index.rst">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="480">
+            <state>
               <caret line="32" column="6" selection-start-line="32" selection-start-column="6" selection-end-line="32" selection-end-column="6" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="API.rst" pinned="false" current-in-tab="false">
+      <file leaf-file-name="API.rst" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/source/API.rst">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="9" column="8" selection-start-line="9" selection-start-column="8" selection-end-line="9" selection-end-column="8" />
+            <state relative-caret-position="480">
+              <caret line="110" lean-forward="true" selection-start-line="110" selection-end-line="110" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Configuration-setup.rst" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Configuration-setup.rst" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/source/Configuration-setup.rst">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
+            <state>
               <caret line="19" column="12" selection-start-line="19" selection-start-column="12" selection-end-line="19" selection-end-column="12" />
             </state>
           </provider>
@@ -57,7 +56,7 @@
       <file leaf-file-name="data-structure-guidelines.rst" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/source/data-structure-guidelines.rst">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-3501">
+            <state>
               <caret column="30" selection-start-column="4" selection-end-column="30" />
             </state>
           </provider>
@@ -66,7 +65,7 @@
       <file leaf-file-name="wallet-setup.rst" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/source/wallet-setup.rst">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
+            <state>
               <caret line="5" column="30" selection-start-line="5" selection-start-column="22" selection-end-line="5" selection-end-column="30" />
             </state>
           </provider>
@@ -127,8 +126,8 @@
         <option value="$PROJECT_DIR$/source/contribution.rst" />
         <option value="$PROJECT_DIR$/source/intro.rst" />
         <option value="$PROJECT_DIR$/source/index.rst" />
-        <option value="$PROJECT_DIR$/source/API.rst" />
         <option value="$PROJECT_DIR$/source/Configuration-setup.rst" />
+        <option value="$PROJECT_DIR$/source/API.rst" />
       </list>
     </option>
   </component>
@@ -202,6 +201,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -234,36 +234,37 @@
       <workItem from="1529928612821" duration="4714000" />
       <workItem from="1530085692073" duration="1287000" />
       <workItem from="1530089784790" duration="1126000" />
-      <workItem from="1530091231599" duration="19608000" />
+      <workItem from="1530091231599" duration="19819000" />
+      <workItem from="1530199407000" duration="3032000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="28794000" />
+    <option name="totallyTimeSpent" value="32037000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
     <editor active="true" />
     <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24188311" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
-      <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.32918397" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26948053" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="right" id="Database" order="3" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32872927" />
+      <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="7" />
+      <window_info anchor="bottom" id="Run" order="2" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.32918397" />
       <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32872927" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -273,6 +274,41 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/source/index.rst">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="32" column="6" selection-start-line="32" selection-start-column="6" selection-end-line="32" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/Configuration-setup.rst">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" column="12" selection-start-line="19" selection-start-column="12" selection-end-line="19" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/data-structure-guidelines.rst">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="30" selection-start-column="4" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/wallet-setup.rst">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="30" selection-start-line="5" selection-start-column="22" selection-end-line="5" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/API.rst">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" column="12" lean-forward="true" selection-start-line="19" selection-start-column="12" selection-end-line="19" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/index.rst" />
     <entry file="file://$PROJECT_DIR$/_build/html/genindex.html" />
     <entry file="file://$PROJECT_DIR$/_build/html/index.html" />
@@ -291,12 +327,6 @@
     <entry file="file://$PROJECT_DIR$/_build/html/_sources/page1.rst.txt" />
     <entry file="file://$PROJECT_DIR$/_build/html/_sources/index.rst.txt" />
     <entry file="file://$PROJECT_DIR$/index.rst" />
-    <entry file="file://$PROJECT_DIR$/build/html/_sources/node.rst.txt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/build/html/_sources/home.rst.txt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/build/html/import-data.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="740">
@@ -383,7 +413,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/source/index.rst">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
+        <state>
           <caret line="32" column="6" selection-start-line="32" selection-start-column="6" selection-end-line="32" selection-end-column="6" />
         </state>
       </provider>
@@ -392,13 +422,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="615">
           <caret line="41" lean-forward="true" selection-start-line="41" selection-end-line="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/API.rst">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="8" selection-start-line="9" selection-start-column="8" selection-end-line="9" selection-end-column="8" />
         </state>
       </provider>
     </entry>
@@ -411,22 +434,29 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/source/data-structure-guidelines.rst">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3501">
+        <state>
           <caret column="30" selection-start-column="4" selection-end-column="30" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/source/wallet-setup.rst">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
+        <state>
           <caret line="5" column="30" selection-start-line="5" selection-start-column="22" selection-end-line="5" selection-end-column="30" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/source/Configuration-setup.rst">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
+        <state>
           <caret line="19" column="12" selection-start-line="19" selection-start-column="12" selection-end-line="19" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/API.rst">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="110" lean-forward="true" selection-start-line="110" selection-end-line="110" />
         </state>
       </provider>
     </entry>
