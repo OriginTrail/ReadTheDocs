@@ -9,27 +9,41 @@ Welcome to OriginTrail documentation!
 
 .. toctree::
    :maxdepth: 10
-   :caption: Technical Documentation:
+   :caption: General:
 
    introduction
+   features
+   data-layer
+   incentive-model
+
+.. toctree::
+   :maxdepth: 10
+   :caption: Node setup:
+   
    node-setup
    wallet-setup
    Configuration-setup
    import-data
+   
+.. toctree::
+   :maxdepth: 10
+   :caption: Implementation:
+   
+   implementation
    data-structure-guidelines
    namespace
-   data-layer
-   incentive-model
-   features
-   implementation
-
-
+   
 .. toctree::
    :maxdepth: 10
    :caption: Development Documentation:
 
    intro
    contribution
+   
+.. toctree::
+   :maxdepth: 10
+   :caption: API:
+
    API
 
 Indices and tables
