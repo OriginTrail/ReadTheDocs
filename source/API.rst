@@ -394,11 +394,10 @@ query ``required``
 
 ::
 
-{
-    "<IDENTIFIER_KEY1>": "<VALUE1>",
-    "<IDENTIFIER_KEY2>": "<VALUE2>", ...
-}
-
+    {
+        "<IDENTIFIER_KEY1>": "<VALUE1>",
+        "<IDENTIFIER_KEY2>": "<VALUE2>", ...
+    }
 
 
 Responses
@@ -421,6 +420,7 @@ Parameters
 The query must be in JSON format:
 
 ::
+
     { 
         "query": 
             [ 
