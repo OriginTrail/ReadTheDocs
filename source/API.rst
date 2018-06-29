@@ -1,5 +1,16 @@
 ..  _API:
 
+Prerequisites:
+========================
+
+Your node must be running and you must have a properly set up a listening address and import address whitelist.
+Your listening address, as well as the import whitelist can be set in the .env file before running the node for the first time.
+For instructions on how to configure the node, check this page.
+
+API Purpose:
+========================
+
+The purpose of this API is to allow data operations on a single node you trust, in order to control the data flow via API routes. For example, importing a single data file into a node's database, replicating the data on the network or reading it from the node.
 
 Import
 ============
@@ -7,9 +18,7 @@ Import
 /import ``POST``
 -------------------
 
-Import new GS1/WOT data
-
-Find out more about XML structure here :ref:`data-structure-guidelines`
+Import new GS1 or WOT structured data into a node's database. Find out more about data format here :ref:`data-structure-guidelines`
 
 Parameters
 ~~~~~~~~~~~~~~
@@ -74,7 +83,9 @@ Responses
 Replication
 ============
 
-Creates an offer and trigger replication
+Replication initiates an offer for a previously imported data set on the blockchain. On success the API route will return the ID of the offer which later can be used to query the status of the created offer. After calling the replication API route, the offer itself will be executing in the background and the node will monitor the offer statuses and bids that other DH nodes are creating as a response to the offer. Please keep in mind that the offer depends on the input parameters setup in the node, which may result in a long bidding time. 
+
+For checking the status of the replication request, see /replication/ :{replication_id} route
 
 /replication ``POST``
 -----------------------
@@ -118,7 +129,7 @@ Responses
 /replication/ :{replication_id}
 -----------------------------------
 
-Asks for replication status
+Gets the status of the replication with replication_id.
 
 Parameters
 ~~~~~~~~~~~~~~
@@ -126,7 +137,17 @@ Parameters
 replication_id ``required``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Description: ID of the import you want to replicate
+Description: ID of the import you have initiated replication for
+
+
+The status can be one of the following: 
+
+-  PENDING: preparation for offer creation (depositing tokens) on the blockchain
+-  STARTED: replication is initiated and the offer is being written on the blockchain and started waiting for bids
+-  FINALIZING: the offering time ended and proceeded with choosing bids
+-  FINALIZED: the offer is finalized on the blockchain and bids choosen
+-  CANCELLED: the previously created offer was canceled
+-  FAILED: the offer has failed
 
 Responses
 ~~~~~~~~~~~~~~
@@ -147,11 +168,117 @@ Responses
 
 -------------------------------------------------------------------------------------------------------------
 
+queryNetwork
+=================
+
+
+/query/network ``POST``
+--------------------------------
+
+Publishes a network query for a supply chain data set using simple specific DSL query. The API route will return the ID of the query which can be used for checking the status of the query. The actual quering of the network will last approximately about 1 min, in which period the node will gather the offers for the query responses (read operation) and store them in the internal database storage.
+
+The query must be in JSON format:
+
+::
+    { 
+        "query": 
+            [ 
+                {
+                    "path": "<SOME_ID>", 
+                    "value": "<SOME_VALUE>", 
+                    "opcode": "<OPERATOR>" 
+                }, ... 
+            ] 
+    } 
+    
+Supported operators are: 
+
+-  EQ: when ID equals Value
+-  IN: when ID is in Value
+
+Refer to /query/network/{query_param} ``GET``
+
+
+
+query ``required``
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Description: Query in specific format
+
+*Example:*
+
+::
+
+    "string"
+
+Responses
+~~~~~~~~~~~~~~
+
+``200`` Always, except on a internal server error or bad request. Body will contain message in JSON format containing at least ‘status’ and ‘message’ attribute. If query was successful additional attribute ‘query_id’ will be present which will contain UUID of the query which can be used to check the result or status of the query.
+
+``400`` Bad request
+
+``500`` Internal error happened on server.
+
+
+
+/query/{query_id}/responses ``GET``
+--------------------------------------
+
+Returns the list of all the offers of the given query. The response will be formatted in an array of JSON objects containing offer details.
+
+query_param ``required``
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Description: UUID of network query.
+
+Responses
+~~~~~~~~~~~~~~
+
+``200`` Always, except on a internal server error. Body will contain message in JSON format containing at least ‘status’ and ‘message’ attribute. ‘message’ will contain the status of the query in format Query status $status.. If status is FINISHED body will contain another attribute ‘vertices’ containing all query result vertices.
+
+``500`` Internal error happened on server.
+
+-------------------------------------------------------------------------------------------------------------
+
+
+
+/query/network/{query_param} ``GET``
+--------------------------------------
+
+Checks the status of the network query
+
+The network query can have the following status:
+
+-  OPEN:  the initial status of the query which means it has been published to the network
+-  FINISHED:  the query has been completed, the required time has elapsed, and the offers must be reviewed via the route ...
+-  PROCESSING:  the selected offer is currently being processed
+-  FAILED:  in case of error and a failed query
+
+query_param ``required``
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Description: UUID of network query.
+
+Responses
+~~~~~~~~~~~~~~
+
+``200`` Always, except on a internal server error. Body will contain message in JSON format containing at least ‘status’ and ‘message’ attribute. ‘message’ will contain the status of the query in format Query status $status.. If status is FINISHED body will contain another attribute ‘vertices’ containing all query result vertices.
+
+``500`` Internal error happened on server.
+
+-------------------------------------------------------------------------------------------------------------
+
+
+-------------------------------------------------------------------------------------------------------------
+
 Read
 ============
 
 /read/network ``POST``
 -----------------------
+
+Initiates the reading from the network node selected from the previous posted reading offer.
 
 Parameters
 ~~~~~~~~~~~~~~
@@ -197,7 +324,7 @@ Database
 /trail ``GET``
 -----------------------
 
-Find trail in database
+Retrieves data on a supply chain product trail from the local database
 
 Parameters
 ~~~~~~~~~~~~~~
@@ -220,7 +347,7 @@ Responses
 /fingerprint ``GET``
 -----------------------
 
-Get import fingerprint from blockchain
+Gets the fingerprint of a specific import from the blockchain
 
 Parameters
 ~~~~~~~~~~~~~~
@@ -246,6 +373,9 @@ Responses
 
 ``500`` Internal error happened on server
 
+
+Note: In case of a non existant import_id the returned value will be 0.
+
 -------------------------------------------------------------------------------------------------------------
 
 QueryLocal
@@ -253,7 +383,8 @@ QueryLocal
 
 /query/local ``POST``
 -----------------------
-Run local query on graph database
+
+Run local query on the database
 
 Parameters
 ~~~~~~~~~~~~~~
@@ -261,13 +392,14 @@ Parameters
 query ``required``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Description: Query in specific format
-
-*Example:*
-
 ::
 
-    "?uid=urn:epc:id:sgln:HospitalBuilding1"
+{
+    "<IDENTIFIER_KEY1>": "<VALUE1>",
+    "<IDENTIFIER_KEY2>": "<VALUE2>", ...
+}
+
+
 
 Responses
 ~~~~~~~~~~~~~~
@@ -281,13 +413,32 @@ Responses
 /query/local/import ``POST``
 --------------------------------------------
 
+Queries a nodes local database and returns all the import IDs that contain the results of the query.
+
 Parameters
 ~~~~~~~~~~~~~~
 
-import_id ``required``
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+The query must be in JSON format:
 
-Description: Import ID for example: 0x477eae0227cce0ffaadc235c7946b97cbe2a948fe7782796b53a0c5a6ca6595f
+::
+    { 
+        "query": 
+            [ 
+                {
+                    "path": "<SOME_ID>", 
+                    "value": "<SOME_VALUE>", 
+                    "opcode": "<OPERATOR>" 
+                }, ... 
+            ] 
+    } 
+    
+Supported operators are: 
+
+-  EQ: when ID equals Value
+-  IN: when ID is in Value
+
+
+
 
 Responses
 ~~~~~~~~~~~~~~
@@ -300,8 +451,12 @@ Responses
 
 ``500`` Internal error happened on server
 
-/query/local/import:{import_id} ``POST``
+
+
+/query/local/import:{import_id} ``GET``
 --------------------------------------------
+
+Returns given import’s vertices and edges and decrypts them if needed.
 
 Parameters
 ~~~~~~~~~~~~~~
@@ -309,7 +464,7 @@ Parameters
 import_id ``required``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Description: Import Id
+Description: Import ID for example: 0x477eae0227cce0ffaadc235c7946b97cbe2a948fe7782796b53a0c5a6ca6595f
 
 Responses
 ~~~~~~~~~~~~~~
@@ -317,55 +472,4 @@ Responses
 ``200`` OK
 
 ``400`` Param required
-
--------------------------------------------------------------------------------------------------------------
-
-queryNetwork
-=================
-
-Network query operations
-
-/query/network ``POST``
---------------------------------
-
-Makes a network query
-
-query ``required``
-^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Description: Query in specific format
-
-*Example:*
-
-::
-
-    "string"
-
-Responses
-~~~~~~~~~~~~~~
-
-``200`` Always, except on a internal server error. Body will contain message in JSON format containing at least ‘status’ and ‘message’ attribute. If query was successful additional attribute ‘query_id’ will be present which will contain UUID of the query which can be used to check the result or status of the query.
-
-``400`` Bad request
-
-``500`` Internal error happened on server.
-
-/query/network/{query_param} ``GET``
---------------------------------------
-
-Checks the status of the network query
-
-query_param ``required``
-^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Description: UUID of network query.
-
-Responses
-~~~~~~~~~~~~~~
-
-``200`` Always, except on a internal server error. Body will contain message in JSON format containing at least ‘status’ and ‘message’ attribute. ‘message’ will contain the status of the query in format Query status $status.. If status is FINISHED body will contain another attribute ‘vertices’ containing all query result vertices.
-
-``500`` Internal error happened on server.
-
--------------------------------------------------------------------------------------------------------------
 
