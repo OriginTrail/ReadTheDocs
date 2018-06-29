@@ -78,10 +78,9 @@
               
             
             
-              <p class="caption"><span class="caption-text">Contents:</span></p>
+              <p class="caption"><span class="caption-text">Technical Documentation:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="introduction.html">How to set up OriginTrail Data sharing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="introduction.html#contribution">Contribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="node-setup.html">Node Setup instructions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="wallet-setup.html">Wallet Setup</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Configuration-setup.html">Node Configuration</a></li>
@@ -133,6 +132,15 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="data-layer.html">Data Layer</a></li>
 <li class="toctree-l1"><a class="reference internal" href="incentive-model.html">Incentive Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="features.html">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="implementation.html">Implementation</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Development Documentation:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contribution.html">Contribution Guidelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="API.html">Import</a></li>
+<li class="toctree-l1"><a class="reference internal" href="API.html#replication">Replication</a></li>
 </ul>
 
             
@@ -205,18 +213,18 @@ an identifier must conform to URI syntax, and must either conform to
 syntax specified in GS1 standards or must belong to a subspace of URI
 identifiers that is under the control of the end user who assigns them.</p>
 <p><strong>OriginTrail namespaces are mostly used for attributes definitions in
-EPCIS based XML file. Values for that attributes should be based
-on</strong><a class="reference external" href="http://www.gs1mu.org/about-us/gs1-standards/gs1-system">GS1 identifiers</a><strong>if it is possible.</strong></p>
+EPCIS based XML file. If it is possible, values for that attributes should be based
+on</strong> <a class="reference external" href="http://www.gs1mu.org/about-us/gs1-standards/gs1-system">GS1 identifiers</a> .</p>
 <p>For more information check:</p>
 <ul class="simple">
 <li>GS1 <a class="reference external" href="https://www.gs1.org/sites/default/files/docs/epc/CBV-Standard-1-2-2-r-2017-10-12.pdf">CBV document</a></li>
 <li>GS1 <a class="reference external" href="https://www.gs1.org/standards/epcis">EPCIS standard</a></li>
 </ul>
 <p>For more information about data structuring in OriginTrail check
-<a class="reference external" href="https://github.com/OriginTrail/ot-node/wiki/Data-Structure-Guidelines">guidelines</a></p>
+<a class="reference internal" href="data-structure-guidelines.html#data-structure-guidelines"><span class="std std-ref">Data Structure Guidelines</span></a></p>
 <div class="section" id="gs1-cbv-namespace">
 <h2>GS1 CBV Namespace<a class="headerlink" href="#gs1-cbv-namespace" title="Permalink to this headline">¶</a></h2>
-<p>The Core Business Vocabulary provides additional constraints on the
+<p>The Core Business Vocabulary (CBV) provides additional constraints on the
 syntax of identifiers for user vocabularies, so that CBV-Compliant
 documents will use identifiers that have a predictable structure. This
 in turn makes it easier for trading partners to understand the meaning
@@ -228,7 +236,7 @@ OriginTrail namespace if it is possible.</strong></p>
 <p>OriginTrail created it’s own namespace as extension of GS1 namespace.
 Root of the name space is <strong>urn:ot:</strong>. We strongly advise use of our
 namespace as described below. OriginTrail protocol name space is based
-on <a class="reference external" href="https://github.com/OriginTrail/ot-node/wiki/Graph-structure-in-OriginTrail-Data-Layer---version-1.0">data model</a>. If OriginTrail namespace is not used properly it can
+on <a class="reference internal" href="data-layer.html#data-layer"><span class="std std-ref">Data Layer</span></a>. If OriginTrail namespace is not used properly it can
 cause deviations in data structure. We strongly recommend data
 validation in Graph database after first iterations.</p>
 </div>

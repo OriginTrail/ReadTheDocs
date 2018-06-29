@@ -96,7 +96,7 @@ change it is:
 
 .. _-want-a-doc-fix:
 
- Want a Doc Fix?
+Want a Doc Fix?
 ~~~~~~~~~~~~~~~~
 
 Should you have a suggestion for the documentation, you can open an
