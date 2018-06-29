@@ -65,8 +65,8 @@ In future development, we plan to move several operations off-chain to the ODN n
 
 Simply put, the Data Creator node (DC), the one introducing new data to the network, forms agreements with Data Holder nodes (DH) to operate on and store data (D) on a particular observed supply chain (S). For the specific data set D, a set of agreements is made between the DC of the data provider, and several DH nodes, among which are both independent nodes within the network, as well as the associated partner nodes of the data provider entity. In that regard, it is important to understand how a node agreement is formed.
  
-.. image:: slide-system_overview%402x.png
-   :target: https://github.com/OriginTrail/ReadTheDocs/raw/master/source/
+.. image:: slide-system.png
+   :target: https://raw.githubusercontent.com/OriginTrail/ReadTheDocs/master/source/
    :width: 600px
 
  
