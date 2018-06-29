@@ -3,35 +3,23 @@
   <component name="ChangeListManager">
     <list default="true" id="8d882662-0b8e-4d28-bc7f-287c97a82a8f" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/doctrees/API.doctree" beforeDir="false" afterPath="$PROJECT_DIR$/build/doctrees/API.doctree" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/doctrees/contribution.doctree" beforeDir="false" afterPath="$PROJECT_DIR$/build/doctrees/contribution.doctree" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/doctrees/environment.pickle" beforeDir="false" afterPath="$PROJECT_DIR$/build/doctrees/environment.pickle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/doctrees/implementation.doctree" beforeDir="false" afterPath="$PROJECT_DIR$/build/doctrees/implementation.doctree" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/doctrees/index.doctree" beforeDir="false" afterPath="$PROJECT_DIR$/build/doctrees/index.doctree" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/doctrees/node-setup.doctree" beforeDir="false" afterPath="$PROJECT_DIR$/build/doctrees/node-setup.doctree" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/html/.buildinfo" beforeDir="false" afterPath="$PROJECT_DIR$/build/html/.buildinfo" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/html/API.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/html/API.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/html/Configuration-setup.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/html/Configuration-setup.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/html/_sources/API.rst.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/html/_sources/API.rst.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/html/_sources/contribution.rst.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/html/_sources/contribution.rst.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/html/_sources/index.rst.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/html/_sources/index.rst.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/html/_sources/node-setup.rst.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/html/_sources/node-setup.rst.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/html/contribution.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/html/contribution.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/html/data-layer.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/html/data-layer.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/html/data-structure-guidelines.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/html/data-structure-guidelines.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/html/features.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/html/features.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/html/genindex.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/html/genindex.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/html/implementation.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/html/implementation.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/html/import-data.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/html/import-data.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/html/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/html/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/html/introduction.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/html/introduction.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/html/namespace.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/html/namespace.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/html/network-structure.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/html/network-structure.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/html/node-setup.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/html/node-setup.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/html/objects.inv" beforeDir="false" afterPath="$PROJECT_DIR$/build/html/objects.inv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/html/search.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/html/search.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/html/searchindex.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/html/searchindex.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/html/wallet-setup.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/html/wallet-setup.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/conf.py" beforeDir="false" afterPath="$PROJECT_DIR$/source/conf.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/API.rst" beforeDir="false" afterPath="$PROJECT_DIR$/source/API.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/contribution.rst" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/source/index.rst" beforeDir="false" afterPath="$PROJECT_DIR$/source/index.rst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/intro.rst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/node-setup.rst" beforeDir="false" afterPath="$PROJECT_DIR$/source/node-setup.rst" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -45,7 +33,7 @@
       <file leaf-file-name="index.rst" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/source/index.rst">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="479">
+            <state relative-caret-position="87">
               <caret line="30" selection-start-line="30" selection-end-line="30" />
             </state>
           </provider>
@@ -60,20 +48,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="API.rst" pinned="false" current-in-tab="false">
+      <file leaf-file-name="API.rst" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/source/API.rst">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4680">
-              <caret line="475" selection-start-line="475" selection-end-line="475" />
+            <state relative-caret-position="82">
+              <caret line="81" column="24" selection-start-line="81" selection-start-column="24" selection-end-line="81" selection-end-column="24" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="node-setup.rst" pinned="false" current-in-tab="true">
+      <file leaf-file-name="node-setup.rst" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/source/node-setup.rst">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="174" column="4" lean-forward="true" selection-start-line="174" selection-start-column="4" selection-end-line="174" selection-end-column="4" />
+            <state relative-caret-position="181">
+              <caret line="174" column="4" selection-start-line="174" selection-start-column="4" selection-end-line="174" selection-end-column="4" />
             </state>
           </provider>
         </entry>
@@ -122,8 +110,11 @@
       <find>data layer</find>
       <find>home</find>
       <find>index</find>
-      <find>DesignMDRzk.JPG</find>
       <find>Origintrail</find>
+      <find>DesignMDRzk.JPG</find>
+      <find>database</find>
+      <find>Data</find>
+      <find>purpose</find>
     </findStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$</dir>
@@ -158,12 +149,12 @@
         <option value="$PROJECT_DIR$/source/implementation.rst" />
         <option value="$PROJECT_DIR$/source/intro.rst" />
         <option value="$PROJECT_DIR$/source/Configuration-setup.rst" />
-        <option value="$PROJECT_DIR$/source/contribution.rst" />
-        <option value="$PROJECT_DIR$/source/API.rst" />
         <option value="$PROJECT_DIR$/source/data-structure-guidelines.rst" />
-        <option value="$PROJECT_DIR$/source/index.rst" />
         <option value="$PROJECT_DIR$/source/conf.py" />
         <option value="$PROJECT_DIR$/source/node-setup.rst" />
+        <option value="$PROJECT_DIR$/source/contribution.rst" />
+        <option value="$PROJECT_DIR$/source/index.rst" />
+        <option value="$PROJECT_DIR$/source/API.rst" />
       </list>
     </option>
   </component>
@@ -257,12 +248,12 @@
       <workItem from="1530089784790" duration="1126000" />
       <workItem from="1530091231599" duration="19819000" />
       <workItem from="1530199407000" duration="6784000" />
-      <workItem from="1530296943151" duration="1936000" />
+      <workItem from="1530296943151" duration="2835000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="37725000" />
+    <option name="totallyTimeSpent" value="38624000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="735" extended-state="0" />
@@ -468,13 +459,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/contribution.rst">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="223">
-          <caret line="98" selection-start-line="98" selection-end-line="98" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/source/data-structure-guidelines.rst">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="23">
@@ -489,13 +473,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/index.rst">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="479">
-          <caret line="30" selection-start-line="30" selection-end-line="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/source/conf.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
@@ -503,17 +480,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/API.rst">
+    <entry file="file://$PROJECT_DIR$/source/node-setup.rst">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4680">
-          <caret line="475" selection-start-line="475" selection-end-line="475" />
+        <state relative-caret-position="181">
+          <caret line="174" column="4" selection-start-line="174" selection-start-column="4" selection-end-line="174" selection-end-column="4" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/node-setup.rst">
+    <entry file="file://$PROJECT_DIR$/source/contribution.rst">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/index.rst">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="174" column="4" lean-forward="true" selection-start-line="174" selection-start-column="4" selection-end-line="174" selection-end-column="4" />
+        <state relative-caret-position="87">
+          <caret line="30" selection-start-line="30" selection-end-line="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/API.rst">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="82">
+          <caret line="81" column="24" selection-start-line="81" selection-start-column="24" selection-end-line="81" selection-end-column="24" />
         </state>
       </provider>
     </entry>

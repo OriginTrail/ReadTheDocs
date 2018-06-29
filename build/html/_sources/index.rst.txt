@@ -29,7 +29,6 @@ Welcome to OriginTrail documentation!
    :maxdepth: 10
    :caption: Developer Documentation:
 
-   contribution
    API
    
 .. toctree::
