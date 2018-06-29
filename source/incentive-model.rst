@@ -1,19 +1,24 @@
 ..  _incentive-model:
 
-Incentive Model
+Network structure
 ===================
 
-This paper is the result of an ongoing research into securing the
-service availability of the OriginTrail network protocol. OriginTrail is
-a purpose built protocol for trusted supply chain data sharing,
-utilizing GS1 standards and based on blockchain.
+The network layer takes care of the accessibility and data governance of the underlying data
+layer. It consists of network nodes which all contain parts of the decentralized database and
+store graphs of the data. Access to the data is achieved through the provided data exchange
+API.
+
+The peer to peer network is built on a distributed hash table based on Kademlia which is
+responsible for efficient routing within the network. The messages between peers are signed,
+while the Kademlia node ID presents a valid Ethereum address which the node is able to
+spend from. This enforces long-term identity and helps with Kademlia routing and Eclipse
+attacks.
 
 The peer-to-peer decentralized network operates as a serverless supply
 chain data storage, validation and serving network with built in
 fault-tolerance, DDoS resistance, tamper-proof resistance and
 self-sustaining based on the incentive system explained in this
-document. The incentive tool utilized within the protocol is the Trace
-token.
+document. 
 
 The intention of this paper is to document the research findings and
 mechanics behind the incentive model of OriginTrail, as well as to
