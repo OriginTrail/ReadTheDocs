@@ -222,7 +222,7 @@ be GLN number like ``urn:epc:id:sgln:0614141.12345.0``.
 **Supply chain participants map:**
 
 .. image:: Basic_sale.jpg
-   :target: https://raw.githubusercontent.com/OriginTrail/ot-node/raw/develop/importers/xml_examples/Basic/
+   :target: https://raw.githubusercontent.com/OriginTrail/ReadTheDocs/master/source/
    :width: 600px
 
 **Use case:** Green is producing wine and selling it to Pink. Shipping
@@ -231,7 +231,7 @@ and receiving events are generating data that is being processed on ODN.
 **GS1 EPCIS design:**
 
 .. image:: Design.JPG
-   :target: https://raw.githubusercontent.com/OriginTrail/ot-node/raw/develop/importers/xml_examples/Basic/
+   :target: https://raw.githubusercontent.com/OriginTrail/ReadTheDocs/master/source/
    :width: 600px
 
 `Sample files`_
@@ -243,7 +243,7 @@ and receiving events are generating data that is being processed on ODN.
 **Supply chain participants map:**
 
 .. image:: Complex_manufacturer-distributor-retail_(MDR)_sale.jpg
-   :target: https://github.com/OriginTrail/ot-node/raw/develop/importers/xml_examples/Retail/
+   :target: https://raw.githubusercontent.com/OriginTrail/ReadTheDocs/master/source/
    :width: 600px
 
 **Use case:** Green is producing wine and selling it to Pink. Pink is
@@ -254,7 +254,7 @@ is being processed on ODN.
 `GS1 EPCIS design:`_
 
 .. image:: Design.JPG
-   :target: https://github.com/OriginTrail/ot-node/raw/develop/importers/xml_examples/Retail/
+   :target: https://raw.githubusercontent.com/OriginTrail/ReadTheDocs/master/source/
    :width: 600px
 
 `Sample
@@ -268,7 +268,7 @@ files <https://github.com/OriginTrail/ot-node/blob/develop/importers/xml_example
 **Supply chain participants map:**
 
 .. image:: Complex_manufacturer-distributor-retail_(MDR)_sale.jpg
-   :target: https://github.com/OriginTrail/ot-node/raw/develop/importers/xml_examples/Retail/
+   :target: https://raw.githubusercontent.com/OriginTrail/ReadTheDocs/master/source/
    :width: 600px
 
 **Use case:** Green is producing wine and selling it to Pink. Pink is
@@ -286,7 +286,7 @@ Pink (some quantity is left unsold on Pink location).
 **GS1 EPCIS design:**
 
 .. image:: Design.JPG
-   :target: https://github.com/OriginTrail/ot-node/raw/develop/importers/xml_examples/Retail/
+   :target: https://raw.githubusercontent.com/OriginTrail/ReadTheDocs/master/source/
    :width: 600px
 
 `Sample
@@ -300,7 +300,7 @@ files <https://github.com/OriginTrail/ot-node/blob/develop/importers/xml_example
 **Supply chain participants map:** 
 
 .. image:: MDR_with_aggregation_events.jpg
-   :target: https://github.com/OriginTrail/ot-node/raw/develop/importers/xml_examples/Retail_with_aggregation/
+   :target: https://raw.githubusercontent.com/OriginTrail/ReadTheDocs/master/source/
    :width: 600px
 
 **Use case:** Green is producing wine (one product with several
@@ -317,7 +317,7 @@ on ODN.
 **GS1 EPCIS design:** 
 
 .. image:: Design.JPG
-   :target: https://github.com/OriginTrail/ot-node/raw/develop/importers/xml_examples/Retail_with_aggregation/
+   :target: https://raw.githubusercontent.com/OriginTrail/ReadTheDocs/master/source/
    :width: 600px
    
 `Sample files`_
