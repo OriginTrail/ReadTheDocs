@@ -242,7 +242,7 @@ and receiving events are generating data that is being processed on ODN.
 
 **Supply chain participants map:**
 
-.. image:: Complex_manufacturer-distributor-retail_(MDR)_sale.jpg
+.. image:: MDR.jpg
    :target: https://raw.githubusercontent.com/OriginTrail/ReadTheDocs/master/source/
    :width: 600px
 
@@ -253,7 +253,7 @@ is being processed on ODN.
 
 `GS1 EPCIS design:`_
 
-.. image:: Design.JPG
+.. image:: DesignMDR.JPG
    :target: https://raw.githubusercontent.com/OriginTrail/ReadTheDocs/master/source/
    :width: 600px
 
@@ -267,7 +267,7 @@ files <https://github.com/OriginTrail/ot-node/blob/develop/importers/xml_example
 
 **Supply chain participants map:**
 
-.. image:: Complex_manufacturer-distributor-retail_(MDR)_sale.jpg
+.. image:: MDR.jpg
    :target: https://raw.githubusercontent.com/OriginTrail/ReadTheDocs/master/source/
    :width: 600px
 
@@ -285,7 +285,7 @@ Pink (some quantity is left unsold on Pink location).
 
 **GS1 EPCIS design:**
 
-.. image:: Design.JPG
+.. image:: DesignMDR.JPG
    :target: https://raw.githubusercontent.com/OriginTrail/ReadTheDocs/master/source/
    :width: 600px
 
@@ -299,7 +299,7 @@ files <https://github.com/OriginTrail/ot-node/blob/develop/importers/xml_example
 
 **Supply chain participants map:** 
 
-.. image:: MDR_with_aggregation_events.jpg
+.. image:: MDRagg.jpg
    :target: https://raw.githubusercontent.com/OriginTrail/ReadTheDocs/master/source/
    :width: 600px
 
