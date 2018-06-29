@@ -216,25 +216,26 @@ cases should utilize GS1 identifiers for values (GLN,GTIN...). For
 example, instead value ``urn:epc:id:sgln:Building_Green`` there should
 be GLN number like ``urn:epc:id:sgln:0614141.12345.0``.
 
-.. _1-basic-sales-example:
-
 1. Basic sales example
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 **Supply chain participants map:**
 
-|Basic sales example|
+.. image:: Basic_sale.jpg
+   :target: https://github.com/OriginTrail/ot-node/raw/develop/importers/xml_examples/Basic/
+   :width: 600px
 
 **Use case:** Green is producing wine and selling it to Pink. Shipping
 and receiving events are generating data that is being processed on ODN.
 
 **GS1 EPCIS design:**
 
-|EPCIS design1|
+.. image:: Design.JPG
+   :target: https://github.com/OriginTrail/ot-node/raw/develop/importers/xml_examples/Basic/
+   :width: 600px
 
 `Sample files`_
 
-.. _2-complex-manufacturer-distributor-retail-mdr-sale:
 
 2. Complex manufacturer-distributor-retail (MDR) sale
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
