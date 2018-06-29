@@ -12,9 +12,7 @@ The consensus check utilizes this functionality, while additionally performing o
 
 To see the consensus check in action, after importing the data in the system, send a request to the API endpoint to get the trail of a certain batch of products via route api/trail?uid=urn:epc:id:sgtin:Batch_1 and the response will provide you with the consensus parameters for each of the events in the product history trail.
 
-**https://cdn-images-1.medium.com/max/1200/0*MYVgWIX-UbNEoOAf.**
-
-
+..image:https://github.com/OriginTrail/ReadTheDocs/raw/master/source/slide-interperability_and_data_integrity.png
 
 
 Compensation system
@@ -44,7 +42,7 @@ In future development, we plan to move several operations off-chain to the ODN n
 
  Simply put, the Data Creator node (DC), the one introducing new data to the network, forms agreements with Data Holder nodes (DH) to operate on and store data (D) on a particular observed supply chain (S). For the specific data set D, a set of agreements is made between the DC of the data provider, and several DH nodes, among which are both independent nodes within the network, as well as the associated partner nodes of the data provider entity. In that regard, it is important to understand how a node agreement is formed.
  
-..image:https://cdn-images-1.medium.com/max/1200/0*r1_MBozv3Ye0Rujh.
+..image:https://github.com/OriginTrail/ReadTheDocs/raw/master/source/slide-system_overview%402x.png
  
  To form the set of agreements (A) associated with one data set D, the DC node of the data provider creates an initial offer (O). This offer contains the parameters set by the DC node such as:
 
@@ -61,8 +59,6 @@ The payment mechanism is now extended to support the ability to perform trustles
 Privacy layer
 -------------
 As we have entered the final phases of the alpha development period, we are able to take the observations over the previous period and incorporate the findings into the development roadmap as we go. We have, so far, iterated successfully on several components of the system — the bidding mechanism, privacy layer, underlying database systems, network communication and importer. Explorer now supports more features on the privacy layer, which includes the zero-knowledge algorithm published a month ago in Zond. It brings the ability to handle private data within the system in such a way that the owner can retain control of the information by their DC (data creator) node, while publishing cryptographic commitments in the system to the DH (data holder) nodes involved in replication. This first iteration is just the beginning of further developments in the privacy layer, which is one of the most important components of the OriginTrail protocol.
-
-
 
 Zero knowledge proof
 --------------------
@@ -83,11 +79,11 @@ Let’s assume we have a dairy company buying raw milk from two dairy farms. The
 Representation of a singled out supply chain event of producing a quantity of C milk out of raw materials A and B
 Today, it is not easy to account for all parts of a particular raw material quantity in supply chains, and there are many cases of foul play, especially when it comes to organic food. It is really hard to make sure irregular, non-organic products, are not getting added to organic ones and being sold off as organic, higher value products. Again, this is the result of informational asymmetry as the stakeholders in the market are not able to validate the whole chain, of which one major part is the ability to validate mass balance and quantities.
 
-..image:https://cdn-images-1.medium.com/max/1200/0*NzffUf7hIjxlxXJa.
+..image:https://raw.githubusercontent.com/OriginTrail/ReadTheDocs/master/source/zk1.JPG
 
 How do we then enable this data sharing to happen when there’s no incentive to share this information? The privacy layer in ODN is designed to provide a “zero-knowledge” way for validating these data elements in successive events in the supply chain. Zero knowledge protocols in general terms provide a way for an interested party — the “verifier” — to successfully verify that the observed party — the “prover” — has knowledge about a specific piece of information — “truth” — without revealing the “truth” itself. When it comes to the OriginTrail zero-knowledge implementation, this means that the companies would be able to share quantities A,B and C in specially encrypted forms E(A), E(B) and E(C), and any observer, aka “verifier,” would be able to confirm whether these values correctly fit the validation equation E(A) * E(B) = E(C). The verifier cannot obtain the values of A, B and C, but is able to confirm that the quantity input and output of a certain event or process in a supply chain is valid. Consequently, if there was some mismatch and E(A) * E(B) would not equal E(C), that would mean that there exists some integer quantity D for which A + B = C + D and thus E(A) * E(B) = E(C) * E(D).
 
-..image:https://cdn-images-1.medium.com/max/1200/0*1Bgq6CIL6wOxkktN.
+..image:https://raw.githubusercontent.com/OriginTrail/ReadTheDocs/master/source/zk2.JPG
 
 Validation is performed on encrypted values, keeping original quantities hidden
 This would provide for a valuable insight to everyone involved in the supply chain as it would provide a starting point for investigation into what has happened. In several cases so far we have observed quantity mismatches due to plain data inconsistencies regarding bookkeeping with companies we have worked with. These inconsistencies were revealed by the OriginTrail protocol and have helped them fix their internal data handling. Having said that, the quantity D can be manifested as an error in accounting, as well as a potential supply chain misbehavior. By repeating the process along the whole supply chain network, the system allows for full validation of quantity matching in the chain, without exposing sensitive information and thus unlocking major value from the previously siloed and unshareable data.
