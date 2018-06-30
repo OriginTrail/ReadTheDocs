@@ -14,13 +14,13 @@ request containing the XML file to the following endpoint:
 
 ::
 
-   https://YOUR_RPC_NODE_URL:YOUR_RPC_NODE_PORT/import_gs1
+   https://YOUR_RPC_NODE_URL:YOUR_RPC_NODE_PORT/api/import
 
 The example cURL request is:
 
 .. code:: bash
 
-   curl -v  -F importfile=@importers/xml_examples/Basic/01_Green_to_pink_shipment.xml http://YOUR_RPC_NODE_URL:YOUR_RPC_NODE_PORT/import_gs1
+   curl -v  -F importfile=@importers/xml_examples/Basic/01_Green_to_pink_shipment.xml http://YOUR_RPC_NODE_URL:YOUR_RPC_NODE_PORT/api/import
 
 Depending on the use case, it might make sense to set up a periodic
 import of the data into OriginTrail (i.e. a daily cronjob exporting the
