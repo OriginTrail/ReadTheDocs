@@ -309,10 +309,12 @@ batches. Green is selling products to Pink. Pink is distributing
 (selling) wine to retail shop (Orange). The wine is sold in pallets that
 are not changed on Pink location. Pink is handling pallets as atomic
 product (nothing is added or removed from pallet). Pink is selling wine
-pallets to Orange. Orange unpacks pallets when they receive them.
+pallets to Orange. Orange unpacks pallets when they receive them. They unpack only Batch2 from the Pallet.
 Pallets can be partially or completely unpacked. Shipping, receiving,
 packing and unpacking events are generating data that is being processed
 on ODN.
+
+**Note**: Unpacking event must explicitly state what is being unpacked in order to connect vertexes in graph database. Please **don't** use unpack all  `` <childEPCs /> `` tag. Also, pay attention to ADD and DELETE action that signal the type of the observed event.
 
 **GS1 EPCIS design:** 
 
