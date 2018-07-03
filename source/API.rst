@@ -134,7 +134,7 @@ For instructions on how to configure the node, check this page.
 Import
 ============
 
-/import ``POST``
+/api/import ``POST``
 -------------------
 
 Import new GS1 or WOT structured data into a node's database. Find out more about data format here :ref:`data-structure-guidelines`
