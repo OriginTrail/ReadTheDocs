@@ -263,7 +263,7 @@ files <https://github.com/OriginTrail/ot-node/blob/develop/importers/xml_example
 .. _3-mdr-with-zero-knowledge-proof:
 
 3. MDR with zero knowledge proof
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 **Supply chain participants map:**
 
@@ -285,7 +285,7 @@ Pink (some quantity is left unsold on Pink location).
 
 **GS1 EPCIS design:**
 
-.. image:: DesignMDR.JPG
+.. image:: DesignMDRZk.JPG
    :target: https://raw.githubusercontent.com/OriginTrail/ReadTheDocs/master/source/
    :width: 600px
 
