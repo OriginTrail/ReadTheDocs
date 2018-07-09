@@ -171,8 +171,11 @@ This will install all prerequisites in a single step.
 
 If you prefer neo4j as database then use
 
-::
-   +
+.. code:: bash
+
+   wget https://raw.githubusercontent.com/OriginTrail/ot-node/master/install.sh
+   sh install.sh --db=neo4j
+   
 
 **Note:** There are some ongoing issues with Neo4j. We currently advise use of ArangoDB.
 
