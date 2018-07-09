@@ -9,16 +9,15 @@ Welcome to OriginTrail documentation!
 
 .. toctree::
    :maxdepth: 10
-   :caption: General:
+   :caption: GENERAL
 
    introduction
-   features
    data-layer
    network-structure
 
 .. toctree::
    :maxdepth: 10
-   :caption: Node setup:
+   :caption: NODE SETUP
    
    node-setup
    wallet-setup
@@ -27,17 +26,23 @@ Welcome to OriginTrail documentation!
 
 .. toctree::
    :maxdepth: 10
-   :caption: Developer Documentation:
+   :caption: API REFERENCE
 
-   API
+   introduction-to-api
    
 .. toctree::
    :maxdepth: 10
-   :caption: Implementation:
+   :caption: IMPLEMENTATION
    
    implementation
    data-structure-guidelines
    namespace
+
+.. toctree::
+      :maxdepth: 10
+      :caption: CONTRIBUTION GUIDELINES
+
+      contribution-guidelines
 
 
 Indices and tables

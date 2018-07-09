@@ -1,14 +1,14 @@
-..  _API:
+..  _introduction-to-api:
 
 
-Introduction To API
+Introduction to API
 ========================
 
 The purpose of this API is to allow data operations on a single node you trust, in order to control the data flow via API routes. For example, importing a single data file into a node's database, replicating the data on the network or reading it from the node.
 
 
 Prerequisites
------------------
+========================
 
 Your node must be running and you must have a properly set up a listening address and import address whitelist.
 Your listening address, as well as the import whitelist can be set in the .env file before running the node for the first time.
