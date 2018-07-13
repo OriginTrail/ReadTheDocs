@@ -202,6 +202,9 @@ and run npm
 
    cd ot-node && npm install
    cp .env.example .env
+   
+   
+You can proceed to node `configuration`_ 
 
 Starting The Node
 --------------------
@@ -232,3 +235,4 @@ IMPORT_WHITELIST=127.0.0.1 if you are importing from localhost.
 .. _neo4j.com/download: https://neo4j.com/download/
 .. _arangodb.com/download: https://www.arangodb.com/download-major/
 .. _link: https://www.digitalocean.com/community/tutorials/how-to-add-swap-space-on-ubuntu-16-04
+.. _configuration: http://docs.origintrail.io/en/latest/Configuration-setup.html
