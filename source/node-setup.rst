@@ -217,6 +217,8 @@ You can see instructions regarding the data import on the following :ref:`import
 
 Important Notes
 -----------------
+First time you run your node in .env don't forget to run
+``npm run bootstrap`` to apply that configuration.
 
 Every time you change your configuration in .env don't forget to run
 ``npm run config`` to apply that configuration.
