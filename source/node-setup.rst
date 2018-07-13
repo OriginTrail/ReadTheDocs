@@ -217,11 +217,10 @@ You can see instructions regarding the data import on the following :ref:`import
 
 Important Notes
 -----------------
-First time you run your node in .env don't forget to run
-``npm run bootstrap`` to apply that configuration.
+First time you run your node run ``npm run bootstrap`` to apply initial configuration.
 
 Every time you change your configuration in .env don't forget to run
-``npm run config`` to apply that configuration.
+``npm run config`` to apply updated configuration.
 
 In order to make the initial import, your node must **whitelist** the
 IP of the machine that is requesting the import in ``.env`` i.e
