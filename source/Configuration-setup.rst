@@ -18,7 +18,15 @@ PASSWORD.
 
 You can view .env Example `here`_
 
-Once you set your .env file, you have to run from ot-node folder:
+Once you set your .env file, you have to run from ot-node folder decide on one of following options:
+
+- if this is your initial configuration: 
+
+::
+
+   npm run bootstrap
+
+- if you are updating node setup (node was working already):
 
 ::
 
