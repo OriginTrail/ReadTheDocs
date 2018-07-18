@@ -12,7 +12,7 @@ Prerequisites
 
 Your node must be running and you must have a properly set up a listening address and import address whitelist.
 Your listening address, as well as the import whitelist can be set in the .env file before running the node for the first time.
-For instructions on how to configure the node, check this page.
+For instructions on how to configure the node, check :ref:`Configuration-setup` page.
 
 Import
 ============
