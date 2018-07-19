@@ -12,13 +12,13 @@ Prerequisites
 
 Your node must be running and you must have a properly set up a listening address and import address whitelist.
 Your listening address, as well as the import whitelist can be set in the .env file before running the node for the first time.
-For instructions on how to configure the node, check this page.
+For instructions on how to configure the node, check :ref:`configuration-setup` page.
 
 Import
 ============
 
 /api/import ``POST``
--------------------
+-------------------------
 
 Import new GS1 or WOT structured data into a node's database. Find out more about data format here :ref:`data-structure-guidelines`
 
@@ -89,8 +89,8 @@ Replication initiates an offer for a previously imported data set on the blockch
 
 For checking the status of the replication request, see /replication/ :{replication_id} route
 
-/replication ``POST``
------------------------
+/api/replication ``POST``
+-----------------------------
 
 Creates an offer and trigger replication
 
@@ -128,8 +128,8 @@ Responses
 ``405`` Failed to start offer
 
 
-/replication/ :{replication_id}
------------------------------------
+/api/replication/ :{replication_id}
+-----------------------------------------
 
 Gets the status of the replication with replication_id.
 
@@ -174,7 +174,7 @@ queryNetwork
 =================
 
 
-/query/network ``POST``
+/api/query/network ``POST``
 --------------------------------
 
 Publishes a network query for a supply chain data set using simple specific DSL query. The API route will return the ID of the query which can be used for checking the status of the query. The actual quering of the network will last approximately about 1 min, in which period the node will gather the offers for the query responses (read operation) and store them in the internal database storage.
@@ -225,8 +225,8 @@ Responses
 
 
 
-/query/{query_id}/responses ``GET``
---------------------------------------
+/api/query/{query_id}/responses ``GET``
+------------------------------------------
 
 Returns the list of all the offers of the given query. The response will be formatted in an array of JSON objects containing offer details.
 
@@ -246,8 +246,8 @@ Responses
 
 
 
-/query/network/{query_param} ``GET``
---------------------------------------
+/api/query/network/{query_param} ``GET``
+------------------------------------------
 
 Checks the status of the network query
 
@@ -275,8 +275,8 @@ Responses
 Read
 ============
 
-/read/network ``POST``
------------------------
+/api/read/network ``POST``
+-------------------------------
 
 Initiates the reading from the network node selected from the previous posted reading offer.
 
@@ -321,7 +321,7 @@ Responses
 Local Search
 ===============
 
-/trail ``GET``
+/api/trail ``GET``
 -----------------------
 
 Retrieves data on a supply chain product trail from the local database
@@ -344,8 +344,8 @@ Responses
 ``500`` Internal error happened on server
 
 
-/fingerprint ``GET``
------------------------
+/api/fingerprint ``GET``
+---------------------------
 
 Gets the fingerprint of a specific import from the blockchain
 
@@ -381,8 +381,8 @@ Note: In case of a non existant import_id the returned value will be 0.
 QueryLocal
 ============
 
-/query/local ``POST``
------------------------
+/api/query/local ``POST``
+---------------------------
 
 Run local query on the database
 
@@ -409,7 +409,7 @@ Responses
 
 ``500`` Internal error happened on server
 
-/query/local/import ``POST``
+/api/query/local/import ``POST``
 --------------------------------------------
 
 Queries a nodes local database and returns all the import IDs that contain the results of the query.
@@ -453,8 +453,8 @@ Responses
 
 
 
-/query/local/import:{import_id} ``GET``
---------------------------------------------
+/api/query/local/import:{import_id} ``GET``
+------------------------------------------------
 
 Returns given import’s vertices and edges and decrypts them if needed.
 

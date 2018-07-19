@@ -78,33 +78,31 @@
               
             
             
-              <p class="caption"><span class="caption-text">General:</span></p>
+              <p class="caption"><span class="caption-text">GENERAL</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="features.html">Features</a></li>
 <li class="toctree-l1"><a class="reference internal" href="data-layer.html">Data Layer</a></li>
 <li class="toctree-l1"><a class="reference internal" href="network-structure.html">Network structure</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Node setup:</span></p>
+<p class="caption"><span class="caption-text">NODE SETUP</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="node-setup.html">Node Setup instructions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="wallet-setup.html">Wallet Setup</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Configuration-setup.html">Node Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="import-data.html">Import data</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Developer Documentation:</span></p>
+<p class="caption"><span class="caption-text">API REFERENCE</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="contribution.html">Contribution Guidelines</a></li>
-<li class="toctree-l1"><a class="reference internal" href="API.html">Prerequisites:</a></li>
-<li class="toctree-l1"><a class="reference internal" href="API.html#api-purpose">API Purpose:</a></li>
-<li class="toctree-l1"><a class="reference internal" href="API.html#import">Import</a></li>
-<li class="toctree-l1"><a class="reference internal" href="API.html#replication">Replication</a></li>
-<li class="toctree-l1"><a class="reference internal" href="API.html#querynetwork">queryNetwork</a></li>
-<li class="toctree-l1"><a class="reference internal" href="API.html#read">Read</a></li>
-<li class="toctree-l1"><a class="reference internal" href="API.html#database">Database</a></li>
-<li class="toctree-l1"><a class="reference internal" href="API.html#querylocal">QueryLocal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction-to-api.html">Introduction to API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction-to-api.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction-to-api.html#import">Import</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction-to-api.html#replication">Replication</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction-to-api.html#querynetwork">queryNetwork</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction-to-api.html#read">Read</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction-to-api.html#local-search">Local Search</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction-to-api.html#querylocal">QueryLocal</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Implementation:</span></p>
+<p class="caption"><span class="caption-text">IMPLEMENTATION</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="implementation.html">Implementation</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Data Structure Guidelines</a><ul>
@@ -132,6 +130,13 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="namespace.html">Namespace</a></li>
+</ul>
+<p class="caption"><span class="caption-text">CONTRIBUTION GUIDELINES</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="contribution-guidelines.html">Contribution Guidelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contribution-guidelines.html#pull-requests">Pull Requests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contribution-guidelines.html#contributor-code-of-conduct">Contributor Code of Conduct</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contribution-guidelines.html#questions-bugs-features">Questions, Bugs, Features</a></li>
 </ul>
 
             
@@ -431,7 +436,7 @@ is utilized. Purpose of this scenario is to point out differences in
 data structure. There are minor differences in quantity being sold from
 Pink (some quantity is left unsold on Pink location).</p>
 <p><strong>GS1 EPCIS design:</strong></p>
-<a class="reference external image-reference" href="https://raw.githubusercontent.com/OriginTrail/ReadTheDocs/master/source/"><img alt="_images/DesignMDR.JPG" src="_images/DesignMDR.JPG" style="width: 600px;" /></a>
+<a class="reference external image-reference" href="https://raw.githubusercontent.com/OriginTrail/ReadTheDocs/master/source/"><img alt="_images/DesignMDRZk.JPG" src="_images/DesignMDRZk.JPG" style="width: 600px;" /></a>
 <p><a class="reference external" href="https://github.com/OriginTrail/ot-node/blob/develop/importers/xml_examples/Retail_with_Zk/">Sample
 files</a></p>
 </div>
@@ -445,12 +450,13 @@ batches. Green is selling products to Pink. Pink is distributing
 (selling) wine to retail shop (Orange). The wine is sold in pallets that
 are not changed on Pink location. Pink is handling pallets as atomic
 product (nothing is added or removed from pallet). Pink is selling wine
-pallets to Orange. Orange unpacks pallets when they receive them.
+pallets to Orange. Orange unpacks pallets when they receive them. They unpack only Batch2 from the Pallet.
 Pallets can be partially or completely unpacked. Shipping, receiving,
 packing and unpacking events are generating data that is being processed
 on ODN.</p>
+<p><strong>Note</strong>: Unpacking event must explicitly state what is being unpacked in order to connect vertexes in graph database. Please <strong>don’t</strong> use unpack all  `` &lt;childEPCs /&gt; `` tag. Also, pay attention to ADD and DELETE action that signal the type of the observed event.</p>
 <p><strong>GS1 EPCIS design:</strong></p>
-<a class="reference external image-reference" href="https://raw.githubusercontent.com/OriginTrail/ReadTheDocs/master/source/"><img alt="_images/DesignMDR.JPG" src="_images/DesignMDR.JPG" style="width: 600px;" /></a>
+<a class="reference external image-reference" href="https://raw.githubusercontent.com/OriginTrail/ReadTheDocs/master/source/"><img alt="_images/DesignMDRAgg.JPG" src="_images/DesignMDRAgg.JPG" style="width: 600px;" /></a>
 <p><a class="reference external" href="https://github.com/OriginTrail/ot-node/blob/develop/importers/xml_examples/">Sample files</a></p>
 </div>
 </div>

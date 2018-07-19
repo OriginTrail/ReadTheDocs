@@ -28,7 +28,7 @@
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Contribution Guidelines" href="contribution.html" />
+    <link rel="next" title="Introduction to API" href="introduction-to-api.html" />
     <link rel="prev" title="Node Configuration" href="Configuration-setup.html" /> 
 
   
@@ -78,37 +78,42 @@
               
             
             
-              <p class="caption"><span class="caption-text">General:</span></p>
+              <p class="caption"><span class="caption-text">GENERAL</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="features.html">Features</a></li>
 <li class="toctree-l1"><a class="reference internal" href="data-layer.html">Data Layer</a></li>
 <li class="toctree-l1"><a class="reference internal" href="network-structure.html">Network structure</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Node setup:</span></p>
+<p class="caption"><span class="caption-text">NODE SETUP</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="node-setup.html">Node Setup instructions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="wallet-setup.html">Wallet Setup</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Configuration-setup.html">Node Configuration</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Import data</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Developer Documentation:</span></p>
+<p class="caption"><span class="caption-text">API REFERENCE</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="contribution.html">Contribution Guidelines</a></li>
-<li class="toctree-l1"><a class="reference internal" href="API.html">Prerequisites:</a></li>
-<li class="toctree-l1"><a class="reference internal" href="API.html#api-purpose">API Purpose:</a></li>
-<li class="toctree-l1"><a class="reference internal" href="API.html#import">Import</a></li>
-<li class="toctree-l1"><a class="reference internal" href="API.html#replication">Replication</a></li>
-<li class="toctree-l1"><a class="reference internal" href="API.html#querynetwork">queryNetwork</a></li>
-<li class="toctree-l1"><a class="reference internal" href="API.html#read">Read</a></li>
-<li class="toctree-l1"><a class="reference internal" href="API.html#database">Database</a></li>
-<li class="toctree-l1"><a class="reference internal" href="API.html#querylocal">QueryLocal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction-to-api.html">Introduction to API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction-to-api.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction-to-api.html#import">Import</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction-to-api.html#replication">Replication</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction-to-api.html#querynetwork">queryNetwork</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction-to-api.html#read">Read</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction-to-api.html#local-search">Local Search</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction-to-api.html#querylocal">QueryLocal</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Implementation:</span></p>
+<p class="caption"><span class="caption-text">IMPLEMENTATION</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="implementation.html">Implementation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="data-structure-guidelines.html">Data Structure Guidelines</a></li>
 <li class="toctree-l1"><a class="reference internal" href="namespace.html">Namespace</a></li>
+</ul>
+<p class="caption"><span class="caption-text">CONTRIBUTION GUIDELINES</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="contribution-guidelines.html">Contribution Guidelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contribution-guidelines.html#pull-requests">Pull Requests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contribution-guidelines.html#contributor-code-of-conduct">Contributor Code of Conduct</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contribution-guidelines.html#questions-bugs-features">Questions, Bugs, Features</a></li>
 </ul>
 
             
@@ -183,11 +188,11 @@
 </ul>
 <p>To import data from the XML file into OriginTrail, send a HTTPS POST
 request containing the XML file to the following endpoint:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">YOUR_RPC_NODE_URL</span><span class="p">:</span><span class="n">YOUR_RPC_NODE_PORT</span><span class="o">/</span><span class="n">import_gs1</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">YOUR_RPC_NODE_URL</span><span class="p">:</span><span class="n">YOUR_RPC_NODE_PORT</span><span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="kn">import</span>
 </pre></div>
 </div>
 <p>The example cURL request is:</p>
-<div class="code bash highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">-</span><span class="n">v</span>  <span class="o">-</span><span class="n">F</span> <span class="n">importfile</span><span class="o">=</span><span class="nd">@importers</span><span class="o">/</span><span class="n">xml_examples</span><span class="o">/</span><span class="n">Basic</span><span class="o">/</span><span class="mi">01</span><span class="n">_Green_to_pink_shipment</span><span class="o">.</span><span class="n">xml</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">YOUR_RPC_NODE_URL</span><span class="p">:</span><span class="n">YOUR_RPC_NODE_PORT</span><span class="o">/</span><span class="n">import_gs1</span>
+<div class="code bash highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">-</span><span class="n">v</span>  <span class="o">-</span><span class="n">X</span> <span class="n">POST</span> <span class="o">-</span><span class="n">F</span> <span class="n">importfile</span><span class="o">=</span><span class="nd">@importers</span><span class="o">/</span><span class="n">xml_examples</span><span class="o">/</span><span class="n">Basic</span><span class="o">/</span><span class="mi">01</span><span class="n">_Green_to_pink_shipment</span><span class="o">.</span><span class="n">xml</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="mf">127.0</span><span class="o">.</span><span class="mf">0.1</span><span class="p">:</span><span class="mi">8900</span><span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="kn">import</span> <span class="o">-</span><span class="n">F</span> <span class="n">importtype</span><span class="o">=</span><span class="n">GS1</span>
 </pre></div>
 </div>
 <p>Depending on the use case, it might make sense to set up a periodic
@@ -204,7 +209,7 @@ node).</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="contribution.html" class="btn btn-neutral float-right" title="Contribution Guidelines" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="introduction-to-api.html" class="btn btn-neutral float-right" title="Introduction to API" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="Configuration-setup.html" class="btn btn-neutral" title="Node Configuration" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

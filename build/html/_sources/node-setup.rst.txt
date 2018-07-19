@@ -171,8 +171,11 @@ This will install all prerequisites in a single step.
 
 If you prefer neo4j as database then use
 
-::
-   +
+.. code:: bash
+
+   wget https://raw.githubusercontent.com/OriginTrail/ot-node/master/install.sh
+   sh install.sh --db=neo4j
+   
 
 **Note:** There are some ongoing issues with Neo4j. We currently advise use of ArangoDB.
 
@@ -199,6 +202,9 @@ and run npm
 
    cd ot-node && npm install
    cp .env.example .env
+   
+   
+You can proceed to node `configuration`_ 
 
 Starting The Node
 --------------------
@@ -214,9 +220,10 @@ You can see instructions regarding the data import on the following :ref:`import
 
 Important Notes
 -----------------
+First time you run your node run ``npm run bootstrap`` to apply initial configuration.
 
 Every time you change your configuration in .env don't forget to run
-``npm run config`` to apply that configuration.
+``npm run config`` to apply updated configuration.
 
 In order to make the initial import, your node must **whitelist** the
 IP of the machine that is requesting the import in ``.env`` i.e
@@ -228,3 +235,4 @@ IMPORT_WHITELIST=127.0.0.1 if you are importing from localhost.
 .. _neo4j.com/download: https://neo4j.com/download/
 .. _arangodb.com/download: https://www.arangodb.com/download-major/
 .. _link: https://www.digitalocean.com/community/tutorials/how-to-add-swap-space-on-ubuntu-16-04
+.. _configuration: http://docs.origintrail.io/en/latest/Configuration-setup.html

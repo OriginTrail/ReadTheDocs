@@ -78,14 +78,13 @@
               
             
             
-              <p class="caption"><span class="caption-text">General:</span></p>
+              <p class="caption"><span class="caption-text">GENERAL</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="features.html">Features</a></li>
 <li class="toctree-l1"><a class="reference internal" href="data-layer.html">Data Layer</a></li>
 <li class="toctree-l1"><a class="reference internal" href="network-structure.html">Network structure</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Node setup:</span></p>
+<p class="caption"><span class="caption-text">NODE SETUP</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Node Setup instructions</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#read-me-first">Read Me First</a></li>
@@ -110,23 +109,29 @@
 <li class="toctree-l1"><a class="reference internal" href="Configuration-setup.html">Node Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="import-data.html">Import data</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Developer Documentation:</span></p>
+<p class="caption"><span class="caption-text">API REFERENCE</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="contribution.html">Contribution Guidelines</a></li>
-<li class="toctree-l1"><a class="reference internal" href="API.html">Prerequisites:</a></li>
-<li class="toctree-l1"><a class="reference internal" href="API.html#api-purpose">API Purpose:</a></li>
-<li class="toctree-l1"><a class="reference internal" href="API.html#import">Import</a></li>
-<li class="toctree-l1"><a class="reference internal" href="API.html#replication">Replication</a></li>
-<li class="toctree-l1"><a class="reference internal" href="API.html#querynetwork">queryNetwork</a></li>
-<li class="toctree-l1"><a class="reference internal" href="API.html#read">Read</a></li>
-<li class="toctree-l1"><a class="reference internal" href="API.html#database">Database</a></li>
-<li class="toctree-l1"><a class="reference internal" href="API.html#querylocal">QueryLocal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction-to-api.html">Introduction to API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction-to-api.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction-to-api.html#import">Import</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction-to-api.html#replication">Replication</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction-to-api.html#querynetwork">queryNetwork</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction-to-api.html#read">Read</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction-to-api.html#local-search">Local Search</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction-to-api.html#querylocal">QueryLocal</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Implementation:</span></p>
+<p class="caption"><span class="caption-text">IMPLEMENTATION</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="implementation.html">Implementation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="data-structure-guidelines.html">Data Structure Guidelines</a></li>
 <li class="toctree-l1"><a class="reference internal" href="namespace.html">Namespace</a></li>
+</ul>
+<p class="caption"><span class="caption-text">CONTRIBUTION GUIDELINES</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="contribution-guidelines.html">Contribution Guidelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contribution-guidelines.html#pull-requests">Pull Requests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contribution-guidelines.html#contributor-code-of-conduct">Contributor Code of Conduct</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contribution-guidelines.html#questions-bugs-features">Questions, Bugs, Features</a></li>
 </ul>
 
             
@@ -325,13 +330,10 @@ package manager, if available.</p>
 </pre></div>
 </div>
 <p>If you prefer neo4j as database then use</p>
-<dl class="docutils">
-<dt>::</dt>
-<dd><ul class="first last simple">
-<li></li>
-</ul>
-</dd>
-</dl>
+<div class="code bash highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">wget</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">raw</span><span class="o">.</span><span class="n">githubusercontent</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">OriginTrail</span><span class="o">/</span><span class="n">ot</span><span class="o">-</span><span class="n">node</span><span class="o">/</span><span class="n">master</span><span class="o">/</span><span class="n">install</span><span class="o">.</span><span class="n">sh</span>
+<span class="n">sh</span> <span class="n">install</span><span class="o">.</span><span class="n">sh</span> <span class="o">--</span><span class="n">db</span><span class="o">=</span><span class="n">neo4j</span>
+</pre></div>
+</div>
 <p><strong>Note:</strong> There are some ongoing issues with Neo4j. We currently advise use of ArangoDB.</p>
 <p>If errors occurred during installation process, ot-node probably won’t
 work properly. Errors during installation process happen due to various
@@ -351,6 +353,7 @@ You can check this <a class="reference external" href="https://www.digitalocean.
 <span class="n">cp</span> <span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">example</span> <span class="o">.</span><span class="n">env</span>
 </pre></div>
 </div>
+<p>You can proceed to node <a class="reference external" href="http://docs.origintrail.io/en/latest/Configuration-setup.html">configuration</a></p>
 </div>
 <div class="section" id="starting-the-node">
 <h2>Starting The Node<a class="headerlink" href="#starting-the-node" title="Permalink to this headline">¶</a></h2>
@@ -363,8 +366,9 @@ servers in a single command.</p>
 </div>
 <div class="section" id="important-notes">
 <h2>Important Notes<a class="headerlink" href="#important-notes" title="Permalink to this headline">¶</a></h2>
+<p>First time you run your node run <code class="docutils literal notranslate"><span class="pre">npm</span> <span class="pre">run</span> <span class="pre">bootstrap</span></code> to apply initial configuration.</p>
 <p>Every time you change your configuration in .env don’t forget to run
-<code class="docutils literal notranslate"><span class="pre">npm</span> <span class="pre">run</span> <span class="pre">config</span></code> to apply that configuration.</p>
+<code class="docutils literal notranslate"><span class="pre">npm</span> <span class="pre">run</span> <span class="pre">config</span></code> to apply updated configuration.</p>
 <p>In order to make the initial import, your node must <strong>whitelist</strong> the
 IP of the machine that is requesting the import in <code class="docutils literal notranslate"><span class="pre">.env</span></code> i.e
 IMPORT_WHITELIST=127.0.0.1 if you are importing from localhost.</p>
