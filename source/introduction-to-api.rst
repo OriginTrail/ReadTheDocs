@@ -31,12 +31,12 @@ Import new GS1 or WOT structured data into a node's database. Find out more abou
    "importtype", "true, "predetermined text", "Values are GS1 or WOT. Parameter describes data format type (standard)."
    
    
-.. csv-table:: a title
-   :header: "name", "firstname", "age"
-   :widths: 20, 20, 10
+.. csv-table:: Parameters
+   :header: "Name", "Required", "Type", "Description"
+   :widths: 20, 20, 10, 40
 
-   "Smith", "John", 40
-   "Smith", "John, Junior", 20
+   "Smith", "John", 40, 0
+   "Smith", "John, Junior", 20, 0
  
 tt
 
