@@ -130,8 +130,8 @@ Responses
 ``405`` Failed to start offer
 
 
-/api/replication/ :{replication_id}
------------------------------------------
+/api/replication/ :{replication_id} ``GET``
+--------------------------------------------
 
 Gets the status of the replication with replication_id.
 
