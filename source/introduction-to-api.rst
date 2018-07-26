@@ -26,17 +26,14 @@ Import new GS1 or WOT structured data into a node's database. Find out more abou
 Parameters
 ~~~~~~~~~~~~~~
  
-.. csv-table:: ``POST`` */api/import
+.. csv-table:: ``POST`` http://NODE_IP:PORT/api/import
    :header: "Name", "Required", "Type", "Description"
    :widths: 20, 12, 20, 30
 
    "importfile", "true", "file or text", "data that you want to import (ex. GS1 XML file)"
    "importtype", "true", "predetermined text", "GS1 or WOT. This describes data standard."
   
-Importfile ``required``
-^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Description: **Required** **(Body)** / Import data (file or text data)
+If successful returns import_id for this data import.
 
 *Example:*
 
@@ -44,23 +41,8 @@ Description: **Required** **(Body)** / Import data (file or text data)
 
     {
         "importfile": "importfile=@/ot-node/test/modules/test_xml/GraphExample_4.xml"
-    }
-
-
-
-Importtype ``required``
-^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Description: Type of provided data (GS1 / WOT)
-
-*Example*
-
-::
-
-    {
         "importtype": "GS1"
     }
-
 
 Responses
 ~~~~~~~~~~~~~~
