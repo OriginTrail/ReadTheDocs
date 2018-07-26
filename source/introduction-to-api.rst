@@ -17,6 +17,13 @@ For instructions on how to configure the node, check :ref:`configuration-setup` 
 Import
 ============
 
+Importing the data to ODN is executed in several steps:
+
+1. **/api/import** with data as parameter is importing the data from data source to local graph database on DC node. Data import_id is returned to data creator as a parameter in response.
+2. **/api/replication/** with import_id as input parameter is replicating the data from local graph database on DC node to other DH nodes via bidding mechanism.
+
+After all steps are completed, imported data can be read from ODN via `read`_ procedure.
+
 /api/import ``POST``
 -------------------------
 
@@ -463,3 +470,4 @@ Responses
 
 ``400`` Param required
 
+.. _read: http://docs.origintrail.io/en/latest/introduction-to-api.html#read
