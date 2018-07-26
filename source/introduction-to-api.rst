@@ -23,36 +23,16 @@ Import
 Import new GS1 or WOT structured data into a node's database. Find out more about data format here :ref:`data-structure-guidelines`
  
  
-.. csv-table:: Parameters
-   :header: "Name", "Required", "Type", "Description"
-   :widths: 20, 20, 20, 40
-
-   "importfile", "true", "file or text", "data that you want to import (ex. XML file)"
-   "importtype", "true", "predetermined text", "Values are GS1 or WOT. Parameter describes data format type (standard)."
-   
-   
-.. csv-table:: Parameters
-   :header: "Name", "Required", "Type", "Description"
-   :widths: 20, 20, 10, 50
-
-   "Smith", "John", 40, 0
-   "Smith", "John, Junior", 20, 0
- 
-tt
-
-+-----------------+------------+--------------+----------------------------------------------------------+
-| Name            | Required   | Type         | Description                                              |
-+=================+============+==============+==========================================================+
-| importfile      | true       | file or text | data that you want to import (ex. XML file)              |
-+-----------------+------------+--------------+----------------------------------------------------------+
-| importtype      | true       | text         | Values are GS1 or WOT. Parameter describes standard.     |
-+-----------------+------------+--------------+----------------------------------------------------------+
-
-
-
 Parameters
 ~~~~~~~~~~~~~~
+ 
+.. csv-table:: ``POST`` */api/import
+   :header: "Name", "Required", "Type", "Description"
+   :widths: 20, 15, 20, 40
 
+   "importfile", "true", "file or text", "data that you want to import (ex. GS1 XML file)"
+   "importtype", "true", "predetermined text", "Values are GS1 or WOT. This describes data standard."
+  
 Importfile ``required``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
