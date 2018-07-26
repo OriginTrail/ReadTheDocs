@@ -24,16 +24,16 @@ Import new GS1 or WOT structured data into a node's database. Find out more abou
  
  
 .. csv-table:: Parameters
-   :header: "Name", "required", "type", "description"
+   :header: "Name", "Required", "Type", "Description"
    :widths: 20, 20, 20, 40
 
    "importfile", "true", "file or text", "data that you want to import (ex. XML file)"
-   "importtype", "true, "predetermined text", "Values are GS1 or WOT. Parameter describes data format type (standard)."
+   "importtype", "true", "predetermined text", "Values are GS1 or WOT. Parameter describes data format type (standard)."
    
    
 .. csv-table:: Parameters
    :header: "Name", "Required", "Type", "Description"
-   :widths: 20, 20, 10, 40
+   :widths: 20, 20, 10, 50
 
    "Smith", "John", 40, 0
    "Smith", "John, Junior", 20, 0
