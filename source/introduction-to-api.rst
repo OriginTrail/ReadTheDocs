@@ -47,7 +47,7 @@ If successful returns import_id for this data import.
 ::
 
     {
-        "importfile": "importfile=@/ot-node/test/modules/test_xml/GraphExample_4.xml"
+        "importfile": "importfile=@/ot-node/test/modules/test_xml/GraphExample_1.xml"
         "importtype": "GS1"
     }
 
@@ -89,15 +89,20 @@ For checking the status of the replication request, see /replication/ :{replicat
 /api/replication ``POST``
 -----------------------------
 
-Creates an offer and trigger replication
+Creates an offer and trigger replication.
 
 Parameters
 ~~~~~~~~~~~~~~
+ 
+.. csv-table:: ``POST`` http://NODE_IP:PORT/api/replication
+   :header: "Name", "Required", "Type", "Description"
+   :widths: 20, 12, 20, 30
 
-import_id ``required``
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+   "import_id", "true", "text", "ID of the import you want to replicate"
+   
+This call returns replication_id which can be used in **/api/replication/ :{replication_id}** as input parameter for checking the status of replication.
 
-Description: ID of the import you want to replicate
+You can obtain **import_id** as a response from **/api/import** or you can view this value as a vertex attribute in graph database.
 
 *Example:*
 
@@ -132,14 +137,14 @@ Gets the status of the replication with replication_id.
 
 Parameters
 ~~~~~~~~~~~~~~
+ 
+.. csv-table:: ``GET`` http://NODE_IP:PORT/api/replication/ {replication_id}
+   :header: "Name", "Required", "Type", "Description"
+   :widths: 20, 12, 20, 30
 
-replication_id ``required``
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Description: ID of the import you have initiated replication for
-
-
-The status can be one of the following: 
+   "replication_id", "true", "text", "replication ID for initiated import"
+   
+Returns one of the statuses for the replication: 
 
 -  PENDING: preparation for offer creation (depositing tokens) on the blockchain
 -  STARTED: replication is initiated and the offer is being written on the blockchain and started waiting for bids
@@ -147,6 +152,8 @@ The status can be one of the following:
 -  FINALIZED: the offer is finalized on the blockchain and bids choosen
 -  CANCELLED: the previously created offer was canceled
 -  FAILED: the offer has failed
+
+You can obtain **replication_id** as a response from call of **POST /api/replication**.
 
 Responses
 ~~~~~~~~~~~~~~
