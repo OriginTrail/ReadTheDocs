@@ -28,10 +28,10 @@ Parameters
  
 .. csv-table:: ``POST`` */api/import
    :header: "Name", "Required", "Type", "Description"
-   :widths: 20, 15, 20, 40
+   :widths: 20, 12, 20, 30
 
    "importfile", "true", "file or text", "data that you want to import (ex. GS1 XML file)"
-   "importtype", "true", "predetermined text", "Values are GS1 or WOT. This describes data standard."
+   "importtype", "true", "predetermined text", "GS1 or WOT. This describes data standard."
   
 Importfile ``required``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
