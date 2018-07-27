@@ -146,12 +146,12 @@ Parameters
    
 Returns one of the statuses for the replication: 
 
--  PENDING: preparation for offer creation (depositing tokens) on the blockchain
--  STARTED: replication is initiated and the offer is being written on the blockchain and started waiting for bids
--  FINALIZING: the offering time ended and proceeded with choosing bids
--  FINALIZED: the offer is finalized on the blockchain and bids choosen
--  CANCELLED: the previously created offer was canceled
--  FAILED: the offer has failed
+-  **PENDING**: preparation for offer creation (depositing tokens) on the blockchain
+-  **STARTED**: replication is initiated and the offer is being written on the blockchain and started waiting for bids
+-  **FINALIZING**: the offering time ended and proceeded with choosing bids
+-  **FINALIZED**: the offer is finalized on the blockchain and bids choosen
+-  **CANCELLED**: the previously created offer was canceled
+-  **FAILED**: the offer has failed
 
 You can obtain **replication_id** as a response from call of **POST /api/replication**.
 
@@ -205,12 +205,11 @@ Supported operators are:
 
 Refer to /query/network/{query_param} ``GET``
 
+.. csv-table:: ``POST`` http://NODE_IP:PORT/api/query/network
+   :header: "Name", "Required", "Type", "Description"
+   :widths: 20, 12, 20, 30
 
-
-query ``required``
-^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Description: Query in specific format
+   "query", "true", "DSL query", "DSL query for data on ODN"
 
 *Example:*
 
@@ -228,16 +227,17 @@ Responses
 ``500`` Internal error happened on server.
 
 
-
 /api/query/{query_id}/responses ``GET``
 ------------------------------------------
 
 Returns the list of all the offers of the given query. The response will be formatted in an array of JSON objects containing offer details.
 
-query_param ``required``
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. csv-table:: ``GET`` http://NODE_IP:PORT/api/query/{query_id}/responses
+   :header: "Name", "Required", "Type", "Description"
+   :widths: 20, 12, 20, 30
 
-Description: UUID of network query.
+   "query_param", "true", "text", "UUID of network query"
+
 
 Responses
 ~~~~~~~~~~~~~~
@@ -257,15 +257,17 @@ Checks the status of the network query
 
 The network query can have the following status:
 
--  OPEN:  the initial status of the query which means it has been published to the network
--  FINISHED:  the query has been completed, the required time has elapsed, and the offers must be reviewed via the route ...
--  PROCESSING:  the selected offer is currently being processed
--  FAILED:  in case of error and a failed query
+-  **OPEN**:  the initial status of the query which means it has been published to the network
+-  **FINISHED**:  the query has been completed, the required time has elapsed, and the offers must be reviewed via the route ...
+-  **PROCESSING**:  the selected offer is currently being processed
+-  **FAILED**:  in case of error and a failed query
 
-query_param ``required``
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. csv-table:: ``GET`` http://NODE_IP:PORT/api/query/network/{query_param}
+   :header: "Name", "Required", "Type", "Description"
+   :widths: 20, 12, 20, 30
 
-Description: UUID of network query.
+   "query_param", "true", "text", "UUID of network query"
+   
 
 Responses
 ~~~~~~~~~~~~~~
@@ -279,31 +281,24 @@ Responses
 Read
 ============
 
+Reading the data from ODN can be performed on 2 ways:
+
+- **Network read** is conducted over ODN in several steps. The node that is executing the call is medium that is conducting read procedure (not the actual data source). This type of read costs TRAC and ETH tokens. Data is acquired from the DH node that provides the bid that meets requirements by the node which requested the data. At the end of network read procedure, newly acquired data is permanently available in local node graph database.
+
+- **Local read** from local graph database on the node. The node that is executing the call is the data source. This type of read does not cost any TRAC (or ETH) tokens. It is trusted read from the node that provides the data. That data can be different then data on ODN. Potential difference can be examined by litigation procedure. 
+
 /api/read/network ``POST``
 -------------------------------
 
 Initiates the reading from the network node selected from the previous posted reading offer.
 
-Parameters
-~~~~~~~~~~~~~~
+.. csv-table:: ``POST`` http://NODE_IP:PORT/api/read/network
+   :header: "Name", "Required", "Type", "Description"
+   :widths: 20, 12, 20, 30
 
-query_id ``required``
-^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-*Example:*
-
-::
-
-    "query_id"
-
-reply_id ``required``
-^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-*Example:*
-
-::
-
-    "reply_id"
+   "query_id", "true", "text", "ID of the query"
+   "reply_id", "true", "text", "ID of the reply"
+   
 
 Responses
 ~~~~~~~~~~~~~~
@@ -330,13 +325,11 @@ Local Search
 
 Retrieves data on a supply chain product trail from the local database
 
-Parameters
-~~~~~~~~~~~~~~
+.. csv-table:: ``GET`` http://NODE_IP:PORT/api/trail
+   :header: "Name", "Required", "Type", "Description"
+   :widths: 20, 12, 20, 30
 
-queryObject ``required``
-^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Description: Query in specific format, for example ?vertex_type=BATCH
+   "queryObject", "true", "text", "Query in specific format ex. vertex_type=BATCH"
 
 Responses
 ~~~~~~~~~~~~~~
@@ -353,20 +346,14 @@ Responses
 
 Gets the fingerprint of a specific import from the blockchain
 
-Parameters
-~~~~~~~~~~~~~~
+.. csv-table:: ``GET`` http://NODE_IP:PORT/api/fingerprint
+   :header: "Name", "Required", "Type", "Description"
+   :widths: 20, 12, 20, 30
+   
+   "dc_wallet", "true", "text", "Data creator’s wallet address"
+   "import_id", "true", "text", "Value of import_id from response"
 
-dc_wallet ``required``
-^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Data creator’s wallet address
-
-import_id ``required``
-^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Description: Value of import_id received as an response of sucessful /api/import request (Data import ID)
-
-
+Import_id is received as an response of sucessful /api/import request (Data import ID).
 
 Responses
 ~~~~~~~~~~~~~~
@@ -390,11 +377,15 @@ QueryLocal
 
 Run local query on the database
 
-Parameters
-~~~~~~~~~~~~~~
-
-query ``required``
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. csv-table:: ``POST`` http://NODE_IP:PORT/api/query/local
+   :header: "Name", "Required", "Type", "Description"
+   :widths: 20, 12, 20, 30
+   
+   "query", "true", "text", "DSL query"
+   
+Returns data from local graph database for requested query.
+  
+Example
 
 ::
 
@@ -418,9 +409,12 @@ Responses
 
 Queries a nodes local database and returns all the import IDs that contain the results of the query.
 
-Parameters
-~~~~~~~~~~~~~~
-
+.. csv-table:: ``POST`` http://NODE_IP:PORT/api/query/local/import
+   :header: "Name", "Required", "Type", "Description"
+   :widths: 20, 12, 20, 30
+   
+   "query", "true", "JSON query", "Query object"
+   
 The query must be in JSON format:
 
 ::
@@ -462,13 +456,14 @@ Responses
 
 Returns given import’s vertices and edges and decrypts them if needed.
 
-Parameters
-~~~~~~~~~~~~~~
 
-import_id ``required``
-^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Description: Import ID for example: 0x477eae0227cce0ffaadc235c7946b97cbe2a948fe7782796b53a0c5a6ca6595f
+.. csv-table:: ``GET`` http://NODE_IP:PORT/api/query/local/import:{import_id}
+   :header: "Name", "Required", "Type", "Description"
+   :widths: 20, 12, 20, 30
+   
+   "import_id", "true", "text", "Import ID attribute"
+   
+Import ID for example: 0x477eae0227cce0ffaadc235c7946b97cbe2a948fe7782796b53a0c5a6ca6595f
 
 Responses
 ~~~~~~~~~~~~~~
