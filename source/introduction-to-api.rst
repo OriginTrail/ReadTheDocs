@@ -333,62 +333,10 @@ Responses
         "message": "Invalid import type"
     }
 
--------------------------------------------------------------------------------------------------------------
-
-Local Search
-*************
-
-/api/trail ``GET``
------------------------
-
-Retrieves data on a supply chain product trail from the local database
-
-.. csv-table:: ``GET`` http://NODE_IP:PORT/api/trail
-   :header: "Name", "Required", "Type", "Description"
-   :widths: 20, 12, 20, 30
-
-   "queryObject", "true", "text", "Query in specific format ex. vertex_type=BATCH"
-
-Responses
-~~~~~~~~~~~~~~
-
-``200`` Array of found vertices for given query
-
-``204`` No vertices found
-
-``500`` Internal error happened on server
-
-
-/api/fingerprint ``GET``
----------------------------
-
-Gets the fingerprint of a specific import from the blockchain
-
-.. csv-table:: ``GET`` http://NODE_IP:PORT/api/fingerprint
-   :header: "Name", "Required", "Type", "Description"
-   :widths: 20, 12, 20, 30
-   
-   "dc_wallet", "true", "text", "Data creator’s wallet address"
-   "import_id", "true", "text", "Value of import_id from response"
-
-Import_id is received as an response of sucessful /api/import request (Data import ID).
-
-Responses
-~~~~~~~~~~~~~~
-
-``200`` Data fingerprint
-
-``400`` Required parameters not provided
-
-``500`` Internal error happened on server
-
-
-Note: In case of a non existant import_id the returned value will be 0.
-
--------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------
 
 QueryLocal
-============
+**********
 
 /api/query/local ``POST``
 ---------------------------
@@ -489,5 +437,59 @@ Responses
 ``200`` OK
 
 ``400`` Param required
+
+-------------------------------------------------------------------------------------------------------------
+
+Local Search
+=============
+
+/api/trail ``GET``
+-----------------------
+
+Retrieves data on a supply chain product trail from the local database
+
+.. csv-table:: ``GET`` http://NODE_IP:PORT/api/trail
+   :header: "Name", "Required", "Type", "Description"
+   :widths: 20, 12, 20, 30
+
+   "queryObject", "true", "text", "Query in specific format ex. vertex_type=BATCH"
+
+Responses
+~~~~~~~~~~~~~~
+
+``200`` Array of found vertices for given query
+
+``204`` No vertices found
+
+``500`` Internal error happened on server
+
+
+/api/fingerprint ``GET``
+---------------------------
+
+Gets the fingerprint of a specific import from the blockchain
+
+.. csv-table:: ``GET`` http://NODE_IP:PORT/api/fingerprint
+   :header: "Name", "Required", "Type", "Description"
+   :widths: 20, 12, 20, 30
+   
+   "dc_wallet", "true", "text", "Data creator’s wallet address"
+   "import_id", "true", "text", "Value of import_id from response"
+
+Import_id is received as an response of sucessful /api/import request (Data import ID).
+
+Responses
+~~~~~~~~~~~~~~
+
+``200`` Data fingerprint
+
+``400`` Required parameters not provided
+
+``500`` Internal error happened on server
+
+
+Note: In case of a non existant import_id the returned value will be 0.
+
+-------------------------------------------------------------------------------------------------------------
 
 .. _read: http://docs.origintrail.io/en/latest/introduction-to-api.html#read
