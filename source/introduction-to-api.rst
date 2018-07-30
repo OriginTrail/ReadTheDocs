@@ -174,8 +174,21 @@ Responses
 
 -------------------------------------------------------------------------------------------------------------
 
-queryNetwork
-=================
+Read
+============
+
+Reading the data from ODN can be performed on 2 ways:
+
+- **Network read** is conducted over ODN in several steps. The node that is executing the call is medium that is conducting read procedure (not the actual data source). This type of read costs TRAC and ETH tokens. Data is acquired from the DH node that provides the bid that meets requirements by the node which requested the data. At the end of network read procedure, newly acquired data is permanently available in local node graph database. Network read has several steps that need to be executed:
+
+1. api/query/network where query is sent across ODN to get data. This call returns QUERYID
+2. from /api/query/QUERYID/responses call you can see what are the responses for the query in previous call.
+3. /api/read/network with parameters from previous calls will return the data and execute all required token transfers.
+
+- **Local read** from local graph database on the node. The node that is executing the call is the data source. This type of read does not cost any TRAC (or ETH) tokens. It is trusted read from the node that provides the data. That data can be different then data on ODN. Potential difference can be examined by litigation procedure. 
+
+Network
+*******
 
 
 /api/query/network ``POST``
@@ -215,7 +228,12 @@ Refer to /query/network/{query_param} ``GET``
 
 ::
 
-    "string"
+    {  "query":  [{
+    "path": "identifiers.id",
+    "value": "urn:epc:id:sgln:Building_1",
+    "opcode": "EQ"
+    }]
+    }
 
 Responses
 ~~~~~~~~~~~~~~
@@ -278,14 +296,6 @@ Responses
 
 -------------------------------------------------------------------------------------------------------------
 
-Read
-============
-
-Reading the data from ODN can be performed on 2 ways:
-
-- **Network read** is conducted over ODN in several steps. The node that is executing the call is medium that is conducting read procedure (not the actual data source). This type of read costs TRAC and ETH tokens. Data is acquired from the DH node that provides the bid that meets requirements by the node which requested the data. At the end of network read procedure, newly acquired data is permanently available in local node graph database.
-
-- **Local read** from local graph database on the node. The node that is executing the call is the data source. This type of read does not cost any TRAC (or ETH) tokens. It is trusted read from the node that provides the data. That data can be different then data on ODN. Potential difference can be examined by litigation procedure. 
 
 /api/read/network ``POST``
 -------------------------------
@@ -299,6 +309,14 @@ Initiates the reading from the network node selected from the previous posted re
    "query_id", "true", "text", "ID of the query"
    "reply_id", "true", "text", "ID of the reply"
    
+*Example:*
+
+::
+ {
+	 "query_id": "76141d3e-378f-4a9a-8b43-d24f8982ef2e",
+	 "reply_id": "fdb5e3ba-9fb0-4a86-910e-110e4b8abd5f",
+	 "import_id": "0xe1f05500c1352309e009aaf77f589b4b62b895908da69d7c90ebc5d5c05cf372"
+ }
 
 Responses
 ~~~~~~~~~~~~~~
@@ -318,7 +336,7 @@ Responses
 -------------------------------------------------------------------------------------------------------------
 
 Local Search
-===============
+*************
 
 /api/trail ``GET``
 -----------------------
