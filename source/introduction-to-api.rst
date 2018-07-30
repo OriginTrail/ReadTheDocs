@@ -229,9 +229,9 @@ Refer to /query/network/{query_param} ``GET``
 ::
 
     {  "query":  [{
-    "path": "identifiers.id",
-    "value": "urn:epc:id:sgln:Building_1",
-    "opcode": "EQ"
+    	"path": "identifiers.id",
+   	"value": "urn:epc:id:sgln:Building_1",
+    	"opcode": "EQ"
     }]
     }
 
@@ -312,11 +312,13 @@ Initiates the reading from the network node selected from the previous posted re
 *Example:*
 
 ::
- {
+
+    {
 	 "query_id": "76141d3e-378f-4a9a-8b43-d24f8982ef2e",
 	 "reply_id": "fdb5e3ba-9fb0-4a86-910e-110e4b8abd5f",
 	 "import_id": "0xe1f05500c1352309e009aaf77f589b4b62b895908da69d7c90ebc5d5c05cf372"
- }
+    }
+    
 
 Responses
 ~~~~~~~~~~~~~~
