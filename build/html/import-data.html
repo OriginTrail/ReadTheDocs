@@ -183,22 +183,17 @@
 <p>In order to make the initial import there are prerequisits:</p>
 <ul class="simple">
 <li>your node must whitelist the IP of the machine that is requesting the import in .env i.e IMPORT_WHITELIST=127.0.0.1 if you are importing from localhost.</li>
-<li>data has to be properly formatted. Further description of XML schema and sample files can be found in <a class="reference internal" href="data-structure-guidelines.html#data-structure-guidelines"><span class="std std-ref">Data Structure Guidelines</span></a>.</li>
-<li>We included <a class="reference external" href="https://github.com/OriginTrail/ot-node/tree/develop/importers/xml_examples">example</a> files in the project for your reference and testing.</li>
+<li>data has to be properly formatted. Further description of data standards can be found in <a class="reference internal" href="data-structure-guidelines.html#data-structure-guidelines"><span class="std std-ref">Data Structure Guidelines</span></a>.</li>
+<li>Node installation includes <a class="reference external" href="https://github.com/OriginTrail/ot-node/tree/develop/importers/xml_examples">example</a> files in the project for your reference and testing. If you want to test import on them, just replace wallet in the file with wallet of your node.</li>
 </ul>
-<p>To import data from the XML file into OriginTrail, send a HTTPS POST
-request containing the XML file to the following endpoint:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">YOUR_RPC_NODE_URL</span><span class="p">:</span><span class="n">YOUR_RPC_NODE_PORT</span><span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="kn">import</span>
-</pre></div>
-</div>
-<p>The example cURL request is:</p>
-<div class="code bash highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">-</span><span class="n">v</span>  <span class="o">-</span><span class="n">X</span> <span class="n">POST</span> <span class="o">-</span><span class="n">F</span> <span class="n">importfile</span><span class="o">=</span><span class="nd">@importers</span><span class="o">/</span><span class="n">xml_examples</span><span class="o">/</span><span class="n">Basic</span><span class="o">/</span><span class="mi">01</span><span class="n">_Green_to_pink_shipment</span><span class="o">.</span><span class="n">xml</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="mf">127.0</span><span class="o">.</span><span class="mf">0.1</span><span class="p">:</span><span class="mi">8900</span><span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="kn">import</span> <span class="o">-</span><span class="n">F</span> <span class="n">importtype</span><span class="o">=</span><span class="n">GS1</span>
-</pre></div>
-</div>
-<p>Depending on the use case, it might make sense to set up a periodic
-import of the data into OriginTrail (i.e. a daily cronjob exporting the
-data from your ERP in the XML format requested, with a POST to your OT
-node).</p>
+<p>Once data is ready, import process can be executed on several ways ODN:</p>
+<ul class="simple">
+<li>Please check <a class="reference external" href="http://docs.origintrail.io/en/latest/introduction-to-api.html#import">API</a>  for detailed instuctions.</li>
+<li>You can also use Houston App interface for data import.</li>
+</ul>
+<p>Depending on the use case, we strongly recommend to set up a periodic
+import of the data into ODN (i.e. a daily cronjob exporting the
+data from your ERP in the data format requested).</p>
 </div>
 
 

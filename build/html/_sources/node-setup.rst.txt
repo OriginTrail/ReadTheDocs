@@ -1,10 +1,10 @@
 ..  _node-setup:
 
-Node Setup instructions
-========================
+Installation
+=====================
 
 Read Me First
--------------
+----------------
 
 Please bear in mind that we are only able to give you limited support
 on testing the nodes, some features will probably change and we are aware of some bugs that may show up on

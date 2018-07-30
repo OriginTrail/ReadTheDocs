@@ -97,11 +97,7 @@
 <li class="toctree-l1"><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
 <li class="toctree-l1"><a class="reference internal" href="#import">Import</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#api-import-post">/api/import <code class="docutils literal notranslate"><span class="pre">POST</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#parameters">Parameters</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#importfile-required">Importfile <code class="docutils literal notranslate"><span class="pre">required</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#importtype-required">Importtype <code class="docutils literal notranslate"><span class="pre">required</span></code></a></li>
-</ul>
-</li>
+<li class="toctree-l3"><a class="reference internal" href="#parameters">Parameters</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#responses">Responses</a></li>
 </ul>
 </li>
@@ -109,18 +105,12 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="#replication">Replication</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#api-replication-post">/api/replication <code class="docutils literal notranslate"><span class="pre">POST</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id2">Parameters</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#import-id-required">import_id <code class="docutils literal notranslate"><span class="pre">required</span></code></a></li>
-</ul>
-</li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">Parameters</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#id3">Responses</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#api-replication-replication-id">/api/replication/ :{replication_id}</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id4">Parameters</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#replication-id-required">replication_id <code class="docutils literal notranslate"><span class="pre">required</span></code></a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="#api-replication-replication-id-get">/api/replication/ :{replication_id} <code class="docutils literal notranslate"><span class="pre">GET</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id4">Parameters</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#id5">Responses</a></li>
 </ul>
 </li>
@@ -143,56 +133,33 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="#read">Read</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#api-read-network-post">/api/read/network <code class="docutils literal notranslate"><span class="pre">POST</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id9">Parameters</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#query-id-required">query_id <code class="docutils literal notranslate"><span class="pre">required</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#reply-id-required">reply_id <code class="docutils literal notranslate"><span class="pre">required</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#id10">Responses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id9">Responses</a></li>
 </ul>
 </li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="#local-search">Local Search</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#api-trail-get">/api/trail <code class="docutils literal notranslate"><span class="pre">GET</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id11">Parameters</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#queryobject-required">queryObject <code class="docutils literal notranslate"><span class="pre">required</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#id12">Responses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id10">Responses</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#api-fingerprint-get">/api/fingerprint <code class="docutils literal notranslate"><span class="pre">GET</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id13">Parameters</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#dc-wallet-required">dc_wallet <code class="docutils literal notranslate"><span class="pre">required</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id14">import_id <code class="docutils literal notranslate"><span class="pre">required</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#id15">Responses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id11">Responses</a></li>
 </ul>
 </li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="#querylocal">QueryLocal</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#api-query-local-post">/api/query/local <code class="docutils literal notranslate"><span class="pre">POST</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id16">Parameters</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#query-required">query <code class="docutils literal notranslate"><span class="pre">required</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#id17">Responses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id12">Responses</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#api-query-local-import-post">/api/query/local/import <code class="docutils literal notranslate"><span class="pre">POST</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id18">Parameters</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id19">Responses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id13">Responses</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#api-query-local-import-import-id-get">/api/query/local/import:{import_id} <code class="docutils literal notranslate"><span class="pre">GET</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id20">Parameters</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#id21">import_id <code class="docutils literal notranslate"><span class="pre">required</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#id22">Responses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id14">Responses</a></li>
 </ul>
 </li>
 </ul>
@@ -286,30 +253,52 @@ For instructions on how to configure the node, check <a class="reference interna
 </div>
 <div class="section" id="import">
 <h1>Import<a class="headerlink" href="#import" title="Permalink to this headline">¶</a></h1>
+<p>Importing the data to ODN is executed in several steps:</p>
+<ol class="arabic simple">
+<li><strong>/api/import</strong> with data as parameter is importing the data from data source to local graph database on DC node. Data import_id is returned to data creator as a parameter in response.</li>
+<li><strong>/api/replication/</strong> with import_id as input parameter is replicating the data from local graph database on DC node to other DH nodes via bidding mechanism.</li>
+</ol>
+<p>After all steps are completed, imported data can be read from ODN via <a class="reference external" href="http://docs.origintrail.io/en/latest/introduction-to-api.html#read">read</a> procedure.</p>
 <div class="section" id="api-import-post">
 <h2>/api/import <code class="docutils literal notranslate"><span class="pre">POST</span></code><a class="headerlink" href="#api-import-post" title="Permalink to this headline">¶</a></h2>
 <p>Import new GS1 or WOT structured data into a node’s database. Find out more about data format here <a class="reference internal" href="data-structure-guidelines.html#data-structure-guidelines"><span class="std std-ref">Data Structure Guidelines</span></a></p>
 <div class="section" id="parameters">
 <h3>Parameters<a class="headerlink" href="#parameters" title="Permalink to this headline">¶</a></h3>
-<div class="section" id="importfile-required">
-<h4>Importfile <code class="docutils literal notranslate"><span class="pre">required</span></code><a class="headerlink" href="#importfile-required" title="Permalink to this headline">¶</a></h4>
-<p>Description: <strong>Required</strong> <strong>(Body)</strong> / Import data (file or text data)</p>
+<table border="1" class="colwidths-given docutils" id="id16">
+<caption><span class="caption-text"><code class="docutils literal notranslate"><span class="pre">POST</span></code> <a class="reference external" href="http://NODE_IP:PORT/api/import">http://NODE_IP:PORT/api/import</a></span><a class="headerlink" href="#id16" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="24%" />
+<col width="15%" />
+<col width="24%" />
+<col width="37%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Name</th>
+<th class="head">Required</th>
+<th class="head">Type</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>importfile</td>
+<td>true</td>
+<td>file or text</td>
+<td>data that you want to import (ex. GS1 XML file)</td>
+</tr>
+<tr class="row-odd"><td>importtype</td>
+<td>true</td>
+<td>predetermined text</td>
+<td>GS1 or WOT. This describes data standard.</td>
+</tr>
+</tbody>
+</table>
+<p>If successful returns import_id for this data import.</p>
 <p><em>Example:</em></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-    <span class="s2">&quot;importfile&quot;</span><span class="p">:</span> <span class="s2">&quot;importfile=@/ot-node/test/modules/test_xml/GraphExample_4.xml&quot;</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="importtype-required">
-<h4>Importtype <code class="docutils literal notranslate"><span class="pre">required</span></code><a class="headerlink" href="#importtype-required" title="Permalink to this headline">¶</a></h4>
-<p>Description: Type of provided data (GS1 / WOT)</p>
-<p><em>Example</em></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;importfile&quot;</span><span class="p">:</span> <span class="s2">&quot;importfile=@/ot-node/test/modules/test_xml/GraphExample_1.xml&quot;</span>
     <span class="s2">&quot;importtype&quot;</span><span class="p">:</span> <span class="s2">&quot;GS1&quot;</span>
 <span class="p">}</span>
 </pre></div>
-</div>
 </div>
 </div>
 <div class="section" id="responses">
@@ -339,18 +328,39 @@ For instructions on how to configure the node, check <a class="reference interna
 <p>For checking the status of the replication request, see /replication/ :{replication_id} route</p>
 <div class="section" id="api-replication-post">
 <h2>/api/replication <code class="docutils literal notranslate"><span class="pre">POST</span></code><a class="headerlink" href="#api-replication-post" title="Permalink to this headline">¶</a></h2>
-<p>Creates an offer and trigger replication</p>
+<p>Creates an offer and trigger replication.</p>
 <div class="section" id="id2">
 <h3>Parameters<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
-<div class="section" id="import-id-required">
-<h4>import_id <code class="docutils literal notranslate"><span class="pre">required</span></code><a class="headerlink" href="#import-id-required" title="Permalink to this headline">¶</a></h4>
-<p>Description: ID of the import you want to replicate</p>
+<table border="1" class="colwidths-given docutils" id="id17">
+<caption><span class="caption-text"><code class="docutils literal notranslate"><span class="pre">POST</span></code> <a class="reference external" href="http://NODE_IP:PORT/api/replication">http://NODE_IP:PORT/api/replication</a></span><a class="headerlink" href="#id17" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="24%" />
+<col width="15%" />
+<col width="24%" />
+<col width="37%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Name</th>
+<th class="head">Required</th>
+<th class="head">Type</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>import_id</td>
+<td>true</td>
+<td>text</td>
+<td>ID of the import you want to replicate</td>
+</tr>
+</tbody>
+</table>
+<p>This call returns replication_id which can be used in <strong>/api/replication/ :{replication_id}</strong> as input parameter for checking the status of replication.</p>
+<p>You can obtain <strong>import_id</strong> as a response from <strong>/api/import</strong> or you can view this value as a vertex attribute in graph database.</p>
 <p><em>Example:</em></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
     <span class="s2">&quot;import_id&quot;</span><span class="p">:</span> <span class="s2">&quot;0x7e9d30d3f78fd21180c9c075403b1feeace7fbf10e10ad4184dd8b7e38358bc6&quot;</span>
 <span class="p">}</span>
 </pre></div>
-</div>
 </div>
 </div>
 <div class="section" id="id3">
@@ -366,24 +376,44 @@ For instructions on how to configure the node, check <a class="reference interna
 <p><code class="docutils literal notranslate"><span class="pre">405</span></code> Failed to start offer</p>
 </div>
 </div>
-<div class="section" id="api-replication-replication-id">
-<h2>/api/replication/ :{replication_id}<a class="headerlink" href="#api-replication-replication-id" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="api-replication-replication-id-get">
+<h2>/api/replication/ :{replication_id} <code class="docutils literal notranslate"><span class="pre">GET</span></code><a class="headerlink" href="#api-replication-replication-id-get" title="Permalink to this headline">¶</a></h2>
 <p>Gets the status of the replication with replication_id.</p>
 <div class="section" id="id4">
 <h3>Parameters<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
-<div class="section" id="replication-id-required">
-<h4>replication_id <code class="docutils literal notranslate"><span class="pre">required</span></code><a class="headerlink" href="#replication-id-required" title="Permalink to this headline">¶</a></h4>
-<p>Description: ID of the import you have initiated replication for</p>
-<p>The status can be one of the following:</p>
+<table border="1" class="colwidths-given docutils" id="id18">
+<caption><span class="caption-text"><code class="docutils literal notranslate"><span class="pre">GET</span></code> <a class="reference external" href="http://NODE_IP:PORT/api/replication/">http://NODE_IP:PORT/api/replication/</a> {replication_id}</span><a class="headerlink" href="#id18" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="24%" />
+<col width="15%" />
+<col width="24%" />
+<col width="37%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Name</th>
+<th class="head">Required</th>
+<th class="head">Type</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>replication_id</td>
+<td>true</td>
+<td>text</td>
+<td>replication ID for initiated import</td>
+</tr>
+</tbody>
+</table>
+<p>Returns one of the statuses for the replication:</p>
 <ul class="simple">
-<li>PENDING: preparation for offer creation (depositing tokens) on the blockchain</li>
-<li>STARTED: replication is initiated and the offer is being written on the blockchain and started waiting for bids</li>
-<li>FINALIZING: the offering time ended and proceeded with choosing bids</li>
-<li>FINALIZED: the offer is finalized on the blockchain and bids choosen</li>
-<li>CANCELLED: the previously created offer was canceled</li>
-<li>FAILED: the offer has failed</li>
+<li><strong>PENDING</strong>: preparation for offer creation (depositing tokens) on the blockchain</li>
+<li><strong>STARTED</strong>: replication is initiated and the offer is being written on the blockchain and started waiting for bids</li>
+<li><strong>FINALIZING</strong>: the offering time ended and proceeded with choosing bids</li>
+<li><strong>FINALIZED</strong>: the offer is finalized on the blockchain and bids choosen</li>
+<li><strong>CANCELLED</strong>: the previously created offer was canceled</li>
+<li><strong>FAILED</strong>: the offer has failed</li>
 </ul>
-</div>
+<p>You can obtain <strong>replication_id</strong> as a response from call of <strong>POST /api/replication</strong>.</p>
 </div>
 <div class="section" id="id5">
 <h3>Responses<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
@@ -424,7 +454,29 @@ For instructions on how to configure the node, check <a class="reference interna
 <li>IN: when ID is in Value</li>
 </ul>
 <p>Refer to /query/network/{query_param} <code class="docutils literal notranslate"><span class="pre">GET</span></code></p>
-<p>Description: Query in specific format</p>
+<table border="1" class="colwidths-given docutils" id="id19">
+<caption><span class="caption-text"><code class="docutils literal notranslate"><span class="pre">POST</span></code> <a class="reference external" href="http://NODE_IP:PORT/api/query/network">http://NODE_IP:PORT/api/query/network</a></span><a class="headerlink" href="#id19" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="24%" />
+<col width="15%" />
+<col width="24%" />
+<col width="37%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Name</th>
+<th class="head">Required</th>
+<th class="head">Type</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>query</td>
+<td>true</td>
+<td>DSL query</td>
+<td>DSL query for data on ODN</td>
+</tr>
+</tbody>
+</table>
 <p><em>Example:</em></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;string&quot;</span>
 </pre></div>
@@ -439,7 +491,29 @@ For instructions on how to configure the node, check <a class="reference interna
 <div class="section" id="api-query-query-id-responses-get">
 <h2>/api/query/{query_id}/responses <code class="docutils literal notranslate"><span class="pre">GET</span></code><a class="headerlink" href="#api-query-query-id-responses-get" title="Permalink to this headline">¶</a></h2>
 <p>Returns the list of all the offers of the given query. The response will be formatted in an array of JSON objects containing offer details.</p>
-<p>Description: UUID of network query.</p>
+<table border="1" class="colwidths-given docutils" id="id20">
+<caption><span class="caption-text"><code class="docutils literal notranslate"><span class="pre">GET</span></code> <a class="reference external" href="http://NODE_IP:PORT/api/query">http://NODE_IP:PORT/api/query</a>/{query_id}/responses</span><a class="headerlink" href="#id20" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="24%" />
+<col width="15%" />
+<col width="24%" />
+<col width="37%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Name</th>
+<th class="head">Required</th>
+<th class="head">Type</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>query_param</td>
+<td>true</td>
+<td>text</td>
+<td>UUID of network query</td>
+</tr>
+</tbody>
+</table>
 <div class="section" id="id7">
 <h3>Responses<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">200</span></code> Always, except on a internal server error. Body will contain message in JSON format containing at least ‘status’ and ‘message’ attribute. ‘message’ will contain the status of the query in format Query status $status.. If status is FINISHED body will contain another attribute ‘vertices’ containing all query result vertices.</p>
@@ -452,12 +526,34 @@ For instructions on how to configure the node, check <a class="reference interna
 <p>Checks the status of the network query</p>
 <p>The network query can have the following status:</p>
 <ul class="simple">
-<li>OPEN:  the initial status of the query which means it has been published to the network</li>
-<li>FINISHED:  the query has been completed, the required time has elapsed, and the offers must be reviewed via the route …</li>
-<li>PROCESSING:  the selected offer is currently being processed</li>
-<li>FAILED:  in case of error and a failed query</li>
+<li><strong>OPEN</strong>:  the initial status of the query which means it has been published to the network</li>
+<li><strong>FINISHED</strong>:  the query has been completed, the required time has elapsed, and the offers must be reviewed via the route …</li>
+<li><strong>PROCESSING</strong>:  the selected offer is currently being processed</li>
+<li><strong>FAILED</strong>:  in case of error and a failed query</li>
 </ul>
-<p>Description: UUID of network query.</p>
+<table border="1" class="colwidths-given docutils" id="id21">
+<caption><span class="caption-text"><code class="docutils literal notranslate"><span class="pre">GET</span></code> <a class="reference external" href="http://NODE_IP:PORT/api/query/network">http://NODE_IP:PORT/api/query/network</a>/{query_param}</span><a class="headerlink" href="#id21" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="24%" />
+<col width="15%" />
+<col width="24%" />
+<col width="37%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Name</th>
+<th class="head">Required</th>
+<th class="head">Type</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>query_param</td>
+<td>true</td>
+<td>text</td>
+<td>UUID of network query</td>
+</tr>
+</tbody>
+</table>
 <div class="section" id="id8">
 <h3>Responses<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">200</span></code> Always, except on a internal server error. Body will contain message in JSON format containing at least ‘status’ and ‘message’ attribute. ‘message’ will contain the status of the query in format Query status $status.. If status is FINISHED body will contain another attribute ‘vertices’ containing all query result vertices.</p>
@@ -468,28 +564,44 @@ For instructions on how to configure the node, check <a class="reference interna
 <hr class="docutils" />
 <div class="section" id="read">
 <h1>Read<a class="headerlink" href="#read" title="Permalink to this headline">¶</a></h1>
+<p>Reading the data from ODN can be performed on 2 ways:</p>
+<ul class="simple">
+<li><strong>Network read</strong> is conducted over ODN in several steps. The node that is executing the call is medium that is conducting read procedure (not the actual data source). This type of read costs TRAC and ETH tokens. Data is acquired from the DH node that provides the bid that meets requirements by the node which requested the data. At the end of network read procedure, newly acquired data is permanently available in local node graph database.</li>
+<li><strong>Local read</strong> from local graph database on the node. The node that is executing the call is the data source. This type of read does not cost any TRAC (or ETH) tokens. It is trusted read from the node that provides the data. That data can be different then data on ODN. Potential difference can be examined by litigation procedure.</li>
+</ul>
 <div class="section" id="api-read-network-post">
 <h2>/api/read/network <code class="docutils literal notranslate"><span class="pre">POST</span></code><a class="headerlink" href="#api-read-network-post" title="Permalink to this headline">¶</a></h2>
 <p>Initiates the reading from the network node selected from the previous posted reading offer.</p>
+<table border="1" class="colwidths-given docutils" id="id22">
+<caption><span class="caption-text"><code class="docutils literal notranslate"><span class="pre">POST</span></code> <a class="reference external" href="http://NODE_IP:PORT/api/read/network">http://NODE_IP:PORT/api/read/network</a></span><a class="headerlink" href="#id22" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="24%" />
+<col width="15%" />
+<col width="24%" />
+<col width="37%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Name</th>
+<th class="head">Required</th>
+<th class="head">Type</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>query_id</td>
+<td>true</td>
+<td>text</td>
+<td>ID of the query</td>
+</tr>
+<tr class="row-odd"><td>reply_id</td>
+<td>true</td>
+<td>text</td>
+<td>ID of the reply</td>
+</tr>
+</tbody>
+</table>
 <div class="section" id="id9">
-<h3>Parameters<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
-<div class="section" id="query-id-required">
-<h4>query_id <code class="docutils literal notranslate"><span class="pre">required</span></code><a class="headerlink" href="#query-id-required" title="Permalink to this headline">¶</a></h4>
-<p><em>Example:</em></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;query_id&quot;</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="reply-id-required">
-<h4>reply_id <code class="docutils literal notranslate"><span class="pre">required</span></code><a class="headerlink" href="#reply-id-required" title="Permalink to this headline">¶</a></h4>
-<p><em>Example:</em></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;reply_id&quot;</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="section" id="id10">
-<h3>Responses<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
+<h3>Responses<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">200</span></code> OK</p>
 <p><code class="docutils literal notranslate"><span class="pre">400</span></code> Bad request</p>
 <p><em>Example:</em></p>
@@ -507,15 +619,31 @@ For instructions on how to configure the node, check <a class="reference interna
 <div class="section" id="api-trail-get">
 <h2>/api/trail <code class="docutils literal notranslate"><span class="pre">GET</span></code><a class="headerlink" href="#api-trail-get" title="Permalink to this headline">¶</a></h2>
 <p>Retrieves data on a supply chain product trail from the local database</p>
-<div class="section" id="id11">
-<h3>Parameters<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
-<div class="section" id="queryobject-required">
-<h4>queryObject <code class="docutils literal notranslate"><span class="pre">required</span></code><a class="headerlink" href="#queryobject-required" title="Permalink to this headline">¶</a></h4>
-<p>Description: Query in specific format, for example ?vertex_type=BATCH</p>
-</div>
-</div>
-<div class="section" id="id12">
-<h3>Responses<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="colwidths-given docutils" id="id23">
+<caption><span class="caption-text"><code class="docutils literal notranslate"><span class="pre">GET</span></code> <a class="reference external" href="http://NODE_IP:PORT/api/trail">http://NODE_IP:PORT/api/trail</a></span><a class="headerlink" href="#id23" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="24%" />
+<col width="15%" />
+<col width="24%" />
+<col width="37%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Name</th>
+<th class="head">Required</th>
+<th class="head">Type</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>queryObject</td>
+<td>true</td>
+<td>text</td>
+<td>Query in specific format ex. vertex_type=BATCH</td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="id10">
+<h3>Responses<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">200</span></code> Array of found vertices for given query</p>
 <p><code class="docutils literal notranslate"><span class="pre">204</span></code> No vertices found</p>
 <p><code class="docutils literal notranslate"><span class="pre">500</span></code> Internal error happened on server</p>
@@ -524,19 +652,37 @@ For instructions on how to configure the node, check <a class="reference interna
 <div class="section" id="api-fingerprint-get">
 <h2>/api/fingerprint <code class="docutils literal notranslate"><span class="pre">GET</span></code><a class="headerlink" href="#api-fingerprint-get" title="Permalink to this headline">¶</a></h2>
 <p>Gets the fingerprint of a specific import from the blockchain</p>
-<div class="section" id="id13">
-<h3>Parameters<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h3>
-<div class="section" id="dc-wallet-required">
-<h4>dc_wallet <code class="docutils literal notranslate"><span class="pre">required</span></code><a class="headerlink" href="#dc-wallet-required" title="Permalink to this headline">¶</a></h4>
-<p>Data creator’s wallet address</p>
-</div>
-<div class="section" id="id14">
-<h4>import_id <code class="docutils literal notranslate"><span class="pre">required</span></code><a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h4>
-<p>Description: Value of import_id received as an response of sucessful /api/import request (Data import ID)</p>
-</div>
-</div>
-<div class="section" id="id15">
-<h3>Responses<a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="colwidths-given docutils" id="id24">
+<caption><span class="caption-text"><code class="docutils literal notranslate"><span class="pre">GET</span></code> <a class="reference external" href="http://NODE_IP:PORT/api/fingerprint">http://NODE_IP:PORT/api/fingerprint</a></span><a class="headerlink" href="#id24" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="24%" />
+<col width="15%" />
+<col width="24%" />
+<col width="37%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Name</th>
+<th class="head">Required</th>
+<th class="head">Type</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>dc_wallet</td>
+<td>true</td>
+<td>text</td>
+<td>Data creator’s wallet address</td>
+</tr>
+<tr class="row-odd"><td>import_id</td>
+<td>true</td>
+<td>text</td>
+<td>Value of import_id from response</td>
+</tr>
+</tbody>
+</table>
+<p>Import_id is received as an response of sucessful /api/import request (Data import ID).</p>
+<div class="section" id="id11">
+<h3>Responses<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">200</span></code> Data fingerprint</p>
 <p><code class="docutils literal notranslate"><span class="pre">400</span></code> Required parameters not provided</p>
 <p><code class="docutils literal notranslate"><span class="pre">500</span></code> Internal error happened on server</p>
@@ -550,20 +696,39 @@ For instructions on how to configure the node, check <a class="reference interna
 <div class="section" id="api-query-local-post">
 <h2>/api/query/local <code class="docutils literal notranslate"><span class="pre">POST</span></code><a class="headerlink" href="#api-query-local-post" title="Permalink to this headline">¶</a></h2>
 <p>Run local query on the database</p>
-<div class="section" id="id16">
-<h3>Parameters<a class="headerlink" href="#id16" title="Permalink to this headline">¶</a></h3>
-<div class="section" id="query-required">
-<h4>query <code class="docutils literal notranslate"><span class="pre">required</span></code><a class="headerlink" href="#query-required" title="Permalink to this headline">¶</a></h4>
+<table border="1" class="colwidths-given docutils" id="id25">
+<caption><span class="caption-text"><code class="docutils literal notranslate"><span class="pre">POST</span></code> <a class="reference external" href="http://NODE_IP:PORT/api/query/local">http://NODE_IP:PORT/api/query/local</a></span><a class="headerlink" href="#id25" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="24%" />
+<col width="15%" />
+<col width="24%" />
+<col width="37%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Name</th>
+<th class="head">Required</th>
+<th class="head">Type</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>query</td>
+<td>true</td>
+<td>text</td>
+<td>DSL query</td>
+</tr>
+</tbody>
+</table>
+<p>Returns data from local graph database for requested query.</p>
+<p>Example</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
     <span class="s2">&quot;&lt;IDENTIFIER_KEY1&gt;&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;VALUE1&gt;&quot;</span><span class="p">,</span>
     <span class="s2">&quot;&lt;IDENTIFIER_KEY2&gt;&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;VALUE2&gt;&quot;</span><span class="p">,</span> <span class="o">...</span>
 <span class="p">}</span>
 </pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="id17">
-<h3>Responses<a class="headerlink" href="#id17" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id12">
+<h3>Responses<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">200</span></code> Array of found vertices for given query</p>
 <p><code class="docutils literal notranslate"><span class="pre">204</span></code> No vertices found</p>
 <p><code class="docutils literal notranslate"><span class="pre">500</span></code> Internal error happened on server</p>
@@ -572,8 +737,29 @@ For instructions on how to configure the node, check <a class="reference interna
 <div class="section" id="api-query-local-import-post">
 <h2>/api/query/local/import <code class="docutils literal notranslate"><span class="pre">POST</span></code><a class="headerlink" href="#api-query-local-import-post" title="Permalink to this headline">¶</a></h2>
 <p>Queries a nodes local database and returns all the import IDs that contain the results of the query.</p>
-<div class="section" id="id18">
-<h3>Parameters<a class="headerlink" href="#id18" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="colwidths-given docutils" id="id26">
+<caption><span class="caption-text"><code class="docutils literal notranslate"><span class="pre">POST</span></code> <a class="reference external" href="http://NODE_IP:PORT/api/query/local/import">http://NODE_IP:PORT/api/query/local/import</a></span><a class="headerlink" href="#id26" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="24%" />
+<col width="15%" />
+<col width="24%" />
+<col width="37%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Name</th>
+<th class="head">Required</th>
+<th class="head">Type</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>query</td>
+<td>true</td>
+<td>JSON query</td>
+<td>Query object</td>
+</tr>
+</tbody>
+</table>
 <p>The query must be in JSON format:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
     <span class="s2">&quot;query&quot;</span><span class="p">:</span>
@@ -592,9 +778,8 @@ For instructions on how to configure the node, check <a class="reference interna
 <li>EQ: when ID equals Value</li>
 <li>IN: when ID is in Value</li>
 </ul>
-</div>
-<div class="section" id="id19">
-<h3>Responses<a class="headerlink" href="#id19" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id13">
+<h3>Responses<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">200</span></code> Array of found vertices for given query</p>
 <p><code class="docutils literal notranslate"><span class="pre">204</span></code> No vertices found</p>
 <p><code class="docutils literal notranslate"><span class="pre">400</span></code> Bad request</p>
@@ -604,15 +789,32 @@ For instructions on how to configure the node, check <a class="reference interna
 <div class="section" id="api-query-local-import-import-id-get">
 <h2>/api/query/local/import:{import_id} <code class="docutils literal notranslate"><span class="pre">GET</span></code><a class="headerlink" href="#api-query-local-import-import-id-get" title="Permalink to this headline">¶</a></h2>
 <p>Returns given import’s vertices and edges and decrypts them if needed.</p>
-<div class="section" id="id20">
-<h3>Parameters<a class="headerlink" href="#id20" title="Permalink to this headline">¶</a></h3>
-<div class="section" id="id21">
-<h4>import_id <code class="docutils literal notranslate"><span class="pre">required</span></code><a class="headerlink" href="#id21" title="Permalink to this headline">¶</a></h4>
-<p>Description: Import ID for example: 0x477eae0227cce0ffaadc235c7946b97cbe2a948fe7782796b53a0c5a6ca6595f</p>
-</div>
-</div>
-<div class="section" id="id22">
-<h3>Responses<a class="headerlink" href="#id22" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="colwidths-given docutils" id="id27">
+<caption><span class="caption-text"><code class="docutils literal notranslate"><span class="pre">GET</span></code> <a class="reference external" href="http://NODE_IP:PORT/api/query/local/import">http://NODE_IP:PORT/api/query/local/import</a>:{import_id}</span><a class="headerlink" href="#id27" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="24%" />
+<col width="15%" />
+<col width="24%" />
+<col width="37%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Name</th>
+<th class="head">Required</th>
+<th class="head">Type</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>import_id</td>
+<td>true</td>
+<td>text</td>
+<td>Import ID attribute</td>
+</tr>
+</tbody>
+</table>
+<p>Import ID for example: 0x477eae0227cce0ffaadc235c7946b97cbe2a948fe7782796b53a0c5a6ca6595f</p>
+<div class="section" id="id14">
+<h3>Responses<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">200</span></code> OK</p>
 <p><code class="docutils literal notranslate"><span class="pre">400</span></code> Param required</p>
 </div>
