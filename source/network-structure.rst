@@ -142,9 +142,9 @@ happens, and it is proved that Data Viewer received the false data, the
 stake of the corresponding DH node is lost.
 
 The complete picture of interaction between participants in OriginTrail
-system is presented on data flow diagram (Figure 1).
+system is presented on data diagram (Figure 1).
 
-[[images/data_flow.png]]
+[[images/data_flow@2x.png]]
 
 Service initiation
 ------------------
