@@ -425,7 +425,7 @@ Responses
 Returns given import’s vertices and edges and decrypts them if needed.
 
 
-.. csv-table:: ``GET`` http://NODE_IP:PORT/api/query/local/import:{import_id}
+.. csv-table:: ``GET`` http://NODE_IP:PORT/api/query/local/import/{import_id}
    :header: "Name", "Required", "Type", "Description"
    :widths: 20, 12, 20, 30
    
