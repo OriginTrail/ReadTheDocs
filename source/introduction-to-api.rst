@@ -308,6 +308,7 @@ Initiates the reading from the network node selected from the previous posted re
 
    "query_id", "true", "text", "ID of the query"
    "reply_id", "true", "text", "ID of the reply"
+   "import_id", "true", "text", "ID of the import"
    
 *Example:*
 
