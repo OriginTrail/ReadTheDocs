@@ -110,6 +110,8 @@ Parameters
 					    
    
    
+   
+   
 This call returns replication_id which can be used in **/api/replication/ :{replication_id}** as input parameter for checking the status of replication.
 
 You can obtain **import_id** as a response from **/api/import** or you can view this value as a vertex attribute in graph database.
