@@ -108,13 +108,6 @@ Parameters
    "dh_min_reputation", "false", "number", "Minimum required
 					    reputation (0 is the lowest)"
 					    
-| Name | Required | Type | Description |
-| --- | --- | --- | --- |
-| import_id | true | text | ID of the import you want to replicate |
-| total_escrow_time_in_minutes | false | text | Maximum price per DH in token's wei |
-| max_token_amount_per_dh | false | text | Maximum price per DH in token's wei |
-| dh_min_stake_amount | false | text | Minimun stake ammount per DH in token's wei |
-| dh_min_reputation | false | number | Minimum required reputation (0 is the lowest) |
    
    
 This call returns replication_id which can be used in **/api/replication/ :{replication_id}** as input parameter for checking the status of replication.
