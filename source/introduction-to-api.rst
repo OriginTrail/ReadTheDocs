@@ -96,7 +96,7 @@ Parameters
  
 .. csv-table:: ``POST`` http://NODE_IP:PORT/api/replication
    :header: "Name", "Required", "Type", "Description"
-   :widths: 20, 12, 20, 30
+   :widths: 20, 12, 20, 70
 
    "import_id", "true", "text", "ID of the import you want to replicate"
    "total_escrow_time_in_minutes", "false", "number", "Total time of the replication in minutes"
