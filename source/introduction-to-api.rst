@@ -536,6 +536,8 @@ Responses
 
 ``400`` Bad request
 
+Note: value of 10 used above is just an example, can be any available amount from wallet
+
 
 /api/withdraw ``POST``
 -----------------------
@@ -562,6 +564,8 @@ Responses
 ``200`` Successfully withdrawn 10 ATRAC to wallet your_wallet_id
 
 ``400`` Bad request
+
+Note: value of 10 used above is just an example, can be any available amount from profile
 
 -------------------------------------------------------------------------------------------------------------
 
