@@ -507,4 +507,62 @@ Note: In case of a non existant import_id the returned value will be 0.
 
 -------------------------------------------------------------------------------------------------------------
 
+Profile Token Management
+=============
+
+/api/deposit ``POST``
+-----------------------
+
+Deposit tokens from wallet to a profile.
+
+.. csv-table:: ``POST`` http://NODE_IP:PORT/api/deposit
+   :header: "Name", "Required", "Type", "Description"
+   :widths: 20, 12, 20, 30
+
+   "query", "true", "JSON query", "Query object"
+
+The query must be in JSON format:
+
+::
+
+    { 
+        "atrac_amount": 10
+    }
+
+Responses
+~~~~~~~~~~~~~~
+
+``200`` Successfully deposited 10 ATRAC to profile
+
+``400`` Bad request
+
+
+/api/withdraw ``POST``
+-----------------------
+
+Withdraw tokens from profile to a wallet.
+
+.. csv-table:: ``POST`` http://NODE_IP:PORT/api/withdraw
+   :header: "Name", "Required", "Type", "Description"
+   :widths: 20, 12, 20, 30
+
+   "query", "true", "JSON query", "Query object"
+
+The query must be in JSON format:
+
+::
+
+    { 
+        "atrac_amount": 10
+    }
+
+Responses
+~~~~~~~~~~~~~~
+
+``200`` Successfully withdrawn 10 ATRAC to wallet your_wallet_id
+
+``400`` Bad request
+
+-------------------------------------------------------------------------------------------------------------
+
 .. _read: http://docs.origintrail.io/en/latest/introduction-to-api.html#read
