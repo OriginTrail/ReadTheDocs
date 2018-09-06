@@ -90,7 +90,7 @@ Parameters
    :header: "Name", "Required", "Type", "Description"
    :widths: 20, 12, 20, 30
 
-   "import_id", "true", "file or text", "import_id returned after calling /api/import endpoint"
+   "import_id", "true", "text", "import_id returned after calling /api/import endpoint"
   
 If successful returns detailed informations about desired imported data.
 
@@ -106,11 +106,11 @@ Responses
 ::
 
     {
-    	"edges": [],
+    	"edges": [...],
+	"vertices": [...]
     	"import_hash": "0xe9c407ce686b68bedf758f9513143fbe7c08be12cfc76aa28bf4710e303f4a94",
     	"root_hash": "0xea94a2abc75f5e03ff4e5db8adbd2dad26ce9f4d6fa6db6e880891005a715c26",
-    	"transaction": "0x3711223191991a684ffae3c8672491b1cd74520ca69b91969211d671489f2e71",
-    	"vertices": []
+    	"transaction": "0x3711223191991a684ffae3c8672491b1cd74520ca69b91969211d671489f2e71"
     }
 
 ``404`` Bad request. Invalid input parameter (import_id)
