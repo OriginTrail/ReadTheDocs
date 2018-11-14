@@ -78,7 +78,7 @@ Responses
 ``405`` Invalid input
 
 /api/import_info ``GET``
--------------------------
+----------------------------
 
 List detailed informations about specific imported data.
  
@@ -556,7 +556,7 @@ Note: In case of a non existant import_id the returned value will be 0.
 -------------------------------------------------------------------------------------------------------------
 
 Profile Token Management
-=============
+============================
 
 /api/deposit ``POST``
 -----------------------

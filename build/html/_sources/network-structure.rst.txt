@@ -142,9 +142,11 @@ happens, and it is proved that Data Viewer received the false data, the
 stake of the corresponding DH node is lost.
 
 The complete picture of interaction between participants in OriginTrail
-system is presented on data flow diagram (Figure 1).
+system is presented on data diagram (Figure 1).
 
-[[images/data_flow.png]]
+.. image:: data_flow@2x.png
+   :target: https://raw.githubusercontent.com/OriginTrail/ReadTheDocs/master/source/
+   :width: 600px
 
 Service initiation
 ------------------
@@ -255,7 +257,9 @@ hash \_a = L(k) \_and calculates proof *T(h-1)*. If the proof is correct
 then the answer blocks integrity is unchanged from when it was created.
 The diagram of the proving mechanism is shown on Figure 2.
 
-[[images/merkle_proof.png]]
+.. image:: merkle_proof.png
+   :target: https://raw.githubusercontent.com/OriginTrail/ReadTheDocs/master/source/
+   :width: 600px
 
 Figure 2. Merkle proof diagram
 

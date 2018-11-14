@@ -77,6 +77,54 @@ Responses
 
 ``405`` Invalid input
 
+/api/import_info ``GET``
+----------------------------
+
+List detailed informations about specific imported data.
+ 
+ 
+Parameters
+~~~~~~~~~~~~~~
+ 
+.. csv-table:: ``GET`` http://NODE_IP:PORT/api/import_info?import_id={{import_id}}
+   :header: "Name", "Required", "Type", "Description"
+   :widths: 20, 12, 20, 30
+
+   "import_id", "true", "text", "import_id returned after calling /api/import endpoint"
+  
+If successful returns detailed informations about desired imported data.
+
+
+Responses
+~~~~~~~~~~~~~~
+
+``200`` Data about desired import sucessfully retrieved.
+
+
+*Example:*
+
+::
+
+    {
+    	"edges": [...],
+	"vertices": [...]
+    	"import_hash": "0xe9c407ce686b68bedf758f9513143fbe7c08be12cfc76aa28bf4710e303f4a94",
+    	"root_hash": "0xea94a2abc75f5e03ff4e5db8adbd2dad26ce9f4d6fa6db6e880891005a715c26",
+    	"transaction": "0x3711223191991a684ffae3c8672491b1cd74520ca69b91969211d671489f2e71"
+    }
+
+``404`` Bad request. Invalid input parameter (import_id)
+
+*Example:*
+
+::
+
+    {
+    	"message": "Import data for import ID  does not exist"
+    }
+
+``500`` Internal error happened on server.
+
 -------------------------------------------------------------------------------------------------------------------
 
 Replication
@@ -96,9 +144,21 @@ Parameters
  
 .. csv-table:: ``POST`` http://NODE_IP:PORT/api/replication
    :header: "Name", "Required", "Type", "Description"
-   :widths: 20, 12, 20, 30
+   :widths: 20, 12, 20, 70
 
    "import_id", "true", "text", "ID of the import you want to replicate"
+   "total_escrow_time_in_minutes", "false", "number", "Total time of the
+						       replication in minutes"
+   "max_token_amount_per_dh", "false", "text", "Maximum price per
+					        DH in token's wei"
+   "dh_min_stake_amount", "false", "text", "Minimun stake ammount per
+					    DH in token's wei"
+   "dh_min_reputation", "false", "number", "Minimum required
+					    reputation (0 is the lowest)"
+					    
+   
+   
+   
    
 This call returns replication_id which can be used in **/api/replication/ :{replication_id}** as input parameter for checking the status of replication.
 
@@ -174,8 +234,21 @@ Responses
 
 -------------------------------------------------------------------------------------------------------------
 
-queryNetwork
-=================
+Read
+============
+
+Reading the data from ODN can be performed on 2 ways:
+
+- **Network read** is conducted over ODN in several steps. The node that is executing the call is medium that is conducting read procedure (not the actual data source). This type of read costs TRAC and ETH tokens. Data is acquired from the DH node that provides the bid that meets requirements by the node which requested the data. At the end of network read procedure, newly acquired data is permanently available in local node graph database. Network read has several steps that need to be executed:
+
+1. api/query/network where query is sent across ODN to get data. This call returns QUERYID
+2. from /api/query/QUERYID/responses call you can see what are the responses for the query in previous call.
+3. /api/read/network with parameters from previous calls will return the data and execute all required token transfers.
+
+- **Local read** from local graph database on the node. The node that is executing the call is the data source. This type of read does not cost any TRAC (or ETH) tokens. It is trusted read from the node that provides the data. That data can be different then data on ODN. Potential difference can be examined by litigation procedure. 
+
+Network
+*******
 
 
 /api/query/network ``POST``
@@ -215,7 +288,12 @@ Refer to /query/network/{query_param} ``GET``
 
 ::
 
-    "string"
+    {  "query":  [{
+    	"path": "identifiers.id",
+   	"value": "urn:epc:id:sgln:Building_1",
+    	"opcode": "EQ"
+    }]
+    }
 
 Responses
 ~~~~~~~~~~~~~~
@@ -278,14 +356,6 @@ Responses
 
 -------------------------------------------------------------------------------------------------------------
 
-Read
-============
-
-Reading the data from ODN can be performed on 2 ways:
-
-- **Network read** is conducted over ODN in several steps. The node that is executing the call is medium that is conducting read procedure (not the actual data source). This type of read costs TRAC and ETH tokens. Data is acquired from the DH node that provides the bid that meets requirements by the node which requested the data. At the end of network read procedure, newly acquired data is permanently available in local node graph database.
-
-- **Local read** from local graph database on the node. The node that is executing the call is the data source. This type of read does not cost any TRAC (or ETH) tokens. It is trusted read from the node that provides the data. That data can be different then data on ODN. Potential difference can be examined by litigation procedure. 
 
 /api/read/network ``POST``
 -------------------------------
@@ -298,7 +368,18 @@ Initiates the reading from the network node selected from the previous posted re
 
    "query_id", "true", "text", "ID of the query"
    "reply_id", "true", "text", "ID of the reply"
+   "import_id", "true", "text", "ID of the import"
    
+*Example:*
+
+::
+
+    {
+	 "query_id": "76141d3e-378f-4a9a-8b43-d24f8982ef2e",
+	 "reply_id": "fdb5e3ba-9fb0-4a86-910e-110e4b8abd5f",
+	 "import_id": "0xe1f05500c1352309e009aaf77f589b4b62b895908da69d7c90ebc5d5c05cf372"
+    }
+    
 
 Responses
 ~~~~~~~~~~~~~~
@@ -315,62 +396,10 @@ Responses
         "message": "Invalid import type"
     }
 
--------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------
 
-Local Search
-===============
-
-/api/trail ``GET``
------------------------
-
-Retrieves data on a supply chain product trail from the local database
-
-.. csv-table:: ``GET`` http://NODE_IP:PORT/api/trail
-   :header: "Name", "Required", "Type", "Description"
-   :widths: 20, 12, 20, 30
-
-   "queryObject", "true", "text", "Query in specific format ex. vertex_type=BATCH"
-
-Responses
-~~~~~~~~~~~~~~
-
-``200`` Array of found vertices for given query
-
-``204`` No vertices found
-
-``500`` Internal error happened on server
-
-
-/api/fingerprint ``GET``
----------------------------
-
-Gets the fingerprint of a specific import from the blockchain
-
-.. csv-table:: ``GET`` http://NODE_IP:PORT/api/fingerprint
-   :header: "Name", "Required", "Type", "Description"
-   :widths: 20, 12, 20, 30
-   
-   "dc_wallet", "true", "text", "Data creator’s wallet address"
-   "import_id", "true", "text", "Value of import_id from response"
-
-Import_id is received as an response of sucessful /api/import request (Data import ID).
-
-Responses
-~~~~~~~~~~~~~~
-
-``200`` Data fingerprint
-
-``400`` Required parameters not provided
-
-``500`` Internal error happened on server
-
-
-Note: In case of a non existant import_id the returned value will be 0.
-
--------------------------------------------------------------------------------------------------------------
-
-QueryLocal
-============
+Local read
+**********
 
 /api/query/local ``POST``
 ---------------------------
@@ -457,7 +486,7 @@ Responses
 Returns given import’s vertices and edges and decrypts them if needed.
 
 
-.. csv-table:: ``GET`` http://NODE_IP:PORT/api/query/local/import:{import_id}
+.. csv-table:: ``GET`` http://NODE_IP:PORT/api/query/local/import/{import_id}
    :header: "Name", "Required", "Type", "Description"
    :widths: 20, 12, 20, 30
    
@@ -471,5 +500,121 @@ Responses
 ``200`` OK
 
 ``400`` Param required
+
+-------------------------------------------------------------------------------------------------------------
+
+Local Search
+=============
+
+/api/trail ``GET``
+-----------------------
+
+Retrieves data on a supply chain product trail from the local database
+
+.. csv-table:: ``GET`` http://NODE_IP:PORT/api/trail
+   :header: "Name", "Required", "Type", "Description"
+   :widths: 20, 12, 20, 30
+
+   "queryObject", "true", "text", "Query in specific format ex. vertex_type=BATCH"
+
+Responses
+~~~~~~~~~~~~~~
+
+``200`` Array of found vertices for given query
+
+``204`` No vertices found
+
+``500`` Internal error happened on server
+
+
+/api/fingerprint ``GET``
+---------------------------
+
+Gets the fingerprint of a specific import from the blockchain
+
+.. csv-table:: ``GET`` http://NODE_IP:PORT/api/fingerprint
+   :header: "Name", "Required", "Type", "Description"
+   :widths: 20, 12, 20, 30
+   
+   "dc_wallet", "true", "text", "Data creator’s wallet address"
+   "import_id", "true", "text", "Value of import_id from response"
+
+Import_id is received as an response of sucessful /api/import request (Data import ID).
+
+Responses
+~~~~~~~~~~~~~~
+
+``200`` Data fingerprint
+
+``400`` Required parameters not provided
+
+``500`` Internal error happened on server
+
+
+Note: In case of a non existant import_id the returned value will be 0.
+
+-------------------------------------------------------------------------------------------------------------
+
+Profile Token Management
+============================
+
+/api/deposit ``POST``
+-----------------------
+
+Deposit tokens from wallet to a profile.
+
+.. csv-table:: ``POST`` http://NODE_IP:PORT/api/deposit
+   :header: "Name", "Required", "Type", "Description"
+   :widths: 20, 12, 20, 30
+
+   "query", "true", "JSON query", "Query object"
+
+The query must be in JSON format:
+
+::
+
+    { 
+        "atrac_amount": 10
+    }
+
+Responses
+~~~~~~~~~~~~~~
+
+``200`` Successfully deposited 10 ATRAC to profile
+
+``400`` Bad request
+
+Note: value of 10 used above is just an example, can be any available amount from wallet
+
+
+/api/withdraw ``POST``
+-----------------------
+
+Withdraw tokens from profile to a wallet.
+
+.. csv-table:: ``POST`` http://NODE_IP:PORT/api/withdraw
+   :header: "Name", "Required", "Type", "Description"
+   :widths: 20, 12, 20, 30
+
+   "query", "true", "JSON query", "Query object"
+
+The query must be in JSON format:
+
+::
+
+    { 
+        "atrac_amount": 10
+    }
+
+Responses
+~~~~~~~~~~~~~~
+
+``200`` Successfully withdrawn 10 ATRAC to wallet your_wallet_id
+
+``400`` Bad request
+
+Note: value of 10 used above is just an example, can be any available amount from profile
+
+-------------------------------------------------------------------------------------------------------------
 
 .. _read: http://docs.origintrail.io/en/latest/introduction-to-api.html#read

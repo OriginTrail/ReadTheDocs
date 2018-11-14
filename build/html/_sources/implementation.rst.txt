@@ -55,7 +55,7 @@ Steps in the process:
 
 Outcome of this step is a sample file which is should an generated with export integration procedure from the existing company IT system
 
-Step 4: Installing and setting up a node
+Step 3: Installing and setting up a node
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Node requirements and installation steps are specified in the implementation kit. This step also includes setting up the wallet for Ethereum and TRAC tokens. Installation sets up a node software and makes it part of ODN network. This step requires intermediate IT skills. 
@@ -66,14 +66,14 @@ Steps in the process:
 -  Setting up a Node software
 -  Setting up a wallet
 
-Step 5: Putting the data through Node
+Step 4: Putting the data through Node
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 In this step you need to put the sample data from step 3, to the installed node from step 4. Once you do that, the protocol takes care of the replication part and the Blockchain connection. In this way, your data will be stored in a cost efficient, decentralised way with a connection to Blockchain layer (Data is on ODN).
 
 Important part of this step is that the company that wishes to put data on ODN, will need TRAC token to compensate the node holders (where the data will be stored). Price of the transaction will be determined by the node holders based on the volume of data and the time needed for data storage.
 
-Step 6: Integration of OriginTrail with enterprise IT system
+Step 5: Integration of OriginTrail with enterprise IT system
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Integration is establishing communication from participants ERP to ODN. Communication is done through exchange of standardized and structured files. Exchange can be done through upload of the file by using web services or manually. Since data structure is determined in previous stages, the only thing left to do is to extract the data into that data structure, send it to ODN through Node and automate the whole process.
@@ -83,7 +83,7 @@ Steps in the process:
 - Implementation of procedure that triggers web services that send or receive the files from ODN
 - Testing and evaluating the procedures according to use case
 
-Step 7: Utilization of the data on ODN
+Step 6: Utilization of the data on ODN
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 After the data is stored on ODN (OriginTrail Decentralised Network), a frontend user interface must access, process and display the data. This step brings the project back to initial use case structuring. This part should be outlined on the beginning of the project as it visualises, what the end beneficiary of the data is seeing. Since each use case needs is unique and requires its own interface, OriginTrail provides API for accessing the data, but does not develop front end solutions (user interface such as mobile app or web site). This is in the domain of the service providers. 
@@ -92,6 +92,3 @@ Things needed for consideration when structuring a use case:
 - Who is the beneficiary of the data
 - How the data will be presented to the data beneficiary
 - What kind of user interfaces are needed (web, mobile)
-
-
-
