@@ -9,7 +9,7 @@ Based on Blockchain.**
 
 Please keep in mind that the protocol is currently in Testnet (Beta) stage.
 There are some limitations and work-in-progress.
-The **Main Network** is scheduled for Q3 2018. For further information about 
+The **Main Network** is scheduled for Q1 2019. For further information about 
 our roadmap please see our `website`_ for more detailed development plans.
  
 The documentation is aimed towards three groups of readers:
