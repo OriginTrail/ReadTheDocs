@@ -660,7 +660,7 @@ Consensus check
 
 Returns an events list for which consensus check has been calculated.
 
-.. csv-table:: ``POST`` http://NODE_IP:PORT/api/deposit
+.. csv-table:: ``POST`` http://NODE_IP:PORT/api/consensus/{sender_id}
    :header: "Name", "Required", "Type", "Description"
    :widths: 20, 12, 20, 30
 
