@@ -37,7 +37,7 @@ Development contribution
 
 OriginTrail is an open source project. We happily invite you to join us in our mission of building the protocol to establish more transparency within global supply chains. 
 
-For more information please take a look at :ref:`contribution`
+For more information please take a look at :ref:`contribution-guidelines`
 
 
 .. _origintrail.io: https://origintrail.io
