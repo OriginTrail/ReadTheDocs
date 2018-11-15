@@ -658,7 +658,7 @@ Consensus check
 /api/consensus/{sender_id} ``GET``
 ------------------------------------
 
-Returns an events list for which consensus check has been calculated.
+Returns list of OwnershipTransfer type events of the given data sender from database. If the event is connected with another event of the same type from different sender, response contains events from both sides.
 
 .. csv-table:: ``POST`` http://NODE_IP:PORT/api/consensus/{sender_id}
    :header: "Name", "Required", "Type", "Description"
