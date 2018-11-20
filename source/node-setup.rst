@@ -1,10 +1,10 @@
 ..  _node-setup:
 
 Installation
-=====================
+============
 
 Read Me First
-----------------
+-------------
 
 Please bear in mind that we are only able to give you limited support
 on testing the nodes, some features will probably change and we are aware of some bugs that may show up on
@@ -60,11 +60,6 @@ with the following commands:
 
 .. code:: bash
 
-   sudo apt-get update -y
-   sudo apt-get upgrade -y
-
-.. code:: bash
-
    curl -sL https://deb.nodesource.com/setup_9.x | sudo -E bash -
    sudo apt-get install -y nodejs
 
@@ -107,35 +102,6 @@ following:
 
    brew install arangodb
 
-Database Setup
-^^^^^^^^^^^^^^
-
-Once you installed ArangoDB you should create a database. Enter ArangoDB
-shell script
-
-.. code:: bash
-
-   arangosh
-
-and create database
-
-.. code:: javascript
-
-   db._createDatabase("origintrail", "", [{ username: "otuser", passwd: "otpass", active: true}])
-
-Database - Neo4j
-^^^^^^^^^^^^^^^^
-
-**Neo4j** is a graph database management system with native graph
-storage and processing. Its architecture is designed for optimizing fast
-management, storage, and the traversal of nodes and relationships. In
-order to run OT node with Neo4j make sure to have it installed and
-running.
-
-Head to `neo4j.com/download`_, select your operating system and download
-Neo4j. You may also follow the instructions on how to install with a
-package manager, if available.
-
 .. _ubuntu-1604-1:
 
 Ubuntu 16.04
@@ -169,16 +135,6 @@ This will install all prerequisites in a single step.
    wget https://raw.githubusercontent.com/OriginTrail/ot-node/master/install.sh
    sh install.sh --db=arangodb
 
-If you prefer neo4j as database then use
-
-.. code:: bash
-
-   wget https://raw.githubusercontent.com/OriginTrail/ot-node/master/install.sh
-   sh install.sh --db=neo4j
-   
-
-**Note:** There are some ongoing issues with Neo4j. We currently advise use of ArangoDB.
-
 If errors occurred during installation process, ot-node probably won't
 work properly. Errors during installation process happen due to various
 factors like lack of RAM or previous installations. We strongly
@@ -200,14 +156,14 @@ and run npm
 
 .. code:: bash
 
-   cd ot-node && npm install
-   cp .env.example .env
+   cd ot-node
+   npm install
+   npm run setup
    
-   
-You can proceed to node `configuration`_ 
+Before running a node make sure you configure it properly first. You can proceed to node `configuration`_
 
 Starting The Node
---------------------
+-----------------
 
 OT node consists of two servers **RPC** and **Kademlia node**. Run both
 servers in a single command.
@@ -216,23 +172,34 @@ servers in a single command.
 
    npm start
 
-You can see instructions regarding the data import on the following :ref:`import-data`
+You can see instructions regarding the dta import on the following :ref:`import-data`
 
 Important Notes
------------------
-First time you run your node run ``npm run bootstrap`` to apply initial configuration.
+---------------
 
-Every time you change your configuration in .env don't forget to run
-``npm run config`` to apply updated configuration.
+First time you run your node run ``npm run setup`` to apply initial configuration.
+
+If you want to reset all settings you can use ``npm run setup:hard``. If you want to
+clear all the cache and recreate database and not delete identity just run ``npm run setup``.
 
 In order to make the initial import, your node must **whitelist** the
-IP of the machine that is requesting the import in ``.env`` i.e
-IMPORT_WHITELIST=127.0.0.1 if you are importing from localhost.
+IP or host of the machine that is requesting the import in configuration i.e
+
+.. code:: json
+
+    {
+        "netowork": {
+            "remoteWhitelist": [ "host.domain.com", "127.0.0.1"]
+        }
+    }
+
+By default only localhost is whitelisted.
+
+For more information see :ref:`Configuration-setup`.
 
 
 .. _Issues: https://github.com/OriginTrail/ot-node/issues
 .. _manually: #manual
-.. _neo4j.com/download: https://neo4j.com/download/
 .. _arangodb.com/download: https://www.arangodb.com/download-major/
 .. _link: https://www.digitalocean.com/community/tutorials/how-to-add-swap-space-on-ubuntu-16-04
 .. _configuration: http://docs.origintrail.io/en/latest/Configuration-setup.html
