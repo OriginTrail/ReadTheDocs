@@ -27,6 +27,7 @@ After all steps are completed, imported data can be read from ODN via `read`_ pr
 /api/import ``POST``
 -------------------------
 
+Import new GS1 or WOT structured data into a node's database.
 Required POST body parameters for import are importtype (GS1/WOT), and importfile (XML/JSON data). 
 Import can be also done by uploading the file containing data using multipart form. In that case, name of the field containing data file should also be named importfile. 
 If automatic replication after import is required, parameter replicate with value set to true can be provided. 
