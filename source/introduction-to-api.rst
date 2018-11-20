@@ -27,7 +27,10 @@ After all steps are completed, imported data can be read from ODN via `read`_ pr
 /api/import ``POST``
 -------------------------
 
-Import new GS1 or WOT structured data into a node's database. Find out more about data format here :ref:`data-structure-guidelines`
+Required POST body parameters for import are importtype (GS1/WOT), and importfile (XML/JSON data). 
+Import can be also done by uploading the file containing data using multipart form. In that case, name of the field containing data file should also be named importfile. 
+If automatic replication after import is required, parameter replicate with value set to true can be provided. 
+Find out more about data format here :ref:`data-structure-guidelines`
  
  
 Parameters
@@ -39,6 +42,8 @@ Parameters
 
    "importfile", "true", "file or text", "data that you want to import (ex. GS1 XML file)"
    "importtype", "true", "predetermined text", "GS1 or WOT. This describes data standard."
+   "replicate", "false", "boolean", "Automatic replication."
+
   
 If successful returns data_set_id for this data import.
 
@@ -82,7 +87,8 @@ Responses
 /api/import_info ``GET``
 ----------------------------
 
-List detailed informations about specific imported data set.
+Fetch import information for specific dataset id. Query param is data_set_id. 
+Response contains details of requested dataset.
  
  
 Parameters
@@ -132,7 +138,7 @@ Responses
 /api/imports_info ``GET``
 ----------------------------
 
-List detailed informations about all imported data sets (replicated or not) on current node.
+List information for all imported datasets. No query parameters required. Response contains list of information about imported datasets.
 
 Parameters
 ~~~~~~~~~~~~~~
@@ -307,7 +313,8 @@ Reading the data from ODN can be performed on 2 ways:
 /api/query/network ``POST``
 --------------------------------
 
-Publishes a network query for a supply chain data set using simple specific DSL query. The API route will return the ID of the query which can be used for checking the status of the query. The actual quering of the network will last approximately about 1 min, in which period the node will gather the offers for the query responses (read operation) and store them in the internal database storage.
+Publishes a network query for a supply chain data set using simple specific DSL query. The API route will return the ID of the query which can be used for checking the status of the query. 
+The actual quering of the network will last approximately about 1 min, in which period the node will gather the offers for the query responses (read operation) and store them in the internal database storage.
 
 The query must be in JSON format:
 
@@ -374,7 +381,7 @@ Responses
 /api/query/{query_id}/responses ``GET``
 ------------------------------------------
 
-Returns the list of all the offers of the given query. The response will be formatted in an array of JSON objects containing offer details.
+Get currently received responses for given query. The response will be formatted in an array of JSON objects containing offer details (reply id, dataset id, price and size of dataset).
 
 .. csv-table:: ``GET`` http://NODE_IP:PORT/api/query/{query_id}/responses
    :header: "Name", "Required", "Type", "Description"
@@ -426,7 +433,7 @@ Responses
 /api/read/network ``POST``
 -------------------------------
 
-Initiates the reading from the network node selected from the previous posted reading offer.
+Initiate network read for selected response. Parameters provided in the body are query id. dataset id and reply id structured in JSON format.
 
 .. csv-table:: ``POST`` http://NODE_IP:PORT/api/read/network
    :header: "Name", "Required", "Type", "Description"
@@ -462,7 +469,9 @@ Local Read
 /api/query/local ``POST``
 ---------------------------
 
-Run local query on the database
+Querying data from local database. Get list of identifiers of datasets containing vertices that match given query. 
+Data location query is submitted in JSON form through POST body. Query represents list of objects containing query parameters path (name of queried field), value (value of queried field), opcode (operator representing relation of field value and queried value - EQ/IN).
+Response contains list of dataset identifiers.
 
 .. csv-table:: ``POST`` http://NODE_IP:PORT/api/query/local
    :header: "Name", "Required", "Type", "Description"
@@ -504,7 +513,7 @@ Responses
 /api/query/local/import:{data_set_id} ``GET``
 ------------------------------------------------
 
-Returns given import’s vertices and edges and decrypts them if needed.
+Get raw dataset data. Response contains dataset vertices and edges.
 
 
 .. csv-table:: ``GET`` http://NODE_IP:PORT/api/query/local/import/{data_set_id}
