@@ -7,16 +7,16 @@ You can check out the `video`_ for this section.
 
 TRAC token that is required for OriginTrail Decentralized Network is based on ERC20 standard that utilizes Ethereum network. In order to utilize the ODN you will need **both TRAC and ETH tokens** on your wallet. ERC20 standard enables use of one wallet for both crypto currencies.
 
-ODN testnet is based on Ethereum test network Rinkeby and Alpha Trac tokens (ATRAC). We strongly advise use of dedicated wallet for ODN TestNet for security reasons. Please don't store real TRAC tokens and ETH on that wallet in this stage. ATRAC and Rinkeby ETH have no commercial value.
+ODN testnet is based on Ethereum test network Rinkeby and test Trac tokens (TRAC). We strongly advise use of dedicated wallet for ODN TestNet for security reasons. Please don't store real TRAC tokens and ETH on that wallet in this stage. Test TRAC and Rinkeby ETH have no commercial value.
 
 OriginTrail is not responsible for setup and use of wallets and related software. We also do not provide support for this software.
 
-If you need ATRAC token, please send us email on support@origin-trail.com with your wallet address. You can also visit our `faucet`_ `faucet`_ 
+If you need test TRAC token please visit our faucet `faucet`_ page.
 
 Metamask
 ~~~~~~~~
 
-The easiest way to do this is to install **MetaMask**. MetaMask is a
+The easiest way to get wallet is to install **MetaMask**. MetaMask is a
 Chrome Extension that allows you to interact with the Ethereum network
 without having to run a node on your system.
 
@@ -52,12 +52,12 @@ Get some funds on the wallet
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 In order to test you will need some Ether on our wallet. Initially your
-balance will be 0. To get some Ether to test go to
+balance will be 0. To get some test Ether to test go to
 https://faucet.rinkeby.io/ and follow the instructions. Remember, test
 network Ether does not have any exchange value, it's just for testing
 and development purposes.
 
-Once you get Ether on your account, you will be able to see new balance
+Once you get Ether/test TRAC on your account, you will be able to see new balance
 in MetaMask.
 
 .. _here: http://github.com/OriginTrail/ot-yimishiji-pilot/wiki/Usage
