@@ -86,8 +86,8 @@ Responses
 /api/import_info ``GET``
 ----------------------------
 
-Fetch import information for specific dataset id. Query param is data_set_id. 
-Response contains details of requested dataset. 
+Fetch import information for specific data-set id. Query param is data-set id.
+Response contains details of requested data-set.
  
 Parameters
 ~~~~~~~~~~~~~~

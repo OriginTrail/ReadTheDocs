@@ -59,133 +59,97 @@ of this document, but will be subject of further documentation.
 Entities in graph structure (ontology)
 --------------------------------------
 
-There are 5 generic entity groups in the structure of OriginTrail graph
-structure.
+OriginTrail data layer defines its own graph ontology for representation of supply chain entities and relations between them. The documents, representing graph vertices and edges are stored in the graph database, structured with a specific JSON form that helps sustain data immutability and supports system functionalities such are searches and traversals. OriginTrail graph ontology contains three groups of entities, represented as vertices:
 
--  **Objects** and **ObjectClasses**, represented as nodes
--  **Events** and **EventClasses**, represented as nodes
--  **Connections**, represented as edges
 
-Each entity can contain
+- **Object Class** and **Event Class** vertices
+- **Objects** and **Event** objects instances
+- **Identifiers**
 
-1. An **identifier** block The identifier block contains a set of IDs
-   describing the particular entity. Examples would include identifiers
-   such as GS1 codes (i.e. EAN8, EAN13), QR codes, batch identifiers
-   (LOT or serial numbers) or any type of internal identifiers used by
-   the parties in the supply chain. These allow for easy lookups and
-   traversals. Additionally each graph element has a unique ID generated
-   deterministically by the system.
-2. A **data** block: The data block contains all non-ID related
-   information about the entity and is extensible.
-3. A **meta data** block This meta data involves information about the
-   import process, signing keys and other technical details, not related
-   to the meta data about supply chain products.
+The entities are connected with connections represented as edges.
+
 
 Objects and ObjectClasses
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Objects represent all physical or digital entities involved in events in
-the supply chain. Examples of objects are vehicles, production
-facilities, documents, sensors, personnel etc. ObjectClasses
-specifically define a global set of properties for their child Objects
-(as their “instances”). In the example of a wine authenticity use case,
-the data shared among supply chain entities (winery, distributors,
-retailers etc) involves information about specific batches of bottles
-with unique characteristics. The master data about a product would
-present an ObjectClass node in the OT graph, while the specifics about
-the product batch would be contained within the “batch” Object. This
-allows for a hierarchical organization of objects, with a simplistic but
-robust class-like inheritance.
+Objects represent all physical or digital entities involved in events in the supply chain. 
+Examples of objects are vehicles, production facilities, documents, sensors, personnel etc. 
+ObjectClasses specifically define a global set of properties for their child Objects (as their “instances”). 
+In the example of a wine authenticity use case, the data shared among supply chain entities (winery, distributors, retailers etc) involves information about specific batches of bottles with unique characteristics.
+The master data about a product would present an ObjectClass node in the OT graph, while the specifics about the product batch would be contained within the “batch” Object. 
+This allows for a hierarchical organization of objects, with a simplistic but robust class-like inheritance.
 
-ObjectClasses are divided in:
+Object Classes are divided in:
 
--  **Actors**, which encompass companies, people, machines and any other
-   entity that can act or observe objects within the supply chain. (the
-   “Who”)
--  **Products** (supply chain objects of interest), which represent
-   goods or services that are acted upon by actors (the “What”)
--  **Locations**, which define either physical or digital locations of
-   products or actors (the “Where”)
+- **Actors**,
+    which encompass companies, people, machines and any other entity that can act or observe objects within the supply chain. (the “Who”)
 
-Each of the Objects can then be further explained by custom defined
-subcategories.
+- **Products** 
+    (supply chain objects of interest), which represent goods or services that are acted upon by actors (the “What”)
+
+- **Locations**, 
+    which define either physical or digital locations of products or actors (the “Where”)
+
+- **Batches**,
+    physical units of products
+
+
+Each of the Objects can then be further explained by custom defined subcategories.
+
 
 Events and EventClasses
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-Events in the graph structure have a similar inheritance pattern –
-EventClasses classify types of events which are instantiated as
-particular Event nodes. OriginTrail currently classifies 4 different
-event types:
+Events in the graph structure have a similar inheritance pattern – Event Classes classify types of events which are instantiated as particular Event nodes.
+OriginTrail currently classifies 4 different event types:
 
--  **Transport** events, which explain the physical or digital
-   relocation of objects in the supply chain.
--  **Transformation** events, which contain information about the
-   transformation of one or more objects into (a new) one. An example
-   would be the case of an electronic device (i.e. mobile phone), where
-   the assembly is observed as a transformation event of combining
-   different components – Objects - into one output Object, or the case
-   of combining a set of SKUs in one group entity such as a
-   transportation pallet. Similarly, a digital transformation event
-   would be any type of processing of a digital product (i.e. mastering
-   of a digital sound recording). This event type corresponds to GS1
-   AggregationEvents and TransformationEvents.
--  **Observation** events, which entail any type of observational
-   activity such as temperature tracking via sensors or laboratory
-   tests. This event corresponds to GS1 ObjectEvents that are published
-   by one party (interaction between different business entities is not
-   the primary focus of the event).
--  **Ownership/custody transfer** events, where the change of ownership
-   or custody of Objects is distinctly explained. An example would be a
-   sale event.
+- **Transport events**,
+    which explain the physical or digital relocation of objects in the supply chain.
 
-Each of the events can then be further explained by custom defined
-subcategories and meta data.
+
+- **Transformation events**,
+     which contain information about the transformation of one or more objects into (a new) one. An example would be the case of an electronic device (i.e. mobile phone), where the assembly is observed as a transformation event of combining different components – Objects - into one output Object, or the case of combining a set of SKUs in one group entity such as a transportation pallet. Similarly, a digital transformation event would be any type of processing of a digital product (i.e. mastering of a digital sound recording). This event type corresponds to GS1 AggregationEvents and TransformationEvents.
+
+
+- **Observation events**,
+    which entail any type of observational activity such as temperature tracking via sensors or laboratory tests. This event corresponds to GS1 Object Events that are published by one party (interaction between different business entities is not the primary focus of the event).
+
+
+- **Ownership/custody transfer events**,
+    where the change of ownership or custody of Objects is distinctly explained. An example would be a sale event.
+
+
+Each of the events can then be further explained by custom defined subcategories and meta data.
+
+
+Identifiers
+~~~~~~~~~~~
+The identifiers are special vertices that contain identification attributes that identify objects. 
+They contain type and value of a single identifier. One object can have multiple identifiers connected.
+
 
 Connections
 ~~~~~~~~~~~
 
-The connections are edges in the graph used to define connections
-between Objects, ObjectClasses and Events. The connections are
-classified in 3 groups:
+The connections are edges in the graph used to define connections between Objects, Object Classes, Events and Identifiers. 
+The connections are classified in 4 groups:
 
--  **Inheritance** connections (between ObjectClass and Object vertices,
-   as well as between EventClass and Event vertices). These connections
-   define that an Object is an instance of ObjectClass, the isInstanceOf
-   edge.
--  **Involvement** connections (between Object and Event vertices)
-   connect objects with events in which they are involved. For example,
-   a transformation event of production would have input objects, output
-   objects, a location where the production took place etc.
--  **State** connections (between two Object vertices) connect two or
-   more objects that are related in some way. For example, an object can
-   be owned by some supply chain actor.
+- **Inheritance connections**, 
+    (between Object Class and Object vertices, as well as between Event Class and Event vertices). 
+    These connections define that an Object is an instance of ObjectClass, the isInstanceOf edge.
 
-An example of a graph illustrating all the above mentioned entities is
-provided below. It illustrates a simplified scenario of a movement of an
-“engine” object within a supply chain, undergoing a transformation event
-of wrapping it up in a “package” by Employee Bob from CarEngines LTD,
-which is transported by an “AirTransport” company and finally sold to
-“Buyer Alice Corp”.
 
-|Graph Example|
+- **Involvement connections**, 
+    (between Object and Event vertices) 
+    connect objects with events in which they are involved. 
+    For example, a transformation event of production would have input objects, output objects, a location where the production took place etc.
 
-This very simple example easily illustrates the amount of data
-connections needed to efficiently explain the undergoing scenario and is
-simplified to provide an easier logical overview.
 
-Conclusion and future steps
----------------------------
+- **State connections**,
+    (between two Object vertices) 
+    connect two or more objects that are related in some way. 
+    For example, an object can be owned by some supply chain actor.
 
-This document outlines the data structure logic behind OriginTrail’s
-data layer with the intention of providing high flexibility and data
-interoperability within the network. It is a work in progress and
-therefore we invite the community to join and provide ideas and feedback
-on possible improvements and inefficiencies that may arise from such a
-scheme. The best way to contribute is to use the Improvement Proposals
-repository provided by the OriginTrail team. Further iterations on the
-structure will be based on use-cases implemented and observed in the
-alpha and test net focusing on optimizations and simplifications of the
-structure.
-
-.. |Graph Example| image:: http://pulsing-ks.com/tmp/graph-example.png
+- **Identification connections**,
+    (between Object and Identifier vertices) 
+    connect identifiers with object that they are identifying.
