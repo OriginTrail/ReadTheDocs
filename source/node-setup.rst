@@ -6,24 +6,26 @@ Installation
 Read Me First
 -------------
 
-Please bear in mind that we are only able to give you limited support
-on testing the nodes, some features will probably change and we are aware of some bugs that may show up on
-different installation and usage scenarios. If you need help installing OT Node or troubleshooting your
-installation, you can contact us directly via email at support@origin-trail.com.
+Please bear in mind that we will give our best to support you while setting up and
+testing the nodes. Some features will probably change before mainnet and we are aware that some defects may show up on
+different installations and usage scenarios. 
+If you need help installing OT Node or troubleshooting your
+installation, you can either:
+
+- engage in our Discord community and post your question, 
+- contact us directly via email at support@origin-trail.com.
 
 
-Nodes can be installed on several ways:
+Nodes can be installed in two ways:
 
-- via docker https://www.origintrail.io/node-setup
-- automatic installation on Ubuntu (explained below)
-- manual installation (explained below)
+- via docker, which is reccommended way, explained on our `website`_ 
+- manually ( to be explained below )
 
-**NOTE**: For best performance testing we recommend usage of services like Digital Ocean.
+**NOTE**: For best performance on running node we recommend usage of services like Digital Ocean.
 
-In order to install OT node, you should do following steps:
+In order to manually install and run OT node, you should do following steps:
 
-1. **Step 1** - Install all prerequisites. There is an automatic
-   installation script or you can do installation manually (explained below).
+1. **Step 1** - Install all prerequisites.
    
 2. **Step 2** - :ref:`configuration-setup`
 
@@ -75,7 +77,7 @@ Head to `arangodb.com/download`_, select your operating system and
 download ArangoDB. You may also follow the instructions on how to
 install with a package manager, if available. Remember credentials
 (username and password) used to log in to Arango server, since later on
-you will need to set them in .env.
+you will need to set them in .origintrail_noderc.
 
 .. _ubuntu-1604:
 
@@ -84,15 +86,21 @@ Ubuntu 16.04
 
 .. code:: bash
 
-   wget https://www.arangodb.com/repositories/arangodb3/xUbuntu_16.04/Release.key
-   sudo apt-key add Release.key
-   sudo apt-add-repository 'deb https://www.arangodb.com/repositories/arangodb3/xUbuntu_16.04/ /'
-   sudo apt-get update -y
-   sudo apt-get install arangodb3
+    curl -OL https://download.arangodb.com/arangodb33/xUbuntu_16.04/Release.key
+    apt-key add - < Release.key
+    echo 'deb https://download.arangodb.com/arangodb33/xUbuntu_16.04/ /' | tee /etc/apt/sources.list.d/arangodb.list
+    apt-get install apt-transport-https -y
+    apt-get update -y
+    echo arangodb3 arangodb3/backup boolean false | debconf-set-selections
+    echo arangodb3 arangodb3/upgrade boolean true | debconf-set-selections
+    echo arangodb3 arangodb3/storage_engine select mmfiles | debconf-set-selections
+    echo arangodb3 arangodb3/password password root | debconf-set-selections
+    echo arangodb3 arangodb3/password_again password root | debconf-set-selections
+    apt-get install arangodb3=3.3.12 -y
 
 When asked, enter the password for root user.
 
-Mac Os X
+Mac OS X
 ********
 
 For Mac OS X, you can use **homebrew** to install ArangoDB. Run the
@@ -104,44 +112,6 @@ following:
 
 .. _ubuntu-1604-1:
 
-Ubuntu 16.04
-************
-
-First you have to install Java 8 and set it as the default.
-
-.. code:: bash
-
-   sudo add-apt-repository ppa:webupd8team/java
-   sudo apt-get update
-   sudo apt-get install oracle-java8-installer
-   sudo apt-get install -y oracle-java8-set-default
-
-Run the following:
-
-::
-
-   wget -O - https://debian.neo4j.org/neotechnology.gpg.key | sudo apt-key add -
-   echo 'deb https://debian.neo4j.org/repo stable/' | sudo tee /etc/apt/sources.list.d/neo4j.list
-   sudo apt-get update
-   sudo apt-g
-
-Automatic installation
-----------------------
-
-This will install all prerequisites in a single step.
-
-.. code:: bash
-
-   wget https://raw.githubusercontent.com/OriginTrail/ot-node/master/install.sh
-   sh install.sh --db=arangodb
-
-If errors occurred during installation process, ot-node probably won't
-work properly. Errors during installation process happen due to various
-factors like lack of RAM or previous installations. We strongly
-recommend installation on clean system and at least 2GB of RAM (it may work with 512MB and swap file).
-You can check this `link`_ and do the automatic installation and setup again. 
-
-If you used this automatic installation script, you may proceed to :ref:`configuration-setup`. Then you can start the node.
 
 Manual Node Installation
 ------------------------
@@ -160,7 +130,7 @@ and run npm
    npm install
    npm run setup
    
-Before running a node make sure you configure it properly first. You can proceed to node `configuration`_
+Before running a node make sure you configure it properly first. You can proceed to node :ref:`Configuration-setup` page.
 
 Starting The Node
 -----------------
@@ -172,7 +142,7 @@ servers in a single command.
 
    npm start
 
-You can see instructions regarding the dta import on the following :ref:`import-data`
+You can see instructions regarding the data import on the following :ref:`import-data`
 
 Important Notes
 ---------------
@@ -188,7 +158,7 @@ IP or host of the machine that is requesting the import in configuration i.e
 .. code:: json
 
     {
-        "netowork": {
+        "network": {
             "remoteWhitelist": [ "host.domain.com", "127.0.0.1"]
         }
     }
@@ -200,6 +170,6 @@ For more information see :ref:`Configuration-setup`.
 
 .. _Issues: https://github.com/OriginTrail/ot-node/issues
 .. _manually: #manual
+.. _website: https://www.origintrail.io/node-setup
 .. _arangodb.com/download: https://www.arangodb.com/download-major/
 .. _link: https://www.digitalocean.com/community/tutorials/how-to-add-swap-space-on-ubuntu-16-04
-.. _configuration: http://docs.origintrail.io/en/latest/Configuration-setup.html
