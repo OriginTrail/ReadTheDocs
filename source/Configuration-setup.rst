@@ -44,13 +44,17 @@ We create the **.origintrail_noderc** file with following content:
         "node_wallet": "your wallet address here",
         "node_private_key": "your wallet's private key here",
         "network": {
-            "hostname": "your external IP or domain name here"
+            "hostname": "your external IP or domain name here",
+            "remoteWhitelist": [ "IP or host of the machine that is requesting the import", "127.0.0.1"]
         }
     }
 
 *node_wallet* and *node_private_key* - Ethereum wallet address and its private key.
-*hostname* is the public network address or hostname that will be used in P2P communication with other
+
+*hostname* - the public network address or hostname that will be used in P2P communication with other
 nodes for node’s self identification.
+
+*remoteWhitelist* - list of IPs or hosts of the machines ("host.domain.com") that are allowed to communicate with REST API.
 
 Configuration file
 ~~~~~~~~~~~~~~~~~~
