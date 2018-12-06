@@ -709,7 +709,7 @@ Node information
 /api/info ``GET``
 ----------------------------
 
-Return basic configuration information about running node.
+Returns basic configuration information about running node.
 
 Parameters
 ~~~~~~~~~~~~~~
