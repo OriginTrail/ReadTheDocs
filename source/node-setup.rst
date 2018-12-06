@@ -6,15 +6,15 @@ Installation
 Read Me First
 -------------
 
-Please bear in mind that we will give our best to support you while setting up and
-testing the nodes. Some features will probably change before mainnet and we are aware that some defects may show up on
+Please keep in mind that we will give our best to support you while setting up and
+testing the nodes. Some features are subject to change and we are aware that some defects may show up on
 different installations and usage scenarios. 
+
 If you need help installing OT Node or troubleshooting your
 installation, you can either:
 
 - engage in our Discord community and post your question, 
 - contact us directly via email at support@origin-trail.com.
-
 
 Nodes can be installed in two ways:
 
