@@ -702,4 +702,58 @@ Responses
 
 -------------------------------------------------------------------------------------------------------------
 
+
+Node information
+======================
+
+/api/info ``GET``
+----------------------------
+
+Return basic configuration information about running node.
+
+Parameters
+~~~~~~~~~~~~~~
+
+.. csv-table:: ``GET`` http://NODE_IP:PORT/api/info
+   :header: "Name", "Required", "Type", "Description"
+   :widths: 20, 12, 20, 30
+
+   "none", "", "", ""
+
+
+Responses
+~~~~~~~~~~~~~~
+
+``200`` Basic node configuration data sucessfully retrieved.
+
+
+*Example:*
+
+::
+
+    {
+        "blockchain": "Ethereum",
+        "erc_725_identity": "0x87d31a77ec3bd2fd162a6eead13d744dba0103a6",
+        "is_bootstrap": false,
+        "network": {
+            "contact": {
+                "agent": "1.0.0",
+                "hostname": "95.91.215.153",
+                "index": 8885,
+                "network_id": "TestnetV2.0.1b",
+                "port": 5278,
+                "protocol": "https:",
+                "wallet": "0x0556B6d87f011424C7b099040f03AD23774FE7FE",
+                "xpub": "xpub661MyMwAqRbcFWt6qoWR1oYKwAnqYW63PJWKAJuBFt9ipgt8sYXNkuHqHi1GLWdPfw9eS2TLw8rTrVQsPV6P4LqZPm8CCxJGC6AaycKA3Sv"
+            },
+            "identity": "b93b0cc6fc4cb65a9f921ca909597f74ab92d59b"
+        },
+        "node_wallet": "0x0556B6d87f011424C7b099040f03AD23774FE7FE",
+        "version": "2.0.29"
+    }
+
+``500`` Failed to get information about basic node configuration.
+
+-------------------------------------------------------------------------------------------------------------------
+
 .. _read: http://docs.origintrail.io/en/latest/introduction-to-api.html#read
