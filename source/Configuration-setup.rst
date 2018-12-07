@@ -8,17 +8,16 @@ Pre-requirements
 
 There's a minimum set of config parameters that needs to be provided in order to run node without
 which node will refuse to start.
-- Ethereum Wallet: you must own a valid Ethereum wallet with at least 100 test TRAC tokens
-and at least 0.01 Ethers. See :ref:`wallet-setup` on how to obtain it.
-- Public IP or open communication: It is required to have a public IP address, domain name
-or open network communication with internet.
+
+- Ethereum Wallet: you must own a valid Ethereum wallet with at least 100 test TRAC tokens and at least 0.01 Ethers. See :ref:`wallet-setup` on how to obtain it.
+- Public IP or open communication: It is required to have a public IP address, domain name or open network communication with internet.
 
 Open Ports
 ----------
 
 By default node will use 8900, 5278 and 3000 ports. These can be mapped differently in configuration.
 Make sure they’re not blocked by firewall and open to the public.
-Please note: port 8900 is used for REST access which is not available until OT node is fully started.
+Please note: port 8900 is used for REST API access which is not available until OT node is fully started.
 This can be concluded after following log message is displayed.
 
 ::
