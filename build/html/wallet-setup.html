@@ -91,7 +91,11 @@
 <li class="toctree-l2"><a class="reference internal" href="#metamask">Metamask</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#wallet">Wallet</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#get-some-funds-on-the-wallet">Get some funds on the wallet</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#erc725-identity">ERC725 Identity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#erc725-identity">ERC725 Identity</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#network-identity">Network identity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#setting-up-a-node-with-predefined-identities">Setting up a node with predefined identities</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="Configuration-setup.html">Node Configuration</a></li>
@@ -242,17 +246,28 @@ keys and other smart contracts and it lives on Ethereum blockchain.</p>
 </pre></div>
 </div>
 <p>The last value (in above case 0x99c67054a8c7b7fa62243f0446eacd80c6ff0aff) represent ERC 725 identity.
-Alternatively, if you login into running node’s container</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">exec</span> <span class="o">-</span><span class="n">it</span> <span class="n">otnode</span> <span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">bash</span>
-<span class="n">cd</span> <span class="n">data</span> <span class="o">&amp;&amp;</span> <span class="n">ls</span> <span class="o">-</span><span class="n">al</span>
+Alternatively, you can copy it from node’s container</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Copies file to HOME dir</span>
+<span class="n">docker</span> <span class="n">cp</span> <span class="n">otnode</span><span class="p">:</span><span class="o">/</span><span class="n">ot</span><span class="o">-</span><span class="n">node</span><span class="o">/</span><span class="n">data</span><span class="o">/</span><span class="n">erc725_identity</span><span class="o">.</span><span class="n">json</span> <span class="o">~</span>
 </pre></div>
 </div>
 <p>one of the files here should be <strong>erc725_identity.json</strong>, whose value should exactly match value shown in the log line.</p>
+<p>For manual installation file can be found at ~/.origintrail_noderc/producion for testnet or
+~/.origintrail_noderc/mariner for mainnet.</p>
+<div class="section" id="network-identity">
+<h3>Network identity<a class="headerlink" href="#network-identity" title="Permalink to this headline">¶</a></h3>
 <p>For the <strong>Node identity</strong>, simply find a log line similar to this:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">notify</span> <span class="o">-</span> <span class="n">My</span> <span class="n">network</span> <span class="n">identity</span><span class="p">:</span> <span class="n">ab2e1b1e520cac0d1321cd3760c2e7473970ec8a</span>
 </pre></div>
 </div>
-<p>and this value ( in above example ab2e1b1e520cac0d1321cd3760c2e7473970ec8a) it what you are looking for.</p>
+<p>and this value ( in above example ab2e1b1e520cac0d1321cd3760c2e7473970ec8a) it what you are looking for.
+Alternatively, you can copy it from node’s container</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Copies file to HOME dir</span>
+<span class="n">docker</span> <span class="n">cp</span> <span class="n">otnode</span><span class="p">:</span><span class="o">/</span><span class="n">ot</span><span class="o">-</span><span class="n">node</span><span class="o">/</span><span class="n">data</span><span class="o">/</span><span class="n">identity</span><span class="o">.</span><span class="n">json</span> <span class="o">~</span>
+</pre></div>
+</div>
+<p>For manual installation file can be found at ~/.origintrail_noderc/producion for testnet or
+~/.origintrail_noderc/mariner for mainnet.</p>
 <p>Some users might notice that in data folder there exist also file called <strong>identity.json</strong>,
 and that value stored in this file is different from node identity value from logs.
 Identity.json contains atomic information about the node identity - identity itself is created based on it.</p>
@@ -262,6 +277,27 @@ please back up erc725_identity.json and identity.json
 files. There will be a separate article on how to start node with previously backed up identities.
 For now, be aware if you start a node on a different machine with providing only node wallet/private key,
 node will create new identities, and you end up having different node.</p>
+</div>
+<div class="section" id="setting-up-a-node-with-predefined-identities">
+<h3>Setting up a node with predefined identities<a class="headerlink" href="#setting-up-a-node-with-predefined-identities" title="Permalink to this headline">¶</a></h3>
+<p>Let’s say user already have network identity file and ERC725 identity file in home dir.</p>
+<ul class="simple">
+<li>.origintrail_noderc - node configuration.</li>
+<li>.identity.json - network identity.</li>
+<li>.erc725_identity.json - ERC 725 idenity.</li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">run</span> <span class="o">-</span><span class="n">it</span> <span class="o">--</span><span class="n">name</span><span class="o">=</span><span class="n">otnode</span> <span class="o">-</span><span class="n">p</span> <span class="mi">8900</span><span class="p">:</span><span class="mi">8900</span> <span class="o">-</span><span class="n">p</span> <span class="mi">5278</span><span class="p">:</span><span class="mi">5278</span> <span class="o">-</span><span class="n">p</span> <span class="mi">3000</span><span class="p">:</span><span class="mi">3000</span>
+<span class="o">-</span><span class="n">v</span> <span class="o">~/.</span><span class="n">origintrail_noderc</span><span class="p">:</span><span class="o">/</span><span class="n">ot</span><span class="o">-</span><span class="n">node</span><span class="o">/.</span><span class="n">origintrail_noderc</span>
+<span class="o">-</span><span class="n">v</span> <span class="o">~/.</span><span class="n">identity</span><span class="o">.</span><span class="n">json</span><span class="p">:</span><span class="o">/</span><span class="n">ot</span><span class="o">-</span><span class="n">node</span><span class="o">/</span><span class="n">data</span><span class="o">/</span><span class="n">identity</span><span class="o">.</span><span class="n">json</span>
+<span class="o">-</span><span class="n">v</span> <span class="o">~/.</span><span class="n">erc725_identity</span><span class="o">.</span><span class="n">json</span><span class="p">:</span><span class="o">/</span><span class="n">ot</span><span class="o">-</span><span class="n">node</span><span class="o">/</span><span class="n">data</span><span class="o">/</span><span class="n">erc725_identity</span><span class="o">.</span><span class="n">json</span>
+<span class="n">quay</span><span class="o">.</span><span class="n">io</span><span class="o">/</span><span class="n">origintrail</span><span class="o">/</span><span class="n">otnode</span><span class="o">-</span><span class="n">mariner</span><span class="p">:</span><span class="n">release_mariner</span>
+</pre></div>
+</div>
+<p>Please note this example is for mainnet. For testnet use origintrail/ot-node instead
+quay.io/origintrail/otnode-mariner:release_mariner</p>
+<p>For manual installations just put identity files to ~/.origintrail_noderc/producion for testnet or
+~/.origintrail_noderc/mariner for mainnet.</p>
+</div>
 </div>
 </div>
 
@@ -285,7 +321,7 @@ node will create new identities, and you end up having different node.</p>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2018, OriginTrail.
+        &copy; Copyright 2018, OriginTrail
 
     </p>
   </div>
@@ -304,21 +340,13 @@ node will create new identities, and you end up having different node.</p>
 
   
 
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'./',
-            VERSION:'0.9.0',
-            LANGUAGE:'None',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="_static/jquery.js"></script>
-      <script type="text/javascript" src="_static/underscore.js"></script>
-      <script type="text/javascript" src="_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+    
 
   
 
