@@ -290,6 +290,7 @@ OT Node update
 -----------------
 
 OT Node has a built-in update functionality which will be triggered upon OT Node start.
+<<<<<<< HEAD
 Update will be triggered based on a release version.
 
 Docker
@@ -322,10 +323,6 @@ Database seed needs to be triggered manually as well.
 ::
 
         node_modules/.bin/sequelize --config=./config/sequelizeConfig.js db:seed
-
-
-
-
 
 
 
