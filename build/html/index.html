@@ -86,7 +86,7 @@
 <p class="caption"><span class="caption-text">NODE SETUP</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="node-setup.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="wallet-setup.html">Wallet Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="wallet-setup.html">Identity Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Configuration-setup.html">Node Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="import-data.html">Import data</a></li>
 </ul>
@@ -96,9 +96,11 @@
 <li class="toctree-l1"><a class="reference internal" href="introduction-to-api.html#prerequisites">Prerequisites</a></li>
 <li class="toctree-l1"><a class="reference internal" href="introduction-to-api.html#import">Import</a></li>
 <li class="toctree-l1"><a class="reference internal" href="introduction-to-api.html#replication">Replication</a></li>
-<li class="toctree-l1"><a class="reference internal" href="introduction-to-api.html#read">Read</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction-to-api.html#network-read">Network Read</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction-to-api.html#local-read">Local Read</a></li>
 <li class="toctree-l1"><a class="reference internal" href="introduction-to-api.html#local-search">Local Search</a></li>
 <li class="toctree-l1"><a class="reference internal" href="introduction-to-api.html#profile-token-management">Profile Token Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction-to-api.html#consensus-check">Consensus check</a></li>
 </ul>
 <p class="caption"><span class="caption-text">IMPLEMENTATION</span></p>
 <ul>
@@ -192,10 +194,10 @@
 <li class="toctree-l2"><a class="reference internal" href="data-layer.html#entities-in-graph-structure-ontology">Entities in graph structure (ontology)</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="data-layer.html#objects-and-objectclasses">Objects and ObjectClasses</a></li>
 <li class="toctree-l3"><a class="reference internal" href="data-layer.html#events-and-eventclasses">Events and EventClasses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="data-layer.html#identifiers">Identifiers</a></li>
 <li class="toctree-l3"><a class="reference internal" href="data-layer.html#connections">Connections</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="data-layer.html#conclusion-and-future-steps">Conclusion and future steps</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="network-structure.html">Network structure</a><ul>
@@ -229,32 +231,33 @@
 <li class="toctree-l4"><a class="reference internal" href="node-setup.html#nodejs">NodeJS</a></li>
 <li class="toctree-l4"><a class="reference internal" href="node-setup.html#database-arangodb">Database - ArangoDB</a><ul>
 <li class="toctree-l5"><a class="reference internal" href="node-setup.html#ubuntu-16-04">Ubuntu 16.04</a></li>
-<li class="toctree-l5"><a class="reference internal" href="node-setup.html#mac-os-x">Mac Os X</a></li>
-</ul>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="node-setup.html#database-setup">Database Setup</a></li>
-<li class="toctree-l4"><a class="reference internal" href="node-setup.html#database-neo4j">Database - Neo4j</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="node-setup.html#ubuntu-1604-1">Ubuntu 16.04</a></li>
+<li class="toctree-l5"><a class="reference internal" href="node-setup.html#mac-os-x">Mac OS X</a></li>
 </ul>
 </li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="node-setup.html#automatic-installation">Automatic installation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="node-setup.html#manual-node-installation">Manual Node Installation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="node-setup.html#starting-the-node">Starting The Node</a></li>
 <li class="toctree-l2"><a class="reference internal" href="node-setup.html#important-notes">Important Notes</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="wallet-setup.html">Wallet Setup</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="wallet-setup.html">Identity Configuration</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="wallet-setup.html#metamask">Metamask</a></li>
 <li class="toctree-l2"><a class="reference internal" href="wallet-setup.html#wallet">Wallet</a></li>
 <li class="toctree-l2"><a class="reference internal" href="wallet-setup.html#get-some-funds-on-the-wallet">Get some funds on the wallet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wallet-setup.html#erc725-identity">ERC725 Identity</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="Configuration-setup.html">Node Configuration</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="Configuration-setup.html#env-file-configuration">.env File Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Configuration-setup.html#pre-requirements">Pre-requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Configuration-setup.html#open-ports">Open Ports</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Configuration-setup.html#configuring-the-node">Configuring the node</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Configuration-setup.html#basic-configuration">Basic configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Configuration-setup.html#configuration-file">Configuration file</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="import-data.html">Import data</a></li>
@@ -276,50 +279,50 @@
 <li class="toctree-l3"><a class="reference internal" href="introduction-to-api.html#id3">Responses</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="introduction-to-api.html#api-imports-info-get">/api/imports_info <code class="docutils literal notranslate"><span class="pre">GET</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="introduction-to-api.html#id4">Responses</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="introduction-to-api.html#replication">Replication</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="introduction-to-api.html#api-replication-post">/api/replication <code class="docutils literal notranslate"><span class="pre">POST</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="introduction-to-api.html#id4">Parameters</a></li>
-<li class="toctree-l3"><a class="reference internal" href="introduction-to-api.html#id5">Responses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="introduction-to-api.html#id5">Parameters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="introduction-to-api.html#id6">Responses</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="introduction-to-api.html#api-replication-replication-id-get">/api/replication/ :{replication_id} <code class="docutils literal notranslate"><span class="pre">GET</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="introduction-to-api.html#id6">Parameters</a></li>
-<li class="toctree-l3"><a class="reference internal" href="introduction-to-api.html#id7">Responses</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="introduction-to-api.html#read">Read</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="introduction-to-api.html#api-query-network-post">/api/query/network <code class="docutils literal notranslate"><span class="pre">POST</span></code></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="introduction-to-api.html#api-replication-replication-id-get">/api/replication/:{replication_id} <code class="docutils literal notranslate"><span class="pre">GET</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="introduction-to-api.html#id7">Parameters</a></li>
 <li class="toctree-l3"><a class="reference internal" href="introduction-to-api.html#id8">Responses</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="introduction-to-api.html#api-query-query-id-responses-get">/api/query/{query_id}/responses <code class="docutils literal notranslate"><span class="pre">GET</span></code></a><ul>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="introduction-to-api.html#network-read">Network Read</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="introduction-to-api.html#api-query-network-post">/api/query/network <code class="docutils literal notranslate"><span class="pre">POST</span></code></a><ul>
 <li class="toctree-l3"><a class="reference internal" href="introduction-to-api.html#id9">Responses</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="introduction-to-api.html#api-query-network-query-param-get">/api/query/network/{query_param} <code class="docutils literal notranslate"><span class="pre">GET</span></code></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="introduction-to-api.html#api-query-query-id-responses-get">/api/query/{query_id}/responses <code class="docutils literal notranslate"><span class="pre">GET</span></code></a><ul>
 <li class="toctree-l3"><a class="reference internal" href="introduction-to-api.html#id10">Responses</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="introduction-to-api.html#api-query-network-query-param-get">/api/query/network/{query_param} <code class="docutils literal notranslate"><span class="pre">GET</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="introduction-to-api.html#id11">Responses</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="introduction-to-api.html#api-read-network-post">/api/read/network <code class="docutils literal notranslate"><span class="pre">POST</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="introduction-to-api.html#id11">Responses</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="introduction-to-api.html#local-read">Local read</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="introduction-to-api.html#api-query-local-post">/api/query/local <code class="docutils literal notranslate"><span class="pre">POST</span></code></a><ul>
 <li class="toctree-l3"><a class="reference internal" href="introduction-to-api.html#id12">Responses</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="introduction-to-api.html#api-query-local-import-post">/api/query/local/import <code class="docutils literal notranslate"><span class="pre">POST</span></code></a><ul>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="introduction-to-api.html#local-read">Local Read</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="introduction-to-api.html#api-query-local-post">/api/query/local <code class="docutils literal notranslate"><span class="pre">POST</span></code></a><ul>
 <li class="toctree-l3"><a class="reference internal" href="introduction-to-api.html#id13">Responses</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="introduction-to-api.html#api-query-local-import-import-id-get">/api/query/local/import:{import_id} <code class="docutils literal notranslate"><span class="pre">GET</span></code></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="introduction-to-api.html#api-query-local-import-data-set-id-get">/api/query/local/import:{data_set_id} <code class="docutils literal notranslate"><span class="pre">GET</span></code></a><ul>
 <li class="toctree-l3"><a class="reference internal" href="introduction-to-api.html#id14">Responses</a></li>
 </ul>
 </li>
@@ -343,6 +346,13 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="introduction-to-api.html#api-withdraw-post">/api/withdraw <code class="docutils literal notranslate"><span class="pre">POST</span></code></a><ul>
 <li class="toctree-l3"><a class="reference internal" href="introduction-to-api.html#id18">Responses</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="introduction-to-api.html#consensus-check">Consensus check</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="introduction-to-api.html#api-consensus-sender-id-get">/api/consensus/{sender_id} <code class="docutils literal notranslate"><span class="pre">GET</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="introduction-to-api.html#id19">Responses</a></li>
 </ul>
 </li>
 </ul>

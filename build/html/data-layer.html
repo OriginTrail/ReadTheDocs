@@ -86,10 +86,10 @@
 <li class="toctree-l2"><a class="reference internal" href="#entities-in-graph-structure-ontology">Entities in graph structure (ontology)</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#objects-and-objectclasses">Objects and ObjectClasses</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#events-and-eventclasses">Events and EventClasses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#identifiers">Identifiers</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#connections">Connections</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#conclusion-and-future-steps">Conclusion and future steps</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="network-structure.html">Network structure</a></li>
@@ -107,10 +107,11 @@
 <li class="toctree-l1"><a class="reference internal" href="introduction-to-api.html#prerequisites">Prerequisites</a></li>
 <li class="toctree-l1"><a class="reference internal" href="introduction-to-api.html#import">Import</a></li>
 <li class="toctree-l1"><a class="reference internal" href="introduction-to-api.html#replication">Replication</a></li>
-<li class="toctree-l1"><a class="reference internal" href="introduction-to-api.html#querynetwork">queryNetwork</a></li>
-<li class="toctree-l1"><a class="reference internal" href="introduction-to-api.html#read">Read</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction-to-api.html#network-read">Network Read</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction-to-api.html#local-read">Local Read</a></li>
 <li class="toctree-l1"><a class="reference internal" href="introduction-to-api.html#local-search">Local Search</a></li>
-<li class="toctree-l1"><a class="reference internal" href="introduction-to-api.html#querylocal">QueryLocal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction-to-api.html#profile-token-management">Profile Token Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction-to-api.html#consensus-check">Consensus check</a></li>
 </ul>
 <p class="caption"><span class="caption-text">IMPLEMENTATION</span></p>
 <ul>
@@ -238,128 +239,112 @@ of this document, but will be subject of further documentation.</p>
 </div>
 <div class="section" id="entities-in-graph-structure-ontology">
 <h2>Entities in graph structure (ontology)<a class="headerlink" href="#entities-in-graph-structure-ontology" title="Permalink to this headline">¶</a></h2>
-<p>There are 5 generic entity groups in the structure of OriginTrail graph
-structure.</p>
+<p>OriginTrail data layer defines its own graph ontology for representation of supply chain entities and relations between them. The documents, representing graph vertices and edges are stored in the graph database, structured with a specific JSON form that helps sustain data immutability and supports system functionalities such are searches and traversals. OriginTrail graph ontology contains three groups of entities, represented as vertices:</p>
 <ul class="simple">
-<li><strong>Objects</strong> and <strong>ObjectClasses</strong>, represented as nodes</li>
-<li><strong>Events</strong> and <strong>EventClasses</strong>, represented as nodes</li>
-<li><strong>Connections</strong>, represented as edges</li>
+<li><strong>Object Class</strong> and <strong>Event Class</strong> vertices</li>
+<li><strong>Objects</strong> and <strong>Event</strong> objects instances</li>
+<li><strong>Identifiers</strong></li>
 </ul>
-<p>Each entity can contain</p>
-<ol class="arabic simple">
-<li>An <strong>identifier</strong> block The identifier block contains a set of IDs
-describing the particular entity. Examples would include identifiers
-such as GS1 codes (i.e. EAN8, EAN13), QR codes, batch identifiers
-(LOT or serial numbers) or any type of internal identifiers used by
-the parties in the supply chain. These allow for easy lookups and
-traversals. Additionally each graph element has a unique ID generated
-deterministically by the system.</li>
-<li>A <strong>data</strong> block: The data block contains all non-ID related
-information about the entity and is extensible.</li>
-<li>A <strong>meta data</strong> block This meta data involves information about the
-import process, signing keys and other technical details, not related
-to the meta data about supply chain products.</li>
-</ol>
+<p>The entities are connected with connections represented as edges.</p>
 <div class="section" id="objects-and-objectclasses">
 <h3>Objects and ObjectClasses<a class="headerlink" href="#objects-and-objectclasses" title="Permalink to this headline">¶</a></h3>
-<p>Objects represent all physical or digital entities involved in events in
-the supply chain. Examples of objects are vehicles, production
-facilities, documents, sensors, personnel etc. ObjectClasses
-specifically define a global set of properties for their child Objects
-(as their “instances”). In the example of a wine authenticity use case,
-the data shared among supply chain entities (winery, distributors,
-retailers etc) involves information about specific batches of bottles
-with unique characteristics. The master data about a product would
-present an ObjectClass node in the OT graph, while the specifics about
-the product batch would be contained within the “batch” Object. This
-allows for a hierarchical organization of objects, with a simplistic but
-robust class-like inheritance.</p>
-<p>ObjectClasses are divided in:</p>
+<p>Objects represent all physical or digital entities involved in events in the supply chain.
+Examples of objects are vehicles, production facilities, documents, sensors, personnel etc.
+ObjectClasses specifically define a global set of properties for their child Objects (as their “instances”).
+In the example of a wine authenticity use case, the data shared among supply chain entities (winery, distributors, retailers etc) involves information about specific batches of bottles with unique characteristics.
+The master data about a product would present an ObjectClass node in the OT graph, while the specifics about the product batch would be contained within the “batch” Object.
+This allows for a hierarchical organization of objects, with a simplistic but robust class-like inheritance.</p>
+<p>Object Classes are divided in:</p>
 <ul class="simple">
-<li><strong>Actors</strong>, which encompass companies, people, machines and any other
-entity that can act or observe objects within the supply chain. (the
-“Who”)</li>
-<li><strong>Products</strong> (supply chain objects of interest), which represent
-goods or services that are acted upon by actors (the “What”)</li>
-<li><strong>Locations</strong>, which define either physical or digital locations of
-products or actors (the “Where”)</li>
+<li><dl class="first docutils">
+<dt><strong>Actors</strong>,</dt>
+<dd>which encompass companies, people, machines and any other entity that can act or observe objects within the supply chain. (the “Who”)</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><strong>Products</strong></dt>
+<dd>(supply chain objects of interest), which represent goods or services that are acted upon by actors (the “What”)</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><strong>Locations</strong>,</dt>
+<dd>which define either physical or digital locations of products or actors (the “Where”)</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><strong>Batches</strong>,</dt>
+<dd>physical units of products</dd>
+</dl>
+</li>
 </ul>
-<p>Each of the Objects can then be further explained by custom defined
-subcategories.</p>
+<p>Each of the Objects can then be further explained by custom defined subcategories.</p>
 </div>
 <div class="section" id="events-and-eventclasses">
 <h3>Events and EventClasses<a class="headerlink" href="#events-and-eventclasses" title="Permalink to this headline">¶</a></h3>
-<p>Events in the graph structure have a similar inheritance pattern –
-EventClasses classify types of events which are instantiated as
-particular Event nodes. OriginTrail currently classifies 4 different
-event types:</p>
+<p>Events in the graph structure have a similar inheritance pattern – Event Classes classify types of events which are instantiated as particular Event nodes.
+OriginTrail currently classifies 4 different event types:</p>
 <ul class="simple">
-<li><strong>Transport</strong> events, which explain the physical or digital
-relocation of objects in the supply chain.</li>
-<li><strong>Transformation</strong> events, which contain information about the
-transformation of one or more objects into (a new) one. An example
-would be the case of an electronic device (i.e. mobile phone), where
-the assembly is observed as a transformation event of combining
-different components – Objects - into one output Object, or the case
-of combining a set of SKUs in one group entity such as a
-transportation pallet. Similarly, a digital transformation event
-would be any type of processing of a digital product (i.e. mastering
-of a digital sound recording). This event type corresponds to GS1
-AggregationEvents and TransformationEvents.</li>
-<li><strong>Observation</strong> events, which entail any type of observational
-activity such as temperature tracking via sensors or laboratory
-tests. This event corresponds to GS1 ObjectEvents that are published
-by one party (interaction between different business entities is not
-the primary focus of the event).</li>
-<li><strong>Ownership/custody transfer</strong> events, where the change of ownership
-or custody of Objects is distinctly explained. An example would be a
-sale event.</li>
+<li><dl class="first docutils">
+<dt><strong>Transport events</strong>,</dt>
+<dd>which explain the physical or digital relocation of objects in the supply chain.</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><strong>Transformation events</strong>,</dt>
+<dd>which contain information about the transformation of one or more objects into (a new) one. An example would be the case of an electronic device (i.e. mobile phone), where the assembly is observed as a transformation event of combining different components – Objects - into one output Object, or the case of combining a set of SKUs in one group entity such as a transportation pallet. Similarly, a digital transformation event would be any type of processing of a digital product (i.e. mastering of a digital sound recording). This event type corresponds to GS1 AggregationEvents and TransformationEvents.</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><strong>Observation events</strong>,</dt>
+<dd>which entail any type of observational activity such as temperature tracking via sensors or laboratory tests. This event corresponds to GS1 Object Events that are published by one party (interaction between different business entities is not the primary focus of the event).</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><strong>Ownership/custody transfer events</strong>,</dt>
+<dd>where the change of ownership or custody of Objects is distinctly explained. An example would be a sale event.</dd>
+</dl>
+</li>
 </ul>
-<p>Each of the events can then be further explained by custom defined
-subcategories and meta data.</p>
+<p>Each of the events can then be further explained by custom defined subcategories and meta data.</p>
+</div>
+<div class="section" id="identifiers">
+<h3>Identifiers<a class="headerlink" href="#identifiers" title="Permalink to this headline">¶</a></h3>
+<p>The identifiers are special vertices that contain identification attributes that identify objects.
+They contain type and value of a single identifier. One object can have multiple identifiers connected.</p>
 </div>
 <div class="section" id="connections">
 <h3>Connections<a class="headerlink" href="#connections" title="Permalink to this headline">¶</a></h3>
-<p>The connections are edges in the graph used to define connections
-between Objects, ObjectClasses and Events. The connections are
-classified in 3 groups:</p>
+<p>The connections are edges in the graph used to define connections between Objects, Object Classes, Events and Identifiers.
+The connections are classified in 4 groups:</p>
 <ul class="simple">
-<li><strong>Inheritance</strong> connections (between ObjectClass and Object vertices,
-as well as between EventClass and Event vertices). These connections
-define that an Object is an instance of ObjectClass, the isInstanceOf
-edge.</li>
-<li><strong>Involvement</strong> connections (between Object and Event vertices)
-connect objects with events in which they are involved. For example,
-a transformation event of production would have input objects, output
-objects, a location where the production took place etc.</li>
-<li><strong>State</strong> connections (between two Object vertices) connect two or
-more objects that are related in some way. For example, an object can
-be owned by some supply chain actor.</li>
+<li><dl class="first docutils">
+<dt><strong>Inheritance connections</strong>,</dt>
+<dd>(between Object Class and Object vertices, as well as between Event Class and Event vertices).
+These connections define that an Object is an instance of ObjectClass, the isInstanceOf edge.</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><strong>Involvement connections</strong>,</dt>
+<dd>(between Object and Event vertices)
+connect objects with events in which they are involved.
+For example, a transformation event of production would have input objects, output objects, a location where the production took place etc.</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><strong>State connections</strong>,</dt>
+<dd>(between two Object vertices)
+connect two or more objects that are related in some way.
+For example, an object can be owned by some supply chain actor.</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><strong>Identification connections</strong>,</dt>
+<dd>(between Object and Identifier vertices)
+connect identifiers with object that they are identifying.</dd>
+</dl>
+</li>
 </ul>
-<p>An example of a graph illustrating all the above mentioned entities is
-provided below. It illustrates a simplified scenario of a movement of an
-“engine” object within a supply chain, undergoing a transformation event
-of wrapping it up in a “package” by Employee Bob from CarEngines LTD,
-which is transported by an “AirTransport” company and finally sold to
-“Buyer Alice Corp”.</p>
-<p><img alt="Graph Example" src="http://pulsing-ks.com/tmp/graph-example.png" /></p>
-<p>This very simple example easily illustrates the amount of data
-connections needed to efficiently explain the undergoing scenario and is
-simplified to provide an easier logical overview.</p>
 </div>
-</div>
-<div class="section" id="conclusion-and-future-steps">
-<h2>Conclusion and future steps<a class="headerlink" href="#conclusion-and-future-steps" title="Permalink to this headline">¶</a></h2>
-<p>This document outlines the data structure logic behind OriginTrail’s
-data layer with the intention of providing high flexibility and data
-interoperability within the network. It is a work in progress and
-therefore we invite the community to join and provide ideas and feedback
-on possible improvements and inefficiencies that may arise from such a
-scheme. The best way to contribute is to use the Improvement Proposals
-repository provided by the OriginTrail team. Further iterations on the
-structure will be based on use-cases implemented and observed in the
-alpha and test net focusing on optimizations and simplifications of the
-structure.</p>
 </div>
 </div>
 

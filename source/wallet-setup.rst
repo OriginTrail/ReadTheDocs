@@ -1,6 +1,6 @@
 ..  _wallet-setup:
 
-Wallet Setup
+Identity Configuration
 ======================================
 
 You can check out the `video`_ for this section.
@@ -49,7 +49,7 @@ MetaMask, you can go to https://www.myetherwallet.com/ and follow the
 procedure. In the last step just select **Connect to Metamask**.
 
 Get some funds on the wallet
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 In order to test you will need some Ether on our wallet. Initially your
 balance will be 0. To get some test Ether to test go to
@@ -59,6 +59,25 @@ and development purposes.
 
 Once you get Ether/test TRAC on your account, you will be able to see new balance
 in MetaMask.
+
+ERC725 Identity
+~~~~~~~~~~~~~~~~~~
+
+ERC 725 is a proposed standard for blockchain-based identity authored by Fabian Vogelsteller,
+creator of ERC 20 and Web3.js. ERC 725 describes proxy smart contracts that can be controlled by multiple
+keys and other smart contracts and it lives on Ethereum blockchain.
+
+The easiest way to find values of these two identities is to search for them in running node's log.
+
+::
+
+        notify - Identity created for node ab2e1b1e520cac0d1321cd3760c2e7473970ec8a.
+        Identity is 0x99c67054a8c7b7fa62243f0446eacd80c6ff0aff.
+
+The last value (in above case 0x99c67054a8c7b7fa62243f0446eacd80c6ff0aff) represent ERC 725 identity.
+Alternatively, if you login into running node's container
+
+
 
 .. _here: http://github.com/OriginTrail/ot-yimishiji-pilot/wiki/Usage
 .. _video: https://youtu.be/1UaB8OG_lgw
