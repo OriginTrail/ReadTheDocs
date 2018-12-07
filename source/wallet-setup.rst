@@ -1,6 +1,6 @@
 ..  _wallet-setup:
 
-Wallet Setup
+Identity Configuration
 ======================================
 
 You can check out the `video`_ for this section.
@@ -48,7 +48,7 @@ MetaMask, you can go to https://www.myetherwallet.com/ and follow the
 procedure. In the last step just select **Connect to Metamask**.
 
 Get some funds on the wallet
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 In order to run node you will need some Ether and TRAC on our wallet. Initially your
 balance will be 0. 
@@ -62,6 +62,88 @@ For running mainnet node, one needs real Ether and Trac.
 
 Once you get Ether/TRAC on your account, you will be able to see new balance
 in MetaMask.
+
+ERC725 Identity
+~~~~~~~~~~~~~~~~~~
+
+ERC 725 is a proposed standard for blockchain-based identity authored by Fabian Vogelsteller,
+creator of ERC 20 and Web3.js. ERC 725 describes proxy smart contracts that can be controlled by multiple
+keys and other smart contracts and it lives on Ethereum blockchain.
+
+The easiest way to find values of these two identities is to search for them in running node's log.
+
+::
+
+        notify - Identity created for node ab2e1b1e520cac0d1321cd3760c2e7473970ec8a.
+        Identity is 0x99c67054a8c7b7fa62243f0446eacd80c6ff0aff.
+
+The last value (in above case 0x99c67054a8c7b7fa62243f0446eacd80c6ff0aff) represent ERC 725 identity.
+Alternatively, you can copy it from node's container
+
+::
+
+        # Copies file to HOME dir
+        docker cp otnode:/ot-node/data/erc725_identity.json ~
+
+one of the files here should be **erc725_identity.json**, whose value should exactly match value shown in the log line.
+
+For manual installation file can be found at ~/.origintrail_noderc/producion for testnet or
+~/.origintrail_noderc/mariner for mainnet.
+
+
+Network identity
+----------------
+
+For the **Node identity**, simply find a log line similar to this:
+
+::
+
+        notify - My network identity: ab2e1b1e520cac0d1321cd3760c2e7473970ec8a
+
+and this value ( in above example ab2e1b1e520cac0d1321cd3760c2e7473970ec8a) it what you are looking for.
+Alternatively, you can copy it from node's container
+
+::
+
+        # Copies file to HOME dir
+        docker cp otnode:/ot-node/data/identity.json ~
+
+For manual installation file can be found at ~/.origintrail_noderc/producion for testnet or
+~/.origintrail_noderc/mariner for mainnet.
+
+Some users might notice that in data folder there exist also file called **identity.json**,
+and that value stored in this file is different from node identity value from logs.
+Identity.json contains atomic information about the node identity - identity itself is created based on it.
+
+Having above said, final **important** note:
+If you wish to run identical node on some other machine, then in addition to backing up you node wallet/private key,
+please back up erc725_identity.json and identity.json
+files. There will be a separate article on how to start node with previously backed up identities.
+For now, be aware if you start a node on a different machine with providing only node wallet/private key,
+node will create new identities, and you end up having different node.
+
+Setting up a node with predefined identities
+--------------------------------------------
+
+Let's say user already have network identity file and ERC725 identity file in home dir.
+
+- .origintrail_noderc - node configuration.
+- .identity.json - network identity.
+- .erc725_identity.json - ERC 725 idenity.
+
+::
+
+        docker run -it --name=otnode -p 8900:8900 -p 5278:5278 -p 3000:3000
+        -v ~/.origintrail_noderc:/ot-node/.origintrail_noderc
+        -v ~/.identity.json:/ot-node/data/identity.json
+        -v ~/.erc725_identity.json:/ot-node/data/erc725_identity.json
+        quay.io/origintrail/otnode-mariner:release_mariner
+
+Please note this example is for mainnet. For testnet use origintrail/ot-node instead
+quay.io/origintrail/otnode-mariner:release_mariner
+
+For manual installations just put identity files to ~/.origintrail_noderc/producion for testnet or
+~/.origintrail_noderc/mariner for mainnet.
 
 .. _here: http://github.com/OriginTrail/ot-yimishiji-pilot/wiki/Usage
 .. _video: https://youtu.be/1UaB8OG_lgw

@@ -147,6 +147,8 @@ If you started your node by using the docker start -i otnode command,
 you can stop it either by closing the Terminal or simply by pressing the ctrl + c.
 
 
+
+
 .. _-manual-prerequisites-installation:
 
 Manual Installation Prerequisites 
@@ -281,6 +283,14 @@ IP or host of the machine that is requesting the import in configuration i.e
 By default only localhost is whitelisted.
 
 For more information see :ref:`Configuration-setup`.
+
+
+
+OT Node update
+-----------------
+
+OT Node has a built-in update functionality which will be triggered upon OT Node start.
+Update will be triggered based on a release version. After a successfull update OT Node will be rebooted automatically.
 
 
 .. _Issues: https://github.com/OriginTrail/ot-node/issues
