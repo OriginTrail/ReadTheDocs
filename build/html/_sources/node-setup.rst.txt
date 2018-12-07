@@ -290,7 +290,45 @@ OT Node update
 -----------------
 
 OT Node has a built-in update functionality which will be triggered upon OT Node start.
-Update will be triggered based on a release version. After a successfull update OT Node will be rebooted automatically.
+Update will be triggered based on a release version.
+
+Docker
+~~~~~~~
+
+In order to trigger the update, you must restart the OT Node by using the following command:
+
+::
+
+        docker restart otnode
+
+After a successfull update OT Node will be rebooted automatically.
+
+Manual installation
+~~~~~~~~~~~~~~~~~~~~~
+Make sure that you are in the root directory of OT Node. The following commands will update the OT Node.
+
+::
+
+        git pull
+
+Database migrations need to be triggered manually.
+
+::
+
+        node_modules/.bin/sequelize --config=./config/sequelizeConfig.js db:migrate
+
+Database seed needs to be triggered manually as well.
+
+::
+
+        node_modules/.bin/sequelize --config=./config/sequelizeConfig.js db:seed
+
+
+
+
+
+
+
 
 
 .. _Issues: https://github.com/OriginTrail/ot-node/issues

@@ -118,7 +118,11 @@
 <li class="toctree-l3"><a class="reference internal" href="#important-notes">Important Notes</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#ot-node-update">OT Node update</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ot-node-update">OT Node update</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#docker">Docker</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#manual-installation">Manual installation</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="wallet-setup.html">Identity Configuration</a></li>
@@ -433,7 +437,30 @@ IP or host of the machine that is requesting the import in configuration i.e</p>
 <div class="section" id="ot-node-update">
 <h2>OT Node update<a class="headerlink" href="#ot-node-update" title="Permalink to this headline">¶</a></h2>
 <p>OT Node has a built-in update functionality which will be triggered upon OT Node start.
-Update will be triggered based on a release version. After a successfull update OT Node will be rebooted automatically.</p>
+Update will be triggered based on a release version.</p>
+<div class="section" id="docker">
+<h3>Docker<a class="headerlink" href="#docker" title="Permalink to this headline">¶</a></h3>
+<p>In order to trigger the update, you must restart the OT Node by using the following command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">restart</span> <span class="n">otnode</span>
+</pre></div>
+</div>
+<p>After a successfull update OT Node will be rebooted automatically.</p>
+</div>
+<div class="section" id="manual-installation">
+<h3>Manual installation<a class="headerlink" href="#manual-installation" title="Permalink to this headline">¶</a></h3>
+<p>Make sure that you are in the root directory of OT Node. The following commands will update the OT Node.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">pull</span>
+</pre></div>
+</div>
+<p>Database migrations need to be triggered manually.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">node_modules</span><span class="o">/.</span><span class="n">bin</span><span class="o">/</span><span class="n">sequelize</span> <span class="o">--</span><span class="n">config</span><span class="o">=./</span><span class="n">config</span><span class="o">/</span><span class="n">sequelizeConfig</span><span class="o">.</span><span class="n">js</span> <span class="n">db</span><span class="p">:</span><span class="n">migrate</span>
+</pre></div>
+</div>
+<p>Database seed needs to be triggered manually as well.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">node_modules</span><span class="o">/.</span><span class="n">bin</span><span class="o">/</span><span class="n">sequelize</span> <span class="o">--</span><span class="n">config</span><span class="o">=./</span><span class="n">config</span><span class="o">/</span><span class="n">sequelizeConfig</span><span class="o">.</span><span class="n">js</span> <span class="n">db</span><span class="p">:</span><span class="n">seed</span>
+</pre></div>
+</div>
+</div>
 </div>
 </div>
 
