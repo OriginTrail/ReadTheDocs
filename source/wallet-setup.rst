@@ -48,6 +48,7 @@ Alternatively, if you need to create a new wallet and associate it to
 MetaMask, you can go to https://www.myetherwallet.com/ and follow the
 procedure. In the last step just select **Connect to Metamask**.
 
+
 **IMPORTANT:** The OriginTrail node needs access to its operational wallet private key.
 This is due to it's need to be able to sign transactions sent to the blockchain.
 It is important to keep your node and wallet safe,
@@ -63,6 +64,7 @@ which is part of the ODN. You can widthdraw these tokens once your node agreemen
 
 To widthdraw the tokens from the smart contract to your operational node wallet, use the following curl command:
 
+
 ::
 
         curl -X POST http://<NODE_HOSTNAME>:<NODE_REST_API_PORT>/api/withdraw -H 'Content-Type: application/json' -d '{"trac_amount": <AMOUNT>}'
@@ -71,6 +73,7 @@ To widthdraw the tokens from the smart contract to your operational node wallet,
 After you have started the withdraw process your tokens will arrive in approximately 5 minutes.
 
 Example of a valid command:
+
 
 ::
 
