@@ -30,6 +30,7 @@ When you click on the top left "Ethereum Main Net" button of the
 MetaMask window you be able to select the node you want to connect to.
 Please use **Rinkeby Test Network** when dealing with testnet scenario.
 
+
 Wallet
 ~~~~~~
 
@@ -46,6 +47,36 @@ Private Key**.
 Alternatively, if you need to create a new wallet and associate it to
 MetaMask, you can go to https://www.myetherwallet.com/ and follow the
 procedure. In the last step just select **Connect to Metamask**.
+
+**IMPORTANT:** The OriginTrail node needs access to its operational wallet private key.
+This is due to it's need to be able to sign transactions sent to the blockchain.
+It is important to keep your node and wallet safe,
+but it is also recommended to have another cold storage wallet to store larger funds and periodically move earned
+TRAC from the node operational wallet to the cold storage wallet in case you experience some sort of a breach at some point.
+
+The OriginTrail team is not responsible for the safety of your private key and cannot help you recover it in case you loose it.
+Never the less, if you apply proper backup and security practices, your node wallet should be safe.
+
+The tokens staked and locked for agreements your node is performing on the network are stored on a smart contract (not your wallet)
+which is part of the ODN. You can widthdraw these tokens once your node agreement has been fulfilled
+(the storage time has elapse and your node has kept the data for that required time).
+
+To widthdraw the tokens from the smart contract to your operational node wallet, use the following curl command:
+
+::
+
+        curl -X POST http://<NODE_HOSTNAME>:<NODE_REST_API_PORT>/api/withdraw -H 'Content-Type: application/json' -d '{"trac_amount": <AMOUNT>}'
+
+
+After you have started the withdraw process your tokens will arrive in approximately 5 minutes.
+
+Example of a valid command:
+
+::
+
+        curl -X POST http://104.248.243.200:8900/api/withdraw -H 'Content-Type: application/json' -d '{ "trac_amount": 100 }'
+
+
 
 Get some funds on the wallet
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
