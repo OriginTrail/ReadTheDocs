@@ -290,7 +290,6 @@ OT Node update
 -----------------
 
 OT Node has a built-in update functionality which will be triggered upon OT Node start.
-<<<<<<< HEAD
 Update will be triggered based on a release version.
 
 Docker
