@@ -87,7 +87,7 @@
 <p class="caption"><span class="caption-text">NODE SETUP</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="node-setup.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="wallet-setup.html">Wallet Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="wallet-setup.html">Identity Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Configuration-setup.html">Node Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="import-data.html">Import data</a></li>
 </ul>
@@ -180,6 +180,14 @@
 <li class="toctree-l1"><a class="reference internal" href="#consensus-check">Consensus check</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#api-consensus-sender-id-get">/api/consensus/{sender_id} <code class="docutils literal notranslate"><span class="pre">GET</span></code></a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#id19">Responses</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#node-information">Node information</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#api-info-get">/api/info <code class="docutils literal notranslate"><span class="pre">GET</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id20">Parameters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id21">Responses</a></li>
 </ul>
 </li>
 </ul>
@@ -288,8 +296,8 @@ If automatic replication after import is required, parameter replicate with valu
 Find out more about data format here <a class="reference internal" href="data-structure-guidelines.html#data-structure-guidelines"><span class="std std-ref">Data Structure Guidelines</span></a></p>
 <div class="section" id="parameters">
 <h3>Parameters<a class="headerlink" href="#parameters" title="Permalink to this headline">¶</a></h3>
-<table border="1" class="colwidths-given docutils" id="id20">
-<caption><span class="caption-text"><code class="docutils literal notranslate"><span class="pre">POST</span></code> <a class="reference external" href="http://NODE_IP:PORT/api/import">http://NODE_IP:PORT/api/import</a></span><a class="headerlink" href="#id20" title="Permalink to this table">¶</a></caption>
+<table border="1" class="colwidths-given docutils" id="id22">
+<caption><span class="caption-text"><code class="docutils literal notranslate"><span class="pre">POST</span></code> <a class="reference external" href="http://NODE_IP:PORT/api/import">http://NODE_IP:PORT/api/import</a></span><a class="headerlink" href="#id22" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col width="24%" />
 <col width="15%" />
@@ -357,8 +365,8 @@ Find out more about data format here <a class="reference internal" href="data-st
 Response contains details of requested data-set.</p>
 <div class="section" id="id2">
 <h3>Parameters<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
-<table border="1" class="colwidths-given docutils" id="id21">
-<caption><span class="caption-text"><code class="docutils literal notranslate"><span class="pre">GET</span></code> <a class="reference external" href="http://NODE_IP:PORT/api/import_info">http://NODE_IP:PORT/api/import_info</a>?data_set_id={{data_set_id}}</span><a class="headerlink" href="#id21" title="Permalink to this table">¶</a></caption>
+<table border="1" class="colwidths-given docutils" id="id23">
+<caption><span class="caption-text"><code class="docutils literal notranslate"><span class="pre">GET</span></code> <a class="reference external" href="http://NODE_IP:PORT/api/import_info">http://NODE_IP:PORT/api/import_info</a>?data_set_id={{data_set_id}}</span><a class="headerlink" href="#id23" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col width="24%" />
 <col width="15%" />
@@ -412,8 +420,8 @@ Response contains details of requested data-set.</p>
 <p>List information for all imported datasets. No query parameters required. Response contains list of information about imported datasets.
 Parameters
 ~~~~~~~~~~~~~~</p>
-<table border="1" class="colwidths-given docutils" id="id22">
-<caption><span class="caption-text"><code class="docutils literal notranslate"><span class="pre">GET</span></code> <a class="reference external" href="http://NODE_IP:PORT/api/imports_info">http://NODE_IP:PORT/api/imports_info</a></span><a class="headerlink" href="#id22" title="Permalink to this table">¶</a></caption>
+<table border="1" class="colwidths-given docutils" id="id24">
+<caption><span class="caption-text"><code class="docutils literal notranslate"><span class="pre">GET</span></code> <a class="reference external" href="http://NODE_IP:PORT/api/imports_info">http://NODE_IP:PORT/api/imports_info</a></span><a class="headerlink" href="#id24" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col width="24%" />
 <col width="15%" />
@@ -479,8 +487,8 @@ Parameters
 <p>Creates an offer and trigger replication.</p>
 <div class="section" id="id5">
 <h3>Parameters<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
-<table border="1" class="colwidths-given docutils" id="id23">
-<caption><span class="caption-text"><code class="docutils literal notranslate"><span class="pre">POST</span></code> <a class="reference external" href="http://NODE_IP:PORT/api/replication">http://NODE_IP:PORT/api/replication</a></span><a class="headerlink" href="#id23" title="Permalink to this table">¶</a></caption>
+<table border="1" class="colwidths-given docutils" id="id25">
+<caption><span class="caption-text"><code class="docutils literal notranslate"><span class="pre">POST</span></code> <a class="reference external" href="http://NODE_IP:PORT/api/replication">http://NODE_IP:PORT/api/replication</a></span><a class="headerlink" href="#id25" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col width="16%" />
 <col width="10%" />
@@ -545,8 +553,8 @@ Parameters
 <p>Gets the status of the replication with replication_id.</p>
 <div class="section" id="id7">
 <h3>Parameters<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
-<table border="1" class="colwidths-given docutils" id="id24">
-<caption><span class="caption-text"><code class="docutils literal notranslate"><span class="pre">GET</span></code> <a class="reference external" href="http://NODE_IP:PORT/api/replication">http://NODE_IP:PORT/api/replication</a>/{replication_id}</span><a class="headerlink" href="#id24" title="Permalink to this table">¶</a></caption>
+<table border="1" class="colwidths-given docutils" id="id26">
+<caption><span class="caption-text"><code class="docutils literal notranslate"><span class="pre">GET</span></code> <a class="reference external" href="http://NODE_IP:PORT/api/replication">http://NODE_IP:PORT/api/replication</a>/{replication_id}</span><a class="headerlink" href="#id26" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col width="24%" />
 <col width="15%" />
@@ -636,8 +644,8 @@ The actual quering of the network will last approximately about 1 min, in which 
 <li>IN: when ID is in Value</li>
 </ul>
 <p>Refer to /query/network/{query_param} <code class="docutils literal notranslate"><span class="pre">GET</span></code></p>
-<table border="1" class="colwidths-given docutils" id="id25">
-<caption><span class="caption-text"><code class="docutils literal notranslate"><span class="pre">POST</span></code> <a class="reference external" href="http://NODE_IP:PORT/api/query/network">http://NODE_IP:PORT/api/query/network</a></span><a class="headerlink" href="#id25" title="Permalink to this table">¶</a></caption>
+<table border="1" class="colwidths-given docutils" id="id27">
+<caption><span class="caption-text"><code class="docutils literal notranslate"><span class="pre">POST</span></code> <a class="reference external" href="http://NODE_IP:PORT/api/query/network">http://NODE_IP:PORT/api/query/network</a></span><a class="headerlink" href="#id27" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col width="24%" />
 <col width="15%" />
@@ -689,8 +697,8 @@ The actual quering of the network will last approximately about 1 min, in which 
 <div class="section" id="api-query-query-id-responses-get">
 <h2>/api/query/{query_id}/responses <code class="docutils literal notranslate"><span class="pre">GET</span></code><a class="headerlink" href="#api-query-query-id-responses-get" title="Permalink to this headline">¶</a></h2>
 <p>Get currently received responses for given query. The response will be formatted in an array of JSON objects containing offer details (reply id, dataset id, price and size of dataset).</p>
-<table border="1" class="colwidths-given docutils" id="id26">
-<caption><span class="caption-text"><code class="docutils literal notranslate"><span class="pre">GET</span></code> <a class="reference external" href="http://NODE_IP:PORT/api/query">http://NODE_IP:PORT/api/query</a>/{query_id}/responses</span><a class="headerlink" href="#id26" title="Permalink to this table">¶</a></caption>
+<table border="1" class="colwidths-given docutils" id="id28">
+<caption><span class="caption-text"><code class="docutils literal notranslate"><span class="pre">GET</span></code> <a class="reference external" href="http://NODE_IP:PORT/api/query">http://NODE_IP:PORT/api/query</a>/{query_id}/responses</span><a class="headerlink" href="#id28" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col width="24%" />
 <col width="15%" />
@@ -729,8 +737,8 @@ The actual quering of the network will last approximately about 1 min, in which 
 <li><strong>PROCESSING</strong>:  the selected offer is currently being processed</li>
 <li><strong>FAILED</strong>:  in case of error and a failed query</li>
 </ul>
-<table border="1" class="colwidths-given docutils" id="id27">
-<caption><span class="caption-text"><code class="docutils literal notranslate"><span class="pre">GET</span></code> <a class="reference external" href="http://NODE_IP:PORT/api/query/network">http://NODE_IP:PORT/api/query/network</a>/{query_param}</span><a class="headerlink" href="#id27" title="Permalink to this table">¶</a></caption>
+<table border="1" class="colwidths-given docutils" id="id29">
+<caption><span class="caption-text"><code class="docutils literal notranslate"><span class="pre">GET</span></code> <a class="reference external" href="http://NODE_IP:PORT/api/query/network">http://NODE_IP:PORT/api/query/network</a>/{query_param}</span><a class="headerlink" href="#id29" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col width="24%" />
 <col width="15%" />
@@ -762,8 +770,8 @@ The actual quering of the network will last approximately about 1 min, in which 
 <div class="section" id="api-read-network-post">
 <h2>/api/read/network <code class="docutils literal notranslate"><span class="pre">POST</span></code><a class="headerlink" href="#api-read-network-post" title="Permalink to this headline">¶</a></h2>
 <p>Initiate network read for selected response. Parameters provided in the body are query id. dataset id and reply id structured in JSON format.</p>
-<table border="1" class="colwidths-given docutils" id="id28">
-<caption><span class="caption-text"><code class="docutils literal notranslate"><span class="pre">POST</span></code> <a class="reference external" href="http://NODE_IP:PORT/api/read/network">http://NODE_IP:PORT/api/read/network</a></span><a class="headerlink" href="#id28" title="Permalink to this table">¶</a></caption>
+<table border="1" class="colwidths-given docutils" id="id30">
+<caption><span class="caption-text"><code class="docutils literal notranslate"><span class="pre">POST</span></code> <a class="reference external" href="http://NODE_IP:PORT/api/read/network">http://NODE_IP:PORT/api/read/network</a></span><a class="headerlink" href="#id30" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col width="24%" />
 <col width="15%" />
@@ -818,8 +826,8 @@ The actual quering of the network will last approximately about 1 min, in which 
 <p>Querying data from local database. Get list of identifiers of datasets containing vertices that match given query.
 Data location query is submitted in JSON form through POST body. Query represents list of objects containing query parameters path (name of queried field), value (value of queried field), opcode (operator representing relation of field value and queried value - EQ/IN).
 Response contains list of dataset identifiers.</p>
-<table border="1" class="colwidths-given docutils" id="id29">
-<caption><span class="caption-text"><code class="docutils literal notranslate"><span class="pre">POST</span></code> <a class="reference external" href="http://NODE_IP:PORT/api/query/local">http://NODE_IP:PORT/api/query/local</a></span><a class="headerlink" href="#id29" title="Permalink to this table">¶</a></caption>
+<table border="1" class="colwidths-given docutils" id="id31">
+<caption><span class="caption-text"><code class="docutils literal notranslate"><span class="pre">POST</span></code> <a class="reference external" href="http://NODE_IP:PORT/api/query/local">http://NODE_IP:PORT/api/query/local</a></span><a class="headerlink" href="#id31" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col width="24%" />
 <col width="15%" />
@@ -870,8 +878,8 @@ The query must be in JSON format:</p>
 <div class="section" id="api-query-local-import-data-set-id-get">
 <h2>/api/query/local/import:{data_set_id} <code class="docutils literal notranslate"><span class="pre">GET</span></code><a class="headerlink" href="#api-query-local-import-data-set-id-get" title="Permalink to this headline">¶</a></h2>
 <p>Get raw dataset data. Response contains dataset vertices and edges.</p>
-<table border="1" class="colwidths-given docutils" id="id30">
-<caption><span class="caption-text"><code class="docutils literal notranslate"><span class="pre">GET</span></code> <a class="reference external" href="http://NODE_IP:PORT/api/query/local/import">http://NODE_IP:PORT/api/query/local/import</a>/{data_set_id}</span><a class="headerlink" href="#id30" title="Permalink to this table">¶</a></caption>
+<table border="1" class="colwidths-given docutils" id="id32">
+<caption><span class="caption-text"><code class="docutils literal notranslate"><span class="pre">GET</span></code> <a class="reference external" href="http://NODE_IP:PORT/api/query/local/import">http://NODE_IP:PORT/api/query/local/import</a>/{data_set_id}</span><a class="headerlink" href="#id32" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col width="24%" />
 <col width="15%" />
@@ -919,8 +927,8 @@ The query must be in JSON format:</p>
 <div class="section" id="api-trail-get">
 <h2>/api/trail <code class="docutils literal notranslate"><span class="pre">GET</span></code><a class="headerlink" href="#api-trail-get" title="Permalink to this headline">¶</a></h2>
 <p>Retrieves data on a supply chain product trail from the local database</p>
-<table border="1" class="colwidths-given docutils" id="id31">
-<caption><span class="caption-text"><code class="docutils literal notranslate"><span class="pre">GET</span></code> <a class="reference external" href="http://NODE_IP:PORT/api/trail">http://NODE_IP:PORT/api/trail</a></span><a class="headerlink" href="#id31" title="Permalink to this table">¶</a></caption>
+<table border="1" class="colwidths-given docutils" id="id33">
+<caption><span class="caption-text"><code class="docutils literal notranslate"><span class="pre">GET</span></code> <a class="reference external" href="http://NODE_IP:PORT/api/trail">http://NODE_IP:PORT/api/trail</a></span><a class="headerlink" href="#id33" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col width="24%" />
 <col width="15%" />
@@ -952,8 +960,8 @@ The query must be in JSON format:</p>
 <div class="section" id="api-fingerprint-get">
 <h2>/api/fingerprint <code class="docutils literal notranslate"><span class="pre">GET</span></code><a class="headerlink" href="#api-fingerprint-get" title="Permalink to this headline">¶</a></h2>
 <p>Gets the fingerprint of a specific import from the blockchain</p>
-<table border="1" class="colwidths-given docutils" id="id32">
-<caption><span class="caption-text"><code class="docutils literal notranslate"><span class="pre">GET</span></code> <a class="reference external" href="http://NODE_IP:PORT/api/fingerprint">http://NODE_IP:PORT/api/fingerprint</a></span><a class="headerlink" href="#id32" title="Permalink to this table">¶</a></caption>
+<table border="1" class="colwidths-given docutils" id="id34">
+<caption><span class="caption-text"><code class="docutils literal notranslate"><span class="pre">GET</span></code> <a class="reference external" href="http://NODE_IP:PORT/api/fingerprint">http://NODE_IP:PORT/api/fingerprint</a></span><a class="headerlink" href="#id34" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col width="24%" />
 <col width="15%" />
@@ -991,8 +999,8 @@ The query must be in JSON format:</p>
 <div class="section" id="api-deposit-post">
 <h2>/api/deposit <code class="docutils literal notranslate"><span class="pre">POST</span></code><a class="headerlink" href="#api-deposit-post" title="Permalink to this headline">¶</a></h2>
 <p>Deposit tokens from wallet to a profile.</p>
-<table border="1" class="colwidths-given docutils" id="id33">
-<caption><span class="caption-text"><code class="docutils literal notranslate"><span class="pre">POST</span></code> <a class="reference external" href="http://NODE_IP:PORT/api/deposit">http://NODE_IP:PORT/api/deposit</a></span><a class="headerlink" href="#id33" title="Permalink to this table">¶</a></caption>
+<table border="1" class="colwidths-given docutils" id="id35">
+<caption><span class="caption-text"><code class="docutils literal notranslate"><span class="pre">POST</span></code> <a class="reference external" href="http://NODE_IP:PORT/api/deposit">http://NODE_IP:PORT/api/deposit</a></span><a class="headerlink" href="#id35" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col width="24%" />
 <col width="15%" />
@@ -1030,8 +1038,8 @@ The query must be in JSON format:</p>
 <div class="section" id="api-withdraw-post">
 <h2>/api/withdraw <code class="docutils literal notranslate"><span class="pre">POST</span></code><a class="headerlink" href="#api-withdraw-post" title="Permalink to this headline">¶</a></h2>
 <p>Withdraw tokens from profile to a wallet.</p>
-<table border="1" class="colwidths-given docutils" id="id34">
-<caption><span class="caption-text"><code class="docutils literal notranslate"><span class="pre">POST</span></code> <a class="reference external" href="http://NODE_IP:PORT/api/withdraw">http://NODE_IP:PORT/api/withdraw</a></span><a class="headerlink" href="#id34" title="Permalink to this table">¶</a></caption>
+<table border="1" class="colwidths-given docutils" id="id36">
+<caption><span class="caption-text"><code class="docutils literal notranslate"><span class="pre">POST</span></code> <a class="reference external" href="http://NODE_IP:PORT/api/withdraw">http://NODE_IP:PORT/api/withdraw</a></span><a class="headerlink" href="#id36" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col width="24%" />
 <col width="15%" />
@@ -1073,8 +1081,8 @@ The query must be in JSON format:</p>
 <div class="section" id="api-consensus-sender-id-get">
 <h2>/api/consensus/{sender_id} <code class="docutils literal notranslate"><span class="pre">GET</span></code><a class="headerlink" href="#api-consensus-sender-id-get" title="Permalink to this headline">¶</a></h2>
 <p>Returns list of OwnershipTransfer type events of the given data sender from database. If the event is connected with another event of the same type from different sender, response contains events from both sides.</p>
-<table border="1" class="colwidths-given docutils" id="id35">
-<caption><span class="caption-text"><code class="docutils literal notranslate"><span class="pre">POST</span></code> <a class="reference external" href="http://NODE_IP:PORT/api/consensus">http://NODE_IP:PORT/api/consensus</a>/{sender_id}</span><a class="headerlink" href="#id35" title="Permalink to this table">¶</a></caption>
+<table border="1" class="colwidths-given docutils" id="id37">
+<caption><span class="caption-text"><code class="docutils literal notranslate"><span class="pre">POST</span></code> <a class="reference external" href="http://NODE_IP:PORT/api/consensus">http://NODE_IP:PORT/api/consensus</a>/{sender_id}</span><a class="headerlink" href="#id37" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col width="24%" />
 <col width="15%" />
@@ -1117,6 +1125,68 @@ The query must be in JSON format:</p>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">400</span></code> Bad request</p>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="node-information">
+<h1>Node information<a class="headerlink" href="#node-information" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="api-info-get">
+<h2>/api/info <code class="docutils literal notranslate"><span class="pre">GET</span></code><a class="headerlink" href="#api-info-get" title="Permalink to this headline">¶</a></h2>
+<p>Returns basic configuration information about running node.</p>
+<div class="section" id="id20">
+<h3>Parameters<a class="headerlink" href="#id20" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="colwidths-given docutils" id="id38">
+<caption><span class="caption-text"><code class="docutils literal notranslate"><span class="pre">GET</span></code> <a class="reference external" href="http://NODE_IP:PORT/api/info">http://NODE_IP:PORT/api/info</a></span><a class="headerlink" href="#id38" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="24%" />
+<col width="15%" />
+<col width="24%" />
+<col width="37%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Name</th>
+<th class="head">Required</th>
+<th class="head">Type</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>none</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id21">
+<h3>Responses<a class="headerlink" href="#id21" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">200</span></code> Basic node configuration data sucessfully retrieved.</p>
+<p><em>Example:</em></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;blockchain&quot;</span><span class="p">:</span> <span class="s2">&quot;Ethereum&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;erc_725_identity&quot;</span><span class="p">:</span> <span class="s2">&quot;0x87d31a77ec3bd2fd162a6eead13d744dba0103a6&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;is_bootstrap&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+    <span class="s2">&quot;network&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;contact&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;agent&quot;</span><span class="p">:</span> <span class="s2">&quot;1.0.0&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;hostname&quot;</span><span class="p">:</span> <span class="s2">&quot;95.91.215.153&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;index&quot;</span><span class="p">:</span> <span class="mi">8885</span><span class="p">,</span>
+            <span class="s2">&quot;network_id&quot;</span><span class="p">:</span> <span class="s2">&quot;TestnetV2.0.1b&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;port&quot;</span><span class="p">:</span> <span class="mi">5278</span><span class="p">,</span>
+            <span class="s2">&quot;protocol&quot;</span><span class="p">:</span> <span class="s2">&quot;https:&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;wallet&quot;</span><span class="p">:</span> <span class="s2">&quot;0x0556B6d87f011424C7b099040f03AD23774FE7FE&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;xpub&quot;</span><span class="p">:</span> <span class="s2">&quot;xpub661MyMwAqRbcFWt6qoWR1oYKwAnqYW63PJWKAJuBFt9ipgt8sYXNkuHqHi1GLWdPfw9eS2TLw8rTrVQsPV6P4LqZPm8CCxJGC6AaycKA3Sv&quot;</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;identity&quot;</span><span class="p">:</span> <span class="s2">&quot;b93b0cc6fc4cb65a9f921ca909597f74ab92d59b&quot;</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;node_wallet&quot;</span><span class="p">:</span> <span class="s2">&quot;0x0556B6d87f011424C7b099040f03AD23774FE7FE&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;2.0.29&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">500</span></code> Failed to get information about basic node configuration.</p>
 <hr class="docutils" />
 </div>
 </div>

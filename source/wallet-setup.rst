@@ -81,6 +81,32 @@ The last value (in above case 0x99c67054a8c7b7fa62243f0446eacd80c6ff0aff) repres
 Alternatively, if you login into running node's container
 
 
+::
+
+        docker exec -it otnode /bin/bash
+        cd data && ls -al
+
+one of the files here should be **erc725_identity.json**, whose value should exactly match value shown in the log line.
+
+For the **Node identity**, simply find a log line similar to this:
+
+::
+
+        notify - My network identity: ab2e1b1e520cac0d1321cd3760c2e7473970ec8a
+
+and this value ( in above example ab2e1b1e520cac0d1321cd3760c2e7473970ec8a) it what you are looking for.
+
+Some users might notice that in data folder there exist also file called **identity.json**,
+and that value stored in this file is different from node identity value from logs.
+Identity.json contains atomic information about the node identity - identity itself is created based on it.
+
+Having above said, final **important** note:
+If you wish to run identical node on some other machine, then in addition to backing up you node wallet/private key,
+please back up erc725_identity.json and identity.json
+files. There will be a separate article on how to start node with previously backed up identities.
+For now, be aware if you start a node on a different machine with providing only node wallet/private key,
+node will create new identities, and you end up having different node.
+
 
 .. _here: http://github.com/OriginTrail/ot-yimishiji-pilot/wiki/Usage
 .. _video: https://youtu.be/1UaB8OG_lgw

@@ -29,7 +29,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Import data" href="import-data.html" />
-    <link rel="prev" title="Wallet Setup" href="wallet-setup.html" /> 
+    <link rel="prev" title="Identity Configuration" href="wallet-setup.html" /> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -87,7 +87,7 @@
 <p class="caption"><span class="caption-text">NODE SETUP</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="node-setup.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="wallet-setup.html">Wallet Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="wallet-setup.html">Identity Configuration</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Node Configuration</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#pre-requirements">Pre-requirements</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#open-ports">Open Ports</a></li>
@@ -111,6 +111,7 @@
 <li class="toctree-l1"><a class="reference internal" href="introduction-to-api.html#local-search">Local Search</a></li>
 <li class="toctree-l1"><a class="reference internal" href="introduction-to-api.html#profile-token-management">Profile Token Management</a></li>
 <li class="toctree-l1"><a class="reference internal" href="introduction-to-api.html#consensus-check">Consensus check</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction-to-api.html#node-information">Node information</a></li>
 </ul>
 <p class="caption"><span class="caption-text">IMPLEMENTATION</span></p>
 <ul>
@@ -193,17 +194,17 @@
 <div class="section" id="pre-requirements">
 <h2>Pre-requirements<a class="headerlink" href="#pre-requirements" title="Permalink to this headline">¶</a></h2>
 <p>There’s a minimum set of config parameters that needs to be provided in order to run node without
-which node will refuse to start.
-- Ethereum Wallet: you must own a valid Ethereum wallet with at least 100 test TRAC tokens
-and at least 0.01 Ethers. See <a class="reference internal" href="wallet-setup.html#wallet-setup"><span class="std std-ref">Wallet Setup</span></a> on how to obtain it.
-- Public IP or open communication: It is required to have a public IP address, domain name
-or open network communication with internet.</p>
+which node will refuse to start.</p>
+<ul class="simple">
+<li>Ethereum Wallet: you must own a valid Ethereum wallet with at least 100 test TRAC tokens and at least 0.01 Ethers. See <a class="reference internal" href="wallet-setup.html#wallet-setup"><span class="std std-ref">Identity Configuration</span></a> on how to obtain it.</li>
+<li>Public IP or open communication: It is required to have a public IP address, domain name or open network communication with internet.</li>
+</ul>
 </div>
 <div class="section" id="open-ports">
 <h2>Open Ports<a class="headerlink" href="#open-ports" title="Permalink to this headline">¶</a></h2>
 <p>By default node will use 8900, 5278 and 3000 ports. These can be mapped differently in configuration.
 Make sure they’re not blocked by firewall and open to the public.
-Please note: port 8900 is used for REST access which is not available until OT node is fully started.
+Please note: port 8900 is used for REST API access which is not available until OT node is fully started.
 This can be concluded after following log message is displayed.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">info</span> <span class="o">-</span> <span class="n">OT</span> <span class="n">Node</span> <span class="n">started</span>
 </pre></div>
@@ -223,14 +224,16 @@ We create the <strong>.origintrail_noderc</strong> file with following content:<
     <span class="s2">&quot;node_wallet&quot;</span><span class="p">:</span> <span class="s2">&quot;your wallet address here&quot;</span><span class="p">,</span>
     <span class="s2">&quot;node_private_key&quot;</span><span class="p">:</span> <span class="s2">&quot;your wallet&#39;s private key here&quot;</span><span class="p">,</span>
     <span class="s2">&quot;network&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="s2">&quot;hostname&quot;</span><span class="p">:</span> <span class="s2">&quot;your external IP or domain name here&quot;</span>
+        <span class="s2">&quot;hostname&quot;</span><span class="p">:</span> <span class="s2">&quot;your external IP or domain name here&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;remoteWhitelist&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="s2">&quot;IP or host of the machine that is requesting the import&quot;</span><span class="p">,</span> <span class="s2">&quot;127.0.0.1&quot;</span><span class="p">]</span>
     <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p><em>node_wallet</em> and <em>node_private_key</em> - Ethereum wallet address and its private key.
-<em>hostname</em> is the public network address or hostname that will be used in P2P communication with other
+<p><em>node_wallet</em> and <em>node_private_key</em> - Ethereum wallet address and its private key.</p>
+<p><em>hostname</em> - the public network address or hostname that will be used in P2P communication with other
 nodes for node’s self identification.</p>
+<p><em>remoteWhitelist</em> - list of IPs or hosts of the machines (“host.domain.com”) that are allowed to communicate with REST API.</p>
 </div>
 <div class="section" id="configuration-file">
 <h3>Configuration file<a class="headerlink" href="#configuration-file" title="Permalink to this headline">¶</a></h3>
@@ -269,7 +272,7 @@ this list override later ones.</p>
         <a href="import-data.html" class="btn btn-neutral float-right" title="Import data" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="wallet-setup.html" class="btn btn-neutral" title="Wallet Setup" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="wallet-setup.html" class="btn btn-neutral" title="Identity Configuration" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
