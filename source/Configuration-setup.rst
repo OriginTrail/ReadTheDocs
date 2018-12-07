@@ -8,17 +8,16 @@ Pre-requirements
 
 There's a minimum set of config parameters that needs to be provided in order to run node without
 which node will refuse to start.
-- Ethereum Wallet: you must own a valid Ethereum wallet with at least 100 test TRAC tokens
-and at least 0.01 Ethers. See :ref:`wallet-setup` on how to obtain it.
-- Public IP or open communication: It is required to have a public IP address, domain name
-or open network communication with internet.
+
+- Ethereum Wallet: you must own a valid Ethereum wallet with at least 100 test TRAC tokens and at least 0.01 Ethers. See :ref:`wallet-setup` on how to obtain it.
+- Public IP or open communication: It is required to have a public IP address, domain name or open network communication with internet.
 
 Open Ports
 ----------
 
 By default node will use 8900, 5278 and 3000 ports. These can be mapped differently in configuration.
 Make sure they’re not blocked by firewall and open to the public.
-Please note: port 8900 is used for REST access which is not available until OT node is fully started.
+Please note: port 8900 is used for REST API access which is not available until OT node is fully started.
 This can be concluded after following log message is displayed.
 
 ::
@@ -44,13 +43,17 @@ We create the **.origintrail_noderc** file with following content:
         "node_wallet": "your wallet address here",
         "node_private_key": "your wallet's private key here",
         "network": {
-            "hostname": "your external IP or domain name here"
+            "hostname": "your external IP or domain name here",
+            "remoteWhitelist": [ "IP or host of the machine that is requesting the import", "127.0.0.1"]
         }
     }
 
 *node_wallet* and *node_private_key* - Ethereum wallet address and its private key.
-*hostname* is the public network address or hostname that will be used in P2P communication with other
+
+*hostname* - the public network address or hostname that will be used in P2P communication with other
 nodes for node’s self identification.
+
+*remoteWhitelist* - list of IPs or hosts of the machines ("host.domain.com") that are allowed to communicate with REST API.
 
 Configuration file
 ~~~~~~~~~~~~~~~~~~

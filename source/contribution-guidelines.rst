@@ -10,11 +10,11 @@ to follow.
 If you're new to OT node development, there are guides in this wiki for
 getting your dev environment set up. Get to know the commit process with
 something small like a bug fix. If you're not sure where to start post a
-message on the RocketChat #development channel.
+message on the Discord #general channel.
 
 Once you've got your feet under you then you can start working on larger
-projects. For anything more than a bug fix, it probably makes sense to
-coordinate through the RocketChat, since it's possible someone else is
+features. For anything more than a bug fix, it probably makes sense to
+coordinate through the Discord, since it's possible someone else is
 working on the same thing.
 
 Please make descriptive commit messages.
@@ -41,7 +41,7 @@ respect everyone who contributes by posting issues, updating
 documentation, submitting pull requests, providing feedback in comments,
 and any other activities.
 
-Communication through any of our channels (GitHub, RocketChat, Twitter,
+Communication through any of our channels (GitHub, Discord, Twitter,
 etc.) must be constructive and never resort to personal attacks,
 trolling, public or private harassment, insults, or other unprofessional
 conduct.
@@ -66,7 +66,7 @@ Got a Question or Problem?
 
 Do not open issues for general support questions as we want to keep
 GitHub issues for bug reports and feature requests. You've got much
-better chances of getting your question answered on RocketChat.
+better chances of getting your question answered on Discord.
 
 Found an Issue or Bug?
 ~~~~~~~~~~~~~~~~~~~~~~
