@@ -40,8 +40,8 @@ System requirements
 -  at least 1 CPU
 -  at least 10GB storage space 
 -  Ethereum wallet (You can see wallet setup instructions here :ref:`wallet-setup`)
--  for testnet node: at least 1000 test TRAC tokens and at least 0.01 test Ethers 
--  for mainnet node: at least 1000 TRAC tokens and at least 0.01 Ethers
+-  for testnet node: at least 1000 test TRAC tokens and at least 0.05 test Ethers
+-  for mainnet node: at least 1000 TRAC tokens and at least 0.05 Ethers
 
 
 Installation via Docker Prerequisites
