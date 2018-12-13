@@ -658,6 +658,45 @@ Note: value of 10 used above is just an example, can be any available amount fro
 
 -------------------------------------------------------------------------------------------------------------
 
+/api/balance ``GET``
+-----------------------
+
+Provides information about available funds on node's profile and wallet.
+
+.. csv-table:: ``GET`` http://NODE_IP:PORT/api/balance
+   :header: "Name", "Required", "Type", "Description"
+   :widths: 20, 12, 20, 30
+
+   "humanReadable", "false", "boolean", "When set to true, response gets shown in human friendly format."
+
+
+Responses
+~~~~~~~~~~~~~~
+
+``200`` Successfully retrieved funds info about node's profile and wallet funds
+
+*Example:*
+
+::
+ 
+    {
+        "profile": {
+            "minimalStake": "1000",
+            "reserved": "0",
+            "staked": "1000"
+        },
+        "wallet": {
+            "address": "0x39591394670eF0A062DE2551EE58e584e8732c01",
+            "ethBalance": "99.627180745",
+            "tokenBalance": "4999999999000"
+        }
+    }
+
+``503`` Failed to get balance.
+
+
+-------------------------------------------------------------------------------------------------------------
+
 Consensus check
 ============================
 
