@@ -78,7 +78,7 @@ We recommend that you deposit larger amounts of TRAC so the number of depositing
     {
         "node_wallet": "your wallet address here",
         "node_private_key": "your wallet's private key here",
-        "deposit_on_demand": false,
+        "deposit_on_demand": true,
         "network": {
             "hostname": "your external IP or domain name here",
             "remoteWhitelist": [ "IP or host of the machine that is requesting the import", "127.0.0.1"]
