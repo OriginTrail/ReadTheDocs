@@ -28,7 +28,7 @@ Configuring the node
 --------------------
 
 Basic configuration
-~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~
 
 To properly configure the node you will need to create a config file in JSON format and provide some
 basic information about how the node should work. This file will be consumed by node upon start.
@@ -54,6 +54,53 @@ We create the **.origintrail_noderc** file with following content:
 nodes for node’s self identification.
 
 *remoteWhitelist* - list of IPs or hosts of the machines ("host.domain.com") that are allowed to communicate with REST API.
+
+
+Deposit on demand
+~~~~~~~~~~~~~~~~~~~~
+
+With the config option “**deposit_on_demand**” set to “**true**” your node will generate transactions for token deposit every time it doesn’t have enough funds for the job staked on your profile.
+The tokens will be pulled from your wallet address automatically so your node is able to apply for the job.
+As there are many jobs the node will generate many transactions for token deposits, most of the time a very small amounts of TRAC.
+This procedure can spend larger amounts of ETH in order to pay GAS for the transactions.
+
+By setting “**deposit_on_demand**” option to “**false**”, your node will not automatically deposit the tokens required for the jobs but instead will not apply for the job for which it does not have enough funds.
+You will have to make sure your node has enough TRAC by manually depositing the TRAC tokens to your profile.
+We recommend that you deposit larger amounts of TRAC so the number of depositing transactions is as small as possible.
+
+- In order to disable the **deposit_on_deman** option please edit your **config.json** file, which can be found in your "**/ot-node/config/**" directory, by setting it to "**false**" as described below.
+
+**DISABLING** the **deposit_on_demand** option:
+
+.. code:: json
+
+    {
+        "node_wallet": "your wallet address here",
+        "node_private_key": "your wallet's private key here",
+        "network": {
+            "hostname": "your external IP or domain name here",
+            "remoteWhitelist": [ "IP or host of the machine that is requesting the import", "127.0.0.1"],
+            "deposit_on_demand": false
+        }
+    }
+
+
+**ENABLING** the **deposit_on_demand** option:
+
+- In order to enable the **deposit_on_deman** option please edit your **config.json** file, which can be found in your "**/ot-node/config/**" directory, by setting it to "**true**" as described below:
+
+.. code:: json
+
+    {
+        "node_wallet": "your wallet address here",
+        "node_private_key": "your wallet's private key here",
+        "network": {
+            "hostname": "your external IP or domain name here",
+            "remoteWhitelist": [ "IP or host of the machine that is requesting the import", "127.0.0.1"],
+            "deposit_on_demand": false
+        }
+    }
+
 
 Configuration file
 ~~~~~~~~~~~~~~~~~~
