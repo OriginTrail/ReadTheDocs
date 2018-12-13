@@ -673,7 +673,7 @@ Provides information about available funds on node's profile and wallet.
 Responses
 ~~~~~~~~~~~~~~
 
-``200`` Successfully retrieved funds info about node's profile and wallet funds
+``200`` Successfully retrieved info about node's profile and wallet funds
 
 *Example:*
 
