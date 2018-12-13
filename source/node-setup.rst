@@ -14,7 +14,7 @@ If you need help installing OT Node or troubleshooting your
 installation, you can either:
 
 - engage in our Discord community and post your question, 
-- contact us directly via email at support@origin-trail.com.
+- contact us directly via email at tech@origin-trail.com.
 
 Nodes can be installed in two ways:
 
