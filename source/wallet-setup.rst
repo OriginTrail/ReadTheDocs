@@ -111,24 +111,21 @@ Identity.json contains atomic information about the node identity - the identity
 Setting up a node with predefined identities
 Let’s say user already have network identity file and ERC725 identity file in home dir.
 
-.origintrail_noderc - node configuration.
+Let's say user already have network identity file and ERC725 identity file in home dir.
 
-.identity.json - network identity.
+- .origintrail_noderc - node configuration.
+- .identity.json - network identity.
+- .erc725_identity.json - ERC 725 idenity.
 
-.erc725_identity.json - ERC 725 idenity.
+::
 
-docker run -it --name=otnode -p 8900:8900 -p 5278:5278 -p 3000:3000
+        docker run -it --name=otnode -p 8900:8900 -p 5278:5278 -p 3000:3000
+        -v ~/.origintrail_noderc:/ot-node/.origintrail_noderc
+        -v ~/.identity.json:/ot-node/data/identity.json
+        -v ~/.erc725_identity.json:/ot-node/data/erc725_identity.json
+        quay.io/origintrail/otnode-mariner:release_mariner
 
--v ~/.origintrail_noderc:/ot-node/.origintrail_noderc
-
--v ~/.identity.json:/ot-node/data/identity.json
-
--v ~/.erc725_identity.json:/ot-node/data/erc725_identity.json
-
-quay.io/origintrail/otnode-mariner:release_mariner
-
-Please note this example is for mainnet.
-
+Please note this example is for mainnet. 
 For testnet use **origintrail/ot-node** instead **quay.io/origintrail/otnode-mariner:release_mariner**
 
 
