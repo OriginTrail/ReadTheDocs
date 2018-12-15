@@ -71,9 +71,9 @@ If you have installed a node, the easiest way to find value of your ERC725 ident
 The last value (in above case **0x99c67054a8c7b7fa62243f0446eacd80c6ff0aff**) represents the ERC725 identity.
 Alternatively, you can copy it from node’s container
 
-**Copies file to HOME dir**
-
 .. code:: bash
+
+    # Copies file to HOME dir
 
     docker cp otnode:/ot-node/data/erc725_identity.json ~
 
@@ -94,9 +94,11 @@ To find out your nodes network identity, simply find a log line similar to this:
 and this value ( in above example **ab2e1b1e520cac0d1321cd3760c2e7473970ec8a**) it what you are looking for.
 Alternatively, you can copy it from node’s container
 
-**Copies file to HOME dir**
+
 
 .. code:: bash
+
+    # Copies file to HOME dir
 
     docker cp otnode:/ot-node/data/identity.json ~
 
@@ -125,7 +127,7 @@ Let's say user already have network identity file and ERC725 identity file in ho
         -v ~/.erc725_identity.json:/ot-node/data/erc725_identity.json
         quay.io/origintrail/otnode-mariner:release_mariner
 
-Please note this example is for mainnet. 
+Please note this example is for mainnet.
 For testnet use **origintrail/ot-node** instead **quay.io/origintrail/otnode-mariner:release_mariner**
 
 
