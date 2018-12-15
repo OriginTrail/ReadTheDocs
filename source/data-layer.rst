@@ -1,7 +1,7 @@
 ..  _data-layer:
 
 Data Layer
-======================================
+============
 
 The purpose of this document is to explain the data structures of the
 OriginTrail protocol data layer. OriginTrail is a purpose built protocol
@@ -15,8 +15,8 @@ future use cases involving supply chain event visibility and data
 exchange, while on the other hand being as tailored as possible to
 provide optimal technical performance to support such cases.
 
-Underlying technology and technical rationale
----------------------------------------------
+Underlying data structures and technical rationale
+-----------------------------------------------------
 
 The OriginTrail Decentralized Network (ODN) Data Layer is intended to
 provide data interoperability (between different data providers - i.e.
@@ -56,8 +56,8 @@ its fingerprint is stored on the blockchain. This process, as well as
 the specific details on importer implementations, are out of the scope
 of this document, but will be subject of further documentation.
 
-Entities in graph structure (ontology)
---------------------------------------
+Entities in the graph structure (ontology)
+--------------------------------------------
 
 OriginTrail data layer defines its own graph ontology for representation of supply chain entities and relations between them. The documents, representing graph vertices and edges are stored in the graph database, structured with a specific JSON form that helps sustain data immutability and supports system functionalities such are searches and traversals. OriginTrail graph ontology contains three groups of entities, represented as vertices:
 
@@ -70,13 +70,13 @@ The entities are connected with connections represented as edges.
 
 
 Objects and ObjectClasses
-~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Objects represent all physical or digital entities involved in events in the supply chain. 
-Examples of objects are vehicles, production facilities, documents, sensors, personnel etc. 
-ObjectClasses specifically define a global set of properties for their child Objects (as their “instances”). 
+Objects represent all physical or digital entities involved in events in the supply chain.
+Examples of objects are vehicles, production facilities, documents, sensors, personnel etc.
+ObjectClasses specifically define a global set of properties for their child Objects (as their “instances”).
 In the example of a wine authenticity use case, the data shared among supply chain entities (winery, distributors, retailers etc) involves information about specific batches of bottles with unique characteristics.
-The master data about a product would present an ObjectClass node in the OT graph, while the specifics about the product batch would be contained within the “batch” Object. 
+The master data about a product would present an ObjectClass node in the OT graph, while the specifics about the product batch would be contained within the “batch” Object.
 This allows for a hierarchical organization of objects, with a simplistic but robust class-like inheritance.
 
 Object Classes are divided in:
@@ -84,10 +84,10 @@ Object Classes are divided in:
 - **Actors**,
     which encompass companies, people, machines and any other entity that can act or observe objects within the supply chain. (the “Who”)
 
-- **Products** 
+- **Products**
     (supply chain objects of interest), which represent goods or services that are acted upon by actors (the “What”)
 
-- **Locations**, 
+- **Locations**,
     which define either physical or digital locations of products or actors (the “Where”)
 
 - **Batches**,
@@ -98,7 +98,7 @@ Each of the Objects can then be further explained by custom defined subcategorie
 
 
 Events and EventClasses
-~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Events in the graph structure have a similar inheritance pattern – Event Classes classify types of events which are instantiated as particular Event nodes.
 OriginTrail currently classifies 4 different event types:
@@ -123,33 +123,33 @@ Each of the events can then be further explained by custom defined subcategories
 
 
 Identifiers
-~~~~~~~~~~~
-The identifiers are special vertices that contain identification attributes that identify objects. 
+~~~~~~~~~~~~~~
+The identifiers are special vertices that contain identification attributes that identify objects.
 They contain type and value of a single identifier. One object can have multiple identifiers connected.
 
 
 Connections
-~~~~~~~~~~~
+~~~~~~~~~~~~~
 
-The connections are edges in the graph used to define connections between Objects, Object Classes, Events and Identifiers. 
+The connections are edges in the graph used to define connections between Objects, Object Classes, Events and Identifiers.
 The connections are classified in 4 groups:
 
-- **Inheritance connections**, 
-    (between Object Class and Object vertices, as well as between Event Class and Event vertices). 
+- **Inheritance connections**,
+    (between Object Class and Object vertices, as well as between Event Class and Event vertices).
     These connections define that an Object is an instance of ObjectClass, the isInstanceOf edge.
 
 
-- **Involvement connections**, 
-    (between Object and Event vertices) 
-    connect objects with events in which they are involved. 
+- **Involvement connections**,
+    (between Object and Event vertices)
+    connect objects with events in which they are involved.
     For example, a transformation event of production would have input objects, output objects, a location where the production took place etc.
 
 
 - **State connections**,
-    (between two Object vertices) 
-    connect two or more objects that are related in some way. 
+    (between two Object vertices)
+    connect two or more objects that are related in some way.
     For example, an object can be owned by some supply chain actor.
 
 - **Identification connections**,
-    (between Object and Identifier vertices) 
+    (between Object and Identifier vertices)
     connect identifiers with object that they are identifying.
