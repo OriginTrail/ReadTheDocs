@@ -43,7 +43,7 @@ This approach is taken as a convenience measure to provide for flexibility with 
 
 The management wallet can be any ERC20 supporting wallet (Trezor, Ledger, Metamask etc). It is the node holders responsibility to keep both their node and wallet safe.
 
-**Note:** *This system is supported from version v2.0.34. Previously the OT node supported only one wallet which had the role of both the operational wallet and the management wallet. If you have installed a mainnet node before version 2.0.34, after the update your node identity will have the same key assigned to both your operational and management wallet. In order to change the your management wallet to the operational wallet you will need to execute the key management functions on your identity smart contract.*
+**Note:** *This system is supported from version v2.0.35. Previously the OT node supported only one wallet which had the role of both the operational wallet and the management wallet. If you have installed a mainnet node before version 2.0.35, after the update your node identity will have the same key assigned to both your operational and management wallet. In order to change the your management wallet to the operational wallet you will need to execute the key management functions on your identity smart contract.*
 
 The exact steps are:
 

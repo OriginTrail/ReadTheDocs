@@ -3,22 +3,19 @@
 Network structure
 ===================
 
-The network layer takes care of the accessibility and data governance of the underlying data
-layer. It consists of network nodes which all contain parts of the decentralized database and
-store graphs of the data. Access to the data is achieved through the provided data exchange
+The network layer takes care of the node communication and network lookups of the underlying data
+layer. Access to the data is achieved through the provided data exchange
 API.
 
-The peer to peer network is built on a distributed hash table based on Kademlia which is
+The peer to peer network is built based on S/Kademlia which is
 responsible for efficient routing within the network. The messages between peers are signed,
-while the Kademlia node ID presents a valid Ethereum address which the node is able to
-spend from. This enforces long-term identity and helps with Kademlia routing and Eclipse
-attacks.
+while the Kademlia node ID presents the OriginTrail Node ID, contained in the node Profile. This enforces long-term identity and helps with Kademlia routing and Eclipse attacks.
 
 The peer-to-peer decentralized network operates as a serverless supply
 chain data storage, validation and serving network with built in
 fault-tolerance, DDoS resistance, tamper-proof resistance and
 self-sustaining based on the incentive system explained in this
-document. 
+document.
 
 The intention of this paper is to document the research findings and
 mechanics behind the incentive model of OriginTrail, as well as to
@@ -26,10 +23,10 @@ attract opinions and feedback from the community and researchers
 interested in the topic.
 
 Network entities and classification
----------------------------------------------------
+--------------------------------------
 
 In order to better understand the OriginTrail P2P network structure and
-the incentive mechanisms within the protocol we have to understand all
+the incentive mechanisms within the protocol we have to understand the
 different roles within the context of the system.
 
 The main premise is that the different nodes have different interests
@@ -63,7 +60,7 @@ providing the data to the network can be incentivised with the Trace
 token.
 
 Data Creator Node
------------------
+------------------
 
 **The Data Creator node (DC)** - is an entity that represents a node
 which will be responsible for importing the data provided by the DP,
@@ -82,12 +79,12 @@ to check if data is available on the network during the time of service
 and initiate the litigation process in case of any disputes.
 
 Data Holder Node
-----------------
+-------------------
 
 The Data Holder (DH) is a node that has committed itself to store the
 data provided by a DC node for a requested period of time and make it
 available for the interested parties (which can also be the DC node).
-For this service the Data Holder will be compensated in TRAC tokens. The
+For this service the Data Holder is compensated in TRAC tokens. The
 DH node has the responsibility to preserve the data intact in its
 unaltered, original form, as well as to provide high availability of the
 data in terms of bandwidth and uptime.
@@ -102,33 +99,20 @@ DCs, but that is popular, and offer it to the interested parties.
 Therefore it is probable that Data Holders will listen to the network,
 search for data that is frequently requested, and replicate it from
 other Data Holders to also store them, process and offer them to the
-Data Viewers. However, since such Data Holders are not bound by the
-smart contract to provide the service, there is a certain risk that
-these Data Holders may offer false data or temper the data, or even
-pretend to have the data that they don’t have.
-
-To mitigate this risk, a node will be required to deposit a stake. This
-stake will be stored in case it is proven that Data Holder tried to sell
-the data which is altered while Data Viewers will have a mechanism to
-check if all the chunks of the data are valid and initiate a litigation
-procedure in case of any inconsistencies. Furthermore, Data Holders will
-be able to provide larger stake if they want to demonstrate their
-quality of the service to the Data Viewers.
+Data Viewers.
 
 Data Viewer
------------------
+-------------
 
 The Data Viewer (DV) is an entity that requests the data from any
 network node able to provide that data. The Data Viewer will be able to
-send two types of queries to the network. The first type is a request
-for a specific set of batch identifiers of the product supply chain they
+send to request data for a specific set of supply chain identifiers  they
 are interested in, where they will be able to retrieve the all connected
-data of the product trail. The second type are custom queries asking for
-specific connections between the data. In both cases, the Data Viewer
-will receive the offers from all the nodes that have the data together
-with charges for reading and structure of the data that will be sent.
+data of the product trail. The Data Viewer will receive the offers from
+all the nodes that have the data together with potential charges for reading
+and structure of the data that will be sent.
 The Data Viewer can decide which offers it will accept and deposit the
-requested compensation funds on the escrow smart contract. The providing
+requested compensation funds on the escrow smart contract if needed. The providing
 node then sends the encrypted data in order for the Data Viewer to test
 the validity of data. Once the validity of the data is confirmed, the
 Data Viewer will get the key to decrypt the data while the smart
@@ -149,26 +133,29 @@ system is presented on data diagram (Figure 1).
    :width: 600px
 
 Service initiation
-------------------
+--------------------
 
 To get data onto OriginTrail network, the Data provider sends tokens and
 data to the chosen DC node. The data creator sends tokens to the smart
 contract with tailored escrow functionalities and broadcasts a data
 holding request with the required terms of cooperation. All interested
-DH node candidates then respond with their requirements by submitting
-their applications to the smart contract - price of the service per data
+DH node candidates then respond and initiate in a network handshake, which
+invovles negotiaon on the price of the service per data
 unit and minimum time of providing the service.
 
-The minimum factor of replication is 2N+1, where the minimum value for N
-is yet to be determined, while the actual factor may be larger as it is
-decided by the Data Creator. To mitigate the possibility of fixing the
-results of the public offering, only when a certain number of Data
-Holders answer the call, which is greater than the requested replication
-factor, the smart contract will close the application procedure. Once
-the application procedure is finished, the smart contract selects the
-required number of Data Holders so a potential malicious Data Creator
-who might own several DH nodes can’t influence the process and pick its
-own nodes.
+Once the data set is registered in the smart contract with its corresponding
+fingerprints, the DH nodes which agree with given offer conditions contact the
+DC node for fetching the data set. The DC node sends the data to the DH and when
+the data is successfully replicated on DH node, the DH node sends back a signed
+confirmation to the DC node. The DC collects signed confirmations and attempts to use
+the confirmed DH identities for resolving the replication task generated by the smart
+contract. When the task is solved by a proof of work mechanism, the DC node submits
+arguments for the task solution calculation to the smart contract and used DH
+identities are selected for compensated data holding. The escrows are the created
+for selected DH nodes. The DH node can be used for replication only if it has enough
+(non staked) tokens on its profile for the required job stake and if has not started
+the time-delayed withdrawal process of profile tokens.
+
 
 The Data Creator will deposit the compensations in tokens for the Data
 Holders on an escrow smart contract that Data Holders will be able to
@@ -185,17 +172,17 @@ not be deleted or tempered in any way, and that it will be provided to
 third parties according to the requirements.
 
 Servicing period
-----------------
+------------------
 
 Data replication
-~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~
 
-After the agreement between Data creator and Data holders has been
-created, the Data holder prepares data by splitting graph vertex data
-into blocks and calculating a root hash which is then stored on the
-blockchain. The root hash is stored permanently for everyone to be able
-to prove the integrity of data. The data is then encrypted using RSA
-encryption and encryption key appended to it. A Merkle tree is again
+During the agreement formation between Data creator and Data holders, the
+Data holder prepares data by splitting graph vertex data
+into blocks and calculating a root hash which is compared to the one stored
+on the blockchain. The root hash is stored permanently during the offer creation
+proceess for everyone to be able to prove the integrity of data. The data is then
+encrypted using RSA encryption and encryption key appended to it. A Merkle tree is again
 created for the encrypted data blocks, proving integrity of data that
 will be sent to Data holder. The root hash of the encrypted data is
 written to the escrow contract and finally the data can be sent to Data
@@ -204,7 +191,7 @@ of received data is indeed the one written into escrow contract and if
 it is a match the testing and payment process can begin.
 
 Testing and compensation
-~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 To ensure that the service is provided as requested, the Data creator is
 able to test Data holders by sporadically asking them for a random
@@ -215,13 +202,13 @@ decide if the Data holder is able to prove that it still has the data
 available.
 
 Litigation procedure
-~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~
 
 The litigation procedure involves a smart contract as a validator of the
 service. When the Data creator is challenging the Data holder to prove
 to the smart contract that it is storing the agreed upon data, it sends
-a test question to the smart contract in a form of requested data block
-number. In response, the Data holder sends the requested block to the
+a test to the smart contract in a form of requested data block number.
+In response, the Data holder sends the requested block to the
 smart contract. Data creator then sends the Merkle proof for the
 requested data block and the smart contract calculates if the hash of
 requested block fits the proof.
@@ -240,8 +227,16 @@ is transferred to the Data holder. In case that it is proven that DH
 does not have the original data anymore, the smart contract will
 initiate the procedure of DH replacement.
 
+The resolution of the litigation mechanism involves the replacement of
+the successfully litigated DH node by the Hydra protocol (detailed explanation
+coming soon).
+
+The litigation mechanisms are gradually being introduced in the OriginTrail
+Vostok mainnet and testnet. More information will be provided as the
+updates occur.
+
 Proving mechanism
-~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~
 
 The Merkle tree for data blocks *<B1, B2, … , Bn>* is a balanced binary
 hash tree where each of internal node is calculated as a SHA3 hash of
@@ -261,29 +256,29 @@ The diagram of the proving mechanism is shown on Figure 2.
    :target: https://raw.githubusercontent.com/OriginTrail/ReadTheDocs/master/source/
    :width: 600px
 
-Figure 2. Merkle proof diagram
+   Figure 2. Merkle proof diagram
 
 Querying data
--------------
+---------------
 
 Data consumer broadcasts a query for the data it needs through its
 associated node. Any DH that stores the data can reply to the broadcast.
-The data consumer then selects a DH by his own criteria, creates an
-escrow contract and deploys tokens for payment. The DH sends the
-encrypted data to the Data consumer, and the Data consumer randomly
-selects one data block to send it to the escrow contract together with
-the block number. After sending, the DH needs to reply with the
+The data consumer then selects a DH by his own criteria, and either gets the
+data directly via the DH read API (if the DH node allows it), or creates an
+escrow contract for reimbursed read and deploys tokens for payment. The DH
+node then sends the encrypted data to the Data consumer, and the Data consumer
+randomly selects one data block to send it to the escrow contract together with
+the block number. After sending, the DH node needs to reply with the
 unencrypted block, the key that was used for encryption and the Merkle
-path proof for proving that block is valid. If everything is valid,
-tokens are transferred to the DH node and the Data consumer can take the
+path proof for proving that block is valid. If the whole process is valid,
+the tokens are transferred to the DH node and the Data consumer can take the
 key for unlocking data.
 
 Conclusion and further research
--------------------------------
+----------------------------------
 
-This document represents the first version of the incentive mechanism
-and is intended to illustrate network mechanics. The focus of the
-upcoming research in the incentive model will be on simulating the
-activities in the network based on a larger scale tests in real network
-conditions. We invite the community to provide opinions, ideas and
-feedback to further improve the model and document.
+This document is under constant improvement and is intended to illustrate network
+mechanics. The focus of the upcoming research in the incentive model will be on
+simulating the activities in the network based on a larger scale tests in real network
+conditions. We invite the community to provide opinions, ideas and feedback to further
+improve the model and document.
