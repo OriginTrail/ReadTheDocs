@@ -41,7 +41,7 @@ It distinguishes two different types of keys in the identity contract:
 
 This approach is taken as a convenience measure to provide for flexibility with key management and to minimize the risk of loosing funds in case of the operational key stored on the node somehow gets compromised. It is the node holders responsibility to keep both their node and wallet safe.
 
-**Note:** *This system is supported from version v2.0.38. Previously the OT node supported only one wallet which had the role of both the operational wallet and the management wallet. If you have installed a mainnet node before version 2.0.38, after the update your node identity will have the same key assigned to both your operational and management wallet. In order to change the your management wallet to the operational wallet you will need to execute the key management functions on your identity smart contract.*
+**Note:** *This system is supported from version v2.0.39. Previously the OT node supported only one wallet which had the role of both the operational wallet and the management wallet. If you have installed a mainnet node before version 2.0.39, after the update your node identity will have the same key assigned to both your operational and management wallet. In order to change the your management wallet to the operational wallet you will need to execute the key management functions on your identity smart contract.*
 
 The exact steps are:
 
@@ -51,7 +51,7 @@ The exact steps are:
 4. Once this is complete, stop your node and open the config file and input the management wallet address in the field “**management_wallet**”. Please make sure you enter the correct wallet address
 5. Once all these steps are complete, restart your node. Once the node starts it will check the management_wallets permission and if valid, the update of the node will be complete.
 
-To easily perform the operations above, a convenient UI is available at this `link`_.
+**To make it easier to interact with the node ERC725 identity, to deposit and withdraw tokens, we have provided a convenient UI at this** `link`_.
 
 If you want to execute the smart contract functions manually, here's a `tutorial`_ on how to call a smart contract function through MyEtherWallet.
 
