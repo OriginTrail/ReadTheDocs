@@ -36,14 +36,12 @@ keys and other smart contracts and it's contracts are deployed on Ethereum block
 The OriginTrail node identity is compatible with the ERC725 standard and utilizes it for key management.
 It distinguishes two different types of keys in the identity contract:
 
-- the operational key (wallet), whose private key is stored on the node itself and is used to perform a multitude of operations in the ODN (signing, execution, etc)
-- the management key (wallet), whose privet key is NOT stored on the node and is used to deal with funds (TRAC rewards) and to manage the keys associated with the ERC725 identity.
+- the operational key (wallet), whose private key is stored on the node itself and is used to perform a multitude of operations in the ODN (signing, execution, etc). It requires a small balance of ETH in order to be able to publish transactions to the blockchain, and it can be filled periodically. No TRAC tokens are required for this wallet
+- the management key (wallet), whose private key is NOT stored on the node and is used to deal with the funds (TRAC rewards) and to manage the keys associated with the ERC725 identity. The management wallet can be any ERC20 supporting wallet (Trezor, Ledger, Metamask etc).
 
-This approach is taken as a convenience measure to provide for flexibility with key management and to minimize the risk of loosing funds if the operational key stored on the node gets compromised.
+This approach is taken as a convenience measure to provide for flexibility with key management and to minimize the risk of loosing funds in case of the operational key stored on the node somehow gets compromised. It is the node holders responsibility to keep both their node and wallet safe.
 
-The management wallet can be any ERC20 supporting wallet (Trezor, Ledger, Metamask etc). It is the node holders responsibility to keep both their node and wallet safe.
-
-**Note:** *This system is supported from version v2.0.35. Previously the OT node supported only one wallet which had the role of both the operational wallet and the management wallet. If you have installed a mainnet node before version 2.0.35, after the update your node identity will have the same key assigned to both your operational and management wallet. In order to change the your management wallet to the operational wallet you will need to execute the key management functions on your identity smart contract.*
+**Note:** *This system is supported from version v2.0.38. Previously the OT node supported only one wallet which had the role of both the operational wallet and the management wallet. If you have installed a mainnet node before version 2.0.38, after the update your node identity will have the same key assigned to both your operational and management wallet. In order to change the your management wallet to the operational wallet you will need to execute the key management functions on your identity smart contract.*
 
 The exact steps are:
 
@@ -53,8 +51,9 @@ The exact steps are:
 4. Once this is complete, stop your node and open the config file and input the management wallet address in the field “**management_wallet**”. Please make sure you enter the correct wallet address
 5. Once all these steps are complete, restart your node. Once the node starts it will check the management_wallets permission and if valid, the update of the node will be complete.
 
+To easily perform the operations above, a convenient UI is available at this `link`_.
 
-If you are unfamiliar with executing smart contract functions, here's a `tutorial`_ on how to call a smart contract function through MyEtherWallet.
+If you want to execute the smart contract functions manually, here's a `tutorial`_ on how to call a smart contract function through MyEtherWallet.
 
 How do I obtain my current ERC725 identity?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -151,10 +150,13 @@ you need to perform two function calls:
 This two step process ensures that your node gracefully takes care of the token withdrawal on its network profile by properly adapting in the withdrawal period to responding to new agreement offers.
 The withdrawal period is currently set to 5 minutes.
 
-If you are unfamiliar with executing smart contract functions, here's a `tutorial`_ on how to call a smart contract function through MyEtherWallet.
+**To make it easier to interact with the node ERC725 identity, to deposit and withdraw tokens, we have provided a convenient UI at this** `link`_.
+
+If you want to execute the smart contract functions manually, here's a `tutorial`_ on how to call a smart contract function through MyEtherWallet.
 
 
-.. _tutorial: https://knowledge-base.origintrail.io/
+.. _link: https://node-profile.origintrail.io/
+.. _tutorial: https://knowledge-base.origintrail.io/identity-configuration/how-to-manually-call-a-smart-contract-function-through-myetherwallet-example-of-token-withdrawal
 .. _Instructions: https://knowledge-base.origintrail.io/
 .. _here: http://github.com/OriginTrail/ot-yimishiji-pilot/wiki/Usage
 .. _video: https://youtu.be/1UaB8OG_lgw
