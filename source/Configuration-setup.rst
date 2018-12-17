@@ -45,8 +45,8 @@ We create the **.origintrail_noderc** file with following content:
 .. code:: json
 
     {
-        "node_wallet": "your wallet address here",
-        "node_private_key": "your wallet's private key here",
+        "node_wallet": "your operational wallet address here",
+        "node_private_key": "your operational wallet's private key here",
         "management_wallet": "your management wallet public key here",
         "network": {
             "hostname": "your external IP or domain name here",
@@ -54,9 +54,9 @@ We create the **.origintrail_noderc** file with following content:
         }
     }
 
-*node_wallet* and *node_private_key* - operational wallet Ethereum wallet address and its private key.
+*node_wallet* and *node_private_key* - **operational wallet** Ethereum wallet address and its private key.
 
-*management_wallet* - the management wallet for your node (note: the Management wallet private key is NOT stored on the node)
+*management_wallet* - the **management wallet** for your node (note: the Management wallet private key is NOT stored on the node)
 
 *hostname* - the public network address or hostname that will be used in P2P communication with other
 nodes for node’s self identification.
