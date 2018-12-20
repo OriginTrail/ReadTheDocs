@@ -4,9 +4,9 @@ Identity Configuration
 =======================
 
 Each node in the OriginTrail network is assigned an identity that represents it on the network.
-For the nodes to be able to interact via the OriginTrail protocol, they need to poses TRAC tokens,
-as well as Ether assigned to their identity. TRAC tokens are tokens based on the ERC20 token standard,
-and can be handled by any ERC20 supporting Ethereum wallet.
+For the nodes to be able to interact via the OriginTrail protocol, they need to posess TRAC tokens,
+as well as Ether assigned to their identity. TRAC tokens are tokens based on the ERC-20 token standard,
+and can be handled by any ERC-20 supporting Ethereum wallet.
 
 To setup a node and it's identity on the OriginTrail mainnet, you will need TRAC and ETH.
 In case you want to test out the node and setup process, we suggest you do it on OriginTrail Testnet
@@ -23,21 +23,21 @@ Node network profile
 ~~~~~~~~~~~~~~~~~~~~~
 
 Each node on the OriginTrail network is represented by their profile, which contains information about node identification,
-profile and token balance. The node profile is a smart contract that consists of the nodes ERC725 identity,
+profile and token balance. The node profile is a smart contract that consists of the nodes ERC-725 identity,
 network identity and other operational information. This contract is also responsible for operating with tokens.
 
-ERC725 Identity
+ERC-725 Identity
 ~~~~~~~~~~~~~~~~
 
-ERC 725 is a proposed standard for blockchain-based identity authored by Fabian Vogelsteller,
-creator of the ERC 20 token standard and Web3.js. ERC 725 describes proxy smart contracts that can be controlled by multiple
+ERC-725 is a proposed standard for blockchain-based identity authored by Fabian Vogelsteller,
+creator of the ERC-20 token standard and Web3.js. ERC-725 describes proxy smart contracts that can be controlled by multiple
 keys and other smart contracts and it's contracts are deployed on Ethereum blockchain.
 
-The OriginTrail node identity is compatible with the ERC725 standard and utilizes it for key management.
+The OriginTrail node identity is compatible with the ERC-725 standard and utilizes it for key management.
 It distinguishes two different types of keys in the identity contract:
 
 - the **operational key (wallet)**, whose private key is stored on the node itself and is used to perform a multitude of operations in the ODN (signing, execution, etc). It requires a small balance of ETH in order to be able to publish transactions to the blockchain, and it can be filled periodically. No TRAC tokens are required for this wallet
-- the **management key (wallet)**, whose private key is NOT stored on the node and is used to deal with the funds (TRAC rewards) and to manage the keys associated with the ERC725 identity. The management wallet can be any ERC20 supporting wallet (Trezor, Ledger, MetaMask etc).
+- the **management key (wallet)**, whose private key is NOT stored on the node and is used to deal with the funds (TRAC rewards) and to manage the keys associated with the ERC-725 identity. The management wallet can be any ERC-20 supporting wallet (Trezor, Ledger, MetaMask etc).
 
 This approach is taken as a convenience measure to provide for flexibility with key management and to minimize the risk of loosing funds in case of the operational key stored on the node somehow gets compromised. It is the node holders responsibility to keep both their node and wallet safe.
 
@@ -47,20 +47,20 @@ This approach is taken as a convenience measure to provide for flexibility with 
 
 The exact steps are:
 
-1. add a new management key with your old operational wallet by calling the addKey function in your ERC725 identity contract, with purposes [1,2,3,4].
-2. remove the operational wallet from the ERC725 identity contract by calling the removeKey function with your either your new management key or old operational wallet (the one being removed)
-3. add a new operational key to the ERC725 contract by calling addKey with purposes [2,4]
-4. Once this is complete, stop your node and open the config file and input the management wallet address in the field “**management_wallet**”. Please make sure you enter the correct wallet address
+1. Add a new management key with your old operational wallet by calling the addKey function in your ERC-725 identity contract, with purposes [1,2,3,4].
+2. Remove the operational wallet from the ERC-725 identity contract by calling the removeKey function with your either your new management key or old operational wallet (the one being removed).
+3. Add a new operational key to the ERC-725 contract by calling addKey with purposes [2,4].
+4. Once this is complete, stop your node and open the config file and input the management wallet address in the field “**management_wallet**”. Please make sure you enter the correct wallet address.
 5. Once all these steps are complete, restart your node. Once the node starts it will check the management_wallets permission and if valid, the update of the node will be complete.
 
-**To make it easier to interact with the node ERC725 identity, to deposit and withdraw tokens, we have provided a convenient UI at this** `link`_.
+**To make it easier to interact with the node ERC-725 identity, to deposit and withdraw tokens, we have provided a convenient UI at this** `link`_.
 
 If you want to execute the smart contract functions manually, here's a `tutorial`_ on how to call a smart contract function through MyEtherWallet.
 
-How do I obtain my current ERC725 identity?
+How do I obtain my current ERC-725 identity?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-If you have installed a node, the easiest way to find value of your ERC725 identity at this moment is to look for it in the node’s log.
+If you have installed a node, the easiest way to find value of your ERC-725 identity at this moment is to look for it in the node’s log.
 
 .. code:: bash
 
@@ -69,7 +69,7 @@ If you have installed a node, the easiest way to find value of your ERC725 ident
     Identity is 0x99c67054a8c7b7fa62243f0446eacd80c6ff0aff.
 
 
-The last value (in above case **0x99c67054a8c7b7fa62243f0446eacd80c6ff0aff**) represents the ERC725 identity.
+The last value (in above case **0x99c67054a8c7b7fa62243f0446eacd80c6ff0aff**) represents the ERC-725 identity.
 Alternatively, you can copy it from node’s container
 
 .. code:: bash
@@ -85,7 +85,7 @@ For manual installation file can be found at **~/.origintrail_noderc/producion**
 Network identity
 ~~~~~~~~~~~~~~~~~
 
-Apart from the ERC725 identity the node posesses the network identity as well.
+Apart from the ERC-725 identity the node posesses the network identity as well.
 To find out your nodes network identity, simply find a log line similar to this:
 
 .. code:: bash
@@ -112,13 +112,13 @@ Identity.json contains atomic information about the node identity - the identity
 **Important note:** *If you wish to run an identical node on another machine, then in addition to backing up you node operational private key, you should back up erc725_identity.json and identity.json files. There will be a separate article on how to start node with previously backed up identities. For now, be aware if you start a node on a different machine with providing only the operational private key, the node will create completely new identities, and you will end up having different node on the network.*
 
 Setting up a node with predefined identities
-Let’s say user already have network identity file and ERC725 identity file in home dir.
+Let’s say user already have network identity file and ERC-725 identity file in home dir.
 
-Let's say user already have network identity file and ERC725 identity file in home dir.
+Let's say user already have network identity file and ERC-725 identity file in home dir.
 
 - .origintrail_noderc - node configuration.
 - .identity.json - network identity.
-- .erc725_identity.json - ERC 725 idenity.
+- .erc725_identity.json - ERC-725 idenity.
 
 ::
 
@@ -143,11 +143,11 @@ fulfilled (the agreement time has elapsed and your node has kept the data for th
 The token withdrawal process is a two step procedure. To withdraw the tokens from the Profile smart contract to your management node wallet,
 you need to perform two function calls:
 
-- **startTokenWithdrawal**, to initiate the withdrawal process by providing your ERC725 identity address and the amount you want to withdraw
+- **startTokenWithdrawal**, to initiate the withdrawal process by providing your ERC-725 identity address and the amount you want to withdraw
 
-- **withdrawTokens**, to complete the withdrawal process by providing your ERC725 identity.
+- **withdrawTokens**, to complete the withdrawal process by providing your ERC-725 identity.
 
-- **Note:** *both function call transactions need to be executed with your ERC725 management wallet, otherwise they will fail.*
+- **Note:** *both function call transactions need to be executed with your ERC-725 management wallet, otherwise they will fail.*
 
 This two step process ensures that your node gracefully takes care of the token withdrawal on its network profile by properly adapting in the withdrawal period to responding to new agreement offers.
 The withdrawal period is currently set to 5 minutes.
