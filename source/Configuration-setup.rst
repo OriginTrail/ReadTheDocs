@@ -45,6 +45,9 @@ We create the **.origintrail_noderc** file with following content:
         "network": {
             "hostname": "your external IP or domain name here",
             "remoteWhitelist": [ "IP or host of the machine that is requesting the import", "127.0.0.1"]
+        },
+        "blockchain": {
+            "rpc_server_url": "url to your RPC server i.e. Infura or own Geth"
         }
     }
 
@@ -54,6 +57,8 @@ We create the **.origintrail_noderc** file with following content:
 nodes for node’s self identification.
 
 *remoteWhitelist* - list of IPs or hosts of the machines ("host.domain.com") that are allowed to communicate with REST API.
+
+*rpc_server_url* - an URL to RPC host server, usually Infura or own hosted Geth server. For more see :ref:`rpc-server-host`
 
 Configuration file
 ~~~~~~~~~~~~~~~~~~
