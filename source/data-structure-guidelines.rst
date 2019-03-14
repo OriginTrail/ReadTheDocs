@@ -4,8 +4,7 @@ Data Structure Guidelines
 =========================
 
 This page illustrates how to structure data for OriginTrail protocol to
-utilize data sharing and connectivity functionalities of the Alpha
-version of the OriginTrail Distributed Network (ODN) as part of :ref:`data-layer`. It corresponds to
+utilize data sharing and connectivity functionalities of the OriginTrail Distributed Network (ODN) as part of :ref:`data-layer`. It corresponds to
 attachments and examples that are provided with this file and the
 documentation on `GitHub`_. The defined structure was developed on the
 best practices observed over the last several years of experience in

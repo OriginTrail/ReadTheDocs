@@ -599,62 +599,42 @@ Note: In case of a non existant data_set_id the returned value will be 0.
 Profile Token Management
 ============================
 
-/api/deposit ``POST``
+/api/balance ``GET``
 -----------------------
 
-Deposit tokens from wallet to a profile.
+Provides information about available funds on node's profile and wallet.
 
-.. csv-table:: ``POST`` http://NODE_IP:PORT/api/deposit
+.. csv-table:: ``GET`` http://NODE_IP:PORT/api/balance
    :header: "Name", "Required", "Type", "Description"
    :widths: 20, 12, 20, 30
 
-   "query", "true", "JSON query", "Query object"
+   "humanReadable", "false", "boolean", "When set to true, response gets shown in human friendly format."
 
-The query must be in JSON format:
-
-::
-
-    { 
-        "trac_amount": 10
-    }
 
 Responses
 ~~~~~~~~~~~~~~
 
-``200`` Successfully deposited 10 TRAC to profile
+``200`` Successfully retrieved info about node's profile and wallet funds
 
-``400`` Bad request
-
-Note: value of 10 used above is just an example, can be any available amount from wallet
-
-
-/api/withdraw ``POST``
------------------------
-
-Withdraw tokens from profile to a wallet.
-
-.. csv-table:: ``POST`` http://NODE_IP:PORT/api/withdraw
-   :header: "Name", "Required", "Type", "Description"
-   :widths: 20, 12, 20, 30
-
-   "query", "true", "JSON query", "Query object"
-
-The query must be in JSON format:
+*Example:*
 
 ::
-
-    { 
-        "trac_amount": 10
+ 
+    {
+        "profile": {
+            "minimalStake": "1000",
+            "reserved": "0",
+            "staked": "1000"
+        },
+        "wallet": {
+            "address": "0x39591394670eF0A062DE2551EE58e584e8732c01",
+            "ethBalance": "99.627180745",
+            "tokenBalance": "4999999999000"
+        }
     }
 
-Responses
-~~~~~~~~~~~~~~
+``503`` Failed to get balance.
 
-``200`` Successfully withdrawn 10 TRAC to wallet your_wallet_id
-
-``400`` Bad request
-
-Note: value of 10 used above is just an example, can be any available amount from profile
 
 -------------------------------------------------------------------------------------------------------------
 

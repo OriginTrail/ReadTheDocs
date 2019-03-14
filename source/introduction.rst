@@ -7,11 +7,9 @@ Introduction
 **OriginTrail is the first Purpose-built Protocol for Supply Chains
 Based on Blockchain.**
 
-Please keep in mind that the protocol is currently in Testnet (Beta) stage.
-There are some limitations and work-in-progress.
-The **Main Network** is scheduled for Q1 2019. For further information about 
+At the current stage of development, the protocol is deployed in the Vostok mainnet stage. To test out the network, we encourage to use the OriginTrail Testnet which operates together with Ethereum Rinkeby testnet. For further information about
 our roadmap please see our `website`_ for more detailed development plans.
- 
+
 The documentation is aimed towards three groups of readers:
 
 -  Node runners
@@ -21,7 +19,7 @@ The documentation is aimed towards three groups of readers:
 Setting up the Node
 -------------------
 
-In order to be part of OriginTrail Decentralized Network (ODN), you need to install the Node. For detailed instructions on installation and configuration of an OriginTrail node visit following sections:
+In order to join the OriginTrail Decentralized Network (ODN), you need to install the OriginTrail network Node. For detailed instructions on installation and configuration of an OriginTrail node visit following sections:
 
 -  Start with :ref:`node-setup`
 -  Refer to :ref:`configuration-setup`
@@ -35,7 +33,7 @@ Service providers are companies that provide supply chain management solutions, 
 Development contribution
 ------------------------
 
-OriginTrail is an open source project. We happily invite you to join us in our mission of building the protocol to establish more transparency within global supply chains. 
+OriginTrail is an open source project. We happily invite you to join us in our mission of building the protocol to establish more transparency within global supply chains.
 
 For more information please take a look at :ref:`contribution-guidelines`
 

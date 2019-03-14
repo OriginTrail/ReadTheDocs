@@ -14,7 +14,7 @@ If you need help installing OT Node or troubleshooting your
 installation, you can either:
 
 - engage in our Discord community and post your question, 
-- contact us directly via email at support@origin-trail.com.
+- contact us directly via email at tech@origin-trail.com.
 
 Nodes can be installed in two ways:
 
@@ -40,8 +40,8 @@ System requirements
 -  at least 1 CPU
 -  at least 10GB storage space 
 -  Ethereum wallet (You can see wallet setup instructions here :ref:`wallet-setup`)
--  for testnet node: at least 1000 test TRAC tokens and at least 0.01 test Ethers 
--  for mainnet node: at least 1000 TRAC tokens and at least 0.01 Ethers
+-  for testnet node: at least 1000 test TRAC tokens and at least 0.05 test Ethers
+-  for mainnet node: at least 1000 TRAC tokens and at least 0.05 Ethers
 
 
 Installation via Docker Prerequisites
@@ -290,7 +290,41 @@ OT Node update
 -----------------
 
 OT Node has a built-in update functionality which will be triggered upon OT Node start.
-Update will be triggered based on a release version. After a successfull update OT Node will be rebooted automatically.
+Update will be triggered based on a release version.
+
+Docker
+~~~~~~~
+
+In order to trigger the update, you must restart the OT Node by using the following command:
+
+::
+
+        docker restart otnode
+
+After a successfull update OT Node will be rebooted automatically.
+
+Manual installation
+~~~~~~~~~~~~~~~~~~~~~
+Make sure that you are in the root directory of OT Node. The following commands will update the OT Node.
+
+::
+
+        git pull
+
+Database migrations need to be triggered manually.
+
+::
+
+        node_modules/.bin/sequelize --config=./config/sequelizeConfig.js db:migrate
+
+Database seed needs to be triggered manually as well.
+
+::
+
+        node_modules/.bin/sequelize --config=./config/sequelizeConfig.js db:seed
+
+
+
 
 
 .. _Issues: https://github.com/OriginTrail/ot-node/issues
