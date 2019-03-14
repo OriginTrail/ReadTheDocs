@@ -22,6 +22,7 @@ Welcome to OriginTrail documentation!
    node-setup
    wallet-setup
    Configuration-setup
+   rpc-server-host
    import-data
 
 .. toctree::
