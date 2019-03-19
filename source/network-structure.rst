@@ -204,36 +204,41 @@ available.
 Litigation procedure
 ~~~~~~~~~~~~~~~~~~~~~
 
-The litigation procedure involves a smart contract as a validator of the
-service. When the Data creator is challenging the Data holder to prove
-to the smart contract that it is storing the agreed upon data, it sends
-a test to the smart contract in a form of requested data block number.
-In response, the Data holder sends the requested block to the
-smart contract. Data creator then sends the Merkle proof for the
-requested data block and the smart contract calculates if the hash of
-requested block fits the proof.
+The litigation procedure involves a smart contract as a validator of the service.
+When the Data Creator challenges the Data Holder to prove to the smart contract that it is storing the agreed-upon data,
+it sends a test to the smart contract in the form of a requested data block number. In response,
+the Data Holder sends the requested block to the smart contract. The Data Creator then sends the Merkle proof for the requested data
+block and the smart contract checks if it (the provided Merkle proof), and requested data block, comply with the already agreed data root hash.
 
-If the proof is not valid for a data block hash there are two options -
-the first is that the Data holder is not storing agreed upon data, thus
-not being able to submit the correct answer, and the second is that the
-Data creator has created and submitted a false (unanswerable) test. The
-dilemma is solved by the Data creator sending the correct data block,
-that fits the already submitted Merkle proof and Merkle root hash to the
-smart contract. If the Data holder’s block is incorrect for the given
-proof than the Data holder loses it’s deployed stake and the stake is
-transferred to Data creator. In the other way, if Data creator is not
-able to prove it’s own proof than it has sent a false test and its stake
-is transferred to the Data holder. In case that it is proven that DH
-does not have the original data anymore, the smart contract will
-initiate the procedure of DH replacement.
+There are two possible situations in which the Data Holder will not be able to or cannot prove that the data it holds is there and unchanged.
+The first is when it, the Data Holder, is not available and thus unable to answer the challenge. In this case,
+the Data Creator will try to contact the Data Holder multiple times and, if that fails, will trigger litigation on the smart contract.
 
-The resolution of the litigation mechanism involves the replacement of
-the successfully litigated DH node by the Hydra protocol (detailed explanation
-coming soon).
+The other situation happens when the Data Holder answers the challenge with the wrong data.
+This can happen in two cases. The first occurs when the Data Holder does not store agreed-upon data and is then not able to submit the correct answer.
+The second case occurs when the Data Creator has created and submitted a false (unanswerable) test.
+This dilemma can be solved by the Data Creator sending the correct data block, which fits the already submitted Merkle proof and Merkle root hash
+to the smart contract. If the Data Holder’s block is incorrect for the given proof, than the Data Holder loses its deployed stake and the
+stake is transferred to the Data Creator. If it is proven that the Data Holder does not have the original data anymore, or it is not
+available to answer litigation, the smart contract will initiate the Data-Holder-replacement procedure.
 
-The litigation mechanisms are gradually being introduced in the OriginTrail
-Vostok mainnet and testnet. More information will be provided as the
-updates occur.
+If the Data Holder answers correctly, the Data Creator needs to wait for a certain amount of time in order to start a new litigation.
+In that case, the Data Holder is safe from answering multiple litigation requests in a short window of time.
+That time restriction is part of the offer parameters. The Data Holder is able to choose whether or not to bid for the offer,
+based on offer criteria.
+
+The resolution of the litigation mechanism involves the replacement of the successfully litigated Data Holder node by the Hydra protocol.
+
+The Hydra protocol is similar to the replication phase described earlier.
+Data Holders will be notified that the litigated node is being replaced.
+The Data Holders will then contact the Data Creator and take the replication. In that way,
+they will again participate in the algorithm that will choose which Data Holder will be paid for the offer and take the place of
+the litigated Data Holder. Upon successful replacement, the offer will be complete again.
+
+This is the first iteration of the litigation mechanism and the Hydra protocol.
+This solution is liable to change and it will be reiterated in the future.
+
+
 
 Proving mechanism
 ~~~~~~~~~~~~~~~~~~~
