@@ -18,11 +18,12 @@ Welcome to OriginTrail documentation!
 .. toctree::
    :maxdepth: 10
    :caption: NODE SETUP
-   
+
    node-setup
    wallet-setup
    Configuration-setup
    rpc-server-host
+   node-setup-ssl
    import-data
 
 .. toctree::
@@ -30,11 +31,11 @@ Welcome to OriginTrail documentation!
    :caption: API REFERENCE
 
    introduction-to-api
-   
+
 .. toctree::
    :maxdepth: 10
    :caption: IMPLEMENTATION
-   
+
    implementation
    data-structure-guidelines
    namespace
