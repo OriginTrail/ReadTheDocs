@@ -3,7 +3,7 @@
 Setting up SSL on a node
 ========================
 
-Before you begin setting up an SSL connection for a node's remote API, make sure you have prepared certificates and registered a domain. Once you have enabled a secure connection, it will be used for both API (default port 8900) and remote control (default port 3000). If you are using different ports than the defaults, make sure you map them correctly during container initialization.
+Before you begin setting up an SSL connection for a node's remote API, make sure you have prepared certificates and registered a domain. Once you have enabled a secure connection, it will be used for API (default port 8900), remote control (default port 3000) and P2P (default port 5278). If you are using different ports than the defaults, make sure you map them correctly during container initialization.
 
 Prerequirements
 ~~~~~~~~~~~~~~~
