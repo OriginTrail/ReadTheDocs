@@ -43,6 +43,7 @@ Parameters
    "importfile", "true", "file or text", "data that you want to import (ex. GS1 XML file)"
    "importtype", "true", "predetermined text", "GS1 or WOT. This describes data standard."
    "replicate", "false", "boolean", "Trigger automatic replication phase for this dataset"
+   "urgent", "false", "boolean", "Using current gasprice value regardless of config value"
   
 If successful returns data_set_id for this data import.
 
@@ -209,6 +210,7 @@ Parameters
    "holding_time_in_minutes", "false", "number", "Total time of the replication in minutes"
    "token_amount_per_holder", "false", "text", "Token amount to be paid to each DH in token's 10^-18 TRAC"
    "litigation_interval_in_minutes", "false", "text", "Minimum time between two litigation requests concerning one DH"
+   "urgent", "false", "boolean", "Using current gasprice value regardless of config value"
 
    
    
