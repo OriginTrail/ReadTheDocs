@@ -324,6 +324,13 @@ Introduction
 
 The upcoming version of the OriginTrail node (v4 - Freedom-Gemini release) will entail a new version of the protocol data layer with an updated API based on the usage experience of the ODN mainnet. The purpose of this document is to present the design of the next version of the node Data layer API in detail and attract community improvement proposals, feedback and any additional productive ideas that might positively influence the design of the protocol and solutions built using it.
 
+Swagger link
+----------------
+
+`<https://app.swaggerhub.com/apis-docs/otteam3/data-layer-2-api/v1.0#/default/post_api__version__trail>`_
+
+
+
 The release of the v4 node is scheduled for Q4 2019.
 
 Important note on compatibility
