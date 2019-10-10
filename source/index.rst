@@ -46,6 +46,13 @@ Welcome to OriginTrail documentation!
 
       contribution-guidelines
 
+.. toctree::
+      :maxdepth: 10
+      :caption: UPCOMING RELEASE / v4.0 Freedom
+
+      freedom-fourzero
+
+
 
 Indices and tables
 =======================
