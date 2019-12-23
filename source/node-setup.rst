@@ -40,8 +40,8 @@ System requirements
 -  at least 1 CPU
 -  at least 10GB storage space 
 -  Ethereum wallet (You can see wallet setup instructions here :ref:`wallet-setup`)
--  for testnet node: at least 1000 test TRAC tokens and at least 0.05 test Ethers
--  for mainnet node: at least 1000 TRAC tokens and at least 0.05 Ethers
+-  for testnet node: at least 3000 test TRAC tokens and at least 0.05 test Ethers
+-  for mainnet node: at least 3000 TRAC tokens and at least 0.05 Ethers
 
 
 Installation via Docker Prerequisites
@@ -88,7 +88,7 @@ Let’s just point Docker to the right image and configuration file with the fol
 
 .. code:: bash
 
-    sudo docker run -i --log-driver json-file --log-opt max-size=1g --name=otnode -p 8900:8900 -p 5278:5278 -p 3000:3000 -v ~/.origintrail_noderc:/ot-node/.origintrail_noderc quay.io/origintrail/otnode:master
+    sudo docker run -i --log-driver json-file --log-opt max-size=1g --name=otnode -p 8900:8900 -p 5278:5278 -p 3000:3000 -v ~/.origintrail_noderc:/ot-node/.origintrail_noderc quay.io/origintrail/otnode:release_testnet
 
 NOTE: In this example, our configuration file .origintrail_noderc is placed into the home folder of the current user (ie. /home/ubuntu).
 You should point to the path where you created .origintrail_noderc on your file system.
@@ -100,7 +100,7 @@ Let’s just point Docker to the right image and configuration file with the fol
 
 .. code:: bash
 
-    sudo docker run -i --log-driver json-file --log-opt max-size=1g --name=otnode -p 8900:8900 -p 5278:5278 -p 3000:3000 -v ~/.origintrail_noderc:/ot-node/.origintrail_noderc quay.io/origintrail/otnode-mariner:release_mariner
+    sudo docker run -i --log-driver json-file --log-opt max-size=1g --name=otnode -p 8900:8900 -p 5278:5278 -p 3000:3000 -v ~/.origintrail_noderc:/ot-node/.origintrail_noderc quay.io/origintrail/otnode:release_mainnet
 
 NOTE: In this example, our configuration file .origintrail_noderc is placed into the home folder of the current user (ie. /home/ubuntu).
 You should point to the path where you created .origintrail_noderc on your file system.
@@ -193,17 +193,17 @@ Ubuntu 16.04
 
 .. code:: bash
 
-    curl -OL https://download.arangodb.com/arangodb33/xUbuntu_16.04/Release.key
+    curl -OL https://download.arangodb.com/arangodb35/DEBIAN/Release.key
     apt-key add - < Release.key
-    echo 'deb https://download.arangodb.com/arangodb33/xUbuntu_16.04/ /' | tee /etc/apt/sources.list.d/arangodb.list
+    echo 'deb https://download.arangodb.com/arangodb35/DEBIAN/ /' | tee /etc/apt/sources.list.d/arangodb.list
     apt-get install apt-transport-https -y
     apt-get update -y
-    echo arangodb3 arangodb3/backup boolean false | debconf-set-selections
-    echo arangodb3 arangodb3/upgrade boolean true | debconf-set-selections
-    echo arangodb3 arangodb3/storage_engine select mmfiles | debconf-set-selections
     echo arangodb3 arangodb3/password password root | debconf-set-selections
     echo arangodb3 arangodb3/password_again password root | debconf-set-selections
-    apt-get install arangodb3=3.3.12 -y
+    echo arangodb3 arangodb3/upgrade boolean false | debconf-set-selections
+    echo arangodb3 arangodb3/storage_engine select auto | debconf-set-selections
+    apt-get install arangodb3=3.5.3-1 -y --allow-unauthenticated
+    sed -i 's/authentication = true/authentication = false/g' /etc/arangodb3/arangod.conf
 
 When asked, enter the password for root user.
 
@@ -232,11 +232,11 @@ Clone the repository
 in the root folder of a project (ot-node), create .env file.
 For manually running a testnet node, add follwoing variable in .env file:
 
-NODE_ENV=production
+NODE_ENV=testnet
 
 or for manually running a mainnet node, 
 
-NODE_ENV=mariner
+NODE_ENV=mainnet
 
 Before running a node make sure you configure it properly first. You can proceed to node :ref:`Configuration-setup` page.
 
