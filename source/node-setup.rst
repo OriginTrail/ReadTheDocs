@@ -114,7 +114,7 @@ Let’s just point Docker to the right image and configuration file with the fol
 
 .. code:: bash
 
-    sudo docker run -i --log-driver json-file --log-opt max-size=1g --name=otnode -p 8900:8900 -p 5278:5278 -p 3000:3000 -v ~/.origintrail_noderc:/ot-node/.origintrail_noderc quay.io/origintrail/otnode-mariner:release_mainnet
+    sudo docker run -i --log-driver json-file --log-opt max-size=1g --name=otnode -p 8900:8900 -p 5278:5278 -p 3000:3000 -v ~/.origintrail_noderc:/ot-node/.origintrail_noderc quay.io/origintrail/otnode:release_mainnet
 
 NOTE: In this example, our configuration file .origintrail_noderc is placed into the home folder of the current user (ie. /home/ubuntu).
 You should point to the path where you created .origintrail_noderc on your file system.
