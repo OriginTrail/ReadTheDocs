@@ -41,7 +41,7 @@ It distinguishes two different types of keys in the identity contract:
 
 This approach is taken as a convenience measure to provide for flexibility with key management and to minimize the risk of loosing funds in case of the operational key stored on the node somehow gets compromised. It is the node holders responsibility to keep both their node and wallet safe.
 
-**NOTE:** *If you are setting up your node for the first time, make sure that your operational wallet has at least 1000 TRAC and 0.05 ETH tokens.*
+**NOTE:** *If you are setting up your node for the first time, make sure that your operational wallet has at least 3000 TRAC and 0.05 ETH tokens.*
 
 **Note:** *This system is supported from version 2.0.44. Previously the OT node supported only one wallet which had the role of both the operational wallet and the management wallet. If you have installed a mainnet node before version 2.0.44, after the update your node identity will have the same key assigned to both your operational and management wallet. In order to change the your management wallet to the operational wallet you will need to execute the key management functions on your identity smart contract.*
 
@@ -80,7 +80,7 @@ Alternatively, you can copy it from node’s container
 
 one of the files here should be erc725_identity.json, whose value should exactly match value shown in the log line.
 
-For manual installation file can be found at **~/.origintrail_noderc/producion** for testnet or **~/.origintrail_noderc/mariner** for mainnet.
+For manual installation file can be found at **~/.origintrail_noderc/testnet** for testnet or **~/.origintrail_noderc/mainnet** for mainnet.
 
 Network identity
 ~~~~~~~~~~~~~~~~~
@@ -103,7 +103,7 @@ Alternatively, you can copy it from node’s container
 
     docker cp otnode:/ot-node/data/identity.json ~
 
-For manual installation file can be found at **~/.origintrail_noderc/producion** for testnet or **~/.origintrail_noderc/mariner** for mainnet.
+For manual installation file can be found at **~/.origintrail_noderc/testnet** for testnet or **~/.origintrail_noderc/mainnet** for mainnet.
 
 Some users might notice that in data folder there is also a file nameed identity.json,
 and that value stored in this file is different from the nodes identity value from logs.
@@ -126,10 +126,10 @@ Let's say user already have network identity file and ERC725 identity file in ho
         -v ~/.origintrail_noderc:/ot-node/.origintrail_noderc
         -v ~/.identity.json:/ot-node/data/identity.json
         -v ~/.erc725_identity.json:/ot-node/data/erc725_identity.json
-        quay.io/origintrail/otnode-mariner:release_mariner
+        quay.io/origintrail/otnode:release_mainnet
 
 Please note this example is for mainnet.
-For testnet use **origintrail/ot-node** instead **quay.io/origintrail/otnode-mariner:release_mariner**
+For testnet use **origintrail/otnode:release_testnet** instead **quay.io/origintrail/otnode:release_mainnet**
 
 
 

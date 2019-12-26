@@ -9,7 +9,7 @@ Pre-requirements
 There's a minimum set of config parameters that need to be provided in order to run node, without
 which the node will refuse to start.
 
-- Ethereum Wallet: you must own a valid Ethereum wallet with at least 1000 TRAC tokens and at least 0.05 Ethers. See :ref:`wallet-setup` on how to obtain it.
+- Ethereum Wallet: you must own a valid Ethereum wallet with at least 3000 TRAC tokens and at least 0.05 Ethers. See :ref:`wallet-setup` on how to obtain it.
 - A public IP or open communication: It is required to have a public IP address, domain name or open network communication with internet.
 
 Open Ports
