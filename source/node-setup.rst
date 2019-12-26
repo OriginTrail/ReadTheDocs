@@ -84,14 +84,28 @@ Before running a node make sure you configure it properly first. You can proceed
 Run a node on the TESTNET
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+At this point we have two versions of test networks available
+
+- **[v4 - Freedom-Gemini]** which runs the latest node version.
+- **[LEGACY v3 - Freedom]** which is the older version of Testnet which remained active but will not be maintained by the core development team anymore.
+
 Let’s just point Docker to the right image and configuration file with the following command:
+
+NOTE: *Please make sure that your ".origintrail_noderc" file is ready before running the following commands. In this example, our configuration file .origintrail_noderc is placed into the home folder of the current user (ie. /home/ubuntu).
+You should point to the path where you created .origintrail_noderc on your file system.*
+
+**v4 Freedom-Gemini:**
+
+.. code:: bash
+
+    sudo docker run -i --log-driver json-file --log-opt max-size=1g --name=otnode -p 8900:8900 -p 5278:5278 -p 3000:3000 -v ~/.origintrail_noderc:/ot-node/.origintrail_noderc quay.io/origintrail/otnode:release_testnet
+
+
+**v3 Freedom:**
 
 .. code:: bash
 
     sudo docker run -i --log-driver json-file --log-opt max-size=1g --name=otnode -p 8900:8900 -p 5278:5278 -p 3000:3000 -v ~/.origintrail_noderc:/ot-node/.origintrail_noderc quay.io/origintrail/otnode:master
-
-NOTE: In this example, our configuration file .origintrail_noderc is placed into the home folder of the current user (ie. /home/ubuntu).
-You should point to the path where you created .origintrail_noderc on your file system.
 
 
 Run a node on the MAINNET
@@ -100,7 +114,7 @@ Let’s just point Docker to the right image and configuration file with the fol
 
 .. code:: bash
 
-    sudo docker run -i --log-driver json-file --log-opt max-size=1g --name=otnode -p 8900:8900 -p 5278:5278 -p 3000:3000 -v ~/.origintrail_noderc:/ot-node/.origintrail_noderc quay.io/origintrail/otnode-mariner:release_mariner
+   sudo docker run -i --log-driver json-file --log-opt max-size=1g --name=otnode -p 8900:8900 -p 5278:5278 -p 3000:3000 -v ~/.origintrail_noderc:/ot-node/.origintrail_noderc quay.io/origintrail/otnode-mariner:release_mainnet
 
 NOTE: In this example, our configuration file .origintrail_noderc is placed into the home folder of the current user (ie. /home/ubuntu).
 You should point to the path where you created .origintrail_noderc on your file system.

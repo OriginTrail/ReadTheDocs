@@ -45,16 +45,27 @@ We create the **.origintrail_noderc** file with following content:
 .. code:: json
 
     {
-        "node_wallet": "your operational wallet address here",
-        "node_private_key": "your operational wallet's private key here",
+
+        "node_wallet": "your wallet address here",
+
+        "node_private_key": "your wallet's private key here",
+
         "management_wallet": "your management wallet public key here",
+
         "network": {
+
             "hostname": "your external IP or domain name here",
+
             "remoteWhitelist": [ "IP or host of the machine that is requesting the import", "127.0.0.1"]
+
         },
+
         "blockchain": {
-            "rpc_server_url": "url to your RPC server i.e. Infura or own Geth"
+
+        "rpc_server_url": "url to your RPC server i.e. Infura or own Geth"
+
         }
+
     }
 
 *node_wallet* and *node_private_key* - **operational wallet** Ethereum wallet address and its private key.
