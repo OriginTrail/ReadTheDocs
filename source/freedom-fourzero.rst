@@ -1195,7 +1195,7 @@ Entity object vertices represent real world entities and events. Data stored in 
 
 *Example 1*. Structure of entity object vertex
 
-Datao bject vertices
+Data object vertices
 ^^^^^^^^^^^^^^^^^^^^^
 Data object vertices represent data about entity that is provided within certain dataset. New data objects, related to certain entity, are created for every dataset. Data stored in data objects contains all property data from graph object and graph object signature. In the future, data vertices could be stored in separate database, ex. MongoDB.
 
