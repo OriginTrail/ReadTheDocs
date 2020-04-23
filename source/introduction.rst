@@ -4,51 +4,93 @@ Company Website: `origintrail.io`_
 
 Introduction
 ============
-**OriginTrail is the first Purpose-built Protocol for Supply Chains
-Based on Blockchain.**
 
-At the current stage of development, the protocol is deployed in the Freedom-Gemini mainnet stage. To test out the network, we encourage to use the OriginTrail Testnet v4.0 which operates together with Ethereum Rinkeby testnet. For further information about
-our roadmap please see our `website`_ for more detailed development plans.
+What is OriginTrail
+------------
 
-OriginTrail is a neutral, open-source protocol built to establish high interoperability, interconnectivity and trust in data sharing between supply chain IT systems. It can be observed as a layer 2 data interoperability network which operates in conjunction with the L1 blockchain.
+OriginTrail is a purpose-built, open protocol for cross-organizational data sharing in supply chains, supported by blockchain.
 
-It is designed to take the load of storing and exchanging large datasets for supply chain applications off the L1 networks, thus lowering the cost (at the moment of writing this tutorial, storing 1kB of data on Ethereum mainnet would cost roughly $1) and enabling database-grade features for linked data in a decentralized manner. For this purpose, the OriginTrail protocol utilizes a specific data replication mechanism with the goal of building a privacy-first decentralized knowledge graph, effectively bypassing the constraints of underlying blockchain networks imposed by the nature of consensus mechanisms. The blockchain is therefore utilized for dataset fingerprinting and maintaining the necessary game-theoretical mechanisms within the OriginTrail Decentralized Network (ODN). Because of this design, OriginTrail is being used today in production with Ethereum at the current scale of roughly 15 TPS.
+ 
 
-To learn more about how OriginTrail operates, check out the OriginTrail technology page, ask questions in the community Discord group, check out the core development team’s blog and engage in the official project Github repository.
+The key issues OriginTrail tackles are: 
 
-The documentation is aimed towards three groups of readers:
+-  Fragmented and siloed data across supply chains
+-  Low data interoperability
+-  Preventing vendor lock-in
+-  Ensuring integrity of exchanged data
 
--  Node runners
--  Supply chain service providers
--  Software Developers
+ 
 
-Setting up the Node
--------------------
+The OriginTrail Ecosystem is built on 3 main pillars:
+ 
 
-In order to join the OriginTrail Decentralized Network (ODN), you need to install the OriginTrail network Node. For detailed instructions on installation and configuration of an OriginTrail node visit following sections:
+**Neutrality**\  — Being an open-source, decentralised system, based on open global standards, neutrality is crucial for the OriginTrail ecosystem as it prevents vendor lock-ins, ensures integrity, and effectively breaks data silos. Neutrality means adopting co-creation principles and working with other blockchain ecosystems and solutions builders even as they may be competing in the same market on the application level.
 
--  Start with :ref:`node-setup`
--  Refer to :ref:`configuration-setup`
--  Finally :ref:`import-data`.
+**Usability**\  — Both blockchain environments, as well as OriginTrail, are fundamental technologies. In order to ensure the onboarding of enterprises, there needs to be a great focus on enhancing the user experience, as solutions need to meet the expectations of rapid value generation.
 
-Service provider guidelines
-----------------------------
-Service providers are companies that provide supply chain management solutions, consulting or advisory services to help their clients improve efficiencies, enhance product and consumer safety and brand protection activities to name a few. Please visit :ref:`implementation` guidelines for more resources.
+**Inclusiveness**\  — Continuing to form partnerships with technological and business global leaders that can employ the OriginTrail ecosystem for their communities. Catering to the needs of leading global communities requires us to be making strides in designing technical infrastructure and business models that support the adoption of the OriginTrail in diverse business communities.
 
 
-Development contribution
-------------------------
-
-OriginTrail is an open source project. We happily invite you to join us in our mission of building the protocol to establish more transparency within global supply chains.
-
-For more information please take a look at :ref:`contribution-guidelines`
+OriginTrail Decentralized Network Overview
+------------------------------------------
 
 
-.. _origintrail.io: https://origintrail.io
-.. _website: https://origintrail.io/roadmap
-.. _wiki: http://github.com/OriginTrail/ot-yimishiji-pilot/wiki/Roadmap
-.. _Integration instructions: http://github.com/OriginTrail/ot-yimishiji-pilot/wiki/Integration-Instructions
-.. _configure your installation: http://github.com/OriginTrail/ot-yimishiji-pilot/wiki/Configuration
-.. _usage instructions: http://github.com/OriginTrail/ot-yimishiji-pilot/wiki/Usage
-.. _Data Structure Guidelines: http://github.com/OriginTrail/ot-yimishiji-pilot/wiki/Data-Structure-Guidelines
-.. _Contribution Guidelines: http://github.com/OriginTrail/ot-yimishiji-pilot/wiki/Contribution-Guidelines
+OriginTrail protocol is utilized within the permissionless OriginTrail Decentralized Network (ODN). The ODN as a network holds a growing Decentralized Knowledge Graph (DKG) with the following characteristics:
+
+ 
+
+-  **Linked data first structure**\  - the graph, enabling connections between data points from all published datasets on the network, conformant with Semantic Web technologies such as RDF and JSON-LD
+-  **Schema flexibility**\ , enabling the mapping of virtually any data model, preferably structured according to relevant standards (such as GS1 EPCIS and CBV) and recommendations (W3C Web of Things, Verifiable Credentials, PROV, etc.) for machine readability
+-  **Identity verification**\ , enabling the utilization of novel identity frameworks such as Self-sovereign identity, in conjunction with industry specific identity frameworks (such as GS1 GTIN, GIAI, GRAI and other identification schemes)
+-  **Efficient cryptographic integrity verification**\  of subgraphs, using associated dataset graph fingerprints, computed as a Merkle roots of the input datasets
+-  **Cryptographic connection entanglement**\ , allowing linking of data points only when specific cryptographic rules are satisfied
+-  **Trust minimization through decentralization -** utilizing a decentralized p2p overlay network for data exchange and the Ethereum blockchain in the consensus layer**
+
+
+Therefore the key development principles of OriginTrail ecosystem are:
+
+-  **Connection-first approach** - providing ways to connect the world's data into a global, decentralized knowledge graph
+-  **Technological neutrality**\  - avoiding technological lock-ins and striving towards agnosticism where possible
+-  **Decentralization**\  - designing, implementing and utilizing that are not based on trusted-third parties or centralized entities 
+-  **Privacy-by-Design approach**\ , according to the \ `7 Foundational principles <https://www.ipc.on.ca/wp-content/uploads/Resources/7foundationalprinciples.pdf>`__\  of Privacy by Design
+-  **Development transparency -** towards the OriginTrail Ecosystem community of developers, node holders and businesses
+-  **Open Source Development**\ , according to \ `Open Source Software <https://en.wikipedia.org/wiki/Open-source_model>`__\  principle
+
+
+Useful Links
+------------
+
+**Explore the OriginTrail ecosystem:**
+
+-  `OriginTrail website <https://origintrail.io/>`__
+-  `Trace Alliance <https://alliance.origintrail.io/>`__
+-  `Trace Labs - OriginTrail Core Developers <https://tracelabs.io/>`__
+-  `GitHub repository <https://github.com/origintrail>`__
+-  `OriginTrail Network Explorer <https://explorer.origintrail.io/>`__
+-  `Medium blog <https://medium.com/origintrail>`__
+-  `YouTube channel <https://www.youtube.com/c/OriginTrail>`__
+-  `Knowledge Base <https://knowledge-base.origintrail.io/>`__
+
+ 
+
+**Join the OriginTrail community:**
+
+-  `Discord server for node runners <https://discordapp.com/invite/FCgYk2S>`__
+-  `Telegram group <https://t.me/origintrail>`__
+-  `Reddit <https://www.reddit.com/r/OriginTrail/>`__
+
+ 
+
+**Follow the latest announcements:**
+
+-  `Twitter <https://twitter.com/origin_trail>`__
+-  `Facebook <https://www.facebook.com/origintrail/>`__
+-  `Telegram channel <https://t.me/origintrail_info>`__
+
+ 
+**Community-made resources:**
+
+-  `OT Hub - Insights into ODN <https://othub.origin-trail.network/dashboard>`__
+-  `OTBulkPayout - A script for bulk payouts of current jobs <https://github.com/Guinnessstache/OTBulkPayout/blob/master/README.md>`__
+-  `OriginTrail Node Watch - Telegram bot <https://github.com/bottomshorter/OriginTrail-Node-Watch>`__
+-  `OriginTrail Community websit <https://origintrail.community/>`__\ e

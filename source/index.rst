@@ -6,53 +6,46 @@
 Welcome to OriginTrail documentation!
 ==========================================================
 
+This document contains an overview of the ODN network structure, guides for installing and running an OriginTrail node, presents ODN functionalities and discusses supported data structuring on the network.
+
+Feel free to leave suggestions or feedback on the `github repository <https://github.com/OriginTrail/ReadTheDocs/issues/new>`__ for this documentation.
+
+Table of Contents
+=================
+
 
 .. toctree::
    :maxdepth: 10
-   :caption: GENERAL
+   :caption: General
 
    introduction
-   data-layer
-   network-structure
 
 .. toctree::
    :maxdepth: 10
-   :caption: NODE SETUP
+   :caption: ODN Functionalities
 
-   node-setup
-   wallet-setup
-   Configuration-setup
-   rpc-server-host
-   node-setup-ssl
-   import-data
+   ODN-Functionalities/dataset-operations
+   ODN-Functionalities/query-and-trail
 
 .. toctree::
    :maxdepth: 10
-   :caption: API REFERENCE
+   :caption: API Reference
 
    introduction-to-api
 
 .. toctree::
    :maxdepth: 10
-   :caption: IMPLEMENTATION
+   :caption: Implementation
 
    implementation
    data-structure-guidelines
    namespace
 
 .. toctree::
-      :maxdepth: 10
-      :caption: CONTRIBUTION GUIDELINES
+   :maxdepth: 10
+   :caption: Contribution Guidelines
 
       contribution-guidelines
-
-.. toctree::
-      :maxdepth: 10
-      :caption: UPCOMING RELEASE / v4.0 Freedom
-
-      freedom-fourzero
-
-
 
 Indices and tables
 =======================
