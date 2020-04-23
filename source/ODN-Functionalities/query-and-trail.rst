@@ -1,3 +1,5 @@
+.. _query-and-trail:
+
 Querying the data
 =================
 
