@@ -37,11 +37,19 @@ Table of Contents
 
 .. toctree::
    :maxdepth: 10
+   :caption: Running a node
+
+   Running-a-Node/getting-started
+   Running-a-Node/identity-management
+   Running-a-Node/backup-and-restore
+
+.. toctree::
+   :maxdepth: 10
    :caption: Implementation
 
-   implementation
-   data-structure-guidelines
-   namespace
+   Data-Structure/data-structure-guidelines
+   Data-Structure/ot-json
+   Data-Structure/xml-epcis-examples
 
 .. toctree::
    :maxdepth: 10
