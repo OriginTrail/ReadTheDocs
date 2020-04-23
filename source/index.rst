@@ -18,7 +18,7 @@ Table of Contents
    :maxdepth: 10
    :caption: General
 
-   introduction
+   General/introduction
 
 .. toctree::
    :maxdepth: 10
@@ -26,6 +26,8 @@ Table of Contents
 
    ODN-Functionalities/dataset-operations
    ODN-Functionalities/query-and-trail
+   ODN-Functionalities/connectors
+   ODN-Functionalities/permissioned-data
 
 .. toctree::
    :maxdepth: 10

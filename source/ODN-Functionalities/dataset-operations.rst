@@ -1,7 +1,7 @@
 Dataset operations
 ======================
 
-Import
+Importing datasets to the local node knowledge graph
 ------
 
 ODN supports a multitude of data models (i.e. supply chain standards such as G1 EPCIS and W3C Web of Things),
@@ -18,14 +18,13 @@ Swagger API import details are available on the following link:
 
 `https://app.swaggerhub.com/apis/otteam/ot-node-api/v2.0#/import <https://app.swaggerhub.com/apis/otteam/ot-node-api/v2.0#/import>`__
 
-Replication
+Replicating datasets across the ODN
 -----------
 
 In order to replicate the imported dataset on the network, trigger the replication process by calling the replicate API
 call. With this command, you will initiate an offer on the ODN and your node will start negotiating with other nodes on
 the replication procedure.If the replication fails to be completed for any reason, the data field will contain the
 error message, and the status field will be FAILED. Once when replication is completed,
-
 offer details are written on the blockchain.
 
 ------------
