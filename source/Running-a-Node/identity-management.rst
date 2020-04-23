@@ -38,22 +38,30 @@ ERC725 Identity value
 
 On an installed node the easiest way to find the ERC725 identity value is to look for it in the node log
 
-notify - Identity created for node ab2e1b1e520cac0d1321cd3760c2e7473970ec8a. Identity is 0x99c67054a8c7b7fa62243f0446eacd80c6ff0aff.
+    ``notify - Identity created for node ab2e1b1e520cac0d1321cd3760c2e7473970ec8a.``
+    ``Identity is 0x99c67054a8c7b7fa62243f0446eacd80c6ff0aff.``
 
 The last value (in above case 0x99c67054a8c7b7fa62243f0446eacd80c6ff0aff) represents the blockchain identity. Alternatively, it can be copied from node’s container
 
-# Copies file to HOME dir docker cp otnode:/ot-node/data/erc725\_identity.json ~
+
+.. code:: bash
+
+    # Copies file to HOME dir
+    docker cp otnode:/ot-node/data/erc725_identity.json ~
 
 Network Identity value
 ~~~~~~~~~~~~~~~~~~~~~~
 
 In order to find out the node's network identity, it can be found in the node startup log, looking similar to this:
 
-notify - My network identity: ab2e1b1e520cac0d1321cd3760c2e7473970ec8a
+    ``notify - My network identity: ab2e1b1e520cac0d1321cd3760c2e7473970ec8a``
 
 and this value ( in above example ab2e1b1e520cac0d1321cd3760c2e7473970ec8a) is the value of the network identity. Alternatively, it can be copied from the node’s container
 
-# Copies file to HOME dir docker cp otnode:/ot-node/data/identity.json ~
+.. code:: bash
+
+    # Copies file to HOME dir
+    docker cp otnode:/ot-node/data/identity.json ~
 
 Both the network and blockchain identities will be automatically generated when a node is started for the first time (if they were not pre generated), creating identity files in the configuration directory. These files enable the node to have the same identity every subsequent time it is ran.
 
@@ -66,20 +74,22 @@ If you wish to run an identical node on another machine, then in addition to bac
 
 Let’s say a user already has the network and ERC725 identity files in the home dir.
 
--  .origintrail\_noderc - node configuration
+-  ``.origintrail_noderc`` - node configuration
 
--  .identity.json - network identity
+-  ``.identity.json`` - network identity
 
--  .erc725\_identity.json - ERC725 identity
+-  ``.erc725_identity.json`` - ERC725 identity
 
-docker run -it --name=otnode -p 8900:8900 -p 5278:5278 -p 3000:3000 -v ~/.origintrail\_noderc:/ot-node/.origintrail\_noderc -v ~/.identity.json:/ot-node/data/identity.json -v ~/.erc725\_identity.json:/ot-node/data/erc725\_identity.json quay.io/origintrail/otnode:release\_mainnet
+.. code:: bash
 
-Please note this example is for mainnet. For testnet use origintrail/otnode:release\_testnet instead \ `quay.io/origintrail/otnode:release\_mainnet <http://quay.io/origintrail/otnode:release_mainnet>`__
+    docker run -it --name=otnode -p 8900:8900 -p 5278:5278 -p 3000:3000 -v ~/.origintrail_noderc:/ot-node/.origintrail_noderc -v ~/.identity.json:/ot-node/data/identity.json -v ~/.erc725_identity.json:/ot-node/data/erc725_identity.json quay.io/origintrail/otnode:release_mainnet
+
+Please note this example is for mainnet. For testnet use ``origintrail/otnode:release_testnet`` instead \ `quay.io/origintrail/otnode:release\_mainnet <http://quay.io/origintrail/otnode:release_mainnet>`__
 
 Identity management
 -------------------
 
-To make it easier to interact with your node blockchain profile (to deposit and withdraw tokens) and identity (to edit your operational or management keys), we have provided a convenient UI at this link. <link required for node profile>
+To make it easier to interact with your node blockchain profile (to deposit and withdraw tokens) and identity (to edit your operational or management keys), we have provided a convenient UI at `this link <https://node-profile.origintrail.io/>`__\ .
 
 Token management
 ~~~~~~~~~~~~~~~~
@@ -94,7 +104,7 @@ Withdrawing tokens
 
 Tokens which are not locked can be withdrawn to your management wallet. Be aware that withdrawal is a two step process, where the node requests to withdraw tokens and, after the withdrawal period, the tokens are transferred to the management wallet which executed the second step. This two step process ensures that your node gracefully adapts to new offers within the withdrawal period. The withdrawal period is currently set to 5 minutes.
 
-You can stake or withdraw tokens on the Node Profile interface. <link required for node profile>
+You can stake or withdraw tokens on the `Node Profile interface <https://node-profile.origintrail.io/>`__\ .
 
 Key (wallet) management
 ~~~~~~~~~~~~~~~~~~~~~~~

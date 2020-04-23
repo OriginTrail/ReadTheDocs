@@ -15,7 +15,7 @@ will contain an error message and the status field will have the value “FAILED
 
 The import API details are explained on the following link
 
-`https://app.swaggerhub.com/apis/otteam/ot-node-api/v2.0#/import <https://app.swaggerhub.com/apis/otteam/ot-node-api/v2.0#/import>`__
+`https://app.swaggerhub.com/apis-docs/otteam/ot-node-api/v2.0#/import <https://app.swaggerhub.com/apis-docs/otteam/ot-node-api/v2.0#/import>`__
 
 Supported standards
 ^^^^^^^^^^^^^^^^^^^
@@ -84,7 +84,7 @@ team are extending the support for multiple standards on an ongoing basis.
 
 The following API route returns a list of supported **standard ID**\ s:
 
-`https://app.swaggerhub.com/apis/otteam/ot-node-api/v2.0#/default/get\_standards <https://app.swaggerhub.com/apis/otteam/ot-node-api/v2.0#/default/get_standards>`__
+`https://app.swaggerhub.com/apis-docs/otteam/ot-node-api/v2.0#/default/get\_standards <https://app.swaggerhub.com/apis-docs/otteam/ot-node-api/v2.0#/default/get_standards>`__
 
 
 Replicating datasets across the ODN
@@ -100,7 +100,7 @@ the ODN offer details are written on the blockchain.
 
 The replication API details are explained on the following link
 
-`https://app.swaggerhub.com/apis/otteam/ot-node-api/v2.0#/replicate <https://app.swaggerhub.com/apis/otteam/ot-node-api/v2.0#/replicate>`__
+`https://app.swaggerhub.com/apis-docs/otteam/ot-node-api/v2.0#/replicate <https://app.swaggerhub.com/apis-docs/otteam/ot-node-api/v2.0#/replicate>`__
 
 Verification and signature checks
 ---------------------------------
@@ -119,4 +119,4 @@ root hash from the blockchain (published during the replication procedure). 
 The fingerprint API route returns the Merkle tree root hash from the blockchain of the dataset with the given
 ``dataset_id``\ . The fingerprint API details are explained on the following link
 
-`https://app.swaggerhub.com/apis/otteam/ot-node-api/v2.0#/info/get\_fingerprint\_\_id <https://app.swaggerhub.com/apis/otteam/ot-node-api/v2.0#/info/get_fingerprint__id_>`__
+`https://app.swaggerhub.com/apis-docs/otteam/ot-node-api/v2.0#/info/get\_fingerprint\_\_id <https://app.swaggerhub.com/apis-docs/otteam/ot-node-api/v2.0#/info/get_fingerprint__id_>`__

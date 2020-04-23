@@ -15,7 +15,9 @@ These identifiers are sent as an array of objects, where the ``path``  parameter
 (such as ean13, sgtin, sgln, or id for general identifier), ``value``  is the identifier value or an array of possible
 values, and ``opcode`` is either EQ or IN, depending on whether the queried object identifier needs to equal or belong to
 the given value parameter
-::
+
+.. code:: json
+
     {
       "query": [
         {
@@ -25,7 +27,7 @@ the given value parameter
         },
         {
           "path": "urn:epcglobal:cbv:mda#bestBeforeDate",
-          "value": ["20-09-2020",”21-09-2020”, “22-09-2020”],
+          "value": ["20-09-2020","21-09-2020", "22-09-2020"],
           "opcode": "IN"
         }
       ]
@@ -37,7 +39,7 @@ or exporting and viewing the dataset.
 
 The network query API details are explained on the following link
 
-`https://app.swaggerhub.com/apis/otteam/ot-node-api/v2.0#/network/post_network_query <https://app.swaggerhub.com/apis/otteam/ot-node-api/v2.0#/network/post_network_query>`__
+`https://app.swaggerhub.com/apis-docs/otteam/ot-node-api/v2.0#/network/post_network_query <https://app.swaggerhub.com/apis-docs/otteam/ot-node-api/v2.0#/network/post_network_query>`__
 
 Local Knowledge Graph querying - Graph Trail 
 ---------------------------------------------
@@ -50,7 +52,9 @@ Querying the local knowledge graph performs a graph traversal starting from a pa
 The result of the trail represents all objects found on the trail
 (the historical provenance trail spanning all datasets),
 along with an array that indicates which datasets those objects belong to.
-::
+
+.. code:: json
+
     {
       "identifier_types": [
         "ean13"
@@ -75,21 +79,24 @@ If the depth is set to 0 the traversal will return only the objects identified b
 Connection types
 ^^^^^^^^^^^^^^^^
 
-``connection_types``\  is an array which serves as a filter in the graph trail traversal operation.
+``connection_types`` is an array which serves as a filter in the graph trail traversal operation.
 When observing a vertex in the graph, only the vertices which are connected to the currently observed vertex by
-a relation type which is in the connection\_types array will be visited and included in the graph.
-    **Example**\ : vertex\_a is connected to vertex\_b by relation type rel\_type\_1, and vertex\_a is connected to
-    vertex\_c by relation type rel\_type\_2, if the connection\_types includes rel\_type\_1 but not rel\_type\_2,
-    vertex\_b will be included in the trail while vertex\_c will not be
+a relation type which is in the ``connection_types`` array will be visited and included in the graph.
 
-<mozda treba dodati sliku ovde>
+.. image:: connection-example1.png
+   :width: 600px
+
+**Example**\ : In the graph pictured above, if the ``connection_types`` contained ``rel_type_1`` and not ``rel_type_2``, a traversal starting
+from vertex **B** would return vertex **A** and would not return vertex **C**
 
 In order to avoid backtracking in the trail and attaching superfluous information, a vertex will not be visited if the
 relation types on the path to that vertex are the same two times in a row.
-    **Example**\ : vertex\_a is connected to vertex\_b by relation type rel\_type\_1, and vertex\_b is connected to
-    vertex\_c by relation type rel\_type\_1. If connection types array contains rel\_type\_1 then vertex\_b will be
-    included in the trail while vertex\_c will not be, because it is considered that vertex\_c requires backtracking
-    over rel\_type\_1.
+
+.. image:: connection-example2.png
+   :width: 600px
+
+**Example**\ : In the graph pictured above, if the ``connection_types`` contained ``rel_type_1``, a traversal starting
+from vertex **A** would return vertex **B** and would not return vertex **C**
 
 If the ``connection_types`` parameter is omitted, the entire graph is traversed (to the specified depth),
 without the backtracking prevention feature. It should be noted that the knowledge graph can be a highly dense graph,
@@ -99,5 +106,5 @@ and traversing without filters can return extremely large results and might caus
 
 The trail API details are explained on the following link
 
-`https://app.swaggerhub.com/apis/otteam/ot-node-api/v2.0#/trail <https://app.swaggerhub.com/apis/otteam/ot-node-api/v2.0#/trail>`__
+`https://app.swaggerhub.com/apis-docs/otteam/ot-node-api/v2.0#/trail <https://app.swaggerhub.com/apis-docs/otteam/ot-node-api/v2.0#/trail>`__
 

@@ -76,7 +76,7 @@ By default Docker container will use 8900, 5278 and 3000 ports. These can be map
 
 Please note: port 8900 is used for REST API access which is not available until OT node is fully started. This can be concluded after the following log message is displayed in the running node.
 
-info - OT Node started
+    ``info - OT Node started``
 
 Installation
 ++++++++++++
@@ -89,18 +89,22 @@ Run a node on the MAINNET
 
 Let’s just point Docker to the right image and configuration file with the following command:
 
-``sudo docker run -i --log-driver json-file --log-opt max-size=1g --name=otnode -p 8900:8900 -p 5278:5278 -p 3000:3000 -v ~/.origintrail\_noderc:/ot-node/.origintrail\_noderc quay.io/origintrail/otnode:release\_mainnet``
+.. code:: bash
 
-NOTE: Please make sure that your “.origintrail\_noderc” file is ready before running the following commands. In this example, our configuration file .origintrail\_noderc is placed into the home folder of the current user (ie. /home/ubuntu). You should point to the path where you created .origintrail\_noderc on your file system.
+    sudo docker run -i --log-driver json-file --log-opt max-size=1g --name=otnode -p 8900:8900 -p 5278:5278 -p 3000:3000 -v ~/.origintrail_noderc:/ot-node/.origintrail_noderc quay.io/origintrail/otnode:release_mainnet
+
+NOTE: Please make sure that your ``.origintrail_noderc`` file is ready before running the following commands. In this example, the configuration file ``.origintrail_noderc`` is placed into the home folder of the current user (ie. /home/ubuntu). You should point to the path where you created ``.origintrail_noderc`` on your file system.
 
 Run a node on the TESTNET
 +++++++++++++++++++++++++
 
 Let’s just point Docker to the right image and configuration file with the following command:
 
-``sudo docker run -i --log-driver json-file --log-opt max-size=1g --name=otnode -p 8900:8900 -p 5278:5278 -p 3000:3000 -v ~/.origintrail\_noderc:/ot-node/.origintrail\_noderc quay.io/origintrail/otnode:release\_testnet``
+.. code:: bash
 
-NOTE: Please make sure that your “.origintrail\_noderc” file is ready before running the following commands. In this example, our configuration file .origintrail\_noderc is placed into the home folder of the current user (ie. /home/ubuntu). You should point to the path where you created .origintrail\_noderc on your file system.
+    sudo docker run -i --log-driver json-file --log-opt max-size=1g --name=otnode -p 8900:8900 -p 5278:5278 -p 3000:3000 -v ~/.origintrail_noderc:/ot-node/.origintrail_noderc quay.io/origintrail/otnode:release_testnet
+
+NOTE: Please make sure that your ``.origintrail_noderc`` file is ready before running the following commands. In this example, the configuration file ``.origintrail_noderc`` is placed into the home folder of the current user (ie. /home/ubuntu). You should point to the path where you created ``.origintrail_noderc`` on your file system.
 
 Manual installation
 ~~~~~~~~~~~~~~~~~~~
@@ -113,49 +117,55 @@ NodeJS
 
 If you don’t have Node.js installed head to https://nodejs.org/en/ and install version 9.x.x.
 
-Note: Make sure you have the preciselly above specified version of Node.js installed. Some features will not work well on versions less or greater then 9.x.x.
+Note: Make sure you have the precisely above specified version of Node.js installed. Some features will not work well on versions less or greater then 9.x.x.
 
 Before starting, make sure your server is up-to-date. You can do this with the following commands:
+
 .. code:: bash
-curl -sL https://deb.nodesource.com/setup\_9.x \| sudo -E bash -
-sudo apt-get install -y nodejs
+
+    curl -sL https://deb.nodesource.com/setup\_9.x | sudo -E bash
+    sudo apt-get install -y nodejs
 
 Database - ArangoDB
 +++++++++++++++++++
 
 ArangoDB is a native multi-model, open-source database with flexible data models for documents, graphs, and key-values. We are using ArangoDB to store data. In order to run OT node with ArangoDB you need to have a local ArangoDB server installed and running.
 
-Head to arangodb.com/download, select your operating system and download ArangoDB. You may also follow the instructions on how to install with a package manager, if available. Remember credentials (username and password) used to log in to Arango server, since later on you will need to set them in .origintrail\_noderc.
+Head to arangodb.com/download, select your operating system and download ArangoDB. You may also follow the instructions on how to install with a package manager, if available. Remember credentials (username and password) used to log in to Arango server, since later on you will need to set them in ``.origintrail_noderc`` \ .
 
 Installation
 ++++++++++++
 
 Clone the repository
+
 .. code:: bash
-git clone -b release/mainnet \ `https://github.com/OriginTrail/ot-node.git <https://github.com/OriginTrail/ot-node.git>`__
 
-in the root folder of a project (ot-node), create .env file. For manually running a mainnet node, add following variable in .env file:
+    git clone -b release/mainnet https://github.com/OriginTrail/ot-node.git
 
-``NODE\_ENV=mainnet``
+in the root folder of a project (ot-node), create ``.env`` file. For manually running a mainnet node, add following variable in .env file:
+
+    ``NODE_ENV=mainnet``
 
 or for manually running a testnet node,
 
-``NODE\_ENV=testnet``
+    ``NODE_ENV=testnet``
 
 Before running a node make sure you configure it properly first. You can proceed to node Node Configuration page.
 
 and then run npm from root project folder
+
 .. code:: bash
-cd ot-node
-npm install
-npm run setup
+
+    cd ot-node
+    npm install
+    npm run setup
 
 Starting The Node
 ++++++++++++++++++
 
 OT node consists of two servers RPC and Kademlia node. Run both servers in a single command.
 
-``npm start``
+    ``npm start``
 
 You can see instructions regarding the data import on the following Import data
 
@@ -167,12 +177,14 @@ Before running your node for the first time you need to execute npm run setup to
 If you want to reset all settings you can use npm run setup:hard. If you want to clear all the cache and recreate the database and not delete your identity just run npm run setup.
 
 In order to make the initial import, your node must whitelist the IP or host of the machine that is requesting the import in configuration i.e
+
 .. code:: json
-{
-    "network": {
-        "remoteWhitelist": [ "host.domain.com", "127.0.0.1"]
+
+    {
+        "network": {
+            "remoteWhitelist": [ "host.domain.com", "127.0.0.1"]
+        }
     }
-}
 
 By default only localhost is whitelisted.
 
@@ -182,22 +194,24 @@ Useful commands
 ~~~~~~~~~~~~~~~
 
 Check node status
+++++++++++++++++
 
 To check if your node is running in Terminal, run the following command:
 
-``docker ps -a``
+    ``docker ps -a``
 
 This command will indicate if your node is running.
 
 Starting OT Node
+++++++++++++++++
 
 This command will start your node as a background process.
 
-``docker start otnode``
+    ``docker start otnode``
 
 This command will start your node in interactive mode and you will see the node’s process written in the terminal, but this command will not run your node as a background process, which means your node will stop if you close your Terminal/Console.
 
-``docker start -i otnode``
+    ``docker start -i otnode``
 
 Stopping OT Node
 ++++++++++++++++
@@ -206,7 +220,7 @@ You can stop your node in the following two ways:
 
 If you started your node with the docker start otnode command and you wish to stop it from running, use the following command in your terminal:
 
-``docker stop otnode``
+    ``docker stop otnode``
 
 If you started your node by using the docker start -i otnode command, you can stop it either by closing the Terminal or simply by pressing the ctrl + c.
 
@@ -226,29 +240,31 @@ To properly configure the node you will need to create a config file in JSON for
 You also need to provide a public address or domain name.
 
 We create the .origintrail\_noderc file with following content:
+
 .. code:: json
-{
-    "node\_wallet": "your wallet address here",
-    "node\_private\_key": "your wallet's private key here",
-    "management\_wallet": "your management wallet public key here",
-    "network": {
-        "hostname": "your external IP or domain name here",
-        "remoteWhitelist": [ "IP or host of the machine that is requesting the import", "127.0.0.1"]
-    },
-    "blockchain": {
-    "rpc\_server\_url": "url to your RPC server i.e. Infura or own Geth"
+
+    {
+        "node_wallet": "your wallet address here",
+        "node_private_key": "your wallet's private key here",
+        "management_wallet": "your management wallet public key here",
+        "network": {
+            "hostname": "your external IP or domain name here",
+            "remoteWhitelist": [ "IP or host of the machine that is requesting the import", "127.0.0.1"]
+        },
+        "blockchain": {
+        "rpc_server_url": "url to your RPC server i.e. Infura or own Geth"
+        }
     }
-}
 
-node\_wallet and node\_private\_key - operational wallet Ethereum wallet address and its private key.
+``node_wallet`` and ``node_private_key`` - operational wallet Ethereum wallet address and its private key.
 
-management\_wallet - the management wallet for your node (note: the Management wallet private key is NOT stored on the node)
+``management_wallet`` - the management wallet for your node (note: the Management wallet private key is NOT stored on the node)
 
-hostname - the public network address or hostname that will be used in P2P communication with other nodes for node’s self identification.
+``hostname`` - the public network address or hostname that will be used in P2P communication with other nodes for node’s self identification.
 
-remoteWhitelist - list of IPs or hosts of the machines (“host.domain.com”) that are allowed to communicate with REST API.
+``remoteWhitelist`` - list of IPs or hosts of the machines (“host.domain.com”) that are allowed to communicate with REST API.
 
-rpc\_server\_url - an URL to RPC host server, usually Infura or own hosted Geth server. For more see RPC server host
+``rpc_server_url`` - an URL to RPC host server, usually Infura or own hosted Geth server. For more see RPC server host
 
 Configuration file
 ~~~~~~~~~~~~~~~~~~
@@ -296,10 +312,12 @@ RPC server configuration
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
 The RPC server URL must be provided in the OT node’s configuration file and it should be placed in the blockchain section as rpc\_server\_url. For example:
+
 .. code:: json
-"blockchain": {
-    "rpc\_server\_url": "https://my.rpc.server.url:9000/"
-}
+
+    "blockchain": {
+        "rpc_server_url": "https://my.rpc.server.url:9000/"
+    }
 
 For more on how to set configuration file go to Node Configuration
 
@@ -332,16 +350,20 @@ Configuration
 Let’s assume that your domain certificates (for example: my.domain.com) are stored in /home/user/certs. The fullchain.pem and privkey.pem files should be in that dir.
 
 Edit the node’s configuration file and make sure it has the following items in the JSON root:
+
 .. code:: json
-"node\_rpc\_use\_ssl": true,
-"node\_rpc\_ssl\_cert\_path": "/ot-node/certs/fullchain.pem",
-"node\_rpc\_ssl\_key\_path": "/ot-node/certs/privkey.pem",
+
+    "node_rpc_use_ssl": true,
+    "node_rpc_ssl_cert_path": "/ot-node/certs/fullchain.pem",
+    "node_rpc_ssl_key_path": "/ot-node/certs/privkey.pem",
 
 With the above, we are telling the node to find a certificate at the following path: /ot-node/certs/. That is where we are going to leave them in the container.
 
 Now, create the docker container and mount cert dir into the container. We can achieve this by adding additional parameters ‘-v /home/user/certs:/ot-node/certs/’ to the container creation command. For example, the initialization of the Docker container for the OT node for the mainnet could look like this:
 
-$ sudo docker run -i --name=otnode -p 8900:8900 -p 5278:5278 -p 3000:3000 -v /home/user/certs:/ot-node/certs/ -v ~/.origintrail\_noderc:/ot-node/.origintrail\_noderc origintrail/ot-node -v quay.io/origintrail/otnode:release\_mainnet
+.. code:: bash
+
+    sudo docker run -i --name=otnode -p 8900:8900 -p 5278:5278 -p 3000:3000 -v /home/user/certs:/ot-node/certs/ -v ~/.origintrail_noderc:/ot-node/.origintrail_noderc quay.io/origintrail/otnode:release_mainnet
 
 After this, the running container will be able to find certificate files at the ‘/ot-node/certs/’ location.
 
@@ -354,7 +376,9 @@ Docker
 
 In order to trigger the update, you must restart the OT Node by using the following command:
 
-``docker restart otnode``
+.. code:: bash
+
+    docker restart otnode
 
 After a successful update OT Node will be rebooted automatically.
 
@@ -365,18 +389,25 @@ Manual installation
 
 Make sure that you are in the root directory of OT Node. The following commands will update the OT Node.
 
-``git pull``
+.. code:: bash
 
-``docker stop otnode``
+    git pull
+    docker stop otnode
 
 Database migrations need to be triggered manually.
 
-``node\_modules/.bin/sequelize --config=./config/sequelizeConfig.js db:migrate``
+.. code:: bash
+
+    node_modules/.bin/sequelize --config=./config/sequelizeConfig.js db:migrate
 
 Database seed needs to be triggered manually as well.
 
-``node\_modules/.bin/sequelize --config=./config/sequelizeConfig.js db:seed``
+.. code:: bash
+
+    node_modules/.bin/sequelize --config=./config/sequelizeConfig.js db:seed
 
 In order to apply the update, you must restart the OT Node by using the following command:
 
-``docker start otnode``
+.. code:: bash
+
+    docker start otnode

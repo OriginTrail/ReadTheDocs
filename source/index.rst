@@ -55,7 +55,7 @@ Table of Contents
    :maxdepth: 10
    :caption: Contribution Guidelines
 
-      contribution-guidelines
+   contribution-guidelines
 
 Indices and tables
 =======================

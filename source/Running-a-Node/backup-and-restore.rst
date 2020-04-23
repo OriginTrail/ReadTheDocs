@@ -16,26 +16,32 @@ Step 1/3: Backing up your data
 
 The first thing to do is to back up your files and store them outside your docker so that you can delete the container and install a new one. Run the following commands to create a backup
 
-docker exec otnode node /ot-node/current/scripts/backup.js
-docker cp otnode:/ot-node/backup ./ls ./backup
+.. code:: bash
+
+    docker exec otnode node /ot-node/current/scripts/backup.js
+    docker cp otnode:/ot-node/backup ./ls ./backup
 
 These commands should show something similar to the following image
 
-.. image:: backup-restore.png
+.. image:: backup.png
 
 Step 2/3: Reinstalling your docker image
 ----------------------------------------
 
 Now we can stop the container and download a new one. Run the following commands:
 
-docker stop otnode
-docker rm otnode
-imageId=$(docker images \| grep otnode \| awk '{print $3}')
-docker rmi $imageId
+.. code:: bash
+
+    docker stop otnode
+    docker rm otnode
+    imageId=$(docker images \| grep otnode \| awk '{print $3}')
+    docker rmi $imageId
 
 Now you've successfully removed your image, and can download a new one.Run the following command to download a new docker image
 
-sudo docker create -i --log-driver json-file --log-opt max-size=1g --name=otnode -p 8900:8900 -p 5278:5278 -p 3000:3000 -v ~/.origintrail\_noderc:/ot-node/.origintrail\_noderc\ ` quay.io/origintrail/otnode:release\_mainnet <http://quay.io/origintrail/otnode:release_mainnet>`__
+.. code:: bash
+
+    sudo docker create -i --log-driver json-file --log-opt max-size=1g --name=otnode -p 8900:8900 -p 5278:5278 -p 3000:3000 -v ~/.origintrail\_noderc:/ot-node/.origintrail\_noderc\ ` quay.io/origintrail/otnode:release\_mainnet <http://quay.io/origintrail/otnode:release_mainnet>`__
 
 Note: If you're running a testnet node, just replace mainnet with testnet in the command. Also, thanks for helping us test new features, you rock!
 
@@ -46,23 +52,33 @@ Step 3/3: Restoring the node data
 
 Extract the restore script from the container with the following command
 
-docker cp otnode:/ot-node/current/scripts/restore.sh ./
+.. code:: bash
+
+    docker cp otnode:/ot-node/current/scripts/restore.sh ./
 
 And now run it:
 
-./restore.sh
+.. code:: bash
+
+    ./restore.sh
 
 Alternatively, if you're running your node on the testnet, run the command like so:
 
-./restore.sh --environment=testnet
+.. code:: bash
+
+    ./restore.sh --environment=testnet
 
 That's it! Your node should be running now, you can go ahead and see the logs by running:
 
-docker logs otnode -f
+.. code:: bash
+
+    docker logs otnode -f
 
 Additional options
 ------------------
 
 If you've backed up your files in a different place or are using a custom directory for your data on the node, you can edit those in the restore script.Run the following command to see all the options for the restore command:
 
-./restore.sh --help
+.. code:: bash
+
+    ./restore.sh --help
