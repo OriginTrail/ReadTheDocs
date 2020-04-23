@@ -6,53 +6,56 @@
 Welcome to OriginTrail documentation!
 ==========================================================
 
+This document contains an overview of the ODN network structure, guides for installing and running an OriginTrail node, presents ODN functionalities and discusses supported data structuring on the network.
+
+Feel free to leave suggestions or feedback on the `github repository <https://github.com/OriginTrail/ReadTheDocs/issues/new>`__ for this documentation.
+
+Table of Contents
+=================
+
 
 .. toctree::
    :maxdepth: 10
-   :caption: GENERAL
+   :caption: General
 
-   introduction
-   data-layer
-   network-structure
+   General/introduction
 
 .. toctree::
    :maxdepth: 10
-   :caption: NODE SETUP
+   :caption: ODN Functionalities
 
-   node-setup
-   wallet-setup
-   Configuration-setup
-   rpc-server-host
-   node-setup-ssl
-   import-data
+   ODN-Functionalities/dataset-operations
+   ODN-Functionalities/query-and-trail
+   ODN-Functionalities/connectors
+   ODN-Functionalities/permissioned-data
 
 .. toctree::
    :maxdepth: 10
-   :caption: API REFERENCE
+   :caption: API Reference
 
    introduction-to-api
 
 .. toctree::
    :maxdepth: 10
-   :caption: IMPLEMENTATION
+   :caption: Running a node
 
-   implementation
-   data-structure-guidelines
-   namespace
-
-.. toctree::
-      :maxdepth: 10
-      :caption: CONTRIBUTION GUIDELINES
-
-      contribution-guidelines
+   Running-a-Node/getting-started
+   Running-a-Node/identity-management
+   Running-a-Node/backup-and-restore
 
 .. toctree::
-      :maxdepth: 10
-      :caption: UPCOMING RELEASE / v4.0 Freedom
+   :maxdepth: 10
+   :caption: Implementation
 
-      freedom-fourzero
+   Data-Structure/data-structure-guidelines
+   Data-Structure/ot-json
+   Data-Structure/xml-epcis-examples
 
+.. toctree::
+   :maxdepth: 10
+   :caption: Contribution Guidelines
 
+   contribution-guidelines
 
 Indices and tables
 =======================
