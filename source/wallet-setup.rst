@@ -1,160 +1,131 @@
 ..  _wallet-setup:
 
-Identity Configuration
-=======================
+Identity management
+===================
 
-Each node in the OriginTrail network is assigned an identity that represents it on the network.
-For the nodes to be able to interact via the OriginTrail protocol, they need to poses TRAC tokens,
-as well as Ether assigned to their identity. TRAC tokens are tokens based on the ERC20 token standard,
-and can be handled by any ERC20 supporting Ethereum wallet.
+Introduction
+------------
 
-To setup a node and it's identity on the OriginTrail mainnet, you will need TRAC and ETH.
-In case you want to test out the node and setup process, we suggest you do it on OriginTrail Testnet
-(using Ethereum Rinkeby network) which operates with Rinkeby ETH and tokens, which have no commercial value.
-If you need test TRAC token please visit our faucet page.
+On the OriginTrail Decentralized Network, your node is identified using two identities, a network layer identity, and a blockchain layer identity.
 
-OriginTrail is not responsible for setup and use of your wallets, keys and related software.
-Our team does not and cannot provide support for wallet setup and management.
-We strongly advise anyone intending to run a node on ODN to get familiar with the principles and technology behind cryptocurrency
-wallets in order to be informed about its operations, safety and usage. With improper use or safety precautions your
-funds on the wallets can be lost!
-
-Node network profile
-~~~~~~~~~~~~~~~~~~~~~
-
-Each node on the OriginTrail network is represented by their profile, which contains information about node identification,
-profile and token balance. The node profile is a smart contract that consists of the nodes ERC725 identity,
-network identity and other operational information. This contract is also responsible for operating with tokens.
-
-ERC725 Identity
+Network Identity
 ~~~~~~~~~~~~~~~~
 
-ERC 725 is a proposed standard for blockchain-based identity authored by Fabian Vogelsteller,
-creator of the ERC 20 token standard and Web3.js. ERC 725 describes proxy smart contracts that can be controlled by multiple
-keys and other smart contracts and it's contracts are deployed on Ethereum blockchain.
+The network layer identity is used for other nodes on the network to contact your node, whether it be for offers, queries, or any other functionalities
 
-The OriginTrail node identity is compatible with the ERC725 standard and utilizes it for key management.
-It distinguishes two different types of keys in the identity contract:
+Blockchain profile and identity
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-- the **operational key (wallet)**, whose private key is stored on the node itself and is used to perform a multitude of operations in the ODN (signing, execution, etc). It requires a small balance of ETH in order to be able to publish transactions to the blockchain, and it can be filled periodically. No TRAC tokens are required for this wallet
-- the **management key (wallet)**, whose private key is NOT stored on the node and is used to deal with the funds (TRAC rewards) and to manage the keys associated with the ERC725 identity. The management wallet can be any ERC20 supporting wallet (Trezor, Ledger, MetaMask etc).
+Each node on the OriginTrail network is represented by their profile, which contains information about node identification, profile and token balance.
 
-This approach is taken as a convenience measure to provide for flexibility with key management and to minimize the risk of loosing funds in case of the operational key stored on the node somehow gets compromised. It is the node holders responsibility to keep both their node and wallet safe.
+The node profile is a structure inside of a smart contract that is identified by your node's ERC725 identity, and contains network identity and other operational information. This contract is also responsible for operating with tokens.
 
-**NOTE:** *If you are setting up your node for the first time, make sure that your operational wallet has at least 3000 TRAC and 0.05 ETH tokens.*
+ERC 725 is a proposed standard for blockchain-based identity authored by Fabian Vogelsteller, creator of the ERC 20 token standard and Web3.js. ERC 725 describes proxy smart contracts that can be controlled by multiple keys and other smart contracts and it’s contracts are deployed on Ethereum blockchain.
 
-**Note:** *This system is supported from version 2.0.44. Previously the OT node supported only one wallet which had the role of both the operational wallet and the management wallet. If you have installed a mainnet node before version 2.0.44, after the update your node identity will have the same key assigned to both your operational and management wallet. In order to change the your management wallet to the operational wallet you will need to execute the key management functions on your identity smart contract.*
+The OriginTrail Blockchain Identity is an ERC725 compatible smart contract and utilizes the standard for key management. It distinguishes two different types of keys in the identity contract:
 
-The exact steps are:
+-  The operational key (wallet), whose private key is stored on the node itself and is used to perform a multitude of operations in the ODN (signing, execution, etc). It requires a small balance of ETH in order to be able to publish transactions to the blockchain, and it can be filled periodically. No TRAC tokens are required for this wallet, except for initial node startup
 
-1. add a new management key with your old operational wallet by calling the addKey function in your ERC725 identity contract, with purposes [1,2,3,4].
-2. remove the operational wallet from the ERC725 identity contract by calling the removeKey function with your either your new management key or old operational wallet (the one being removed)
-3. add a new operational key to the ERC725 contract by calling addKey with purposes [2,4]
-4. Once this is complete, stop your node and open the config file and input the management wallet address in the field “**management_wallet**”. Please make sure you enter the correct wallet address
-5. Once all these steps are complete, restart your node. Once the node starts it will check the management_wallets permission and if valid, the update of the node will be complete.
+-  The management key (wallet), whose private key is NOT stored on the node and is used to deal with the funds (TRAC rewards) and to manage the keys associated with the ERC725 identity. The management wallet can be any ERC20 supporting wallet (Trezor, Ledger, MetaMask etc).
 
-**To make it easier to interact with the node ERC725 identity, to deposit and withdraw tokens, we have provided a convenient UI at this** `link`_.
+This approach is taken as a safety and convenience measure to provide flexibility with key management and to minimize the risk of losing funds in case the operational key stored on the node somehow gets compromised. It is the node holder's responsibility to keep both their node and wallet safe.
 
-If you want to execute the smart contract functions manually, here's a `tutorial`_ on how to call a smart contract function through MyEtherWallet.
+Identity values and identity files
+----------------------------------
 
-How do I obtain my current ERC725 identity?
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ERC725 Identity value
+~~~~~~~~~~~~~~~~~~~~~
 
-If you have installed a node, the easiest way to find value of your ERC725 identity at this moment is to look for it in the node’s log.
+On an installed node the easiest way to find the ERC725 identity value is to look for it in the node log
 
-.. code:: bash
+notify - Identity created for node ab2e1b1e520cac0d1321cd3760c2e7473970ec8a. Identity is 0x99c67054a8c7b7fa62243f0446eacd80c6ff0aff.
 
-    notify - Identity created for node ab2e1b1e520cac0d1321cd3760c2e7473970ec8a.
+The last value (in above case 0x99c67054a8c7b7fa62243f0446eacd80c6ff0aff) represents the blockchain identity. Alternatively, it can be copied from node’s container
 
-    Identity is 0x99c67054a8c7b7fa62243f0446eacd80c6ff0aff.
+# Copies file to HOME dir docker cp otnode:/ot-node/data/erc725\_identity.json ~
 
+Network Identity value
+~~~~~~~~~~~~~~~~~~~~~~
 
-The last value (in above case **0x99c67054a8c7b7fa62243f0446eacd80c6ff0aff**) represents the ERC725 identity.
-Alternatively, you can copy it from node’s container
+In order to find out the node's network identity, it can be found in the node startup log, looking similar to this:
 
-.. code:: bash
+notify - My network identity: ab2e1b1e520cac0d1321cd3760c2e7473970ec8a
 
-    # Copies file to HOME dir
+and this value ( in above example ab2e1b1e520cac0d1321cd3760c2e7473970ec8a) is the value of the network identity. Alternatively, it can be copied from the node’s container
 
-    docker cp otnode:/ot-node/data/erc725_identity.json ~
+# Copies file to HOME dir docker cp otnode:/ot-node/data/identity.json ~
 
-one of the files here should be erc725_identity.json, whose value should exactly match value shown in the log line.
+Both the network and blockchain identities will be automatically generated when a node is started for the first time (if they were not pre generated), creating identity files in the configuration directory. These files enable the node to have the same identity every subsequent time it is ran.
 
-For manual installation file can be found at **~/.origintrail_noderc/testnet** for testnet or **~/.origintrail_noderc/mainnet** for mainnet.
+We highly recommend backing up the identity files as soon as the node is set up.
 
-Network identity
-~~~~~~~~~~~~~~~~~
+How to use existing identity files
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Apart from the ERC725 identity the node posesses the network identity as well.
-To find out your nodes network identity, simply find a log line similar to this:
+If you wish to run an identical node on another machine, then in addition to backing up you node configuration (.origintrail\_noderc) file, you should back up erc725\_identity.json and identity.json files. If you start a node on a different machine without providing the identity files, the node will create completely new identities, and you will end up having a different node on the network.
 
-.. code:: bash
+Let’s say a user already has the network and ERC725 identity files in the home dir.
 
-    notify - My network identity: ab2e1b1e520cac0d1321cd3760c2e7473970ec8a
+-  .origintrail\_noderc - node configuration
 
-and this value ( in above example **ab2e1b1e520cac0d1321cd3760c2e7473970ec8a**) it what you are looking for.
-Alternatively, you can copy it from node’s container
+-  .identity.json - network identity
 
+-  .erc725\_identity.json - ERC725 identity
 
+docker run -it --name=otnode -p 8900:8900 -p 5278:5278 -p 3000:3000 -v ~/.origintrail\_noderc:/ot-node/.origintrail\_noderc -v ~/.identity.json:/ot-node/data/identity.json -v ~/.erc725\_identity.json:/ot-node/data/erc725\_identity.json quay.io/origintrail/otnode:release\_mainnet
 
-.. code:: bash
+Please note this example is for mainnet. For testnet use origintrail/otnode:release\_testnet instead \ `quay.io/origintrail/otnode:release\_mainnet <http://quay.io/origintrail/otnode:release_mainnet>`__
 
-    # Copies file to HOME dir
+Identity management
+-------------------
 
-    docker cp otnode:/ot-node/data/identity.json ~
+To make it easier to interact with your node blockchain profile (to deposit and withdraw tokens) and identity (to edit your operational or management keys), we have provided a convenient UI at this link. <link required for node profile>
 
-For manual installation file can be found at **~/.origintrail_noderc/testnet** for testnet or **~/.origintrail_noderc/mainnet** for mainnet.
+Token management
+~~~~~~~~~~~~~~~~
 
-Some users might notice that in data folder there is also a file nameed identity.json,
-and that value stored in this file is different from the nodes identity value from logs.
-Identity.json contains atomic information about the node identity - the identity itself is created based on the contents of the file.
+Staking and locking tokens
+^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-**Important note:** *If you wish to run an identical node on another machine, then in addition to backing up you node operational private key, you should back up erc725_identity.json and identity.json files. There will be a separate article on how to start node with previously backed up identities. For now, be aware if you start a node on a different machine with providing only the operational private key, the node will create completely new identities, and you will end up having different node on the network.*
+In order for a node to create or accept offers on the network, it needs to stake tokens. Those tokens are locked for the duration of the offer and cannot be directly withdrawn by either party. A data holder can pay out a portion of the tokens allotted for the offer, proportional to the percentage of the agreed holding time. Paying out the tokens includes transferring tokens from the data creator's profile to the data holder's and unlocking the data holder's staked tokens.
 
-Setting up a node with predefined identities
-Let’s say user already have network identity file and ERC725 identity file in home dir.
+Withdrawing tokens
+^^^^^^^^^^^^^^^^^^
 
-Let's say user already have network identity file and ERC725 identity file in home dir.
+Tokens which are not locked can be withdrawn to your management wallet. Be aware that withdrawal is a two step process, where the node requests to withdraw tokens and, after the withdrawal period, the tokens are transferred to the management wallet which executed the second step. This two step process ensures that your node gracefully adapts to new offers within the withdrawal period. The withdrawal period is currently set to 5 minutes.
 
-- .origintrail_noderc - node configuration.
-- .identity.json - network identity.
-- .erc725_identity.json - ERC 725 idenity.
+You can stake or withdraw tokens on the Node Profile interface. <link required for node profile>
 
-::
+Key (wallet) management
+~~~~~~~~~~~~~~~~~~~~~~~
 
-        docker run -it --name=otnode -p 8900:8900 -p 5278:5278 -p 3000:3000
-        -v ~/.origintrail_noderc:/ot-node/.origintrail_noderc
-        -v ~/.identity.json:/ot-node/data/identity.json
-        -v ~/.erc725_identity.json:/ot-node/data/erc725_identity.json
-        quay.io/origintrail/otnode:release_mainnet
+Important: Please note that changing a wallet in the node configuration file does not change the wallet in your ERC725 identity. The wallet you wish to add first needs to have the appropriate permissions on the ERC725 identity before it can be changed in the node configuration.
 
-Please note this example is for mainnet.
-For testnet use **origintrail/otnode:release_testnet** instead **quay.io/origintrail/otnode:release_mainnet**
+Multiple management and operational wallets can be registered on a single ERC725 identity. One management wallet must always be registered. It is possible to remove all operational wallets and use a management wallet as the operational wallet at the same time, but we strongly discourage this scenario as it is not as secure as using separate wallets.
 
+We recommend using the Node Profile interface for any changes of key permissions on the ERC725 identity.
 
+Changing operational keys (wallets)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-What about tokens and how do I get them on my wallet?
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Changing the operational wallet on a node is done using the following steps
 
-The tokens staked and locked for agreements your node is performing on the network are stored on a smart contract (not your wallet) which is part of the OriginTrail protocol.
-You can withdraw these tokens once the agreement that the tokens were used to reimburse your node for has been
-fulfilled (the agreement time has elapsed and your node has kept the data for that required time).
+#. Add new operational wallet to the ERC725 identity
 
-The token withdrawal process is a two step procedure. To withdraw the tokens from the Profile smart contract to your management node wallet,
-you need to perform two function calls:
+#. Set the new operational wallet and corresponding private key as the node\_wallet and node\_private\_key in the node configuration file (.origintrail\_noderc)
 
-- **startTokenWithdrawal**, to initiate the withdrawal process by providing your ERC725 identity address and the amount you want to withdraw
+#. Restart the OriginTrail node
 
-- **withdrawTokens**, to complete the withdrawal process by providing your ERC725 identity.
+#. Remove the old operational wallet from the ERC725 identity
 
-- **Note:** *both function call transactions need to be executed with your ERC725 management wallet, otherwise they will fail.*
+Changing management keys (wallets)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-This two step process ensures that your node gracefully takes care of the token withdrawal on its network profile by properly adapting in the withdrawal period to responding to new agreement offers.
-The withdrawal period is currently set to 5 minutes.
+Changing the management wallet is done by adding the new management wallet to the ERC725 identity and then removing the old one.
 
-**To make it easier to interact with the node ERC725 identity, to deposit and withdraw tokens, we have provided a convenient UI at this** `link`_.
+The latest version of OriginTrail node supports data backup and restoration. With it you can save all your current data and restore it on a clean docker image. Below is a guide on how to back up and restore your node.
 
-If you want to execute the smart contract functions manually, here's a `tutorial`_ on how to call a smart contract function through MyEtherWallet.
+If you need additional assistance there is a support chat available on our knowledge base.
 
 
 .. _link: https://node-profile.origintrail.io/
