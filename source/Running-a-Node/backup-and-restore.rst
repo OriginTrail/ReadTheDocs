@@ -19,9 +19,7 @@ The first thing to do is to back up your files and store them outside your docke
 .. code:: bash
 
     docker exec otnode node /ot-node/current/scripts/backup.js
-
     docker cp otnode:/ot-node/backup ./
-
     ls ./backup
 
 These commands should show something similar to the following image
