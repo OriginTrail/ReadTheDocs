@@ -19,7 +19,8 @@ The first thing to do is to back up your files and store them outside your docke
 .. code:: bash
 
     docker exec otnode node /ot-node/current/scripts/backup.js
-    docker cp otnode:/ot-node/backup ./ls ./backup
+    docker cp otnode:/ot-node/backup ./
+    ls ./backup
 
 These commands should show something similar to the following image
 
@@ -34,14 +35,14 @@ Now we can stop the container and download a new one. Run the following commands
 
     docker stop otnode
     docker rm otnode
-    imageId=$(docker images \| grep otnode \| awk '{print $3}')
+    imageId=$(docker images | grep otnode | awk '{print $3}')
     docker rmi $imageId
 
 Now you've successfully removed your image, and can download a new one.Run the following command to download a new docker image
 
 .. code:: bash
 
-    sudo docker create -i --log-driver json-file --log-opt max-size=1g --name=otnode -p 8900:8900 -p 5278:5278 -p 3000:3000 -v ~/.origintrail\_noderc:/ot-node/.origintrail\_noderc\ ` quay.io/origintrail/otnode:release\_mainnet <http://quay.io/origintrail/otnode:release_mainnet>`__
+    sudo docker create -i --log-driver json-file --log-opt max-size=1g --name=otnode -p 8900:8900 -p 5278:5278 -p 3000:3000 -v ~/.origintrail_noderc:/ot-node/.origintrail_noderc quay.io/origintrail/otnode:release_mainnet
 
 Note: If you're running a testnet node, just replace mainnet with testnet in the command. Also, thanks for helping us test new features, you rock!
 
