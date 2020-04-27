@@ -370,9 +370,10 @@ After this, the running container will be able to find certificate files at the 
 How to update
 -------------
 
-OT Node has a built-in update functionality which will be triggered upon OT Node start. Update will be triggered based on a release version.
+OT Node has a built-in update functionality which will be triggered upon OT Node start.
 
 Docker
+~~~~~~
 
 In order to trigger the update, you must restart the OT Node by using the following command:
 

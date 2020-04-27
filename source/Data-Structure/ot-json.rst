@@ -154,7 +154,7 @@ Also, id using JSON-LD as a format for OT-JSON, Koblitz 2016 signature suit can 
 
 The entire JSON-LD dataset document is canonicalized using URDNA2015 algorithm for JSON-LD canonicalization. Resulting N-QUADS data is digested using SHA256 algorithm. Finally, the digest is signed with ECDSA private key using Koblitz elliptic curve. Koblitz curve is used for generating Ethereum and Bitcoin wallets, so private keys for Ethereum and Bitcoin wallets can be used for signing.
 
-.. image:: slika333.png
+.. image:: kobilitzSignature.png
    :width: 600px
 
 *Figure 3.*  Diagram of dataset signing procedure using Koblitz Signature 2016 Signature Suite

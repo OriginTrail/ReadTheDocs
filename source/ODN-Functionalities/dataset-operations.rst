@@ -4,7 +4,7 @@ Dataset operations
 Importing datasets to the local node knowledge graph
 ----------------------------------------------------
 
-The ODN supports a multitude of data models (as listed above), with extensible support due to the flexible native
+The ODN supports a multitude of data models (as listed below), with extensible support due to the flexible native
 OT-JSON data structure supported by the protocol, based on JSON-LD. 
 
 To introduce a structured dataset to the network, we first need to import it to the node's local knowledge graph using
@@ -84,7 +84,7 @@ team are extending the support for multiple standards on an ongoing basis.
 
 The following API route returns a list of supported **standard ID**\ s:
 
-`https://app.swaggerhub.com/apis-docs/otteam/ot-node-api/v2.0#/default/get\_standards <https://app.swaggerhub.com/apis-docs/otteam/ot-node-api/v2.0#/default/get_standards>`__
+`https://app.swaggerhub.com/apis-docs/otteam/ot-node-api/v2.0#/info/get\_standards <https://app.swaggerhub.com/apis-docs/otteam/ot-node-api/v2.0#/info/get_standards>`__
 
 
 Replicating datasets across the ODN

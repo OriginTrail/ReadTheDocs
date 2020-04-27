@@ -114,5 +114,4 @@ the right type and scope, so you only have to add the description.
 
 For large fixes, please build and test the documentation before
 submitting the PR to be sure you haven't accidentally introduced any
-layout or formatting issues. You should also make sure that your commit
-message follows the **[Commit Message Guidelines][developers.commits]**.
+layout or formatting issues.
