@@ -26,6 +26,13 @@ These commands should show something similar to the following image
 
 .. image:: backup.png
 
+Please check the contents of the latest backup directory, indicated by the directory name (in the above case, the folder named ``2020-03-20T09:10:28.059Z``\ . They should contain all of the files shown below.
+
+.. image:: backup-contents.png
+
+.. warning:: DO NOT proceed unless the backup folder contains all of the files shown above. Contact support at \ `tech@origin-trail.com <mailto:tech@origin-trail.com>`__ for guidance on backing up your node safely.
+
+
 Step 2/3: Reinstalling your docker image
 ----------------------------------------
 
