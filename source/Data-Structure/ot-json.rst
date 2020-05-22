@@ -141,7 +141,7 @@ Attribute definitions
 
 
 Hash structure
---------
+---------------
 
 OT-JSON document is uniquely identified with data hash and root hash.
 Before calculating dataset hashes it is important to determine uniform order of objects in OT-JSON object in order to always obtain the same hash values.
