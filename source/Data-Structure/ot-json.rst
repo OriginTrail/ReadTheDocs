@@ -12,7 +12,7 @@ Identifier of a dataset is calculated as a SHA3-256 digest of dataset header and
 .. image:: graphrepresentation.png
    :width: 600px
 
-*Figure 2.*  Graphic representation of a dataset
+*Figure 1.*  Graphic representation of a dataset
 
 
 **Example**
@@ -140,6 +140,33 @@ Attribute definitions
    :width: 600px
 
 
+Hash structure
+---------------
+
+OT-JSON document is uniquely identified with data hash and root hash. Those hashes are generated from the OT-JSON graph object which stores a user defined data.
+Before calculating dataset hashes it is important to determine a uniform order of objects in OT-JSON object in order to always obtain the same hash values.
+When a user imports a dataset, depending on the standard, OT-Node converts the dataset to OT-JSON format, sorts the dataset and calculates data hash and root hash.
+
+OT-JSON service supports 1.0 and 1.1 versions which differ in sorting algorithms.
+OT-JSON 1.0 version service sorts the entire dataset before calculating hash values and saves unsorted dataset in the graph database.
+OT-JSON 1.1 version service sorts the entire dataset **except arrays in properties** and saves sorted dataset in graph database.
+The new version of OT-JSON service improves overall performance and ensures data integrity by sorting datasets during the import process and when reading data from graph database.
+Such an approach ensures that the dataset is always sorted during processing and only requires one sorting call for dataset processing functionalit, such as import or replication.
+
+The following sequence diagrams describe the usage of sort methods for both versions of OT-JSON during the import process.
+
+.. image:: sortOtJson1.0.png
+   :width: 600px
+
+*Figure 2.*  Import process for OT-JSON version 1.0
+
+
+.. image:: sortOtJson1.1.png
+   :width: 600px
+
+*Figure 3.*  Import process for OT-JSON version 1.1
+
+
 Signing
 --------
 
@@ -157,7 +184,7 @@ The entire JSON-LD dataset document is canonicalized using URDNA2015 algorithm f
 .. image:: kobilitzSignature.png
    :width: 600px
 
-*Figure 3.*  Diagram of dataset signing procedure using Koblitz Signature 2016 Signature Suite
+*Figure 4.*  Diagram of dataset signing procedure using Koblitz Signature 2016 Signature Suite
 
 Object structure
 -----------------
@@ -253,7 +280,7 @@ and **relation type**.
         ]
 
 
-*Example 4.* Example of related entities section
+*Example 5.* Example of related entities section
 
 
 Attribute definitions
@@ -287,7 +314,7 @@ Objects in attachment section list contain information about related **file id**
         ]
 
 
-*Example 4.* Example of attachments section
+*Example 6.* Example of attachments section
 
 Attribute definitions
 ~~~~~~~~~~~~~~~~~~~~~~
@@ -317,4 +344,4 @@ Every connector contains *connectionId* attribute, which represents value on whi
     }
 
 
-*Example 5.* Example of attachments section
+*Example 7.* Example of attachments section
