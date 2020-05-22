@@ -140,6 +140,32 @@ Attribute definitions
    :width: 600px
 
 
+Hash structure
+--------
+
+OT-JSON document is uniquely identified with data hash and root hash.
+Before calculating dataset hashes it is important to determine uniform order of objects in OT-JSON object in order to always obtain the same hash values.
+When a user imports a dataset, depending on the standard, OT-Node converts the dataset to OT-JSON format, sorts the dataset and calculates data hash and root hash.
+
+OT-JSON service supports 1.0 and 1.1 versions which differs in sorting algorithms.
+OT-JSON 1.0 version service sorts entire dataset before calculating hash values and saves unsorted dataset in the graph database.
+OT-JSON 1.1 version service sorts entire dataset except arrays in properties and saves sorted dataset in graph database.
+New version of OT-JSON service improves overall performance and ensures data integrity by sorting datasets during import process and reading data from graph database.
+
+The following sequence diagrams describe usage of sort methods for both versions of OT-JSON for import process.
+
+.. image:: sortOtJson1.0.png
+   :width: 600px
+
+*Figure 3.*  Import process for OT-JSON version 1.0
+
+
+.. image:: sortOtJson1.1.png
+   :width: 600px
+
+*Figure 3.*  Import process for OT-JSON version 1.1
+
+
 Signing
 --------
 
