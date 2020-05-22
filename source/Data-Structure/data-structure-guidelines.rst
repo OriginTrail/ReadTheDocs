@@ -62,6 +62,26 @@ If the event is external (see above) and it should be connected to an event from
 
 Once the corresponding data creator creates an event containing the same connection identifier with your decentralized identity, an analogous connector vertex will be created and the two connector vertices will be connected together. This feature enables querying the knowledge graph data belonging to multiple parties.
 
+Permissioned data in EPCIS files
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+In cases when disclosing the full data publicly is not applicable to the implementation, it is possible to add visibility property to attribute in VocabularyElement in EPCISMasterData.
+
+There are two visibility options to be used:
+
+In cases that only value of the attribute needs to be hidden this option should be used ``visibility="permissioned.show_attribute"``. Example:
+
+.. code:: xml
+    <VocabularyElement id="id:Company_Green_with_permissioned_data">
+        <attribute id="id:name" visibility="permissioned.show_attribute">Green</attribute>
+    </VocabularyElement>
+
+In cases that whole attribute needs to be hidden this option should be used ``visibility="permissioned.hide_attribute"``. Example:
+
+.. code:: xml
+    <VocabularyElement id="id:Company_Green_with_permissioned_data">
+        <attribute id="id:wallet" visibility="permissioned.hide_attribute">0xBbAaAd7BD40602B78C0649032D2532dEFa23A4C0</attribute>
+    </VocabularyElement>
 
 -----------------------------------------
 
