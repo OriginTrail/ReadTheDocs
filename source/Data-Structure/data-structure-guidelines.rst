@@ -62,6 +62,31 @@ If the event is external (see above) and it should be connected to an event from
 
 Once the corresponding data creator creates an event containing the same connection identifier with your decentralized identity, an analogous connector vertex will be created and the two connector vertices will be connected together. This feature enables querying the knowledge graph data belonging to multiple parties.
 
+Permissioned data in EPCIS files
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+In cases when disclosing the full data publicly is not applicable to the implementation, it is possible to add a ``visibility`` property to an attribute of a ``VocabularyElement`` in the ``EPCISMasterData`` section.
+The data marked as permissioned will be visible only to the data creator and the parties the data creator marks as whitelisted via the API.
+More information on permissioned data is available at :ref:`permissioned-data`
+
+There are two visibility options available:
+
+In cases that only value of the attribute needs to be hidden this option should be used ``visibility="permissioned.show_attribute"``. Example:
+
+.. code:: xml
+
+    <VocabularyElement id="id:Company_Green_with_permissioned_data">
+        <attribute id="id:name" visibility="permissioned.show_attribute">Green</attribute>
+    </VocabularyElement>
+
+In cases that whole attribute needs to be hidden this option should be used ``visibility="permissioned.hide_attribute"``. Example:
+
+.. code:: xml
+
+    <VocabularyElement id="id:Company_Green_with_permissioned_data">
+        <attribute id="id:wallet" visibility="permissioned.hide_attribute">0xBbAaAd7BD40602B78C0649032D2532dEFa23A4C0</attribute>
+    </VocabularyElement>
+
 
 -----------------------------------------
 
@@ -127,64 +152,66 @@ An OT-JSON document represents a dataset as a graph of interconnected dataset ob
 
 .. code:: json
 
-    @graph: [
-        {
-            “@id”: “Product1”,
-            “@type”: “OTObject”,
-            “identifiers”: [
-                {
-                    “identifierType”: “ean13”,
-                    “identifierValue”: “0123456789123”,
-                }
-            ],
-            “properties”: {
-               “name”: “Product 1”
-               “quantity”: {
-                   “value”: “0.5”,
-                   “unit”: “l”
-                }
+    {
+        "@graph": [
+            {
+                "@id": "Product1",
+                "@type": "OTObject",
+                "identifiers": [
+                    {
+                        "identifierType": "ean13",
+                        "identifierValue": "0123456789123"
+                    }
+                ],
+                "properties": {
+                   "name": "Product 1",
+                   "quantity": {
+                       "value": "0.5",
+                       "unit": "l"
+                    }
+                },
+                "relations": [
+                    {
+                        "@type": "OTRelation",
+                        "linkedObject": {
+                                "@id": "Producer1"
+                            },
+                        "properties": {
+                                "relationType": "PRODUCED_BY"
+                            }
+                    }
+                ]
             },
-            “relations”: [
-                {
-                    “@type”: “OTRelation”,
-                    "linkedObject": {
-                            "@id": "Producer1"
-                        },
-                    "properties": {
-                            "relationType": "PRODUCED_BY"
-                        }
-                }
-            ]
-        },
-        {
-            “@id”: “Producer1”,
-            “@type”: “OTObject”,
-            “identifiers”: [
-                {
-                    “identifierType”: “sgln”,
-                    “identifierValue”: “0123456789123”,
-                }
-            ],
-            “properties”: {
-               “name”: “Factory 1”
-               “geolocation”: {
-                   “lat”: “44.123213”,
-                   “lon”: “20.489383”
-                }
-            },
-            “relations”: [
-                {
-                    “@type”: “OTRelation”,
-                    "linkedObject": {
-                            "@id": "Product1"
-                        },
-                    "properties": {
-                            "relationType": "HAS_PRODUCED"
-                        }
-                }
-            ]
-        }
-    ]
+            {
+                "@id": "Producer1",
+                "@type": "OTObject",
+                "identifiers": [
+                    {
+                        "identifierType": "sgln",
+                        "identifierValue": "0123456789123"
+                    }
+                ],
+                "properties": {
+                   "name": "Factory 1",
+                   "geolocation": {
+                       "lat": "44.123213",
+                       "lon": "20.489383"
+                    }
+                },
+                "relations": [
+                    {
+                        "@type": "OTRelation",
+                        "linkedObject": {
+                                "@id": "Product1"
+                            },
+                        "properties": {
+                                "relationType": "HAS_PRODUCED"
+                            }
+                    }
+                ]
+            }
+        ]
+    }
 
 *Figure 3.* OT-JSON graph representing example entities
 
@@ -229,7 +256,7 @@ Data model is composed of the following resources:
 
 -  Properties – A property is a variable of a web Thing. Properties represent the internal state of a web Thing. Clients can subscribe to properties to receive a notification message when specific conditions are met; for example, the value of one or more properties changed.
 
--  Actions – An action is a function offered by a web Thing. Clients can invoke a function on a web Thing by sending an action to the web Thing. Examples of actions are “open” or “close” for a garage door, “enable” or “disable” for a smoke alarm, and “scan” or “check in” for a bottle of soda or a place. The direction of an action is usually from the client to the web Thing. Actions represent the public interface of a web Thing and properties are the private parts.
+-  Actions – An action is a function offered by a web Thing. Clients can invoke a function on a web Thing by sending an action to the web Thing. Examples of actions are "open" or “close” for a garage door, “enable” or “disable” for a smoke alarm, and “scan” or “check in” for a bottle of soda or a place. The direction of an action is usually from the client to the web Thing. Actions represent the public interface of a web Thing and properties are the private parts.
 
 All these resources are semantically described by simple models serialized in JSON. Resource findability is based Web Linking standard and semantic extensions using JSON-LD are supported. This allows extending basic descriptions using a well-known semantic format such as the \ `GS1 Web Vocabulary <http://gs1.org/voc/>`__\ . Using this approach, existing services like search engines can automatically get and understand what Things are and how to interact with them. An example of WOT file is available on the following link:
 
