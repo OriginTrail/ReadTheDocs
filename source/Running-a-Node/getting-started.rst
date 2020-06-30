@@ -7,7 +7,7 @@ Setup & manage your node
 Hardware requirements
 ~~~~~~~~~~~~~~~~~~~~~
 
-The recommended minimum specifications are 1CPU, and 2GB RAM with at least 10GB of storage space.
+The recommended minimum specifications are 2.2GHz CPU, and 2GB RAM with at least 10GB of storage space.
 
 Installation instructions
 ~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -37,15 +37,15 @@ System requirements
 
 -  minimum of 2Gb of RAM memory
 
--  at least 1 CPU
+-  at least 2 GB RAM / 2.2 GHz CPU
 
 -  at least 10GB storage space
 
 -  Ethereum wallet (You can see wallet setup instructions here Identity Configuration)
 
--  for testnet node: at least 1000 test TRAC tokens and at least 0.05 test Ethers
+-  for testnet node: at least 3000 test TRAC tokens and at least 0.05 test Ethers
 
--  for mainnet node: at least 1000 TRAC tokens and at least 0.05 Ethers
+-  for mainnet node: at least 3000 TRAC tokens and at least 0.05 Ethers
 
 Installation via Docker
 ~~~~~~~~~~~~~~~~~~~~~~~~
