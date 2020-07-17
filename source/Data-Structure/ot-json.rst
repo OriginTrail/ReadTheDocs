@@ -361,18 +361,21 @@ The differences between OT-JSON versions are in how data is ordered when generat
 2. ``rootHash`` , which is generated as a hash of the ``@graph`` section along with the dataset creator, and is used for verifying the dataset creator
 3. ``signature``, which is generated as a signed hash of the entire dataset, and is used to verify the creator and integrity of a dataset off chain.
 
-OT-JSON 1.0
+OT-JSON 1.2
 ~~~~~~~~~~~
 
-The ``datasetID`` for OT-JSON 1.0 is generated out of the ``@graph`` section after
-**sorting every object and array, including the** ``@graph`` **array**.
+.. note::
 
-The ``rootHash`` for OT-JSON 1.0 is generated out of the ``@graph`` section after
-**sorting the relations and identifiers of each element, and sorting the** ``@graph`` **array by each array element** ``@id``.
+    **OT-JSON 1.2** was introduced in order to sort the dataset when generating a signature. Along with that, sorting of
+    non user generated arrays (such as identifiers and relations) was reimplemented.
 
-The ``signature`` for OT-JSON 1.0 is generated out of the dataset after first
-**sorting the relations and identifiers of each element, and sorting the** ``@graph`` **array by each array element** ``@id``,
-and then **sorting every object in the dataset**.
+The ``datasetID`` for OT-JSON 1.1 is generated out of the ``@graph`` section after
+**sorting every object and array, including the the** ``@graph`` **array, without changing the order of any array inside of a properties object**.
+
+The ``rootHash`` for OT-JSON 1.1 is generated out of the ``@graph`` section in the same was as it is for the ``datasetID``.
+
+The ``signature`` for OT-JSON 1.1 is generated out of the dataset when the ``datasetHeader`` is attached,
+**after sorting the dataset in the same way it was done for** ``datasetID`` **and** ``rootHash``.
 
 OT-JSON 1.1
 ~~~~~~~~~~~
@@ -391,21 +394,18 @@ The ``rootHash`` for OT-JSON 1.1 is generated out of the ``@graph`` section in t
 
 The ``signature`` for OT-JSON 1.1 is generated out of the dataset when the ``datasetHeader`` is attached.
 
-OT-JSON 1.2
+OT-JSON 1.0
 ~~~~~~~~~~~
 
-.. note::
+The ``datasetID`` for OT-JSON 1.0 is generated out of the ``@graph`` section after
+**sorting every object and array, including the** ``@graph`` **array**.
 
-    **OT-JSON 1.2** was introduced in order to sort the dataset when generating a signature. Along with that, sorting of
-    non user generated arrays (such as identifiers and relations) was reimplemented.
+The ``rootHash`` for OT-JSON 1.0 is generated out of the ``@graph`` section after
+**sorting the relations and identifiers of each element, and sorting the** ``@graph`` **array by each array element** ``@id``.
 
-The ``datasetID`` for OT-JSON 1.1 is generated out of the ``@graph`` section after
-**sorting every object and array, including the the** ``@graph`` **array, without changing the order of any array inside of a properties object**.
-
-The ``rootHash`` for OT-JSON 1.1 is generated out of the ``@graph`` section in the same was as it is for the ``datasetID``.
-
-The ``signature`` for OT-JSON 1.1 is generated out of the dataset when the ``datasetHeader`` is attached,
-**after sorting the dataset in the same way it was done for** ``datasetID`` **and** ``rootHash``.
+The ``signature`` for OT-JSON 1.0 is generated out of the dataset after first
+**sorting the relations and identifiers of each element, and sorting the** ``@graph`` **array by each array element** ``@id``,
+and then **sorting every object in the dataset**.
 
 
 Sorting differences overview
