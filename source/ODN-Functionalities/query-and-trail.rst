@@ -49,8 +49,7 @@ Identifier types and values and trail depth
 
 Querying the local knowledge graph performs a graph traversal starting from a particular vertex in the graph and traversing over the specified edge types.
 
-The result of the trail represents all objects found on the trail
-(the historical provenance trail spanning all datasets),
+The result of the trail represents all objects found on the trail (the historical provenance trail spanning all datasets),
 along with an array that indicates which datasets those objects belong to.
 
 .. code:: json
@@ -101,6 +100,17 @@ from vertex **A** would return vertex **B** and would not return vertex **C**
 If the ``connection_types`` parameter is omitted, the entire graph is traversed (to the specified depth),
 without the backtracking prevention feature. It should be noted that the knowledge graph can be a highly dense graph,
 and traversing without filters can return extremely large results and might cause problems with node performance.
+
+
+Reach parameter
+^^^^^^^^^^^^^^^
+
+Reach is an optional parameter that can be used to modify which objects are retrieved. When the ``reach``
+parameter is specified as ``extended`` the node will execute the trail, then check which objects are referenced in the
+trail but are not included in it. These objects are then additionally retrieved from the local knowledge graph and
+appended to the trail response.
+
+The default behaviour can be explicitly called by setting the ``reach`` parameter value to ``narrow`` .
 
 ----
 
