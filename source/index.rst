@@ -42,6 +42,7 @@ Table of Contents
    Running-a-Node/getting-started
    Running-a-Node/identity-management
    Running-a-Node/backup-and-restore
+   Running-a-Node/configuration-parameters
 
 .. toctree::
    :maxdepth: 10
