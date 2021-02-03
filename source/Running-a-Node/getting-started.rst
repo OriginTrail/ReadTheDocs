@@ -7,7 +7,7 @@ Setup & manage your node
 Hardware requirements
 ~~~~~~~~~~~~~~~~~~~~~
 
-The recommended minimum specifications are 2.2GHz CPU, and 2GB RAM with at least 10GB of storage space.
+The recommended minimum specifications are 2.2GHz CPU, and 2GB RAM with at least 20 GB of storage space.
 
 Installation instructions
 ~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -39,7 +39,7 @@ System requirements
 
 -  at least 2 GB RAM / 2.2 GHz CPU
 
--  at least 10GB storage space
+-  at least 20 GB storage space
 
 -  Ethereum wallet (You can see wallet setup instructions here Identity Configuration)
 
