@@ -70,12 +70,6 @@ And now run it:
 
     ./restore.sh
 
-Alternatively, if you're running your node on the testnet, run the command like so:
-
-.. code:: bash
-
-    ./restore.sh --environment=testnet
-
 That's it! Your node should be running now, you can go ahead and see the logs by running:
 
 .. code:: bash
