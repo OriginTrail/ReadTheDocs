@@ -41,11 +41,19 @@ System requirements
 
 -  at least 20 GB storage space
 
--  Ethereum wallet (You can see wallet setup instructions here Identity Configuration)
+-  Ethereum and/or xDai wallet (You can see wallet setup instructions here Identity Configuration)
 
--  for testnet node: at least 3000 test TRAC tokens and at least 0.05 test Ethers
+-  for a testnet node:
 
--  for mainnet node: at least 3000 TRAC tokens and at least 0.05 Ethers
+    - For Ethereum: at least 3000 test TRAC tokens and at least 0.05 test Ether
+
+    - For xDai: at least 3000 test xTRAC tokens and at least 0.01 xDai
+
+-  for a mainnet node:
+
+    - For Ethereum: at least 3000 TRAC tokens and at least 0.05 Ether
+
+    - For xDai: at least 3000 xTRAC tokens and at least 0.01 xDai
 
 Installation via Docker
 ~~~~~~~~~~~~~~~~~~~~~~~~
@@ -194,7 +202,7 @@ Useful commands
 ~~~~~~~~~~~~~~~
 
 Check node status
-++++++++++++++++
++++++++++++++++++
 
 To check if your node is running in Terminal, run the following command:
 
@@ -235,28 +243,53 @@ There’s a minimum set of config parameters that need to be provided in order t
 Basic configuration
 ~~~~~~~~~~~~~~~~~~~~
 
-To properly configure the node you will need to create a config file in JSON format and provide some basic parameters for node operation. This file will be consumed by node upon start. Let’s create the file .origintrail\_noderc in OT node root dir and store all the information about what kind of configuration we want to set up. The bare minimum of settings that needs to be provided is two valid Ethereum wallet addresses: - for the operational wallet (OW), which maps to node\_wallet (OW public address) and node\_private\_key (OW private key) - for the management wallet provide a public Ethereum address of your management wallet in the “management\_wallet” parameter
+To properly configure the node you will need to create a config file in JSON format and provide some basic parameters
+for node operation. This file will be loaded by ot-node upon startup. Let’s create the file .origintrail\_noderc in OT
+node root directory and store all the information about what kind of configuration we want to set up.
+The bare minimum of settings that need to be provided are two valid blockchain wallet addresses (currently xDai and Ethereum are supported):
 
-You also need to provide a public address or domain name.
+- The address and private key of the operational wallet (OW), which maps to ``node_wallet`` (OW public address) and ``node_private_key`` (OW private key). The operational wallet will be used by your node to execute basic node functionalities like applying for data holding offers and confirming completed offers.
+
+- The public address of the management wallet in the ``management_wallet`` parameter. The management wallet will be used to indicate which wallet has the rights to withdraw funds from your profile. Make sure that you have access to this wallet and that it is secure
+
+You have to have at least one blockchain implementation specified for your node to function, but you're free to use any
+and all of the supported blockchain implementations. Please do not to change the ``blockchain_title`` and
+``blockchain_id`` parameters, as they are used to properly connect your configuration with your node.
+
+You also need to provide a public web address or domain name of your node in the ``hostname`` field.
 
 We create the .origintrail\_noderc file with following content:
 
 .. code:: json
 
     {
-        "node_wallet": "your wallet address here",
-        "node_private_key": "your wallet's private key here",
-        "management_wallet": "your management wallet public key here",
         "network": {
             "hostname": "your external IP or domain name here",
             "remoteWhitelist": [ "IP or host of the machine that is requesting the import", "127.0.0.1"]
         },
         "blockchain": {
-        "rpc_server_url": "url to your RPC server i.e. Infura or own Geth"
+            "implementations": [
+                {
+                    "blockchain_title": "Ethereum",
+                    "blockchain_id": "eth:mainnet",
+                    "rpc_server_url": "url to your RPC server i.e. Infura or own Geth server",
+                    "node_wallet": "your ethereum wallet address here",
+                    "node_private_key": "your ethereum wallet's private key here",
+                    "management_wallet": "your ethereum management wallet public key here"
+                },
+                {
+                    "blockchain_title": "xDai",
+                    "blockchain_id": "xdai:mainnet",
+                    "rpc_server_url": "url to your RPC server i.e. Infura or own Geth",
+                    "node_wallet": "your xDai wallet address here",
+                    "node_private_key": "your xDai wallet's private key here",
+                    "management_wallet": "your xDai management wallet public key here"
+                }
+            ]
         }
     }
 
-``node_wallet`` and ``node_private_key`` - operational wallet Ethereum wallet address and its private key.
+``node_wallet`` and ``node_private_key`` - the operational xDai/Ethereum wallet address and its private key.
 
 ``management_wallet`` - the management wallet for your node (note: the Management wallet private key is NOT stored on the node)
 
@@ -264,7 +297,7 @@ We create the .origintrail\_noderc file with following content:
 
 ``remoteWhitelist`` - list of IPs or hosts of the machines (“host.domain.com”) that are allowed to communicate with REST API.
 
-``rpc_server_url`` - an URL to RPC host server, usually Infura or own hosted Geth server. For more see RPC server host
+``rpc_server_url`` - an URL to RPC host server, usually Infura or self hosted Geth server. For more see RPC server host
 
 Configuration file
 ~~~~~~~~~~~~~~~~~~
@@ -303,25 +336,38 @@ NOTE: To see all configuration parameters and their default values you can check
 
 `https://github.com/OriginTrail/ot-node/blob/develop/config/config.json <https://github.com/OriginTrail/ot-node/blob/develop/config/config.json>`__
 
-Setting up Ethereum RPC
------------------------
+Setting up an Ethereum RPC
+--------------------------
 
-For an OT node to run it must communicate with the Ethereum blockchain. Such communication is achieved using the Ethereum JSON RPC protocol and a RPC compatible server.
+For an OT node to use the Ethereum blockchain implementation it must communicate with the Ethereum blockchain.
+Such communication is achieved using the Ethereum JSON RPC protocol and a RPC compatible server.
 
 RPC server configuration
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-The RPC server URL must be provided in the OT node’s configuration file and it should be placed in the blockchain section as rpc\_server\_url. For example:
+The RPC server URL must be provided in the OT node’s configuration file and it should be placed in the Ethereum blockchain section as rpc\_server\_url. For example:
 
 .. code:: json
 
-    "blockchain": {
-        "rpc_server_url": "https://my.rpc.server.url:9000/"
+    {
+        "blockchain": {
+            "implementations": [
+                {
+                    "blockchain_title": "Ethereum",
+                    "blockchain_id": "eth:mainnet",
+                    "rpc_server_url": "https://my.rpc.server.url:9000/"
+                }
+            ]
+        }
     }
 
-For more on how to set configuration file go to Node Configuration
+The RPC server for the xDai blockchain is publicly available, so you do not need to configure it as it is already
+included in the default configuration.
+
+For more on how to set up the configuration file go to Node Configuration
 
 Using Infura as RPC host
+~~~~~~~~~~~~~~~~~~~~~~~~
 
 Using Infura gives a lot of advantages such as not needing to host your own server or configuring the Ethereum node client or even not scaling the whole infrastructure.
 
@@ -351,7 +397,7 @@ Let’s assume that your domain certificates (for example: my.domain.com) are st
 
 Edit the node’s configuration file and make sure it has the following items in the JSON root:
 
-.. code:: json
+.. code::
 
     "node_rpc_use_ssl": true,
     "node_rpc_ssl_cert_path": "/ot-node/certs/fullchain.pem",
