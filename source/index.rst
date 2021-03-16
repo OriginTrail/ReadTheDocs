@@ -39,6 +39,7 @@ Table of Contents
    :maxdepth: 10
    :caption: Running a node
 
+   Running-a-Node/updating-from-v4
    Running-a-Node/getting-started
    Running-a-Node/identity-management
    Running-a-Node/backup-and-restore
