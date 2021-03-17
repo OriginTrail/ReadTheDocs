@@ -361,8 +361,6 @@ The RPC server URL must be provided in the OT node’s configuration file and it
         }
     }
 
-The RPC server for the xDai blockchain is publicly available, so you do not need to configure it as it is already
-included in the default configuration.
 
 For more on how to set up the configuration file go to Node Configuration
 
@@ -379,6 +377,12 @@ Using own Ethereum node as RPC host
 To use the Ethereum node as an RPC server make sure it is properly configured and RPC feature is enabled (–rpc parameter). For more details on how to install and configure Ethereum node see: https://github.com/ethereum/go-ethereum/wiki/Installing-Geth .
 
 Once the Ethereum node is up and running use its URL to point to the OT node to use it.
+
+Setting up an xDai RPC
+----------------------
+
+The RPC server for the xDai blockchain is publicly available, so you do not need to add it in your configuration as it
+is already included in the ot-node default configuration.
 
 Setting up SSL on a node
 ------------------------
