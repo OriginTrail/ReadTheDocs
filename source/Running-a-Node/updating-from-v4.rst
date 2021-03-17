@@ -57,7 +57,7 @@ First run the following command:
 
 .. code:: bash
 
-    docker cp DOCKER_CONTAINER_NAME:/ot-node/current/scripts/migrate_to_v5.sh ./
+    curl -O https://raw.githubusercontent.com/OriginTrail/ot-node/feature/update-migrate-script/scripts/migrate_to_v5.sh
 
 This will extract the **migration script** from the docker container to your node server, which you need for the next step (step 2).
 
