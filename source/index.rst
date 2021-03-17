@@ -40,10 +40,10 @@ Table of Contents
    :caption: Running a node
 
    Running-a-Node/updating-from-v4
-   Running-a-Node/getting-started
+   Running-a-Node/basic-setup
+   Running-a-Node/high-availability-setup
    Running-a-Node/identity-management
    Running-a-Node/backup-and-restore
-   Running-a-Node/configuration-parameters
 
 .. toctree::
    :maxdepth: 10

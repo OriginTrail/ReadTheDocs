@@ -1,5 +1,5 @@
-Getting started
-===============
+Getting started with a single server node
+=========================================
 
 Setup & manage your node
 ------------------------
@@ -271,7 +271,7 @@ We create the .origintrail\_noderc file with following content:
             "implementations": [
                 {
                     "blockchain_title": "Ethereum",
-                    "blockchain_id": "eth:mainnet",
+                    "blockchain_id": "ethr:mainnet",
                     "rpc_server_url": "url to your RPC server i.e. Infura or own Geth server",
                     "node_wallet": "your ethereum wallet address here",
                     "node_private_key": "your ethereum wallet's private key here",
