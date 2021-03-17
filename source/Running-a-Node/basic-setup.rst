@@ -354,7 +354,7 @@ The RPC server URL must be provided in the OT node’s configuration file and it
             "implementations": [
                 {
                     "blockchain_title": "Ethereum",
-                    "blockchain_id": "eth:mainnet",
+                    "blockchain_id": "ethr:mainnet",
                     "rpc_server_url": "https://my.rpc.server.url:9000/"
                 }
             ]
