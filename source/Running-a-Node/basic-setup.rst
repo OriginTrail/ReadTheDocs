@@ -254,7 +254,7 @@ The bare minimum of settings that need to be provided are two valid blockchain w
 
 You have to have at least one blockchain implementation specified for your node to function, but you're free to use any
 and all of the supported blockchain implementations. Please do not to change the ``blockchain_title`` and
-``blockchain_id`` parameters, as they are used to properly connect your configuration with your node.
+``network_id`` parameters, as they are used to properly connect your configuration with your node.
 
 You also need to provide a public web address or domain name of your node in the ``hostname`` field.
 
@@ -271,7 +271,7 @@ We create the .origintrail\_noderc file with following content:
             "implementations": [
                 {
                     "blockchain_title": "Ethereum",
-                    "blockchain_id": "ethr:mainnet",
+                    "network_id": "ethr:mainnet",
                     "rpc_server_url": "url to your RPC server i.e. Infura or own Geth server",
                     "node_wallet": "your ethereum wallet address here",
                     "node_private_key": "your ethereum wallet's private key here",
@@ -279,7 +279,7 @@ We create the .origintrail\_noderc file with following content:
                 },
                 {
                     "blockchain_title": "xDai",
-                    "blockchain_id": "xdai:mainnet",
+                    "network_id": "xdai:mainnet",
                     "rpc_server_url": "url to your RPC server i.e. Infura or own Geth",
                     "node_wallet": "your xDai wallet address here",
                     "node_private_key": "your xDai wallet's private key here",
@@ -354,7 +354,7 @@ The RPC server URL must be provided in the OT node’s configuration file and it
             "implementations": [
                 {
                     "blockchain_title": "Ethereum",
-                    "blockchain_id": "ethr:mainnet",
+                    "network_id": "ethr:mainnet",
                     "rpc_server_url": "https://my.rpc.server.url:9000/"
                 }
             ]
