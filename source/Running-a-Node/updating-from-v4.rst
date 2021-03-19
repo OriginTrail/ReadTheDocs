@@ -15,6 +15,15 @@ The OriginTrail v5 release schedule is:
 
 **Until version 5 is launched on the networks, use these instructions for informational purposes and preparation only.**
 
+Preparing your host machine
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The newest ot-node update can require more memory than what the minimum required hardware specifies. This is why if you're
+running the ot-node on a system with 2GB of memory we recommend that you do one of two things before you update your node:
+
+    * Increase the amount of memory the host machine has. If you're running the node on a server **please stop your node with** ``docker stop otnode`` **before making changes to a server**.
+    * Enable swap space on your machine. You can see how to do so `here <https://linuxize.com/post/create-a-linux-swap-file/>`_. Once you enable swap space please restart your node.
+
 Command variables
 ~~~~~~~~~~~~~~~~~
 
@@ -41,10 +50,11 @@ The number beside the "local version" is your node's version. **If it is not 4.1
 Step 0: Back up your node data
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-We recommend backing up your node data before you update your node in case of an unexpected failure.
+We strongly recommend backing up your node data before you update your node in case of an unexpected failure.
 You can find the instructions on backing up your node data on the `Backup and Restore section <backup-and-restore.html>`__.
 ou only need to complete the first step ("Backing up your node data") and you can safely continue with updating your node.
 
+.. warning:: **If you do not backup your node it will not be possible to recover your node in case of an error, avoid this step at your own risk**
 
 How to update your node (both testnet and mainnet nodes)
 --------------------------------------------------------
