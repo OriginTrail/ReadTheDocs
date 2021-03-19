@@ -15,6 +15,15 @@ The OriginTrail v5 release schedule is:
 
 **Until version 5 is launched on the networks, use these instructions for informational purposes and preparation only.**
 
+Preparing your host machine
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The newest ot-node update can require more memory than what the minimum required hardware specifies. This is why if you're
+running the ot-node on a system with 2GB of memory we recommend that you do one of two things before you update your node:
+
+    * Increase the amount of memory the host machine has. If you're running the node on a server **please stop your node with** ``docker stop otnode`` **before making changes to a server**.
+    * Enable swap space on your machine. You can see how to do so `here <https://linuxize.com/post/create-a-linux-swap-file/>`_. Once you enable swap space please restart your node.
+
 Command variables
 ~~~~~~~~~~~~~~~~~
 
