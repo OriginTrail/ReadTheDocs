@@ -50,10 +50,11 @@ The number beside the "local version" is your node's version. **If it is not 4.1
 Step 0: Back up your node data
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-We recommend backing up your node data before you update your node in case of an unexpected failure.
+We strongly recommend backing up your node data before you update your node in case of an unexpected failure.
 You can find the instructions on backing up your node data on the `Backup and Restore section <backup-and-restore.html>`__.
 ou only need to complete the first step ("Backing up your node data") and you can safely continue with updating your node.
 
+.. warning:: **If you do not backup your node it will not be possible to recover your node in case of an error, avoid this step at your own risk**
 
 How to update your node (both testnet and mainnet nodes)
 --------------------------------------------------------
