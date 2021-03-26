@@ -186,7 +186,7 @@ Object structure
 -----------------
 
 OT-JSON dataset objects represent entities which can be interconnected with relations in a graph-like form. Every OT-JSON dataset object is required to have it’s **unique identifier** (@id),
-**type** (@type) and **signature**. Other, optional, sections include identifiers, properties, related objects, attachments.
+**type** (@type) and **signature**. Other required sections include **identifiers**, **properties** and **relations**, while optional sections include attachments.
 
 
 Attribute definitions
@@ -205,7 +205,7 @@ Attribute definitions
 
         "properties": {"...": "..."},
 
-        "relatedObjects": ["..."],
+        "relations": ["..."],
 
         "attachments": ["..."],
 
@@ -220,20 +220,20 @@ Object identifiers section
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Object identifiers section is a list of objects that represent identifier values for certain object.
-Identifier objects contain information about **identifier type**, **identifier value**, and **validation schema** that is used for validating identity.
+Identifier objects contain information about identifier **type**, identifier **value**, and optionally **validation schema** that is used for validating identity.
 
 .. code:: json
 
     {
         "identifiers": [
             {
-                "identifierType": "sgtin",
-                "identifierValue": "1234567.0001",
+                "@type": "sgtin",
+                "@value": "1234567.0001",
                 "validationSchema": "/datasetHeader/validationSchemas/urn:ot:sgtin"
             },
             {
-                "identifierType": "sgln",
-                "identifierValue": "3232317.0001",
+                "@type": "sgln",
+                "@value": "3232317.0001",
                 "validationSchema": "/datasetHeader/validationSchemas/urn:ot:sgln"
             }
         ]
@@ -268,7 +268,7 @@ and **relation type**.
     {
         "relations": [
             {
-                "@type": "OTRelation",
+                "@type": "otRelation",
                 "linkedObject": {
                     "@id": "<OBJECT ID>",
                 },
@@ -332,19 +332,38 @@ Every connector contains *connectionId* attribute, which represents value on whi
 .. code:: json
 
     {
-        "@type": "OTConnector",
-        "connectionId": "1A794-2019-01-01",
-        "expectedConnectionCreators": [
+        "@id": "urn:uuid:1230c84b-5cd6-45a7-b6b5-da7ab8b6f2dd",
+        "@type": "otConnector",
+        "identifiers": [
             {
-                "identifierType": "ERC725",
-                "identifierValue": "0x5678456976546485645749",
-                "validationSchema": "../ethereum-erc",
+                "@type": "id",
+                "@value": "1A794-2019-01-01"
+            }
+        ],
+        "properties": {
+            "expectedConnectionCreators": [
+                {
+                    "@type": "ERC725",
+                    "@value": "0x9353a6c07787170a43c4eb23f59567811336a8f3",
+                    "validationSchema": "../ethereum-erc"
+                }
+            ]
+        },
+        "relations": [
+            {
+                "@type": "otRelation",
+                "direction": "direct",
+                "linkedObject": {
+                    "@id": "urn:uuid:fe7d4949-6f34-4f4e-8a11-d048e9c0b835"
+                },
+                "properties": null,
+                "relationType": "CONNECTOR_FOR"
             }
         ]
     }
 
 
-*Example 7.* Example of attachments section
+*Example 7.* Example of a connector object
 
 OT-JSON Versions
 ----------------
