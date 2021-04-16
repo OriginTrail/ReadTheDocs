@@ -67,18 +67,18 @@ Then apply the following changes:
 +------------------------------------+-------------------------------------+
 |           Before                   |              After                  |
 +====================================+=====================================+
-| .. code-block::                    |.. code-block::                      |
+| .. code-block:: json               |.. code-block:: json                 |
 |                                    |                                     |
 |   {                                |  {                                  |
 |     "blockchain": {                |   "blockchain": {                   |
 |        "rpc_server_url": "...",    |      "implementations": [           |
-|        ...                         |         {                           |
+|        "...": "..."                |         {                           |
 |     },                             |            "rpc_server_url": "...", |
-|     ...                            |            ...                      |
+|     "...": "..."                   |            "...": "..."             |
 |   }                                |         }                           |
 |                                    |      ]                              |
 |                                    |   },                                |
-|                                    |   ...                               |
+|                                    |   "...": "..."                      |
 |                                    |  }                                  |
 |                                    |                                     |
 +------------------------------------+-------------------------------------+
@@ -90,21 +90,21 @@ Then apply the following changes:
 +--------------------------------------+----------------------------------------------+
 |           Before                     |              After                           |
 +======================================+==============================================+
-| .. code-block::                      |.. code-block::                               |
+| .. code-block:: json                 |.. code-block:: json                          |
 |                                      |                                              |
 |   {                                  |  {                                           |
 |     "blockchain": {                  |    "blockchain": {                           |
 |        "rpc_server_url": "...",      |       "implementations": [                   |
-|        ...                           |         {                                    |
+|        "...": "..."                  |         {                                    |
 |     },                               |            "rpc_server_url": "...",          |
 |     "node_wallet": "0x123...",       |            "node_wallet": "0x123...",        |
 |     "node_private_key": "481...",    |            "node_private_key": "481...",     |
 |     "management_wallet": "0xabc...", |            "management_wallet": "0xabc...",  |
-|     ...                              |             ...                              |
+|     "...": "..."                     |             "...": "..."                     |
 |   }                                  |          }                                   |
 |                                      |       ]                                      |
 |                                      |    },                                        |
-|                                      |    ...                                       |
+|                                      |    "...": "..."                              |
 |                                      |   }                                          |
 |                                      |                                              |
 +--------------------------------------+----------------------------------------------+
@@ -117,22 +117,22 @@ Then apply the following changes:
 +------------------------------------------------+-----------------------------------------------+
 |           Before                               |              After                            |
 +================================================+===============================================+
-| .. code-block::                                |.. code-block::                                |
+| .. code-block:: json                           |.. code-block:: json                           |
 |                                                |                                               |
 |   {                                            |  {                                            |
 |     "blockchain": {                            |    "blockchain": {                            |
 |        "rpc_server_url": "...",                |       "implementations": [                    |
-|        ...                                     |         {                                     |
+|        "...": "..."                            |         {                                     |
 |     },                                         |            "rpc_server_url": "...",           |
 |     "node_wallet": "0x123...",                 |            "node_wallet": "0x123...",         |
 |     "node_private_key": "481...",              |            "node_private_key": "481...",      |
 |     "management_wallet": "0xabc...",           |            "management_wallet": "0xabc...",   |
 |     "erc725_identity_filepath": "myid.json",   |            "identity_filepath": "myid.json",  |
-|     ...                                        |             ...                               |
+|     "...": "..."                               |             "...": "..."                      |
 |   }                                            |          }                                    |
 |                                                |       ]                                       |
 |                                                |    },                                         |
-|                                                |    ...                                        |
+|                                                |    "...": "..."                               |
 |                                                |   }                                           |
 |                                                |                                               |
 +------------------------------------------------+-----------------------------------------------+
@@ -144,15 +144,15 @@ Then apply the following changes:
 +------------------------------------------------+-----------------------------------------------+
 |           Before                               |              After                            |
 +================================================+===============================================+
-| .. code-block::                                |.. code-block::                                |
+| .. code-block:: json                           |.. code-block:: json                           |
 |                                                |                                               |
 |   {                                            |  {                                            |
 |     "network": {                               |    "network": {                               |
-|       "id": "MainnetV4.0",                     |      "remoteWhitelist": [...],                |
-|       "remoteWhitelist": [...],                |      ...                                      |
-|       ...                                      |    },                                         |
-|     },                                         |    ...                                        |
-|     ...                                        |  }                                            |
+|       "id": "MainnetV4.0",                     |      "remoteWhitelist": ["..."],              |
+|       "remoteWhitelist": ["..."],              |      "...": "..."                             |
+|       "...": "..."                             |    },                                         |
+|     },                                         |    "...": "..."                               |
+|     "...": "..."                               |  }                                            |
 |   }                                            |                                               |
 |                                                |                                               |
 |                                                |                                               |
@@ -164,24 +164,24 @@ Then apply the following changes:
 +------------------------------------------------+-----------------------------------------------+
 |           Before                               |              After (for mainnet)              |
 +================================================+===============================================+
-| .. code-block::                                |.. code-block::                                |
+| .. code-block:: json                           |.. code-block:: json                           |
 |                                                |                                               |
 |   {                                            |  {                                            |
 |     "blockchain": {                            |    "blockchain": {                            |
 |        "rpc_server_url": "...",                |       "blockchain_title": "Ethereum",         |
-|        ...                                     |       "network_id": "ethr:mainnet",           |
+|        "...": "..."                            |       "network_id": "ethr:mainnet",           |
 |     },                                         |       "implementations": [                    |
 |     "node_wallet": "0x123...",                 |         {                                     |
 |     "node_private_key": "481...",              |            "rpc_server_url": "...",           |
 |     "management_wallet": "0xabc...",           |            "node_wallet": "0x123...",         |
 |     "erc725_identity_filepath": "myid.json",   |            "node_private_key": "481...",      |
-|     ...                                        |            "management_wallet": "0xabc...",   |
+|     "...": "..."                               |            "management_wallet": "0xabc...",   |
 |   }                                            |            "identity_filepath": "myid.json",  |
-|                                                |             ...                               |
+|                                                |             "...": "..."                      |
 |                                                |          }                                    |
 |                                                |       ]                                       |
 |                                                |    },                                         |
-|                                                |    ...                                        |
+|                                                |    "...": "..."                               |
 |                                                |   }                                           |
 |                                                |                                               |
 +------------------------------------------------+-----------------------------------------------+
@@ -189,24 +189,24 @@ Then apply the following changes:
 +------------------------------------------------+-----------------------------------------------+
 |           Before                               |              After (for testnet)              |
 +================================================+===============================================+
-| .. code-block::                                |.. code-block::                                |
+| .. code-block:: json                           |.. code-block:: json                           |
 |                                                |                                               |
 |   {                                            |  {                                            |
 |     "blockchain": {                            |    "blockchain": {                            |
 |        "rpc_server_url": "...",                |       "blockchain_title": "Ethereum",         |
-|        ...                                     |       "network_id": "ethr:rinkeby:1",         |
+|        "...": "..."                            |       "network_id": "ethr:rinkeby:1",         |
 |     },                                         |       "implementations": [                    |
 |     "node_wallet": "0x123...",                 |         {                                     |
 |     "node_private_key": "481...",              |            "rpc_server_url": "...",           |
 |     "management_wallet": "0xabc...",           |            "node_wallet": "0x123...",         |
 |     "erc725_identity_filepath": "myid.json",   |            "node_private_key": "481...",      |
-|     ...                                        |            "management_wallet": "0xabc...",   |
+|     "...": "..."                               |            "management_wallet": "0xabc...",   |
 |   }                                            |            "identity_filepath": "myid.json",  |
-|                                                |             ...                               |
+|                                                |             "...": "..."                      |
 |                                                |          }                                    |
 |                                                |       ]                                       |
 |                                                |    },                                         |
-|                                                |    ...                                        |
+|                                                |    "...": "..."                               |
 |                                                |   }                                           |
 |                                                |                                               |
 +------------------------------------------------+-----------------------------------------------+

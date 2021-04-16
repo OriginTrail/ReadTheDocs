@@ -1,12 +1,12 @@
 ..  _introduction:
 
-Company Website: `origintrail.io`_
+Company Website: `origintrail.io <https://origintrail.io/>`__
 
 Introduction
 ============
 
 What is OriginTrail
-------------
+-------------------
 
 OriginTrail is a purpose-built, open protocol for cross-organizational data sharing in supply chains, supported by blockchain.
 
