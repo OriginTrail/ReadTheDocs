@@ -138,8 +138,27 @@ Then apply the following changes:
 +------------------------------------------------+-----------------------------------------------+
 
 
+4. If you have the "id" parameter specified in the "network" section, remove it so that is loaded from the default configuration
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-4. Add the new necessary fields, "blockchain_title" and "network_id", to the blockchain implementation:
++------------------------------------------------+-----------------------------------------------+
+|           Before                               |              After                            |
++================================================+===============================================+
+| .. code-block::                                |.. code-block::                                |
+|                                                |                                               |
+|   {                                            |  {                                            |
+|     "network": {                               |    "network": {                               |
+|       "id": "MainnetV4.0",                     |      "remoteWhitelist": [...],                |
+|       "remoteWhitelist": [...],                |      ...                                      |
+|       ...                                      |    },                                         |
+|     },                                         |    ...                                        |
+|     ...                                        |  }                                            |
+|   }                                            |                                               |
+|                                                |                                               |
+|                                                |                                               |
++------------------------------------------------+-----------------------------------------------+
+
+5. Add the new necessary fields, "blockchain_title" and "network_id", to the blockchain implementation:
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 +------------------------------------------------+-----------------------------------------------+
@@ -193,7 +212,7 @@ Then apply the following changes:
 +------------------------------------------------+-----------------------------------------------+
 
 
-5. Restart your node and verify update
+6. Restart your node and verify update
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Restart your node with the following command so that the changes are loaded into the node:
