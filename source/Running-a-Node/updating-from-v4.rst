@@ -1,19 +1,10 @@
-How to update your node to v5.0.0 and enable additional blockchains
-===================================================================
+How to update your node from v4 to v5 and enable additional blockchains
+=======================================================================
 
-This article will guide you through updating your node to version v5.0.0 and enabling additional blockchain integrations.
+This article will guide you through updating your node to version v5 and enabling additional blockchain integrations.
 
 ⚠️ Before you start ⚠️
 ------------------------
-
-The OriginTrail v5 release schedule is:
-
-    * Testnet v5 update will be launched on **Wednesday, March 17th**
-    * **Mainnet v5 launch ETA is Tuesday, March 23rd**, after successfully completing and reviewing the testnet update process
-
-**DO NOT ATTEMPT TO UPDATE YOUR NODE TO v5 prior to official releases as the process will fail!**
-
-**Until version 5 is launched on the networks, use these instructions for informational purposes and preparation only.**
 
 Preparing your host machine
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -56,8 +47,183 @@ ou only need to complete the first step ("Backing up your node data") and you ca
 
 .. warning:: **If you do not backup your node it will not be possible to recover your node in case of an error, avoid this step at your own risk**
 
-How to update your node (both testnet and mainnet nodes)
---------------------------------------------------------
+
+How to update your node configuration manually
+----------------------------------------------
+
+Open your node configuration file in an editor you're familiar with, for example nano
+
+.. code:: bash
+
+    nano .origintrail_noderc
+
+
+Then apply the following changes:
+
+
+1. Edit your blockchain section so that it contains an array called "implementations" which contains objects
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
++------------------------------------+-------------------------------------+
+|           Before                   |              After                  |
++====================================+=====================================+
+| .. code-block::                    |.. code-block::                      |
+|                                    |                                     |
+|   {                                |  {                                  |
+|     "blockchain": {                |   "blockchain": {                   |
+|        "rpc_server_url": "...",    |      "implementations": [           |
+|        ...                         |         {                           |
+|     },                             |            "rpc_server_url": "...", |
+|     ...                            |            ...                      |
+|   }                                |         }                           |
+|                                    |      ]                              |
+|                                    |   },                                |
+|                                    |   ...                               |
+|                                    |  }                                  |
+|                                    |                                     |
++------------------------------------+-------------------------------------+
+
+
+2. Move your node wallet values inside the blockchain implementation
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
++--------------------------------------+----------------------------------------------+
+|           Before                     |              After                           |
++======================================+==============================================+
+| .. code-block::                      |.. code-block::                               |
+|                                      |                                              |
+|   {                                  |  {                                           |
+|     "blockchain": {                  |    "blockchain": {                           |
+|        "rpc_server_url": "...",      |       "implementations": [                   |
+|        ...                           |         {                                    |
+|     },                               |            "rpc_server_url": "...",          |
+|     "node_wallet": "0x123...",       |            "node_wallet": "0x123...",        |
+|     "node_private_key": "481...",    |            "node_private_key": "481...",     |
+|     "management_wallet": "0xabc...", |            "management_wallet": "0xabc...",  |
+|     ...                              |             ...                              |
+|   }                                  |          }                                   |
+|                                      |       ]                                      |
+|                                      |    },                                        |
+|                                      |    ...                                       |
+|                                      |   }                                          |
+|                                      |                                              |
++--------------------------------------+----------------------------------------------+
+
+
+
+3. If you have a custom ERC725 identity filepath set, move it also to the blockchain section and rename the parameter to "identity_filepath"
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
++------------------------------------------------+-----------------------------------------------+
+|           Before                               |              After                            |
++================================================+===============================================+
+| .. code-block::                                |.. code-block::                                |
+|                                                |                                               |
+|   {                                            |  {                                            |
+|     "blockchain": {                            |    "blockchain": {                            |
+|        "rpc_server_url": "...",                |       "implementations": [                    |
+|        ...                                     |         {                                     |
+|     },                                         |            "rpc_server_url": "...",           |
+|     "node_wallet": "0x123...",                 |            "node_wallet": "0x123...",         |
+|     "node_private_key": "481...",              |            "node_private_key": "481...",      |
+|     "management_wallet": "0xabc...",           |            "management_wallet": "0xabc...",   |
+|     "erc725_identity_filepath": "myid.json",   |            "identity_filepath": "myid.json",  |
+|     ...                                        |             ...                               |
+|   }                                            |          }                                    |
+|                                                |       ]                                       |
+|                                                |    },                                         |
+|                                                |    ...                                        |
+|                                                |   }                                           |
+|                                                |                                               |
++------------------------------------------------+-----------------------------------------------+
+
+
+
+4. Add the new necessary fields, "blockchain_title" and "network_id", to the blockchain implementation:
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
++------------------------------------------------+-----------------------------------------------+
+|           Before                               |              After (for mainnet)              |
++================================================+===============================================+
+| .. code-block::                                |.. code-block::                                |
+|                                                |                                               |
+|   {                                            |  {                                            |
+|     "blockchain": {                            |    "blockchain": {                            |
+|        "rpc_server_url": "...",                |       "blockchain_title": "Ethereum",         |
+|        ...                                     |       "network_id": "ethr:mainnet",           |
+|     },                                         |       "implementations": [                    |
+|     "node_wallet": "0x123...",                 |         {                                     |
+|     "node_private_key": "481...",              |            "rpc_server_url": "...",           |
+|     "management_wallet": "0xabc...",           |            "node_wallet": "0x123...",         |
+|     "erc725_identity_filepath": "myid.json",   |            "node_private_key": "481...",      |
+|     ...                                        |            "management_wallet": "0xabc...",   |
+|   }                                            |            "identity_filepath": "myid.json",  |
+|                                                |             ...                               |
+|                                                |          }                                    |
+|                                                |       ]                                       |
+|                                                |    },                                         |
+|                                                |    ...                                        |
+|                                                |   }                                           |
+|                                                |                                               |
++------------------------------------------------+-----------------------------------------------+
+
++------------------------------------------------+-----------------------------------------------+
+|           Before                               |              After (for testnet)              |
++================================================+===============================================+
+| .. code-block::                                |.. code-block::                                |
+|                                                |                                               |
+|   {                                            |  {                                            |
+|     "blockchain": {                            |    "blockchain": {                            |
+|        "rpc_server_url": "...",                |       "blockchain_title": "Ethereum",         |
+|        ...                                     |       "network_id": "ethr:rinkeby:1",         |
+|     },                                         |       "implementations": [                    |
+|     "node_wallet": "0x123...",                 |         {                                     |
+|     "node_private_key": "481...",              |            "rpc_server_url": "...",           |
+|     "management_wallet": "0xabc...",           |            "node_wallet": "0x123...",         |
+|     "erc725_identity_filepath": "myid.json",   |            "node_private_key": "481...",      |
+|     ...                                        |            "management_wallet": "0xabc...",   |
+|   }                                            |            "identity_filepath": "myid.json",  |
+|                                                |             ...                               |
+|                                                |          }                                    |
+|                                                |       ]                                       |
+|                                                |    },                                         |
+|                                                |    ...                                        |
+|                                                |   }                                           |
+|                                                |                                               |
++------------------------------------------------+-----------------------------------------------+
+
+
+5. Restart your node and verify update
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Restart your node with the following command so that the changes are loaded into the node:
+
+.. code:: bash
+
+    docker restart otnode
+
+After restarting, we recommend observing your node logs with the following command and watching for any errors that show up:
+
+.. code:: bash
+
+    docker logs otnode --tail 1000 -f
+
+
+Once you see a log line stating ``OT Node started`` your node is successfully updated and running on the newest version, congratulations!
+
+
+In case of any problems or questions, please direct your inquiries to the
+`#v5-update OriginTrail Discord channel  <https://discord.gg/breb2qx57D>`__ to
+get the quickest support by the OriginTrail community and core developers
+
+If you have decided to enable xDAI support, please consult the :ref:`Enabling xDai<Enable XDai>` section to understand the procedure
+and how it refers to tokens being used.
+
+Your node identity on Ethereum will not change and there will be no additional transactions (cost) if you update your
+configuration with only the Ethereum blockchain enabled. In case of any issues please get in touch via support@origin-trail.com
+
+How to update your node automatically (both testnet and mainnet nodes)
+----------------------------------------------------------------------
 
 
 Step 1: Extract the migration script for updating the node
@@ -130,6 +296,8 @@ blockchain implementations such as xDai on mainnet or an additional rinkeby impl
 The instructions below explain how to enable the xDai implementation on a mainnet node, if you're running a testnet node
 got to the :ref:`Testnet Update steps<Testnet Update>`.
 
+
+.. _Enable XDai:
 
 MAINNET UPDATE: Enabling xDai on OriginTrail mainnet
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
