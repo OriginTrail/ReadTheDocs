@@ -193,10 +193,10 @@ Then apply the following changes:
 |                                                |                                               |
 |   {                                            |  {                                            |
 |     "blockchain": {                            |    "blockchain": {                            |
-|        "rpc_server_url": "...",                |       "blockchain_title": "Ethereum",         |
-|        "...": "..."                            |       "network_id": "ethr:rinkeby:1",         |
-|     },                                         |       "implementations": [                    |
-|     "node_wallet": "0x123...",                 |         {                                     |
+|        "rpc_server_url": "...",                |       "implementations": [                    |
+|        "...": "..."                            |         {                                     |
+|     },                                         |            "blockchain_title": "Ethereum",    |
+|     "node_wallet": "0x123...",                 |            "network_id": "ethr:rinkeby:1",    |
 |     "node_private_key": "481...",              |            "rpc_server_url": "...",           |
 |     "management_wallet": "0xabc...",           |            "node_wallet": "0x123...",         |
 |     "erc725_identity_filepath": "myid.json",   |            "node_private_key": "481...",      |
