@@ -32,7 +32,9 @@ The structure and the default values for the section are shown below:
     }
 
 
-The ``enabled`` parameter is a boolean value which determines whether the datasets should be pruned or not.
+The ``enabled`` parameter is a boolean value which determines whether the datasets should be pruned or not. If the
+pruning feature is enabled the node will check every 24 hours which datasets should be pruned and remove them from the
+node's graph database and remove corresponding data from its operational database.
 
 The ``replicated_pruning_delay_in_minutes`` parameter is a number value and determines how much the node should wait
 after all offers for a dataset have completed (the holding time for the offers has passed) before pruning the dataset.
