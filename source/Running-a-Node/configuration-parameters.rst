@@ -29,7 +29,7 @@ Configuration parameters for node
 **houston_password**
 
 * Default value: null
-* Description: The value of the authentication password used for authenticating requests incoming from the Houston app,This value is read from the houston_password_filename file or generated if the file does not exist. Setting it directly will do nothing since it will be overriden upon node startup
+* Description: The value of the authentication password used for authenticating requests incoming from the Houston app,This value is read from the houston_password_filename file or generated if the file does not exist. Setting it directly will do nothing since it will be overridden upon node startup
 * Note:
 
 
