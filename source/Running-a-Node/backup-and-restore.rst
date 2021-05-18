@@ -58,6 +58,15 @@ The last thing to do is to put your backup into your new container.
 Step 3/3: Restoring the node data
 ---------------------------------
 
+.. warning::
+
+    Because of their opposite behaviour, ot-node restore process does not work well when the dataset pruning feature is
+    enabled. Because of this, we strongly recommend disabling the dataset pruning feature before you run a node restore
+    process, then re-enable the feature after the restore process has been completed.
+
+    The dataset pruning feature is disabled by default, but if you have it enabled you can see how to disable it in the
+    `configuration parameters <configuration-parameters.html#dataset-pruning-section>`__ section
+
 Extract the restore script from the container with the following command
 
 .. code:: bash
