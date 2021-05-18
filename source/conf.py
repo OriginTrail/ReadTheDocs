@@ -34,7 +34,7 @@ author = u'TraceLabs'
 # The short X.Y version
 version = u'5.0'
 # The full version, including alpha/beta/rc tags
-release = u'5.0.2'
+release = u'5.0.3'
 
 
 # -- General configuration ---------------------------------------------------

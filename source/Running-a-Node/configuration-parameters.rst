@@ -14,6 +14,7 @@ The ot-node has many configuration parameters which change how the node behaves 
     correct format for those parameters, otherwise it might cause issues with your node.
 
 .. dataset_pruning
+
 Dataset pruning section
 -----------------------
 
@@ -37,8 +38,9 @@ Take note of how much space the docker and docker containers are using. Now enab
 configuration and restart your node. Wait until your node shows a log line stating ``Sucessfully pruned XYZ datasets``,
 then measure your new storage usage with the two previous commands.
 
-If your node has pruned more than a hundred datasets and your node storage usage hasn't changed, try restarting the
-server your node is running on. If the usage still remains the same, please contact us at `tech@origin-trail.com <mailto:tech@origin-trail.com>`__
+If your node has pruned more than a hundred datasets and your node storage usage hasn't changed, make sure your node is
+running and execute ``docker system prune -a -f`` to prune unused docker data. Along with that you can restart the server
+your node is running on. If the usage still remains the same, please contact us at `tech@origin-trail.com <mailto:tech@origin-trail.com>`__
 with the subject **"Dataset pruning storage issue"**.
 
 Dataset pruning section explained
