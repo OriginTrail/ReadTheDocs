@@ -42,6 +42,7 @@ Table of Contents
    Running-a-Node/basic-setup
    Running-a-Node/high-availability-setup
    Running-a-Node/identity-management
+   Running-a-Node/configuration-parameters
    Running-a-Node/backup-and-restore
    Running-a-Node/updating-from-v4
 
