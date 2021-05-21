@@ -49,9 +49,11 @@ Now you've successfully removed your image, and can download a new one.Run the f
 
 .. code:: bash
 
-    sudo docker create -i --log-driver json-file --log-opt max-size=1g --name=otnode -p 8900:8900 -p 5278:5278 -p 3000:3000 -v ~/.origintrail_noderc:/ot-node/.origintrail_noderc quay.io/origintrail/otnode:release_mainnet
+    sudo docker create -i --log-driver json-file --log-opt max-size=1g --name=otnode -p 8900:8900 -p 5278:5278 -p 3000:3000 -v ~/.origintrail_noderc:/ot-node/.origintrail_noderc origintrail/ot-node:release_mainnet
 
-Note: If you're running a testnet node, just replace mainnet with testnet in the command. Also, thanks for helping us test new features, you rock!
+.. note::
+    If you're running a testnet node, just replace mainnet with testnet in the command.
+    Also, thanks for helping us test new features, you rock! 🤘
 
 The last thing to do is to put your backup into your new container.
 

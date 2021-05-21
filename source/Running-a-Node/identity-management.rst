@@ -82,9 +82,10 @@ Let’s say a user already has the network and ERC725 identity files in the home
 
 .. code:: bash
 
-    docker run -it --name=otnode -p 8900:8900 -p 5278:5278 -p 3000:3000 -v ~/.origintrail_noderc:/ot-node/.origintrail_noderc -v ~/.identity.json:/ot-node/data/identity.json -v ~/.erc725_identity.json:/ot-node/data/erc725_identity.json quay.io/origintrail/otnode:release_mainnet
+    docker run -it --name=otnode -p 8900:8900 -p 5278:5278 -p 3000:3000 -v ~/.origintrail_noderc:/ot-node/.origintrail_noderc -v ~/.identity.json:/ot-node/data/identity.json -v ~/.erc725_identity.json:/ot-node/data/erc725_identity.json origintrail/ot-node:release_mainnet
 
-Please note this example is for mainnet. For testnet use ``origintrail/otnode:release_testnet`` instead \ `quay.io/origintrail/otnode:release\_mainnet <http://quay.io/origintrail/otnode:release_mainnet>`__
+.. note::
+    Please note this example is for mainnet. For testnet use ``origintrail/ot-node:release_testnet`` instead
 
 Identity management
 -------------------
