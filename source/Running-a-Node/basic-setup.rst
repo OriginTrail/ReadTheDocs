@@ -99,7 +99,7 @@ Let’s just point Docker to the right image and configuration file with the fol
 
 .. code:: bash
 
-    sudo docker run -i --log-driver json-file --log-opt max-size=1g --name=otnode -p 8900:8900 -p 5278:5278 -p 3000:3000 -v ~/.origintrail_noderc:/ot-node/.origintrail_noderc quay.io/origintrail/otnode:release_mainnet
+    sudo docker run -i --log-driver json-file --log-opt max-size=1g --name=otnode -p 8900:8900 -p 5278:5278 -p 3000:3000 -v ~/.origintrail_noderc:/ot-node/.origintrail_noderc origintrail/ot-node:release_mainnet
 
 NOTE: Please make sure that your ``.origintrail_noderc`` file is ready before running the following commands. In this example, the configuration file ``.origintrail_noderc`` is placed into the home folder of the current user (ie. /home/ubuntu). You should point to the path where you created ``.origintrail_noderc`` on your file system.
 
@@ -110,7 +110,7 @@ Let’s just point Docker to the right image and configuration file with the fol
 
 .. code:: bash
 
-    sudo docker run -i --log-driver json-file --log-opt max-size=1g --name=otnode -p 8900:8900 -p 5278:5278 -p 3000:3000 -v ~/.origintrail_noderc:/ot-node/.origintrail_noderc quay.io/origintrail/otnode:release_testnet
+    sudo docker run -i --log-driver json-file --log-opt max-size=1g --name=otnode -p 8900:8900 -p 5278:5278 -p 3000:3000 -v ~/.origintrail_noderc:/ot-node/.origintrail_noderc origintrail/ot-node:release_testnet
 
 NOTE: Please make sure that your ``.origintrail_noderc`` file is ready before running the following commands. In this example, the configuration file ``.origintrail_noderc`` is placed into the home folder of the current user (ie. /home/ubuntu). You should point to the path where you created ``.origintrail_noderc`` on your file system.
 
@@ -413,7 +413,7 @@ Now, create the docker container and mount cert dir into the container. We can a
 
 .. code:: bash
 
-    sudo docker run -i --name=otnode -p 8900:8900 -p 5278:5278 -p 3000:3000 -v /home/user/certs:/ot-node/certs/ -v ~/.origintrail_noderc:/ot-node/.origintrail_noderc quay.io/origintrail/otnode:release_mainnet
+    sudo docker run -i --name=otnode -p 8900:8900 -p 5278:5278 -p 3000:3000 -v /home/user/certs:/ot-node/certs/ -v ~/.origintrail_noderc:/ot-node/.origintrail_noderc origintrail/ot-node:release_mainnet
 
 After this, the running container will be able to find certificate files at the ‘/ot-node/certs/’ location.
 
