@@ -10,4 +10,4 @@ Detailed Api routes can be found at this `link`_ .
 
 -------------------------------------------------------------------------------------------------------------------
 
-.. _link: https://app.swaggerhub.com/apis-docs/otteam/ot-node-api/v2.1
+.. _link: https://app.swaggerhub.com/apis-docs/TraceLabs/ot-node-api/v2.1
